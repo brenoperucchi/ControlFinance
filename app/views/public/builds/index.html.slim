@@ -1,0 +1,105 @@
+- model_class = Build
+
+/ .col-lg-12.col-sm-12.col-xs-12
+/   .white-box
+/     .vtabs.customvtab
+/       ul.nav.tabs-vertical
+/         - @builds.each do |build|
+/           li.tab
+/             a aria-expanded="true" data-toggle="tab" href="#build#{build.id}" 
+/               / span.visible-xs
+/               /   i.ti-home
+/               span= build.name
+/       .tab-content
+/         - @builds.each do |build|
+/           .tab-pane[id="build#{build.id}"]
+/             .row
+/               .col-lg-4
+/                 img.img-responsive alt="user" src="#{build.image('fit400')}"
+/               .col-lg-8
+/                   .table-responsive
+/                     table.table
+/                       thead
+/                         tr
+/                           th= model_class.human_attribute_name(:name)
+/                           th= model_class.human_attribute_name(:garage)
+/                           th= model_class.human_attribute_name(:state)
+/                           th= model_class.human_attribute_name(:size)
+/                           th= model_class.human_attribute_name(:value)
+/                           th=t 'actions', :scope => "helpers.menu"
+/                       tbody
+/                         - build.units.each do |unit|
+/                           tr
+/                             td= unit.name
+/                             td= unit.garage
+/                             td
+/                               .label.label-table.label-danger= unit.state
+/                             td= number_with_precision unit.size
+/                             td= number_with_precision unit.value
+/                             td
+/                               / .btn-group.m-r-10
+/                               /   button.btn.btn-default.btn-outline.dropdown-toggle.waves-effect.waves-light aria-expanded="true" data-toggle="dropdown" type="button"
+/                               /     span.caret
+/                               /   ul.dropdown-menu role="menu" 
+/                               /     li
+
+/                               = link_to t('proposal', scope: "helpers.links"), new_public_unit_proposal_path(unit), class: 'btn btn-sm btn-info btn-outline '
+/                               ' 
+/                               = link_to t('booking', scope: "helpers.links"), booking_public_unit_proposals_path(unit), class: 'btn btn-sm btn-info btn-outline', remote: true
+
+// javascript:
+//   $('.tab-pane').first().addClass('active')
+//   $('li.tab').first().addClass('active')
+
+    / .vtabs.customvtab
+    /   ul.nav.tabs-vertical
+    /     - @builds.each do |build|
+    /       li.tab
+    /         a aria-expanded="true" data-toggle="tab" href="#build#{build.id}" 
+    /           / span.visible-xs
+    /           /   i.ti-home
+    /           span= build.name
+    /   .tab-content
+.col-lg-12.col-sm-12.col-xs-12
+  - @builds.each do |build|
+    - if build.units.present?
+      .panel.panel-default[style='border: 1px solid rgba(120, 130, 140, 0.13);']
+        .panel-heading
+          .row
+            .col-lg-12.text-center
+              = build.name
+        .panel-wrapper.collapse.in
+          .panel-body
+            .row
+              .col-lg-4
+                img.img-responsive alt="user" src="#{build.image('fit400')}"
+              .col-lg-8
+                .table-responsive
+                  table.table
+                    thead
+                      tr
+                        th= model_class.human_attribute_name(:name)
+                        th.hidden-xs= model_class.human_attribute_name(:garage)
+                        th= model_class.human_attribute_name(:state)
+                        th= model_class.human_attribute_name(:size)
+                        th= model_class.human_attribute_name(:value)
+                        th=t 'actions', :scope => "helpers.menu"
+                    tbody
+                      - build.units.each do |unit|
+                        tr
+                          td= unit.name
+                          td.hidden-xs= unit.garage
+                          td
+                            .label.label-table.label-danger= unit.state
+                          td= number_with_precision unit.size
+                          td= number_with_precision unit.value
+                          td
+                            / .btn-group.m-r-10
+                            /   button.btn.btn-default.btn-outline.dropdown-toggle.waves-effect.waves-light aria-expanded="true" data-toggle="dropdown" type="button"
+                            /     span.caret
+                            /   ul.dropdown-menu role="menu" 
+                            /     li
+
+                            = link_to t('proposal', scope: "helpers.links"), new_public_unit_proposal_path(unit), class: 'btn btn-sm btn-info btn-outline '
+                            ' 
+                            = link_to t('booking', scope: "helpers.links"), booking_public_unit_proposals_path(unit), class: 'btn btn-sm btn-info btn-outline', remote: true

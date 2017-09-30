@@ -1,0 +1,34 @@
+- model_class = Proposal
+
+= simple_form_for [:public, @unit, @proposal], remote: true do |f|
+  .modal-header
+      button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+      h4.modal-title
+        =t 'new', scope: 'helpers.titles', :model => model_class.model_name.human.titleize
+  .modal-body
+    = f.input :due_at, :as => :string, input_html: { class: 'datepicker', value: localize(f.object.due_at, format: '%d/%m/%Y')}, placeholder: model_class.human_attribute_name(:due_at)
+    / = f.input :value, placeholder: model_class.human_attribute_name(:value)
+    .row
+        - f.object.build_broker if f.object.broker.nil?
+        = f.simple_fields_for :broker do |broker|
+          .col-lg-6
+            = broker.input :name
+          .col-lg-6
+            - broker.object.build_user if broker.object.user.nil?
+            = broker.simple_fields_for :user do |user|
+              = user.input :email
+    = f.input :negociate, as: :text, placeholder: model_class.human_attribute_name(:negociate)
+  .modal-footer
+    .form-group
+      .col-sm-offset-0.col-sm-9
+        = f.submit nil, :class => 'btn btn-primary'
+        '
+        = link_to t('back', scope: "helpers.links"), public_builds_path, :class => 'btn'  
+javascript:
+  $(document).ready(function(){
+    $('.datepicker').datepicker({
+      format: 'dd/mm/yyyy',
+      startDate: "#{(Date.today).strftime("%d/%m/%Y")}",
+      endDate: "#{(Date.today + 5.days).strftime("%d/%m/%Y")}"
+    })
+  })

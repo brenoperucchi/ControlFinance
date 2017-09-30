@@ -1,0 +1,77 @@
+css:
+  .row#document{
+    display: table;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .col-md-6.col-lg-6.col-sm-6{
+    height: 100%;
+    overflow: overlay;
+    display: inline-block;
+  } 
+  .row#document .dropzone.dz-clickable, .row#document .white-box, .row#document form{
+    height:100%
+  }
+
+- model_class = Proposal
+
+.row#document
+  .col-md-6.col-lg-6.col-sm-6
+    .white-box
+      h3.box-title.m-b-0 
+        =t '.edit', :default => [:'helpers.titles.edit', 'New %{model}'], :model => model_class.model_name.human.titleize
+      / p.text-muted.m-b-30.font-13 Bootstrap Elements
+      .document_fields
+        = render 'documents', proposal:@proposal
+  .col-md-6.col-lg-6.col-sm-6
+    .white-box
+      = simple_form_for Asset.new, url: public_assets_path(@proposal.class.name, @proposal) do |f|
+        .dropzone
+        .fallback.hide
+          = f.file_field :file
+
+- content_for :footer do
+  javascript:
+    $(document).ready(function(){
+      Dropzone.autoDiscover = false;
+      $(".dropzone").dropzone({
+        url: "#{public_assets_path(@proposal.class.name, @proposal)}",
+        maxFilesize: 15,
+        paramName: "asset[file]",
+        addRemoveLinks: true,
+        init: function() {
+          $.ajax({
+              type: 'GET',
+              url: "#{public_assets_path(@proposal.class.name, @proposal)}",
+              dataType: 'JSON',
+              success: function(response) {
+              $.each(response, function(index, object){ 
+                var imgDropzone = Dropzone.forElement(".dropzone");
+                var mockFile = {
+                    name: object.asset.name,
+                    size: object.asset.size,
+                    accepted: true,
+                    kind: object.asset.type,
+                };
+                imgDropzone.emit("addedfile", mockFile);
+                imgDropzone.createThumbnailFromUrl(mockFile, object.asset.imageURL);
+                imgDropzone.emit("complete", mockFile);
+                $(imgDropzone.element.lastChild).find(".dz-remove").data('id', object.asset.id)
+              })
+            }
+          });
+        },
+        removedfile: function(file) {
+            var name = file.name;  
+            var data_id = $(file.previewTemplate).find('a').data('id')
+            $.ajax({
+                type: 'DELETE',
+                url: '/public/assets/'+data_id,
+                dataType: 'JSON'
+            });
+          var _ref;
+          return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;        
+        }
+
+      })
+    })

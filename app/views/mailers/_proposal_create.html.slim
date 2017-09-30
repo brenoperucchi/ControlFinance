@@ -1,0 +1,55 @@
+doctype html
+html xmlns="http://www.w3.org/1999/xhtml" 
+  head
+    meta content="width=device-width" name="viewport" /
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title= I18n.t(:meta_title, scope:'helpers.mailer.create', unit: object.unit.name, build: object.builder.name)
+  body style=("margin:0px; background: #f8f8f8; ") 
+    div style=("background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;") width="100%" 
+      div style=("max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px") 
+        table border="0" cellpadding="0" cellspacing="0" style=("width: 100%;") 
+          tbody
+            tr
+              td style=("background:#00c0c8; padding:20px; color:#fff; text-align:center;")
+                = I18n.t(:title, scope:'helpers.mailer.create', unit: object.unit.name, build: object.builder.name)
+        div style=("padding: 40px; background: #fff;") 
+          table border="0" cellpadding="0" cellspacing="0" style=("width: 100%;") 
+            tbody
+              tr
+                td
+                  b = "#{object.broker.name} (#{object.broker.user.email})"
+                  p style="margin-top:0px;"  
+                    | Proposal #
+                    = object.id
+                td align="right" width="100"
+                  = localize object.created_at, format: :option1
+              tr
+                td colspan="2" style=("padding:20px 0; border-top:1px solid #f6f6f6;") 
+                  div
+                    table cellpadding="0" cellspacing="0" width="100%" 
+                      tbody
+                        tr
+                          td style=("font-family: 'arial'; font-size: 14px; vertical-align: middle; margin: 0; padding: 9px 0;")  Value 1
+                          td align="right" style=("font-family: 'arial'; font-size: 14px; vertical-align: middle; margin: 0; padding: 9px 0;")
+                            = number_to_currency object.value
+                        tr
+                          td style=("font-family: 'arial'; font-size: 14px; vertical-align: middle; border-top-width: 1px; border-top-color: #f6f6f6; border-top-style: solid; margin: 0; padding: 9px 0;")  Negociate
+                          td align="right" style=("font-family: 'arial'; font-size: 14px; vertical-align: middle; border-top-width: 1px; border-top-color: #f6f6f6; border-top-style: solid; margin: 0; padding: 9px 0;")
+                            = object.negociate
+                        / tr
+                        /   td style=("font-family: 'arial'; font-size: 14px; vertical-align: middle; border-top-width: 1px; border-top-color: #f6f6f6; border-top-style: solid; margin: 0; padding: 9px 0;")  Service 3
+                        /   td align="right" style=("font-family: 'arial'; font-size: 14px; vertical-align: middle; border-top-width: 1px; border-top-color: #f6f6f6; border-top-style: solid; margin: 0; padding: 9px 0;")  $ 10.00
+                        / tr.total
+                        /   td style=("font-family: 'arial'; font-size: 14px; vertical-align: middle; border-top-width: 1px; border-top-color: #f6f6f6; border-top-style: solid; margin: 0; padding: 9px 0; font-weight:bold;") width="80%"  Total
+                        /   td align="right" style=("font-family: 'arial'; font-size: 14px; vertical-align: middle; border-top-width: 1px; border-top-color: #f6f6f6; border-top-style: solid; margin: 0; padding: 9px 0; font-weight:bold;")  $ 60.00
+              tr
+                td colspan="2" 
+                  center
+                    = link_to redirect_mailer_url(token), style:"display: inline-block; padding: 11px 30px; margin: 20px 0px 30px; font-size: 15px; color: #fff; background: #fb9678; border-radius: 60px; text-decoration:none;" do
+                        = I18n.t(:link, scope:'helpers.mailer.create').upcase
+                    h3= I18n.t(:message, scope:'helpers.mailer.create', due_at: localize(object.due_at))
+        div style=("text-align: center; font-size: 12px; color: #b2b2b5; margin-top: 20px") 
+          p
+            / | Powered by Themedesigner.in
+            / br/
+            a href=("javascript: void(0);") style=("color: #b2b2b5; text-decoration: underline;")  Unsubscribe

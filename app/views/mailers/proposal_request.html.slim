@@ -1,0 +1,28 @@
+- content_for :footer do 
+  javascript:
+    $(document).ready(function(){
+      $('.summernote').summernote({
+        height: 400,                 // set editor height
+        minHeight: null,             // set minimum height of editor
+        maxHeight: null,             // set maximum height of editor
+        focus: false                 // set focus to editable area after initializing summernote
+      });
+    })
+
+- model_class = Mailer
+
+h3.box-title.m-b-0
+  = model_class.model_name.human
+
+.white-box
+  h3.box-title.m-b-0 
+  / p.text-muted.m-b-30.font-13 Bootstrap Elements
+  .row
+    .col-sm-12.col-xs-12
+      = simple_form_for @mailer, url: mailers_path(@mailer.mailable.class.name, @mailer.mailable, @method.name) do |f|
+        == render 'form', f: f, model_class: model_class
+        .form-group
+          .col-sm-offset-0.col-sm-9
+            = f.submit 'SendMail', :class => 'btn btn-primary'
+            '
+            = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'

@@ -1,0 +1,18 @@
+- model_class = Proposal
+
+.panel.panel-default
+  .panel-heading
+    = model_class.model_name.human
+  .panel-wrapper.collapse.in
+    = simple_form_for @proposal, url: admin_build_unit_proposals_path(@build, @unit) do |f|
+      .panel-body
+        == render 'form', f: f, model_class: model_class
+      .panel-footer
+        .form-group
+          .col-sm-offset-0.col-sm-12
+            = f.submit nil, :class => 'btn btn-primary'
+            span.m-l-10
+              = link_to admin_build_unit_proposals_path(@build, @unit) 
+                span All Proposals
+              '
+              = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'

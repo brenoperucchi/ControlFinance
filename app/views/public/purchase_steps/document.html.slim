@@ -1,0 +1,24 @@
+- model_class = Proposal
+
+.panel.panel-default
+  .panel-wrapper.collapse.in
+    .panel-body
+      .row.line-steps
+        .col-md-4.column-step
+          .step-number 1
+          .step-title Proposal
+        .col-md-4.column-step
+          .step-number 2
+          .step-title Buyer
+        .col-md-4.column-step.active
+          .step-number 3
+          .step-title Documents
+      = simple_form_for Asset.new, url: public_assets_path(@proposal.class.name, @proposal) do |f|
+        = render 'form_uploader', f:f, proposal:@proposal
+    = simple_form_for @proposal, url: wizard_path do |f|
+      .panel-footer
+        .form-group
+          .col-sm-offset-0.col-sm-9
+            = f.submit 'Finished', :class => 'btn btn-success'
+            '
+            = link_to t('back', scope: "helpers.links"), wizard_path(:buyer), :class => 'btn'

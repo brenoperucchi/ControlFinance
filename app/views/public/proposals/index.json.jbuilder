@@ -1,0 +1,1 @@
+json.array! @public_proposals, partial: 'public_proposals/public_proposal', as: :public_proposal

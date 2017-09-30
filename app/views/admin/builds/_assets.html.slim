@@ -1,0 +1,64 @@
+- model_class = Build
+
+= simple_form_for Asset.new, url: public_assets_path(@build.class.name, @build) do |f|
+  .modal-header
+      button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+      h4.modal-title
+        =t 'new', scope: 'helpers.titles', :model => model_class.model_name.human.titleize
+  .modal-body
+    .dropzone
+    .fallback.hide
+      = f.file_field :file
+  .modal-footer
+    / .form-group
+    /   .col-sm-offset-0.col-sm-9
+    /     = f.submit nil, :class => 'btn btn-primary'
+    /     '
+    /     = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'  
+
+
+javascript:
+  $(document).ready(function(){
+    Dropzone.autoDiscover = false;
+    $(".dropzone").dropzone({
+      url: "#{public_assets_path(@build.class.name, @build)}",
+      maxFilesize: 15,
+      paramName: "asset[file]",
+      addRemoveLinks: true,
+      acceptedFiles: 'image/*',
+      init: function() {
+        $.ajax({
+            type: 'GET',
+            url: "#{public_assets_path(@build.class.name, @build)}",
+            dataType: 'JSON',
+            success: function(response) {
+            $.each(response, function(index, object){ 
+              var imgDropzone = Dropzone.forElement(".dropzone");
+              var mockFile = {
+                  name: object.asset.name,
+                  size: object.asset.size,
+                  accepted: true,
+                  kind: object.asset.type,
+              };
+              imgDropzone.emit("addedfile", mockFile);
+              imgDropzone.createThumbnailFromUrl(mockFile, object.asset.imageURL);
+              imgDropzone.emit("complete", mockFile);
+              $(imgDropzone.element.lastChild).find(".dz-remove").data('id', object.asset.id)
+            })
+          }
+        });
+      },
+      removedfile: function(file) {
+          var name = file.name;  
+          var data_id = $(file.previewTemplate).find('a').data('id')
+          $.ajax({
+              type: 'DELETE',
+              url: '/public/assets/'+data_id,
+              dataType: 'JSON'
+          });
+        var _ref;
+        return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;        
+      }
+
+    })
+  })

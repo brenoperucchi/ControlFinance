@@ -1,0 +1,12 @@
+- model_class = Proposal
+
+.panel.panel-default
+  .panel-heading
+    = model_class.model_name.human
+  .panel-wrapper.collapse.in
+    .panel-body
+      = render 'index', unit:@unit
+    .panel-footer
+      .form-group
+        .col-sm-offset-0.col-sm-9
+          = link_to t('back', scope: "helpers.links"), public_builds_path, :class => 'btn'

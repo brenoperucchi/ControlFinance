@@ -1,0 +1,36 @@
+- model_class = Proposal
+
+.panel.panel-default
+  .panel-heading
+    = model_class.model_name.human
+  .panel-wrapper.collapse.in
+    = simple_form_for [:public, @unit, @proposal] do |f|
+      .panel-body
+        = f.error_notification
+        - if @proposal.restricted?
+          == render 'form_disable', f: f
+        - else
+          == render 'form', f: f 
+      .panel-footer
+        .form-group
+          .col-sm-offset-0.col-sm-12
+            - if user_signed_in? and not current_admin?
+              .span.pull-right
+                = link_to public_unit_proposals_path(@unit), class: 'btn btn-info btn-outline' do
+                  span Proposals Broker
+
+            = f.submit nil, :class => 'btn btn-primary'
+            '
+            = link_to t('back', scope: "helpers.links"), public_builds_path, :class => 'btn'
+
+/ section
+/   .sttabs.tabs-style-linetriangle
+/     nav
+/       ul
+/         li.tab-current
+/           = link_to '#' do 
+/             span New Proposal
+/         - if user_signed_in? and not current_admin?
+/           li
+/     .content-wrap
+/       section#section-linetriangle-1.content-current

@@ -1,0 +1,23 @@
+doctype html
+html lang="en" 
+  head
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    meta content="" name="description" /
+    meta content="" name="author" /
+    title= "AppWeb Site - #{params[:controller]}"
+    = stylesheet_link_tag "elite/#{params[:controller]}" if ::Rails.application.assets.find_asset("elite/#{params[:controller]}.scss")
+    = stylesheet_link_tag    'elite', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'elite', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = yield :head
+
+  body
+    /! Preloader
+    .preloader
+      .cssload-speeding-wheel
+    = yield
+    = javascript_include_tag "elite/#{params[:controller]}" if ::Rails.application.assets.find_asset("elite/#{params[:controller]}.js")
+    = yield :footer
+

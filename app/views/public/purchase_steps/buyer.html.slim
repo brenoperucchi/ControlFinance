@@ -1,0 +1,26 @@
+- model_class = Proposal
+
+= simple_form_for @proposal, url: wizard_path do |f|
+  .panel.panel-default
+    .panel-wrapper.collapse.in
+      .panel-body
+        .row.line-steps
+          .col-md-4.column-step
+            .step-number 1
+            .step-title Proposal
+          .col-md-4.column-step.active
+            .step-number 2
+            .step-title Buyer
+          .col-md-4.column-step
+            .step-number 3
+            .step-title Documents
+        = f.error_notification
+        - f.object.buyers.build if f.object.buyers.blank?
+        = f.simple_fields_for :buyers, wrapper: :vertical_form do |ff|
+          == render 'form_buyer', f: ff 
+      .panel-footer
+        .form-group
+          .col-sm-offset-0.col-sm-9
+            = f.submit nil, :class => 'btn btn-primary'
+            '
+            = link_to t('back', scope: "helpers.links"), wizard_path(:proposal), :class => 'btn'

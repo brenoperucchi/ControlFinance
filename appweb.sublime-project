@@ -1,0 +1,28 @@
+{
+  "folders":
+  [
+    {
+      "file_exclude_patterns":
+      [
+        "*.pyc",
+        ".rbenv*",
+        "*.lock",
+        "Rakefile",
+        "config.ru",
+        ".gitkeep"
+      ],
+      "folder_exclude_patterns":
+      [
+        ".svn",
+        ".git",
+        ".hg",
+        "vendor/plugins",
+        "tmp",
+        "log",
+        "doc"
+      ],
+      "follow_symlinks": true,
+      "path": "."
+    }
+  ]
+}

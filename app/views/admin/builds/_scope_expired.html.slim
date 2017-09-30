@@ -1,0 +1,85 @@
+- model_class = Proposal
+
+.panel.panel-default
+  .panel-wrapper.collapse.in
+    .panel-body
+      ul.nav.nav-tabs role="tablist" 
+        li[role="presentation"]
+          = link_to scope_admin_build_path(@build, scope: :proposals), input_html:{ 'aria-controls' => "home", 'aria-expanded'=> "true", data:{toggle:"tab", role: "tab"} } do
+            span.visible-xs
+              i.ti-home
+            span.hidden-xs Proposals
+        li.active[role="presentation"]
+          = link_to scope_admin_build_path(@build, scope: :expired), input_html:{ 'aria-controls' => "home", 'aria-expanded'=> "true", data:{toggle:"tab", role: "tab"} } do
+            span.visible-xs
+              i.ti-user
+            span.hidden-xs Expired's
+      /! Tab panes
+      .tab-content
+        #home.tab-pane.active role="tabpanel"
+          .table
+            table.table
+              thead
+                tr
+                  th= model_class.human_attribute_name(:unit)
+                  th= model_class.human_attribute_name(:email)
+                  th= model_class.human_attribute_name(:due_at)
+                  th= model_class.human_attribute_name(:value)
+                  th= model_class.human_attribute_name(:state)
+                  th= model_class.human_attribute_name(:negociate)
+                  th= model_class.human_attribute_name(:value)
+                  th= model_class.human_attribute_name(:created_at)
+                  th=t 'actions', :scope => "helpers.menu"
+              tbody
+                - @collection.each do |proposal|
+                  tr
+                    td= proposal.unit.name
+                    td= proposal.broker.user.email
+                    td=localize proposal.due_at, format: :short
+                    td= proposal.value
+                    td= editable proposal, :status, url: admin_proposal_path(proposal), type: 'select', class: 'editable', source: model_class::STATUS.map{|key,value|key}, value: proposal.state
+                    td= proposal.negociate
+                    td= proposal.value
+                    td=localize proposal.created_at, format: :short
+                    td
+                      .btn-group.m-r-10
+                        button.btn.btn-default.btn-outline.dropdown-toggle.waves-effect.waves-light aria-expanded="true" data-toggle="dropdown" type="button" 
+                          span.caret
+                        ul.dropdown-menu role="menu" 
+                          li
+                            = link_to t('edit', scope: "helpers.links"), edit_admin_proposal_path(proposal)                       
+                            - if proposal.accepted? or proposal.closed?
+                              = link_to t('Document', scope: "helpers.links"), document_admin_proposal_path(proposal)
+          .clearfix
+    .panel-footer
+      = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'
+      
+      = link_to deliver_mail_admin_build_path(@build, :expired), :class => 'pull-right btn btn-danger btn-outline hidden-xs.hidden-sm waves-effect waves-light'
+        ' Notify All
+        '
+        i.fa.fa-envelope
+javascript:
+  $(function(){
+    $('.editable_button').editable({
+      mode: 'popup',
+      showbuttons: true,
+      error: function(response, newValue) { 
+        var error_msgs = []
+        $.each(response.responseJSON, function(key, value){ 
+          error_msgs.push(key+' '+value)
+        })
+        return error_msgs.join("; ");
+      }
+    })
+    $('.editable').editable({
+      mode: 'inline',
+      showbuttons: false,
+      error: function(response, newValue) { 
+        var error_msgs = []
+        $.each(response.responseJSON.errors, function(key, value){ 
+          error_msgs.push(key+' '+value)
+        })
+        return error_msgs.join("; ");
+      }
+    })
+  })

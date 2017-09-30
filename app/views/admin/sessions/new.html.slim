@@ -1,0 +1,15 @@
+.panel.panel-default
+  .panel-heading
+    | Log in
+  .panel-wrapper.collapse.in
+    = simple_form_for resource, as: resource_name, url: admin_session_path do |f|
+      .panel-body
+        = f.input :email, required: false, autofocus: true
+        = f.input :password, required: false
+        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+      .panel-footer
+        .form-group
+          .col-sm-offset-0.col-sm-9
+            = f.button :submit, "Log in"
+= render "devise/shared/links"

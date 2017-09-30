@@ -1,0 +1,6 @@
+<%- if @unit.errors.present? %>
+  $('#responsive-modal .modal-content').html("<%= escape_javascript(render 'new') %>");
+<%- else  %>
+  $('#responsive-modal').modal('hide');
+  window.location = '/admin/builds'
+<%- end %>

@@ -1,0 +1,23 @@
+doctype html
+html xmlns="http://www.w3.org/1999/xhtml" 
+  head
+    meta content="width=device-width" name="viewport" /
+    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
+    title Eliteadmin Responsive web app kit
+  body style=("margin:0px; background: #f8f8f8; ") 
+    div style=("background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;") width="100%" 
+      div style=("max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px") 
+        table border="0" cellpadding="0" cellspacing="0" style=("width: 100%;") 
+          tbody
+            tr
+              td style=("background:#00c0c8; padding:20px; color:#fff; text-align:center;") 
+                h2= I18n.t(:title, scope:'helpers.mailer.expired')
+        div style=("padding: 40px; background: #fff;") 
+          table border="0" cellpadding="0" cellspacing="0" style=("width: 100%;") 
+            tbody
+              tr
+                td colspan="2" 
+                  center
+                    = link_to redirect_mailer_url(token), style:"display: inline-block; padding: 11px 30px; margin: 20px 0px 30px; font-size: 15px; color: #fff; background: #fb9678; border-radius: 60px; text-decoration:none;" do
+                        = I18n.t(:link, scope:'helpers.mailer.expired').upcase
+                    h3= I18n.t(:message, scope:'helpers.mailer.expired')

@@ -1,0 +1,35 @@
+section#wrapper.login-register
+  .login-box.login-sidebar
+    .white-box
+      = simple_form_for @store, url: site_registers_path do |f| 
+        h3.box-title.m-t-40.m-b-0 Register Now
+        small Store Information
+        = f.input :name
+        small User Information
+        - f.object.persons.new if f.object.persons.blank?
+        = f.simple_fields_for :persons do |person|
+          = person.input :department, as: :hidden, input_html:{value: 'admin'}
+          = person.input :person_type, as: :hidden, input_html:{value: 'person'}
+          = person.input :name
+          - person.object.build_user if person.object.user.nil?
+          = person.simple_fields_for :user do |user|
+            = user.input :email
+            = user.input :password
+        .form-group
+          .col-md-12
+            .checkbox.checkbox-primary.p-t-0
+              = f.input :terms, label:false do
+                = f.check_box :terms
+                '
+                label for="checkbox-signup" 
+                  | I agree to all
+                  a href="#"  Terms
+        .form-group.text-center.m-t-20
+          .col-xs-12
+            button.btn.btn-info.btn-lg.btn-block.text-uppercase.waves-effect.waves-light type="submit"  Sign Up
+        .form-group.m-b-0
+          .col-sm-12.text-center
+            p
+              | Already have an account?
+              = link_to admin_session_path, class: 'text-primary m-l-5' do
+                b Sign In

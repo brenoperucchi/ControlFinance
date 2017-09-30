@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  state: MyString
+  unit: one
+  information: MyText
+
+two:
+  state: MyString
+  unit: two
+  information: MyText

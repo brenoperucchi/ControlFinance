@@ -1,0 +1,44 @@
+- model_class = Proposal
+
+.row
+  .col-lg-6.col-md-6.col-sm-6
+    = f.input :unit, input_html:{value:@unit.name}, placeholder: model_class.human_attribute_name(:unit), disabled:true
+    = f.input :unit_value, placeholder: model_class.human_attribute_name(:unit_value), input_html:{value: number_with_precision(@unit.value)}, disabled:true
+    = f.input :state, as: :string, placeholder: model_class.human_attribute_name(:state), disabled:true
+  .col-lg-6.col-md-6.col-sm-6
+    = f.input :due_at, :as => :string, input_html: { class: 'datepicker', value: localize(f.object.due_at, format: '%d/%m/%Y')}, placeholder: model_class.human_attribute_name(:due_at)
+    = f.input :value, placeholder: model_class.human_attribute_name(:value)
+    = f.input :negociate, as: :text, placeholder: model_class.human_attribute_name(:negociate)
+hr.line-dashed
+.row
+  - f.object.build_broker if f.object.broker.nil?
+  = f.simple_fields_for :broker do |broker|
+    .col-lg-6.col-md-6.col-sm-6
+      = broker.input :name, readonly: user_signed_in?
+    .col-lg-6.col-md-6.col-sm-6
+      - broker.object.build_user if broker.object.user.nil?
+      = broker.simple_fields_for :user do |user|
+        = user.input :email, readonly: user_signed_in?
+
+- content_for :footer do 
+  javascript:
+    $(document).ready(function(){
+      $('.datepicker').datepicker({
+        format: 'dd/mm/yyyy',
+        startDate: "#{(Date.today).strftime("%d/%m/%Y")}",
+        endDate: "#{(Date.today + 5.days).strftime("%d/%m/%Y")}"
+      })
+    })
+/   $('.daterange').daterangepicker({
+/     locale: {
+/         format: 'DD/MM/YYYY'
+/       },
+/     linkedCalendars: false,
+/     dateLimit: { "days": 3 },
+/     buttonClasses: ['btn', 'btn-sm'],
+/     applyClass: 'btn-danger',
+/     cancelClass: 'btn-inverse',
+/     minDate: "#{(Date.today).strftime("%d/%m/%Y")}",
+/     maxDate: "#{(Date.today + 3.days).strftime("%d/%m/%Y")}"
+/   });
+/ })

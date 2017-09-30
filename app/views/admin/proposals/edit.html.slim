@@ -1,0 +1,15 @@
+- model_class = Proposal
+
+.panel.panel-default
+  .panel-heading
+    =t 'edit', scope: :'helpers.titles.edit', :model => model_class.model_name.human.titleize
+  .panel-wrapper.collapse.in
+    = simple_form_for @proposal do |f|
+      .panel-body
+        == render 'form', f: f, model_class: model_class
+      .panel-footer
+        .form-group
+          .col-sm-offset-0.col-sm-9
+            = f.submit nil, :class => 'btn btn-primary'
+            '
+            = link_to t('back', scope: "helpers.links"), admin_build_unit_proposals_path(@proposal.unit.builder, @proposal.unit), :class => 'btn'

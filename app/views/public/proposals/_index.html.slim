@@ -1,0 +1,28 @@
+- model_class = Proposal
+
+- if current_user
+  .white-box
+    h2
+      | Broker Proposals
+    .table
+      table.table
+        thead
+          tr
+            th= model_class.human_attribute_name(:state)
+            th= model_class.human_attribute_name(:negociate)
+            th= model_class.human_attribute_name(:value)
+            th= model_class.human_attribute_name(:email)
+            th= model_class.human_attribute_name(:created_at)
+            th=t 'actions', :scope => "helpers.menu"
+        tbody
+          - @proposals.each do |proposal|
+            tr
+              td= proposal.state
+              td= proposal.negociate
+              td= proposal.value
+              td= proposal.broker.user.email
+              td=l proposal.created_at, format: :short
+              td
+                = link_to t('edit', scope: "helpers.links"), edit_public_proposal_path(proposal), class: 'btn btn-primary btn-outline'
+                '
+                = link_to t('destroy', scope: "helpers.links"), public_proposal_path(proposal), class: 'btn btn-danger btn-outline', data: { confirm: 'Are you sure?' }, method: :delete

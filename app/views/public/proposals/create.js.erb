@@ -1,0 +1,6 @@
+<%- if @proposal.errors.present? %>
+  $('#responsive-modal .modal-content').html("<%= escape_javascript(render 'booking') %>");
+<%- else  %>
+  $('#responsive-modal').modal('hide');
+  window.location = '/public/builds'
+<%- end %>

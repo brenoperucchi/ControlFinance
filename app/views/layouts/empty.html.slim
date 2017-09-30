@@ -1,0 +1,41 @@
+doctype html
+html lang="en" 
+  head
+    meta charset="utf-8" /
+    meta content="IE=edge" http-equiv="X-UA-Compatible" /
+    meta content="width=device-width, initial-scale=1" name="viewport" /
+    meta content="" name="description" /
+    meta content="" name="author" /
+    / link href="../plugins/images/favicon.png" rel="icon" sizes="16x16" type="image/png" /
+    title= "AppWeb - #{I18n.t(params[:controller], scope:'navigate')}"
+    = stylesheet_link_tag "elite/#{params[:controller]}" if ::Rails.application.assets.find_asset("elite/#{params[:controller]}.scss")
+    = stylesheet_link_tag    'elite', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'elite', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = yield :head
+    css:
+      .table > tbody > tr > td,
+      .table > tbody > tr > th,
+      .table > tfoot > tr > td,
+      .table > tfoot > tr > th,
+      .table > thead > tr > td,
+      .table > thead > tr > th {
+        padding: 10px 8px;
+      }
+
+  body
+    #wrapper
+      #page-wrapper
+        .container-fluid.p-t-20
+          - if flash[:notice]
+            .alert.alert-info.alert-dismissable
+              button.close aria-hidden="true" data-dismiss="alert" type="button"  ×
+              = flash[:notice]
+          - if flash[:alert]
+            .alert.alert-warning.alert-dismissable
+              button.close aria-hidden="true" data-dismiss="alert" type="button"  x
+              = flash[:alert]
+          = yield
+      / footer.footer.text-center 2016 &copy; Elite Admin brought to you by themedesigner.in
+    = javascript_include_tag "elite/#{params[:controller]}" if ::Rails.application.assets.find_asset("elite/#{params[:controller]}.js")
+    = yield :footer

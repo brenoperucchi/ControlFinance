@@ -1,0 +1,6 @@
+= f.input :to, as: :string
+= f.input :subject, as: :string
+= f.input :body, as: :text, input_html:{class: 'summernote'}
+= f.input :token, as: :hidden
+
+= hidden_field_tag '[render]', @render

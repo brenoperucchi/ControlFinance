@@ -1,0 +1,2100 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pars",
+				"parsley-required"
+			],
+			[
+				"cl",
+				"cla\tCreate controller class"
+			],
+			[
+				"materia",
+				"materialize2"
+			],
+			[
+				"curre",
+				"current_store"
+			],
+			[
+				"default",
+				"default_locale"
+			],
+			[
+				"Ass",
+				"Assignor"
+			],
+			[
+				"Assi",
+				"Assignors"
+			],
+			[
+				"desc",
+				"Description"
+			],
+			[
+				"sign",
+				"sign_in_params"
+			],
+			[
+				"fil",
+				"fill_in"
+			],
+			[
+				"person",
+				"person_type"
+			],
+			[
+				"fac",
+				"facebook_account"
+			],
+			[
+				"res",
+				"rest\trespond_to"
+			],
+			[
+				"proposa",
+				"proposal"
+			],
+			[
+				"vf",
+				"vpif\tvalidates_presence_of if"
+			],
+			[
+				"asset",
+				"assetable_type"
+			],
+			[
+				"pu",
+				"public_buyer_step_path"
+			],
+			[
+				"v",
+				"vp\tvalidates_presence_of"
+			],
+			[
+				"address",
+				"addresses"
+			],
+			[
+				"hm",
+				"hmt\thas_many (through)"
+			],
+			[
+				"pro",
+				"proposals"
+			],
+			[
+				"proposal",
+				"proposal_id"
+			],
+			[
+				"set",
+				"set_parent"
+			],
+			[
+				"ac",
+				"activity"
+			],
+			[
+				"vali",
+				"validate_state"
+			],
+			[
+				"valida",
+				"validated"
+			],
+			[
+				"va",
+				"vaoif\tvalidates_acceptance_of if"
+			],
+			[
+				"redi",
+				"redirect_to"
+			],
+			[
+				"user",
+				"user_signed_in"
+			],
+			[
+				"edit",
+				"edit_public_proposal_path"
+			],
+			[
+				"vu",
+				"vuif\tvalidates_uniqueness_of if"
+			],
+			[
+				"propsa",
+				"proposal"
+			],
+			[
+				"ass",
+				"association"
+			],
+			[
+				"pr",
+				"proposals"
+			],
+			[
+				"has",
+				"has_one"
+			],
+			[
+				"bro",
+				"brokers_proposals_unit"
+			],
+			[
+				"porp",
+				"proposals"
+			],
+			[
+				"propo",
+				"proposal"
+			],
+			[
+				"text",
+				"text-navy"
+			],
+			[
+				"val",
+				"validates"
+			],
+			[
+				"prop",
+				"proposal"
+			],
+			[
+				"cla",
+				"cla\tclass .. end"
+			],
+			[
+				"P",
+				"Proposal"
+			],
+			[
+				"hori",
+				"horizontal_form"
+			],
+			[
+				"form",
+				"form-horizontal"
+			],
+			[
+				"h",
+				"hmd\thas_many :dependent => :destroy"
+			],
+			[
+				"bt",
+				"bt\tbelongs_to"
+			],
+			[
+				"build",
+				"build_error"
+			],
+			[
+				"gar",
+				"garage_measure"
+			],
+			[
+				"gara",
+				"garage_measure"
+			],
+			[
+				"ledger",
+				"ledger_name"
+			],
+			[
+				"resour",
+				"resource"
+			],
+			[
+				"debit",
+				"debits_params"
+			],
+			[
+				"doc",
+				"doc_number"
+			],
+			[
+				"render",
+				"render_template"
+			],
+			[
+				"be_",
+				"be_truthy"
+			],
+			[
+				"it",
+				"it\tit 'does something' do … end"
+			],
+			[
+				"other",
+				"other_supplier"
+			],
+			[
+				"exp",
+				"expeq\texpect(obj).to eq(value)"
+			],
+			[
+				"Ledger",
+				"LedgerLinesSupplier"
+			],
+			[
+				"ex",
+				"exp\texpect(subject).to something"
+			],
+			[
+				"Default",
+				"default_store"
+			],
+			[
+				"defau",
+				"default_build"
+			],
+			[
+				"bu",
+				"build_id"
+			],
+			[
+				"messa",
+				"message_id"
+			],
+			[
+				"nfe",
+				"nfe_mail"
+			],
+			[
+				"tmp",
+				"tmp_file"
+			],
+			[
+				"nfe_",
+				"nfe_mails"
+			],
+			[
+				"validate",
+				"validate_off"
+			],
+			[
+				"vlaida",
+				"validate_off"
+			],
+			[
+				"yaml",
+				"yaml_file"
+			],
+			[
+				"hash",
+				"hash_new"
+			],
+			[
+				"resp",
+				"respond_to"
+			],
+			[
+				"eml",
+				"eml_filename"
+			],
+			[
+				"process",
+				"process_attachment"
+			],
+			[
+				"path",
+				"path_filename"
+			],
+			[
+				"to",
+				"to_return"
+			],
+			[
+				"reo",
+				"resources"
+			],
+			[
+				"le",
+				"ledger_name"
+			],
+			[
+				"resou",
+				"resources"
+			],
+			[
+				"ids",
+				"ids_ancestry"
+			],
+			[
+				"ance",
+				"ancestry"
+			],
+			[
+				"ances",
+				"ancestry_ids"
+			],
+			[
+				"git",
+				"github"
+			],
+			[
+				"current",
+				"current_store"
+			],
+			[
+				"erro",
+				"error_msgs"
+			],
+			[
+				"buil",
+				"builder"
+			],
+			[
+				"par",
+				"nfe_params"
+			],
+			[
+				"led",
+				"ledgers_path"
+			],
+			[
+				"paid",
+				"paid_at"
+			],
+			[
+				"aco",
+				"account"
+			],
+			[
+				"cost",
+				"cost_center_ids"
+			],
+			[
+				"item",
+				"item_create"
+			],
+			[
+				"curr",
+				"current_store"
+			],
+			[
+				"ledg",
+				"ledgerable_type"
+			],
+			[
+				"class",
+				"classify"
+			],
+			[
+				"mode",
+				"model_name"
+			],
+			[
+				"el",
+				"el_cost_center"
+			],
+			[
+				"cos",
+				"costcenter"
+			],
+			[
+				"cost_",
+				"cost_center_ids"
+			],
+			[
+				"i",
+				"input"
+			],
+			[
+				"recipient",
+				"recipientable_id"
+			],
+			[
+				"deli",
+				"delivery_mail"
+			],
+			[
+				"raw_so",
+				"raw_source"
+			],
+			[
+				"em",
+				"email_body"
+			],
+			[
+				"contr",
+				"controllers_name"
+			],
+			[
+				"con",
+				"controllers_name"
+			],
+			[
+				"controller",
+				"controller_name"
+			],
+			[
+				"is",
+				"is_active_controller"
+			],
+			[
+				"su",
+				"subject"
+			],
+			[
+				"pat",
+				"path_to_file"
+			],
+			[
+				"inc",
+				"incoming_mail"
+			],
+			[
+				"mai",
+				"mail_access"
+			],
+			[
+				"inco",
+				"incoming_mail_proccess"
+			],
+			[
+				"sear",
+				"search"
+			],
+			[
+				"se",
+				"search_key"
+			],
+			[
+				"search",
+				"search_by"
+			],
+			[
+				"atta",
+				"attach"
+			],
+			[
+				"ldeger",
+				"ledger_id"
+			],
+			[
+				"vpro",
+				"vproducts"
+			],
+			[
+				"num",
+				"number_to_currency"
+			],
+			[
+				"number",
+				"number_with_precision"
+			],
+			[
+				"acc",
+				"mattr_accessor"
+			],
+			[
+				"attr",
+				"attr_accessor"
+			],
+			[
+				"Ini",
+				"initializer"
+			],
+			[
+				"mont",
+				"months_used"
+			],
+			[
+				"begin",
+				"begin_at"
+			],
+			[
+				"find",
+				"find_balance"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 307.0,
+		"last_filter": "rails",
+		"selected_items":
+		[
+			[
+				"rails",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"new ",
+				"File: New Folder Relative to Current View"
+			],
+			[
+				"rename",
+				"File: Rename"
+			],
+			[
+				"dupl",
+				"File: Duplicate"
+			],
+			[
+				"dup",
+				"File: Duplicate"
+			],
+			[
+				"new",
+				"File: New Folder Relative to Current View"
+			],
+			[
+				"fren",
+				"File: Rename"
+			],
+			[
+				"dupli",
+				"File: Duplicate"
+			],
+			[
+				"new folder",
+				"File: New Folder Relative to Current View"
+			],
+			[
+				"new current",
+				"File: New File Relative to Current View"
+			],
+			[
+				"new cure",
+				"File: New File Relative to Current View"
+			],
+			[
+				"dif",
+				"Diffy Compare"
+			],
+			[
+				"rspec",
+				"Set Syntax: Better RSpec"
+			],
+			[
+				"du",
+				"File: Duplicate"
+			],
+			[
+				"new file",
+				"File: New File Relative to Current View"
+			],
+			[
+				"new fi",
+				"File: New File Relative to Current View"
+			],
+			[
+				"scope",
+				"Snippet: scope"
+			],
+			[
+				"scop",
+				"Snippet: scope with arguments"
+			],
+			[
+				"accept",
+				"Snippet: accepts_nested_attributes_for"
+			],
+			[
+				"around",
+				"Snippet: after_validation_on_update"
+			],
+			[
+				"di",
+				"Diffy Compare"
+			],
+			[
+				"new fie",
+				"File: New File Relative to Current View"
+			],
+			[
+				"diff",
+				"Diffy Compare"
+			],
+			[
+				"pakcage",
+				"Package Control: List Packages"
+			],
+			[
+				"hasn",
+				"Snippet: has_one"
+			],
+			[
+				"convert",
+				"HTML2Slim: Convert clipboard content"
+			],
+			[
+				"paka",
+				"Package Control: Install Package"
+			],
+			[
+				"acept",
+				"Snippet: accepts_nested_attributes_for"
+			],
+			[
+				"sscope",
+				"Snippet: scope with arguments"
+			],
+			[
+				"disal",
+				"Package Control: Disable Package"
+			],
+			[
+				"file name",
+				"File: Rename"
+			],
+			[
+				"edit",
+				"Project: Edit"
+			],
+			[
+				"migra",
+				"Migrations list"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"set rails",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"pack",
+				"Package Control: Enable Package"
+			],
+			[
+				"pak",
+				"Package Control: List Packages"
+			],
+			[
+				"pakcager",
+				"Package Control: Remove Package"
+			],
+			[
+				"duplic",
+				"File: Duplicate"
+			],
+			[
+				"set rspec",
+				"Set Syntax: Better RSpec"
+			],
+			[
+				"respn",
+				"Snippet: assert_respond_to(..)"
+			],
+			[
+				"key",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"pakc",
+				"Package Control: List Packages"
+			],
+			[
+				"guard",
+				"Set Syntax: GuardOutput"
+			],
+			[
+				"pakca",
+				"Package Control: List Packages"
+			],
+			[
+				"package install",
+				"Package Control: Install Package"
+			],
+			[
+				"package isntal",
+				"Package Control: Install Package"
+			],
+			[
+				"ruby",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"package remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"html2",
+				"HTML2Slim: Convert clipboard content"
+			],
+			[
+				"package list",
+				"Package Control: List Packages"
+			],
+			[
+				"package ",
+				"Package Control: List Packages"
+			],
+			[
+				"slim",
+				"HTML2Slim: Convert clipboard content"
+			],
+			[
+				"packge",
+				"Package Control: List Packages"
+			],
+			[
+				"convert slim",
+				"Plugin Development: Convert Syntax to .sublime-syntax"
+			],
+			[
+				"vali",
+				"Snippet: validates_uniqueness_of"
+			],
+			[
+				"rais",
+				"Set Syntax: HTML (Rails)"
+			],
+			[
+				"attr",
+				"Snippet: attr_writer .."
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript (Rails)"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"set html",
+				"Set Syntax: HTML"
+			],
+			[
+				"text",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"rails ",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"javasc",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"rals",
+				"Set Syntax: SQL (Rails)"
+			],
+			[
+				"wrap",
+				"HTML: Wrap Selection With Tag"
+			],
+			[
+				"att",
+				"Snippet: attr_accessor .."
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"erb",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"packate",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			],
+			[
+				"migr",
+				"Migrations list"
+			],
+			[
+				"akc",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"js",
+				"Set Syntax: JavaScript (Rails)"
+			],
+			[
+				"belong",
+				"Snippet: belongs_to"
+			],
+			[
+				"presence",
+				"Snippet: validates_presence_of"
+			],
+			[
+				"scss",
+				"Set Syntax: SCSS"
+			],
+			[
+				"pakcate",
+				"Package Control: Install Package"
+			],
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"paclage",
+				"Package Control: Install Package"
+			],
+			[
+				"set hm",
+				"Set Syntax: HTML (Rails)"
+			],
+			[
+				"xml",
+				"Set Syntax: XML"
+			],
+			[
+				"respo",
+				"Snippet: assert_response"
+			],
+			[
+				"haml",
+				"Set Syntax: Ruby Haml"
+			],
+			[
+				"set yaml",
+				"Set Syntax: YAML"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"validate",
+				"Snippet: validates_uniqueness_of"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"Gr",
+				"Set Syntax: Gherkin"
+			],
+			[
+				"cucum",
+				"Set Syntax: Cucumber Steps"
+			],
+			[
+				"cucumber",
+				"Set Syntax: Cucumber Steps"
+			],
+			[
+				"g",
+				"Set Syntax: Gherkin"
+			],
+			[
+				"colu",
+				"Snippet: Remove / Add Column"
+			],
+			[
+				"gh",
+				"Set Syntax: Gherkin"
+			],
+			[
+				"steps",
+				"Set Syntax: Cucumber Steps"
+			],
+			[
+				"cucu",
+				"Set Syntax: Cucumber Steps"
+			],
+			[
+				"rub",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"s",
+				"Sort Lines"
+			],
+			[
+				"RUBY ON",
+				"Set Syntax: Ruby on Rails"
+			],
+			[
+				"params",
+				"Snippet: params.source.ruby.rails"
+			],
+			[
+				"Snippet: ",
+				"Snippet: YAML.load(file)"
+			]
+		],
+		"width": 530.0
+	},
+	"console":
+	{
+		"height": 512.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb"
+	],
+	"file_history":
+	[
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/builds_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/db/migrate/20161213002121_create_builds.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/config/routes.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/stylesheets/elite.scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/spec/dummy/config/initializers/assets.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/application_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize2/_header.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/models/ledger.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize2.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/suppliers/modal.js.erb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/suppliers_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/_form.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/suppliers/_form.html.slim",
+		"//Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/ledgers_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/index.js.erb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/config/initializers/simple_form.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/config/initializers/simple_form_bootstrap.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/elite.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/new.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/_index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/_edit.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/public/elite",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/spec/dummy/config/initializers/cookies_serializer.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/config/initializers/simple_form_materialize.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/ledgers_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/javascripts/materialize2/footer.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/create.js.erb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers copy/new.js.erb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/new.js.erb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/Gemfile",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/vendor/assets/stylesheets/materialize2/con-base.css",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/admin/ledger_steps/items.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/vendor/assets/javascripts/materialize2/js/_con.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/vendor/assets/javascripts/materialize2/materialize/materialize.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/suppliers/_form_ledger.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/cost_centers/_form_ledger.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/config/initializers/simple_form_materialize/length_component.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/config/application.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/admin/ledger_steps_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/suppliers/create.js.erb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/admin/ledger_steps/lines.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/cost_centers/_form.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/inspinia.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/dashboards/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/javascripts/materialize2.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/javascripts/inspinia.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/dashboards/dashboard-4.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize2/_sidebar.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/javascripts/materialize2/ledgers.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/public/materialize2/assets/_con/js/_con.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/stylesheets/materialize2.css.scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/public/materialize2/assets/_con/js/_demo.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/vendor/assets/javascripts/materialize2/select2/select2.full.min.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/public/materialize2/bower_components/select2/dist/js/select2.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/stylesheets/base-default.css",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/javascripts/inspinia/ledgers.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/config/locales/pt-BR.yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/_form_lines.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize2/_searchbar.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/stylesheets/ledgers.css.scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/admin/units/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/_statement.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/helpers/application_helper.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize/_left_sidebar.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/javascripts/materialize.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/stylesheets/materialize2/ledgers.scss",
+		"/Users/brenoperucchi/Downloads/02 - Developer/themeforest-10621512-con-material-admin-dashboard-template/dist/dashboard.html",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/admin/base_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/admin/builds/_form.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize2.old2.erb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/stylesheets/materialize.css.scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/vendor/assets/stylesheets/materialize2/ionicons/ionicons.min.css",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/vendor/assets/stylesheets/materialize2/fontawesome/font-awesome.min.css",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/vendor/assets/stylesheets/materialize2/material-design-icons/material-design-icons.min.css",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/javascripts/materialize/ledgers.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/stylesheets/materialize/ledgers.css.scss",
+		"//Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize/_left_sidebar.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize/_right_sidebar.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/_index_old.html.slim",
+		"/Users/brenoperucchi/Downloads/02 - Developer/themeforest-10621512-con-material-admin-dashboard-template/dist/index.html",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/config/locales/en.yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/edit.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/stylesheets/materialize/ledgers.scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/stylesheets/inspinia/ledgers.css.scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize/_footer.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize/_header.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/inspinia/_navigation.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/helpers/ledger_items_helper.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/_statement2.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/admin/units/_index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/vendor/assets/stylesheets/materialize/materialize.css",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/stylesheets/inspinia.css.scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/admin/units/_form.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/admin/units_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/stores/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/admin/units/edit.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/admin/builds/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/admin/builds/show.html.slim",
+		"//Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/admin/builds/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/units_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/admin/builds_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/application.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/builds_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/tmp/data/meta_request/896590e3-19b2-4f7d-8f63-dae8dd4e80ee.json",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/units/_form.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/units/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/units/new.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/config/navigation.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/tmp/data/meta_request/5dd4e7b1-5357-4246-bd5d-3045ecc56370.json",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/vendor/assets/stylesheets/materialize/style.css",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/vendor/assets/javascripts/materialize/plugins/chartjs/chart-script.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/materialize/_left-sidebar.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/assets/javascripts/inspinia/dashboards.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/builds/_form.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/nfes/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/ledgers/_new.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/public/buyers/_form_upload.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/cost_centers/create.js.erb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/purchases/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/contracts/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/public/builds_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/public/base_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/builds/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/models/build.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/views/layouts/inspinia/_topnavbar.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/app/controllers/site_controller.rb"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 114.0,
+		"where_history":
+		[
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.css",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.*",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.*css",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.*css",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.scss",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.css",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.*css",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.*.css",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.erb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.js",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.ks",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/spec, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.js",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/db/migrate/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.css",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/db/migrate/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/db/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.css",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.scss",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.js",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.html",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/config/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/*",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.js",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.js",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.scss",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.css",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.*",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.js",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.slim",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.rb",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.js",
+			"/Users/brenoperucchi/Google Drive/03 - Apps/gestor/, *.slim"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"bar",
+			"bootstrap",
+			"      | ",
+			"label",
+			"date",
+			"popover",
+			"state",
+			"error",
+			"ul",
+			"font",
+			"active",
+			"label ",
+			"placeholder",
+			"sentient_user",
+			"fsevent",
+			"  gem 'pry-nav'\n",
+			"capistrano",
+			"meta_request",
+			"binding_of_caller",
+			"better_errors",
+			"quiet_assets",
+			"awesome_print",
+			"length",
+			"spring",
+			"simple_form",
+			"devise",
+			"simple_form",
+			"item_create",
+			"supplier",
+			"_ids",
+			"validate",
+			"initPlugins",
+			"initMaterialPlugins",
+			"render",
+			"file:",
+			"#myModal .modal-content",
+			"logo-white",
+			"user3.jpg",
+			"select2",
+			"select\n  option disabled=\"\" selected=\"\" value=\"\"  Choose option\n  option value=\"1\"  Option 1\n  option value=\"2\"  Option 2\n  option value=\"3\"  Option 3\n",
+			"select2",
+			"select",
+			"collection:",
+			"@cost_centers",
+			"@costcenters",
+			"cost_center",
+			"btn modal",
+			"      /",
+			"set_select2_supplier",
+			"insert_action_supplier",
+			"select2-open",
+			"processResults",
+			"select2-costcenter",
+			"select",
+			"click",
+			"select2",
+			"click",
+			"select2",
+			"input",
+			"select",
+			"select2",
+			"class",
+			"select2",
+			"build",
+			"horizontal_form",
+			"label",
+			"select2",
+			"step",
+			"a href=\"",
+			"select2(",
+			"select2",
+			".js",
+			"date",
+			"//=",
+			"    / ",
+			"nanoscroller",
+			"right-align",
+			"h5",
+			"materialize2",
+			"2/assets",
+			"materialize2/assets",
+			"assets/",
+			"assets",
+			"        /!",
+			"/! /",
+			"href=\"assets/",
+			"href=\"bower",
+			"\" href=\"",
+			"link href=\"",
+			"<img src",
+			"yay",
+			"sidebar",
+			"yaybar",
+			"yay-",
+			"john doe",
+			"john",
+			"img.",
+			"images",
+			"          img",
+			"img ",
+			"aside",
+			"../fonts/",
+			"font",
+			"../font/",
+			"src=\"assets/_con/images",
+			"= render \"materialize2",
+			"\"materialize2",
+			"/jquery-jvectormap/",
+			"/jquery-jvectormap",
+			"jquery-jvectormap",
+			"//= require ",
+			"fontawesome/css/",
+			"<link rel=\"stylesheet\" type=\"text/css\" href=\"bower_components/",
+			"\" /",
+			" /",
+			"materialize/",
+			"\" type=\"text/javascript\" ",
+			"script src=\"assets/",
+			"script src=\"bower_components/",
+			"/! ",
+			"script src=\"assets/_con/js/",
+			"      | ",
+			"link href=\"bower_components/nanoscroller/bin/css/",
+			"token",
+			"cost_center",
+			"select2",
+			"inspinia",
+			"cost_Center"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"edit_admin_build_path",
+			"admin_build_units_path",
+			"scope: \"helpers.links\"",
+			"\"helpers.links\"",
+			"btn-danger btn-outline",
+			"brokers_proposals_unit",
+			"t 'actions', :scope => \"helpers.menu\"",
+			"t 'actions', :scope => t(\"helpers.menu\")",
+			":footer",
+			"supplier",
+			"Gestor Constru",
+			":javascript",
+			"//= require inspinia/",
+			"url(\"inspinia/patterns/",
+			"background: url(\"inspinia/patterns/",
+			"require inspinia/",
+			"require /",
+			"LineItem",
+			"lines.",
+			":lines",
+			"",
+			" ",
+			"",
+			"store_debit_path",
+			"store_debits_path",
+			"'",
+			"=t model_class.model_name.human.pluralize, scope: 'activerecords.models'",
+			".margin-top-10",
+			".margin-top-5",
+			"helper_nav_bar",
+			"Build:",
+			":build",
+			"build.",
+			".builds",
+			"_build",
+			"current_build",
+			"col-lg",
+			":build",
+			"builds",
+			"build_id",
+			"Build",
+			"builds",
+			"current_build",
+			"^[-A-Za-z\\d_]+$",
+			"\"liquid\", \"2.4.1\"",
+			"= t(:send_files)",
+			":start_upload",
+			"= t(:upload_start)",
+			"t(:upload_start)",
+			"management",
+			"t(:home)",
+			"managament",
+			"t(:products)",
+			"\"devise\",              \"~> 2.1.2\"",
+			"site/icon",
+			"t(:permission_denied)",
+			"contato@imentore.com.br",
+			".container .btn",
+			".container btn",
+			"button_status",
+			"drop_table",
+			"OrderAsset",
+			"images/site",
+			"/site",
+			"zip_code",
+			"\"~> 3.2.3\"",
+			"gem 'slim', '1.2.1'",
+			"user_signed_in?",
+			"/dashboard/key_session",
+			"/customer/key_session",
+			"key_session",
+			"session",
+			"fill_in(\"customer_",
+			"#cart. .table",
+			"json['success']['empty'] == false",
+			"json['success']['items']",
+			"['success']['items']",
+			"'",
+			"deal_path",
+			"dealer",
+			"Dealer",
+			"Deal",
+			"-deal",
+			"{{ product.name }}",
+			"{{ product.url }}",
+			"/uploads/imentore/asset/file/1/1/",
+			"",
+			"src=\"/uploads/imentore/asset/file/current_store/1/",
+			"",
+			"list1.png",
+			"",
+			"\"/loja/\""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 392.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.guard":
+	{
+		"height": 172.0
+	},
+	"pinned_build_system": "",
+	"project": "appweb.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"createbuild",
+				"db/migrate/20130418210856_create_builds.rb"
+			],
+			[
+				"route.rb",
+				"config/routes.rb"
+			],
+			[
+				"navi",
+				"config/navigation.rb"
+			],
+			[
+				"deve.rb",
+				"config/environments/development.rb"
+			],
+			[
+				"assets.rb",
+				"spec/dummy/config/initializers/assets.rb"
+			],
+			[
+				"dash",
+				"app/controllers/dashboards_controller.rb"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"app",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"ge",
+				"Gemfile"
+			],
+			[
+				"simpleform",
+				"config/initializers/simple_form_bootstrap.rb"
+			],
+			[
+				"confisimpleform",
+				"config/initializers/simple_form.rb"
+			],
+			[
+				"materialize",
+				"spec/dummy/config/initializers/cookies_serializer.rb"
+			],
+			[
+				"simple",
+				"config/initializers/simple_form_materialize.rb"
+			],
+			[
+				"ledgercontro",
+				"app/controllers/ledgers_controller.rb"
+			],
+			[
+				"suppliercontr",
+				"app/controllers/suppliers_controller.rb"
+			],
+			[
+				"materiahtml",
+				"app/views/layouts/materialize2.html.slim"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"ledrrb",
+				"app/models/ledger.rb"
+			],
+			[
+				"con-base",
+				"vendor/assets/stylesheets/materialize2/con-base.css"
+			],
+			[
+				"materialize.js",
+				"vendor/assets/javascripts/materialize2/materialize/materialize.js"
+			],
+			[
+				"footerjs",
+				"app/assets/javascripts/materialize2/footer.js"
+			],
+			[
+				"create",
+				"app/views/ledgers/create.js.erb"
+			],
+			[
+				"gemfi",
+				"Gemfile"
+			],
+			[
+				"appic.rb",
+				"config/application.rb"
+			],
+			[
+				"stepcontr",
+				"app/controllers/admin/ledger_steps_controller.rb"
+			],
+			[
+				"ledger.rb",
+				"app/models/ledger.rb"
+			],
+			[
+				"materia",
+				"app/views/layouts/materialize2.html.slim"
+			],
+			[
+				"inspinia",
+				"app/views/layouts/inspinia.html.slim"
+			],
+			[
+				"inpsina",
+				"app/assets/javascripts/inspinia.js"
+			],
+			[
+				"dashboard",
+				"app/views/dashboards/dashboard-4.html.slim"
+			],
+			[
+				"insp",
+				"app/views/layouts/inspinia.html.slim"
+			],
+			[
+				"costcenterformledger",
+				"app/views/cost_centers/_form_ledger.html.slim"
+			],
+			[
+				"costcenter",
+				"app/views/cost_centers/_form_ledger.html.slim"
+			],
+			[
+				"costcenterform",
+				"app/views/cost_centers/_form.html.slim"
+			],
+			[
+				"_con",
+				"vendor/assets/javascripts/materialize2/js/_con.js"
+			],
+			[
+				"_demo",
+				"public/materialize2/assets/_con/js/_demo.js"
+			],
+			[
+				"con.",
+				"public/materialize2/assets/_con/js/_con.js"
+			],
+			[
+				"select2full",
+				"vendor/assets/javascripts/materialize2/select2/select2.full.min.js"
+			],
+			[
+				"select2",
+				"public/materialize2/bower_components/select2/dist/js/select2.js"
+			],
+			[
+				"ledger.js",
+				"app/assets/javascripts/inspinia/ledgers.js"
+			],
+			[
+				"materialize2",
+				"app/assets/javascripts/materialize2.js"
+			],
+			[
+				"base",
+				"app/assets/stylesheets/base-default.css"
+			],
+			[
+				"pt",
+				"config/locales/pt-BR.yml"
+			],
+			[
+				"helpe",
+				"app/helpers/application_helper.rb"
+			],
+			[
+				"ionicscss",
+				"vendor/assets/stylesheets/materialize2/ionicons/ionicons.min.css"
+			],
+			[
+				"fontawecss",
+				"vendor/assets/stylesheets/materialize2/fontawesome/font-awesome.min.css"
+			],
+			[
+				"materiadeisngicon",
+				"vendor/assets/stylesheets/materialize2/material-design-icons/material-design-icons.min.css"
+			],
+			[
+				"basecontr",
+				"app/controllers/admin/base_controller.rb"
+			],
+			[
+				"ledgerjs",
+				"app/assets/javascripts/materialize/ledgers.js"
+			],
+			[
+				"ledgercss",
+				"app/assets/stylesheets/materialize/ledgers.css.scss"
+			],
+			[
+				"ledger",
+				"app/assets/javascripts/inspinia/ledgers.js"
+			],
+			[
+				"materialedger",
+				"app/assets/stylesheets/materialize/ledgers.scss"
+			],
+			[
+				"ledgersjs",
+				"app/assets/javascripts/materialize/ledgers.js"
+			],
+			[
+				"mater",
+				"app/assets/javascripts/materialize.js"
+			],
+			[
+				"ledgerscss",
+				"app/assets/stylesheets/inspinia/ledgers.css.scss"
+			],
+			[
+				"inspni",
+				"app/views/layouts/inspinia.html.slim"
+			],
+			[
+				"buildform",
+				"app/views/admin/builds/_form.html.slim"
+			],
+			[
+				"navigat",
+				"app/views/layouts/inspinia/_navigation.html.slim"
+			],
+			[
+				"aplihepler",
+				"app/helpers/application_helper.rb"
+			],
+			[
+				"ledgerhelper",
+				"app/helpers/ledger_items_helper.rb"
+			],
+			[
+				"unitindex",
+				"app/views/admin/units/index.html.slim"
+			],
+			[
+				"ledgerindex",
+				"app/views/ledgers/_index.html.slim"
+			],
+			[
+				"basedefau",
+				"app/assets/stylesheets/base-default.css"
+			],
+			[
+				"inspinaicss",
+				"app/assets/stylesheets/inspinia.css.scss"
+			],
+			[
+				"materiacss",
+				"vendor/assets/stylesheets/materialize/materialize.css"
+			],
+			[
+				"inspinia.css",
+				"app/assets/stylesheets/inspinia.css.scss"
+			],
+			[
+				"inspinacss",
+				"app/assets/stylesheets/inspinia.css.scss"
+			],
+			[
+				"ledger.css",
+				"app/assets/stylesheets/inspinia/ledgers.css.scss"
+			],
+			[
+				"ldegerindex",
+				"app/views/ledgers/index.html.slim"
+			],
+			[
+				"materi",
+				"app/assets/stylesheets/materialize.css.scss"
+			],
+			[
+				"en",
+				"config/locales/en.yml"
+			],
+			[
+				"unitedit",
+				"app/views/admin/units/edit.html.slim"
+			],
+			[
+				"uniindex",
+				"app/views/admin/units/_index.html.slim"
+			],
+			[
+				"unitcont",
+				"app/controllers/units_controller.rb"
+			],
+			[
+				"unitcontro",
+				"app/controllers/units_controller.rb"
+			],
+			[
+				"buildcontro",
+				"app/controllers/builds_controller.rb"
+			],
+			[
+				"ldegercontr",
+				"app/controllers/ledgers_controller.rb"
+			],
+			[
+				"chart-script.js",
+				"vendor/assets/javascripts/materialize/plugins/chartjs/chart-script.js"
+			],
+			[
+				"inspina",
+				"app/views/layouts/inspinia.html.slim"
+			],
+			[
+				"basecontro",
+				"app/controllers/admin/base_controller.rb"
+			],
+			[
+				"dashboard.js",
+				"app/assets/javascripts/inspinia/dashboards.js"
+			],
+			[
+				"inspnia",
+				"app/assets/stylesheets/inspinia.css.scss"
+			],
+			[
+				"vreate",
+				"app/views/cost_centers/create.js.erb"
+			],
+			[
+				"upload",
+				"app/views/public/buyers/_form_upload.html.slim"
+			],
+			[
+				"inspmi",
+				"app/views/layouts/inspinia.html.slim"
+			],
+			[
+				"ledgersnew",
+				"app/views/ledgers/new.html.slim"
+			],
+			[
+				"ledgernew",
+				"app/views/ledgers/_new.html.slim"
+			],
+			[
+				"registra",
+				"app/controllers/registrations_controller.rb"
+			],
+			[
+				"appli.rb",
+				"config/application.rb"
+			],
+			[
+				"prod",
+				"config/environments/production.rb"
+			],
+			[
+				"layoutempt",
+				"app/views/layouts/inspinia/empty.html.erb"
+			],
+			[
+				"das",
+				"app/controllers/dashboards_controller.rb"
+			],
+			[
+				"omni",
+				"app/controllers/admin/omniauth_callbacks_controller.rb"
+			],
+			[
+				"topbar",
+				"app/views/layouts/inspinia/_topnavbar.html.slim"
+			],
+			[
+				"appl",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"dashboardcontro",
+				"app/controllers/dashboards_controller.rb"
+			],
+			[
+				"sessionnew",
+				"app/views/devise/sessions/new.html.slim"
+			],
+			[
+				"store.rb",
+				"app/models/store.rb"
+			],
+			[
+				"purchaindex",
+				"app/views/purchases/index.html.slim"
+			],
+			[
+				"contractindex",
+				"app/views/contracts/index.html.slim"
+			],
+			[
+				"buildindex",
+				"app/views/builds/index.html.slim"
+			],
+			[
+				"ledgstate",
+				"app/views/ledgers/_statement.html.slim"
+			],
+			[
+				"state",
+				"test/fixtures/statements.yml"
+			],
+			[
+				"sitecontr",
+				"app/controllers/site_controller.rb"
+			],
+			[
+				"navig",
+				"app/views/layouts/inspinia/_navigation.html.slim"
+			],
+			[
+				"daddto",
+				"db/migrate/20131122022938_add_build_id_to_account.rb"
+			],
+			[
+				"pro",
+				"app/models/proposal.rb"
+			],
+			[
+				"user.rb",
+				"app/models/user.rb"
+			],
+			[
+				"file",
+				"app/uploaders/file_uploader.rb"
+			],
+			[
+				"sessio",
+				"app/controllers/admin/sessions_controller.rb"
+			],
+			[
+				"nav",
+				"app/views/layouts/inspinia/_navigation.html.slim"
+			],
+			[
+				"index",
+				"app/views/dashboards/index.html.slim"
+			],
+			[
+				"dashboardindex",
+				"app/views/dashboards/index.html.slim"
+			],
+			[
+				"devis",
+				"config/initializers/devise.rb"
+			],
+			[
+				"devise",
+				"config/initializers/devise.rb"
+			],
+			[
+				"initi",
+				"config/initializers/omniauth.rb"
+			],
+			[
+				"comment.rb",
+				"app/models/comment.rb"
+			],
+			[
+				"roure",
+				"config/routes.rb"
+			],
+			[
+				"dashboardcontrllerr",
+				"app/controllers/dashboards_controller.rb"
+			],
+			[
+				"dashba",
+				"app/controllers/dashboards_controller.rb"
+			],
+			[
+				"session",
+				"app/controllers/admin/sessions_controller.rb"
+			],
+			[
+				"registranew",
+				"app/views/devise/registrations/new.html.slim"
+			],
+			[
+				"appli",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"storeform",
+				"app/views/stores/_form.html.slim"
+			],
+			[
+				"storecontroller.rb",
+				"app/controllers/stores_controller.rb"
+			],
+			[
+				"e",
+				"config/locales/en.yml"
+			],
+			[
+				"ledge",
+				"app/models/ledger_item.rb"
+			],
+			[
+				"build",
+				"app/models/build.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/Users/breno/app/go2b/Imentore.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"String"
+			]
+		],
+		"width": 872.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 289.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

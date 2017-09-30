@@ -1,0 +1,63 @@
+css:
+  .nested-fields td .form-group {
+    margin-bottom: 0;
+  }
+  .nested-fields td .form-group input {
+    height:28px;
+  }
+  .nested-fields td {
+    padding-bottom: 10px;
+  }
+
+
+/ h3.box-title Basic Table
+/ p.text-muted
+/   | Add class
+/   code .table
+= simple_form_for @proposal, html:{id:'settings'}, remote:true do |f|
+  = f.error_notification
+  .table-responsive
+    table.table
+      thead
+        tr
+          th Document
+          th Approved?
+          th Remove
+      tbody
+        = f.simple_fields_for :documents do |ff| 
+          tr.nested-fields
+            td.txt-oflo
+              = ff.object.name
+            td
+              - if ff.object.approved?
+                = link_to action_admin_proposal_path(@proposal, :cancel, ff.object), remote:true do
+                  span.label.label-info   
+                    = t(:approved, scope: 'helpers.common')
+              - else
+                = link_to action_admin_proposal_path(@proposal, :approve, ff.object), remote:true do
+                  span.label.label-danger   
+                    = t(:not_approved, scope: 'helpers.common')
+            td 
+              = link_to_remove_association t(:remove), ff
+        tr
+          td[colspan=3]
+  .row.nested-fields.m-b-0
+    .nested-fields
+      = link_to_add_association 'Add', f, :documents
+  hr.create-field.m-t-0
+
+  .form-group
+    .col-sm-offset-0.col-sm-9
+      = f.submit nil, :class => 'btn btn-primary', id:'create-field'
+      '
+      = link_to t('back', scope: "helpers.links"), :back, :class => 'btn'
+
+
+javascript:
+  $(document).ready(function() {
+    $("form#settings").on('cocoon:after-insert', function(e, insertedItem) { 
+      var element = $('div.row.nested-fields tr')
+      $('table tr.nested-fields').last().after(element)
+      //$('.row#units').find('tr.nested-fields').last().remove()
+    });
+  });

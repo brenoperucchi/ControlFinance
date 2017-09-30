@@ -1,0 +1,97 @@
+- content_for :head
+  css:
+    .wizard-pane.active{
+      display: table;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .col-md-6.col-lg-6.col-sm-6{
+      height: 100%;
+      overflow: overlay;
+      display: inline-block;
+    } 
+    #upload{
+      float:none;
+    }
+    .dropzone.dz-clickable{
+      height:100%
+    }
+
+
+
+.col-md-6.col-lg-6.col-sm-6
+  .white-box
+    h3.box-title = t :title, scope:'helpers.purchase_step.document'
+    ul.common-list
+      - @proposal.documents.each do |document|      
+        li
+          a href="javascript:void(0)" 
+            = document.name
+            '
+            - if document.approved?
+              i.fa.fa-check.text-success
+            - else
+              i.fa.fa-circle-o.text-danger
+#upload.col-md-6.col-lg-6.col-sm-6
+  .dropzone
+  .fallback.hide
+    = f.file_field :file
+
+- content_for :footer do
+  javascript:
+    $(document).ready(function(){
+      //$('.dropify').dropify({
+      //  messages: {
+      //      default: "#{t :document1, scope: 'helpers.proposal_step'}",
+      //  }
+      //});
+      //$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+      //  var to_url = $(e.target).attr('href')
+      //  history.pushState(null, "", to_url);
+      //  e.preventDefault()
+      //})
+      Dropzone.autoDiscover = false;
+      $(".dropzone").dropzone({
+        url: "#{public_assets_path(@proposal.class.name, @proposal)}",
+        maxFilesize: 15,
+        paramName: "asset[file]",
+        addRemoveLinks: true,
+        init: function() {
+          $.ajax({
+              type: 'GET',
+              url: "#{public_assets_path(@proposal.class.name, @proposal)}",
+              dataType: 'JSON',
+              success: function(response) {
+              $.each(response, function(index, object){ 
+                var imgDropzone = Dropzone.forElement(".dropzone");
+                var mockFile = {
+                    name: object.asset.name,
+                    size: object.asset.size,
+                    accepted: true,
+                    kind: object.asset.type,
+                };
+                imgDropzone.emit("addedfile", mockFile);
+                imgDropzone.createThumbnailFromUrl(mockFile, object.asset.imageURL);
+                imgDropzone.emit("complete", mockFile);
+                $(imgDropzone.element.lastChild).find(".dz-remove").data('id', object.asset.id)
+              })
+            }
+          });
+        },
+        success: function(file, response) {
+          $(file._removeLink).data('id', response.asset.id)
+          return file.previewElement.classList.add("dz-success")
+        },
+        removedfile: function(file) {
+            var name = file.name;  
+            var data_id = $(file.previewTemplate).find('a').data('id')
+            $.ajax({
+                type: 'DELETE',
+                url: '/public/assets/'+data_id,
+                dataType: 'JSON'
+            });
+          var _ref;
+          return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;        
+        }
+      }); 
+    });
