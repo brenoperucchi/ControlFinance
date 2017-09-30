@@ -1,3 +1,28 @@
+set :port, 22
+set :user, 'appweb'
+set :deploy_to, '/home/appweb/app'
+set :deploy_via, :remote_cache
+set :use_sudo, false
+
+server 'app.imentore.com.br',
+  roles: [:web, :app, :db],
+  port: fetch(:port),
+  user: fetch(:user),
+  primary: true
+
+# set :deploy_to, "/home/#{fetch(:user)}/app/#{fetch(:application)}"
+# set :deploy_to, "/home/#{fetch(:user)}/app/#{fetch(:application)}"
+
+set :ssh_options, {
+  forward_agent: true,
+  auth_methods: %w(publickey),
+  keys: "#{ENV['HOME']}/.ssh/id_rsa",
+  user: 'appweb',
+}
+
+set :rails_env, :production
+set :conditionally_migrate, true   
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
