@@ -371,6 +371,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.1)
   bootstrap-sass-extras (~> 0.0.7)
   byebug
+  capistrano-bundler
   capistrano-rails
   capistrano-rbenv
   capistrano3-unicorn

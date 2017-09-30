@@ -82,8 +82,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 group :development do
   gem 'capistrano-rails'
+  gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+
 end
 
 group :development, :test do
