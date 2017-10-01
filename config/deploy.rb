@@ -6,6 +6,8 @@ set :repo_url, 'git@github.com:brenoperucchi/appweb.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 set :branch, "master"
+set :scm, :git
+set :log_level, :debug
 
 set :use_sudo, false
 set :bundle_binstubs, nil
@@ -15,7 +17,8 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
-    invoke 'unicorn:reload'
+    invoke 'unicorn:stop'
+    invoke 'unicorn:start'
   end
 end
 # Default branch is :master
