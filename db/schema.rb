@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20170304201530) do
 
-  create_table "activities", force: :cascade do |t|
+  create_table "activities", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
     t.integer "trackable_id"
     t.string "owner_type"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20170304201530) do
     t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
   end
 
-  create_table "assets", force: :cascade do |t|
+  create_table "assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "file"
     t.string "assetable_type"
     t.integer "assetable_id"
@@ -40,18 +40,18 @@ ActiveRecord::Schema.define(version: 20170304201530) do
     t.index ["assetable_type", "assetable_id"], name: "index_assets_on_assetable_type_and_assetable_id"
   end
 
-  create_table "brokers", force: :cascade do |t|
+  create_table "brokers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "store_id"
-    t.integer "user_id"
+    t.string "department"
+    t.string "person_type"
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["store_id"], name: "index_brokers_on_store_id"
-    t.index ["user_id"], name: "index_brokers_on_user_id"
   end
 
-  create_table "builds", force: :cascade do |t|
+  create_table "builds", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "state"
     t.integer "store_id"
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 20170304201530) do
     t.index ["store_id"], name: "index_builds_on_store_id"
   end
 
-  create_table "buyers", force: :cascade do |t|
+  create_table "buyers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "information"
     t.integer "store_id"
     t.integer "proposal_id"
@@ -71,12 +71,12 @@ ActiveRecord::Schema.define(version: 20170304201530) do
     t.index ["store_id"], name: "index_buyers_on_store_id"
   end
 
-  create_table "dashboards", force: :cascade do |t|
+  create_table "dashboards", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "mailers", force: :cascade do |t|
+  create_table "mailers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "method_name"
     t.text "parameters"
     t.string "url"
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 20170304201530) do
     t.index ["userable_type", "userable_id"], name: "index_mailers_on_userable_type_and_userable_id"
   end
 
-  create_table "persons", force: :cascade do |t|
+  create_table "persons", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "store_id"
     t.string "irs_id"
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 20170304201530) do
     t.index ["store_id"], name: "index_persons_on_store_id"
   end
 
-  create_table "proposal_documents", force: :cascade do |t|
+  create_table "proposal_documents", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "state"
     t.datetime "approved_at"
@@ -116,19 +116,21 @@ ActiveRecord::Schema.define(version: 20170304201530) do
     t.index ["proposal_id"], name: "index_proposal_documents_on_proposal_id"
   end
 
-  create_table "proposals", force: :cascade do |t|
-    t.string "name"
+  create_table "proposals", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "state"
     t.text "information"
     t.integer "unit_id"
     t.integer "broker_id"
+    t.date "due_at"
+    t.date "booked_at"
+    t.date "accepted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["broker_id"], name: "index_proposals_on_broker_id"
     t.index ["unit_id"], name: "index_proposals_on_unit_id"
   end
 
-  create_table "stores", force: :cascade do |t|
+  create_table "stores", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "settings"
     t.datetime "disabled_at"
@@ -137,18 +139,18 @@ ActiveRecord::Schema.define(version: 20170304201530) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "units", force: :cascade do |t|
-    t.string "name"
-    t.string "state"
+  create_table "units", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "information"
     t.decimal "value", precision: 10, scale: 2
     t.decimal "size", precision: 10, scale: 2
+    t.decimal "brokerage", precision: 10, scale: 2, default: "5.0"
     t.integer "build_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["build_id"], name: "index_units_on_build_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -164,9 +166,11 @@ ActiveRecord::Schema.define(version: 20170304201530) do
     t.string "userable_type"
     t.integer "userable_id"
     t.integer "store_id"
-    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["email"], name: "index_users_on_email"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["userable_type", "userable_id"], name: "index_users_on_userable_type_and_userable_id"
   end
 
+  add_foreign_key "buyers", "proposals"
+  add_foreign_key "units", "builds"
 end
