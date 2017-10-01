@@ -6,7 +6,6 @@ set :repo_url, 'git@github.com:brenoperucchi/appweb.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 set :branch, "master"
-set :scm, :git
 set :log_level, :debug
 
 set :use_sudo, false
