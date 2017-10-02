@@ -8,7 +8,7 @@ html lang="en"
     meta content="" name="author" /
     / link href="../plugins/images/favicon.png" rel="icon" sizes="16x16" type="image/png" /
     title= "AppWeb - #{I18n.t(params[:controller], scope:'navigate')}"
-    = stylesheet_link_tag "elite/#{params[:controller]}" if ::Rails.application.assets.find_asset("elite/#{params[:controller]}.scss")
+    = stylesheet_link_tag "elite/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["elite/#{params[:controller]}.scss"]
     = stylesheet_link_tag    'elite', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'elite', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -37,5 +37,5 @@ html lang="en"
               = flash[:alert]
           = yield
       / footer.footer.text-center 2016 &copy; Elite Admin brought to you by themedesigner.in
-    = javascript_include_tag "elite/#{params[:controller]}" if ::Rails.application.assets.find_asset("elite/#{params[:controller]}.js")
+    = javascript_include_tag "elite/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["elite/#{params[:controller]}.js"]
     = yield :footer
