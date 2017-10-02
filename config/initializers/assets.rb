@@ -13,3 +13,15 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 Rails.application.config.assets.precompile += %w( elite.js )
 Rails.application.config.assets.precompile += %w( elite.css )
+
+Rails.application.config.assets.precompile += %w( elite/public/builds.scss )
+Rails.application.config.assets.precompile += %w( elite/public/builds.js )
+Rails.application.config.assets.precompile += %w( elite/public/proposals.js )
+Rails.application.config.assets.precompile += %w( elite/public/proposals.scss )
+Rails.application.config.assets.precompile += %w( elite/public/purchase_steps.js )
+Rails.application.config.assets.precompile += %w( elite/public/purchase_steps.scss )
+
+Rails.application.config.assets.precompile += %w( elite/admin/builds.js )
+Rails.application.config.assets.precompile += %w( elite/admin/builds.scss )
+Rails.application.config.assets.precompile += %w( elite/admin/proposals.js )
+Rails.application.config.assets.precompile += %w( elite/admin/proposals.scss )
