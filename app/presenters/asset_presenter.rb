@@ -4,7 +4,7 @@ class AssetPresenter
   def initialize(object)
     if object.is_a?(Asset)
       @asset = object
-    elsif object.is_a?(Asset::ActiveRecord_Associations_CollectionProxy)
+    elsif object.is_a?(ActiveRecord::Relation)
       @assets = object
     end
   end
