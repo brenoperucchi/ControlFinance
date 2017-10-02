@@ -52,7 +52,7 @@ gem "slim"
 gem "slim-rails"
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'bootstrap-sass-extras', '~> 0.0.7'
-gem 'sprockets-rails', '2.3.3'
+gem 'sprockets-rails'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'

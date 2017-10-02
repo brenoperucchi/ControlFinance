@@ -520,82 +520,37 @@
 	"buffers":
 	[
 		{
-			"file": "app/views/admin/builds/index.html.slim",
-			"settings":
-			{
-				"buffer_size": 3827,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/admin/builds/assets.js.erb",
-			"settings":
-			{
-				"buffer_size": 140,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/admin/devise/confirmations/new.html.erb",
-			"settings":
-			{
-				"buffer_size": 485,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/Users/brenoperucchi/Downloads/02 - Developer/themeforest-10621512-con-material-admin-dashboard-template/dist/bower_components/moment/src/locale/se.js",
-			"settings":
-			{
-				"buffer_size": 1751,
-				"encoding": "UTF-8",
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "default: &default\n  adapter: mysql2\n  host: dns.imentore.com.br\n  username: appweb\n  password: ap123web123\n  pool: 5\n  timeout: 5000\n\ndefault2: &default2\n  host: localhost\n  pool: 5\n  timeout: 5000\n\ndevelopment:\n  <<: *default2\n  adapter: mysql2\n  database: appweb\n  username: root\n  password: 123\n  pool: 5\n  timeout: 5000\n  database: appweb\n\n# Warning: The database defined as \"test\" will be erased and\n# re-generated from your development database when you run \"rake\".\n# Do not set this db to the same as development or production.\ntest:\n  <<: *default\n  database: appweb_test\n  # database: db/test.sqlite3\n\nproduction:\n  <<: *default2\n  adapter: sqlite3\n  database: db/development.sqlite3\n  # database: db/production.sqlite3",
-			"file": "config/database.yml",
-			"file_size": 731,
-			"file_write_time": 131513011720000000,
-			"settings":
-			{
-				"buffer_size": 728,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 1268 files for \"assets/elite/elite/spinners.css\" (case sensitive)\n\n/Users/brenoperucchi/Google-Drive/03-Apps/appweb/log/production.log:\n    <binary>\n\n14 matches in 1 file\n",
-			"settings":
-			{
-				"buffer_size": 181,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "app/controllers/admin/builds_controller.rb",
-			"settings":
-			{
-				"buffer_size": 2418,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "config/routes.rb",
-			"settings":
-			{
-				"buffer_size": 1833,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "config/environments/production.rb",
 			"settings":
 			{
-				"buffer_size": 3653,
+				"buffer_size": 3829,
 				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "config/initializers/assets.rb",
+			"settings":
+			{
+				"buffer_size": 653,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Capfile",
+			"settings":
+			{
+				"buffer_size": 1261,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/assets/stylesheets/elite.css",
+			"settings":
+			{
+				"buffer_size": 760,
 				"line_ending": "Unix"
 			}
 		},
@@ -1159,39 +1114,57 @@
 	"expanded_folders":
 	[
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/unicorn"
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets"
 	],
 	"file_history":
 	[
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/routes.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/bin/rake",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/bin/rails",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/locales/en.yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/initializers/inflections.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/elite.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/application.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/deploy/production.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/environments/production.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/initializers/application_controller_renderer.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/environments/test.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/environments/development.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/application.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/secrets.yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/puma.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/cable.yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/builds_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/stylesheets/elite/style.css",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/assets.js.erb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/devise/confirmations/new.html.erb",
+		"/Users/brenoperucchi/Downloads/02 - Developer/themeforest-10621512-con-material-admin-dashboard-template/dist/bower_components/moment/src/locale/se.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/database.yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/finish2.html.erb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/initializers/devise.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/elite.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/application.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/database.yml",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/stylesheets/elite/style.css",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/stylesheets/elite/style_old.css",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/stylesheets/elite/spinners.css",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/tmp/pids/server.pid",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/secrets.yml",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/unicorn/production.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/deploy.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/deploy/production.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/store.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/Gemfile",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/locales/en.yml",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/Capfile",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/unicorn/Capfile",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/.ruby-version",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/unicorn/config/deploy/production.rb",
 		"/Users/brenoperucchi/Downloads/42160378323094000470550050000607881004099591-nfe.xml",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/devise/confirmations/new.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/environments/development.rb",
 		"/Volumes/ExternalSSD/Games/steamapps/common/X-Plane 11/Custom Scenery/scenery_packs.ini",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/appweb.sublime-project",
 		"/Users/brenoperucchi/Downloads/PassengersFX 1.0.3.1 (UPDATE ONLY)/PassengersFX.lua",
 		"/Volumes/ExternalSSD/Games/steamapps/common/X-Plane 11/Resources/plugins/BetterPushback/COPYING",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/broker.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/builds_controller.rb",
 		"/Users/brenoperucchi/.zshrc",
 		"/Volumes/ExternalSSD/Games/steamapps/common/X-Plane 11/Resources/plugins/XACARS/XACARS.ini",
 		"/Volumes/ExternalSSD/Games/steamapps/common/X-Plane 11/Resources/plugins/XACARS/XAcars/xacars.ini",
@@ -1199,7 +1172,6 @@
 		"/Users/brenoperucchi/.bash_profile",
 		"/Users/brenoperucchi/Documents/emulator/California Games (USA, Europe).md",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/db/migrate/20170304201530_create_stores.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/routes.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/site/registers_controller.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/site/registers/new.html.slim",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/proposal.rb",
@@ -1227,16 +1199,13 @@
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/spec/requests/admin_proposals_spec.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/application_controller.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/initializers/sentient_store.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/finish2.html.erb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/spec/factories/brokers.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/public/assets/application-b81274edfed9320ada2210a589dfbb328deefd0fa77ea26253f6df293b35515c.css",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/elite.html.slim",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/spec/factories/stores.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/spec/spec_helper.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/spec/factories/build.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/spec/factories/user.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/db/migrate/20161221002351_create_activities.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/index.html.slim",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/user.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/scope.html.slim",
 		"//Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/_scope_proposals.html.slim",
@@ -1268,7 +1237,6 @@
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/mailers/price_list.html.slim",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/_assets.html.slim",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/asset.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/assets.js.erb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/elite/admin/builds.js",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/elite/admin/builds.scss",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/elite/admin/proposals.js",
@@ -1280,18 +1248,7 @@
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/purchase_steps_controller.rb",
 		"/Users/brenoperucchi/Downloads/02 - Developer/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/eliteadmin-horizontal-nav-fullwidth/steps.html",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/booking.js.erb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/elite/public/builds.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/proposal.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/document.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/buyer.html.slim",
-		"//Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/finish.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/finish.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/finish.html.erb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/create.js.erb",
-		"/Users/brenoperucchi/Downloads/02 - Developer/themeforest-16750820-elite-admin-the-ultimate-dashboard-web-app-kit-material-design/eliteadmin-horizontal-nav-fullwidth/starter-page.html",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/elite/public/builds.scss",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/elite/public/proposals.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/create.js.erb"
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/elite/public/builds.js"
 	],
 	"find":
 	{
@@ -1302,6 +1259,8 @@
 		"height": 122.0,
 		"where_history":
 		[
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.js",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.css",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.js",
@@ -1427,8 +1386,6 @@
 			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.js",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.rb",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/gestor/, *.slim"
 		]
 	},
@@ -1437,6 +1394,10 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"elite.js",
+			"digest",
+			"config.assets.digest",
+			"spinners.css",
 			"assets/elite/elite/spinners.css",
 			"/assets/elite/elite/spinners.css",
 			"unicorn",
@@ -1560,11 +1521,7 @@
 			".select",
 			"'select'",
 			"select",
-			".container",
-			"wrapper",
-			"deselect-all",
-			"public-methods",
-			"multiselect"
+			".container"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1675,285 +1632,35 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"sheets":
+			[
+			]
+		},
+		{
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/admin/builds/index.html.slim",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3827,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								141,
-								141
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Ruby Slim/Syntaxes/Ruby Slim.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/views/admin/builds/assets.js.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 140,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Ruby on Rails snippets/JavaScript (Rails).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/views/admin/devise/confirmations/new.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 485,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Rails/HTML (Rails).sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/Users/brenoperucchi/Downloads/02 - Developer/themeforest-10621512-con-material-admin-dashboard-template/dist/bower_components/moment/src/locale/se.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1751,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								602,
-								602
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": false,
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "config/database.yml",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 728,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								245,
-								245
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/YAML/YAML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 181,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"default_dir": "/Users/brenoperucchi/Google-Drive/03-Apps/appweb",
-							"detect_indentation": false,
-							"git_gutter_is_enabled": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([^ \t].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/controllers/admin/builds_controller.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2418,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Ruby on Rails snippets/Ruby on Rails.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "config/routes.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1833,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								142,
-								142
-							]
-						],
-						"settings":
-						{
-							"git_gutter_is_enabled": true,
-							"syntax": "Packages/Ruby on Rails snippets/Ruby on Rails.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				}
-			]
-		},
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 8,
 					"file": "config/environments/production.rb",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3653,
+						"buffer_size": 3829,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1132,
-								1132
+								1081,
+								1081
 							]
 						],
 						"settings":
 						{
 							"git_gutter_is_enabled": true,
+							"history_list_is_closing": true,
 							"syntax": "Packages/Ruby on Rails snippets/Ruby on Rails.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
@@ -1966,7 +1673,95 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 1,
+					"file": "config/initializers/assets.rb",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 653,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								629,
+								629
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/Ruby on Rails snippets/Ruby on Rails.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Capfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1261,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								29,
+								29
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"history_list_is_closing": true,
+							"syntax": "Packages/Ruby/Ruby.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/assets/stylesheets/elite.css",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 760,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"git_gutter_is_enabled": true,
+							"syntax": "Packages/CSS/CSS.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
 					"file": "Gemfile",
 					"semi_transient": false,
 					"settings":
@@ -1993,11 +1788,11 @@
 						"translation.y": 21.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 5,
 					"file": "config/deploy.rb",
 					"semi_transient": false,
 					"settings":
@@ -2022,7 +1817,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -2030,7 +1825,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 42.0
+		"height": 34.0
 	},
 	"input":
 	{
@@ -2092,6 +1887,50 @@
 		"selected_items":
 		[
 			[
+				"test.rb",
+				"config/environments/test.rb"
+			],
+			[
+				"produc",
+				"config/environments/production.rb"
+			],
+			[
+				"deve",
+				"config/environments/development.rb"
+			],
+			[
+				"puma.rb",
+				"config/puma.rb"
+			],
+			[
+				"cable",
+				"config/cable.yml"
+			],
+			[
+				"sec",
+				"config/secrets.yml"
+			],
+			[
+				"applic",
+				"config/application.rb"
+			],
+			[
+				"route.",
+				"config/routes.rb"
+			],
+			[
+				"layout/",
+				"app/views/layouts/elite.html.slim"
+			],
+			[
+				"cap",
+				"Capfile"
+			],
+			[
+				"application.js",
+				"app/assets/javascripts/application.js"
+			],
+			[
 				"data",
 				"config/database.yml"
 			],
@@ -2138,10 +1977,6 @@
 			[
 				"gemfi",
 				"Gemfile"
-			],
-			[
-				"deve",
-				"config/environments/development.rb"
 			],
 			[
 				"route.rb",
@@ -2562,46 +2397,6 @@
 			[
 				"new",
 				"app/views/public/proposals/new.html.slim"
-			],
-			[
-				"untirb",
-				"app/models/unit.rb"
-			],
-			[
-				"builindex",
-				"app/views/admin/builds/index.html.slim"
-			],
-			[
-				"unitindex",
-				"app/views/admin/units/index.html.slim"
-			],
-			[
-				"publichtm",
-				"app/views/layouts/public.html.slim"
-			],
-			[
-				"sty",
-				"vendor/assets/stylesheets/elite/style.css"
-			],
-			[
-				"adminprposal",
-				"app/controllers/admin/proposals_controller.rb"
-			],
-			[
-				"unticonr",
-				"app/controllers/admin/units_controller.rb"
-			],
-			[
-				"form",
-				"app/views/public/proposals/_form_disable.html.slim"
-			],
-			[
-				"unitform",
-				"app/views/admin/units/_form.html.slim"
-			],
-			[
-				"createactiv",
-				"db/migrate/20161221002351_create_activities.rb"
 			]
 		],
 		"width": 0.0
@@ -2632,7 +2427,7 @@
 		],
 		"width": 422.0
 	},
-	"selected_group": 0,
+	"selected_group": 1,
 	"settings":
 	{
 	},
