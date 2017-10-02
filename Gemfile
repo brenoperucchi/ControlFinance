@@ -19,7 +19,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'cocoon', '1.2.8', git: 'https://github.com/bperucchi/cocoon.git'
 gem 'x-editable-rails'
-# gem 'unicorn'
+gem 'unicorn'
 
 
 # Development and Test
