@@ -7,12 +7,12 @@
         =t 'new', scope: 'helpers.titles', :model => model_class.model_name.human.titleize
   .modal-body
     .dropzone
-    .fallback.hide
+    .fallback
       = f.file_field :file
+      = f.submit nil, :class => 'btn btn-primary'
   .modal-footer
     / .form-group
     /   .col-sm-offset-0.col-sm-9
-    /     = f.submit nil, :class => 'btn btn-primary'
     /     '
     /     = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'  
 

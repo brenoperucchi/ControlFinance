@@ -18,6 +18,7 @@ class Public::AssetsController < ApplicationController
     if @asset.save
       respond_to do |format|
         format.json{ render :json => AssetPresenter.new(@asset).to_json }
+        format.html{ redirect_to admin_builds_path }
       end
     end
   end
