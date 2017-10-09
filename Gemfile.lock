@@ -413,7 +413,6 @@ DEPENDENCIES
   state_machine!
   terminal-notifier-guard
   turbolinks (~> 5)
-  tzinfo-data
   uglifier
   unicorn
   wicked

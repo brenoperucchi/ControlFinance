@@ -38,12 +38,19 @@ group :development, :test do
 end
 
 group :development do
-#   gem 'awesome_print'
-  # gem 'quiet_assets', git: 'https://github.com/fishpercolator/quiet_assets.git'
+# gem 'awesome_print'
+# gem 'quiet_assets', git: 'https://github.com/fishpercolator/quiet_assets.git'
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
   gem 'mailcatcher'
   gem 'better_errors'
   gem 'binding_of_caller'
 #   gem 'meta_request'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano3-unicorn'
+
 end
 
 # Stylesheet
@@ -53,40 +60,22 @@ gem "slim-rails"
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'bootstrap-sass-extras', '~> 0.0.7'
 gem 'sprockets-rails'
+# gem 'pages-rails','3.0.0',:git => 'https://github.com/revoxltd/pages-rails.git'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-# Use Puma as the app server
+# System
 gem 'puma', '~> 3.0'
-# Use SCSS for stylesheets
 gem 'sass-rails'#, '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
 gem 'uglifier'#, '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails'#, '~> 4.2'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-group :development do
-  gem 'capistrano-rails'
-  gem 'capistrano-bundler'
-  gem 'capistrano-rbenv'
-  gem 'capistrano3-unicorn'
-
-end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -108,4 +97,4 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
