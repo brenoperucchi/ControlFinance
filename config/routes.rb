@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root to: "site/registers#new"
-
+  root to: "public/builds#index"
 
   devise_for :users, controllers:{
     :sessions => "public/sessions",
@@ -14,8 +13,9 @@ Rails.application.routes.draw do
     resources :assets, only:[:create, :index], path: 'assetable_type/:assetable_type/assetable_id/:assetable_id'
     resources :assets, only:[:destroy]
     resources :purchase_steps, path: 'proposal/:proposal_id'
-    resources :builds, only:[:index], except:[:destroy] do
-      resources :units, only:[], shallow:true, except:[:destroy] do
+    resources :brokers, only:[:new, :create]
+    resources :builds, only:[:index] do
+      resources :units, only:[], shallow:true do
         resources :proposals, except: [:destroy] do
           get 'booking', on: :collection
           get 'expired', on: :member

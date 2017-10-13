@@ -40,7 +40,6 @@ end
 group :development do
 # gem 'awesome_print'
 # gem 'quiet_assets', git: 'https://github.com/fishpercolator/quiet_assets.git'
-  # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
   gem 'mailcatcher'
   gem 'better_errors'
@@ -50,7 +49,6 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-
 end
 
 # Stylesheet
@@ -79,11 +77,10 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  # gem 'byebug', '9.0.5'
   gem 'pry'
   gem 'pry-nav'
-  # gem 'byebug', '9.0.5'
   gem 'pry-stack_explorer'
-
   gem 'byebug', platform: :mri
 end
 

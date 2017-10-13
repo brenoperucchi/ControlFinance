@@ -261,5 +261,7 @@ en:
   activerecord:
     models:
     attributes:
+      broker:
+        name: 'Name'
     errors:
       <<: *errors
