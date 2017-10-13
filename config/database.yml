@@ -27,7 +27,10 @@ test:
   database: appweb_test
   # database: db/test.sqlite3
 
-# production:
-#   <<: *default2
-#   adapter: mysql2
-#   database: appweb
+production:
+  <<: *default2
+  adapter: mysql2
+  database: appweb
+  username: root
+  password: 123
+  database: appweb
