@@ -1,5 +1,5 @@
 - model_class = Broker
-.row.m-t-20
+.row
   .col-lg-8
     .row
       .col-lg-12
@@ -61,9 +61,10 @@
 
   .col-lg-4
     .row
-      .col-lg-12
-        = simple_form_for [:public, @broker], wrapper: :pages_form2 do |f|
-          = f.input :comment, placeholder: model_class.human_attribute_name(:comment), input_html:{class: 'input-lg'}
+      .col-lg-12 
+        - unless @broker.activities.blank?
+          = simple_form_for [:public, @broker], wrapper: :pages_form2 do |f|
+            = f.input :comment, placeholder: model_class.human_attribute_name(:comment), input_html:{class: 'input-lg'}
     .row
       .timeline-container.left
         .p-l-25

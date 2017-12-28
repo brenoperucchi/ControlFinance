@@ -30,6 +30,8 @@ class Public::BrokersController < Public::BaseController
       respond_to do |format|
       if @broker.save
         flash[:info] = "Broker was successfully created."
+        "sdsd"
+        sign_in @broker.user
         format.html { redirect_to document_public_broker_path(@broker)}
         format.json { render :show, status: :created, location: @broker }
         format.js {  }
@@ -73,6 +75,6 @@ class Public::BrokersController < Public::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def public_broker_params
-      params.require(:broker).permit(:name, :irs_id, :company, :option1, :option2, :option3, :option4, :option5, :address, :phone, :company_irs_id, :store_id, :comment, user_attributes:[:id, :email])
+      params.require(:broker).permit(:name, :irs_id, :company, :option1, :option2, :option3, :option4, :option5, :address, :phone, :company_irs_id, :store_id, :comment, user_attributes:[:id, :email, :store_id])
     end
 end

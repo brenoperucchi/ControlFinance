@@ -1,7 +1,7 @@
 - model_class = Broker
 
 = simple_form_for [:public, @broker], html: {id: 'form-horizontal', class: 'p-t-15'}, wrapper: :pages_form, wrapper_mappings: { radio_buttons: :pages_vertical_radio} do |f|
-  = f.input :store_id, as: :hidden, input_html:{value: current_store}
+  = f.input :store_id, as: :hidden, input_html:{value: current_store.id}
   .card.card
     .card-block
       .row
@@ -12,7 +12,7 @@
           = f.input :name, placeholder: model_class.human_attribute_name(:name), input_html: { class: 'input-sm'}
           - f.object.build_user if f.object.user.nil?
           = f.simple_fields_for :user do |user|
-            = user.input :store_id, as: :hidden, input_html:{value: current_store}
+            = user.input :store_id, as: :hidden, input_html:{value: current_store.id}
             = user.input :email, placeholder: model_class.human_attribute_name(:email)
           = f.input :irs_id, placeholder: model_class.human_attribute_name(:irs_id), input_html: { class: 'input-sm'}
           = f.input :company, placeholder: model_class.human_attribute_name(:company), input_html: { class: 'input-sm'}
