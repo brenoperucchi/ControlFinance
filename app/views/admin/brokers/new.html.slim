@@ -1,0 +1,21 @@
+- model_class = Broker
+
+.card.widget-12.no-border.widget-loader-circle.no-margin
+  .card-header
+    .card-title
+      =t 'new', scope: :'helpers.titles', :model => model_class.model_name.human.titleize
+  = simple_form_for [:admin, @broker] do |f|
+    .card-block
+      = f.input :store_id, as: :hidden, input_html:{value: current_store.id}
+      = f.input :option1, as: :hidden, input_html:{value:'1'}
+      = f.input :option2, as: :hidden, input_html:{value:'1'}
+      = f.input :option3, as: :hidden, input_html:{value:'1'}
+      = f.input :option4, as: :hidden, input_html:{value:'1'}
+      = f.input :option5, as: :hidden, input_html:{value:'1'}
+      == render 'form', f: f, model_class: model_class
+    .card-footer
+      .form-group
+        .col-sm-offset-0.col-sm-9
+          = f.submit nil, :class => 'btn btn-primary'
+          '
+          = link_to t('back', scope: "helpers.links"), admin_brokers_path, :class => 'btn'

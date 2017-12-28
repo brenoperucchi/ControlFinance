@@ -1,4 +1,15 @@
 en:
+  not_accept: 'no'
+  accept: 'yes'
+  views:
+    broker:
+      new:
+        title1: Broker make your register here!
+        title2: 'Is requested that the correspondent fill in his data and accept the terms of requirements.'
+        title3: 'Company Contacts:'
+        title4: 'Telephone and WhatsApp for contact: 48 99126-8808'
+        title5: 'Primavera 320 Street,Conj 602, Pagani, Palhoça/SC'
+        title6: 'Zipcode 88132-100'
   date:
     abbr_day_names:
     - Sun
@@ -152,9 +163,13 @@ en:
       not_approved: 'Not Approved'
       confirm: 'Confirm'
     document:
-      document1 : 'Document 1'
-      document2 : 'Document 2'
-      document3 : 'Document 3'
+        broker:
+          document1 : 'Broker Id'
+          document2 : 'Contract'
+        proposal:
+          document1 : 'Document 1'
+          document2 : 'Document 2'
+          document3 : 'Document 3'
     mailer:
         price_list:
             title: 'Price List of Build: %{build}'
@@ -263,5 +278,11 @@ en:
     attributes:
       broker:
         name: 'Name'
+        option1: 'The banking correspondent will be indicated.'
+        option2: 'Broker will be responsible to request / request some documents for completion of bank financing.'
+        option3: 'Broker will be responsible in making all the contact with the client until delivery of the keys.'
+        option4: 'The payment of the brokerage to the broker will happen only after delivery of the Invoice, with the proofs of deposits of the client and through the effective receipts in the bank account of the developer.'
+        option5: 'The broker agrees not to disclose the members personal phones, but may only disclose the company information below:'
+
     errors:
       <<: *errors

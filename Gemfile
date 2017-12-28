@@ -11,14 +11,16 @@ gem 'rails', '5.1.4'
 # Core'
 gem 'devise'
 gem 'mysql2'
+gem 'pg'
 gem 'state_machine', git: 'https://github.com/shopperplus/state_machine.git'
 gem 'public_activity'
 gem 'sentient_user'#, git: 'https://github.com/julioalucero/sentient_user.git'
 gem 'wicked'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'cocoon', '1.2.8', git: 'https://github.com/bperucchi/cocoon.git'
-gem 'x-editable-rails'
+gem 'cocoon', '1.2.8', git: 'https://github.com/brenoperucchi/cocoon.git'
+gem 'x-editable-rails', git: 'https://github.com/brenoperucchi/x-editable-rails.git'
+# gem 'x-editable-rails', path: '../02 - plugins/x-editable-rails'  
 gem 'unicorn'
 
 
@@ -31,7 +33,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem "database_cleaner"
   gem "capybara", "2.7.1"
-  gem 'capybara-webkit', '1.10.0'
+  gem 'capybara-webkit', '1.14.0'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'rb-fsevent'

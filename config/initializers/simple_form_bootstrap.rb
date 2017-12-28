@@ -42,11 +42,15 @@ SimpleForm.setup do |config|
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
 
-  config.wrappers :vertical_radio_and_checkboxes, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
+  config.wrappers :vertical_radio_and_checkboxes, tag: 'div', class: 'form-group row', error_class: 'has-error' do |b|
     b.use :html5
     b.optional :readonly
-    b.use :label, class: 'control-label'
-    b.use :input
+    b.wrapper tag: 'div', class: 'col-md-8' do |ba| 
+      ba.use :label, class: 'control-label'
+    end
+    b.wrapper tag: 'div', class: 'col-md-4' do |ba|
+      ba.use :input
+    end
     b.use :error, wrap_with: { tag: 'span', class: 'help-block' }
     b.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
   end
@@ -147,14 +151,6 @@ SimpleForm.setup do |config|
     time: :multi_select
   }
 
-  config.wrappers :pages_form, tag: 'div', class: 'form-group', error_class: 'has_error' do |b|
-    b.use :html5
-    b.use :placeholder
-    b.wrapper tag: 'div', class: 'form-group form-group-default' do |append|
-      append.use :label, class: 'control-label'    
-      append.use :input, class: 'form-control'
-    end
-  end
 
   config.wrappers :vertical_input_group, tag: 'div', class: 'form-group', error_class: 'has-error' do |b|
     b.use :html5
@@ -169,4 +165,61 @@ SimpleForm.setup do |config|
       ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
     end
   end
+
+
+  config.wrappers :pages_form, tag: 'div', class: 'row clearfix', error_class: 'has-error' do |b|
+    b.wrapper tag: 'div', class: 'col-md-12' do |ba|
+      ba.wrapper tag: 'div', class: 'form-group form-group-default' do |bb|
+        # ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+        bb.use :label, class: ''
+        bb.use :html5
+        bb.use :placeholder
+        bb.use :input, class: 'form-control input-sm'
+        # ba.wrapper tag: 'div', class: 'form-group form-group-default' do |append|
+           
+        # end
+      end
+      ba.use :error, wrap_with: { tag: 'label', class: 'error' }
+    end
+  end
+
+  config.wrappers :pages_form2, tag: 'div', class: 'row', error_class: 'has-error' do |b|
+    b.wrapper tag: 'div', class: 'form-group form-group-default' do |bb|
+      # ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+      bb.use :label, class: ''
+      bb.use :html5
+      bb.use :placeholder
+      bb.use :input, class: 'form-control'
+      # ba.wrapper tag: 'div', class: 'form-group form-group-default' do |append|
+         
+      # end
+    end
+    b.use :error, wrap_with: { tag: 'label', class: 'error' }
+  end
+
+  config.wrappers :pages_vertical_radio, error_class: 'has-error' do |b|
+    b.wrapper tag: 'div', class: 'form-group row' do |bf|
+      bf.use :html5
+      bf.optional :readonly
+      bf.use :label, class: 'control-label col-md-8'
+      bf.wrapper tag: 'div', class: 'col-md-4' do |ba| 
+        ba.use :input
+      end
+      bf.use :error, wrap_with: { tag: 'label', class: 'error' }
+      bf.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
+    end
+  end
+
+  config.wrappers :append, :tag => 'div', :class => "form-group", :error_class => 'has-error' do |b|
+    b.use :html5
+    b.use :placeholder
+    # b.use :label
+    b.wrapper :tag => 'div', :class => 'controls' do |input|
+      # input.wrapper :tag => 'div', :class => 'input-append' do |append|
+      input.use :input
+      input.use :hint,  :wrap_with => { :tag => 'span', :class => 'help-block' }
+      input.use :error, wrap_with: { tag: 'label', class: 'error' }
+    end
+  end
+
 end

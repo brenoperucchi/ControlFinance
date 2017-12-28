@@ -1,6 +1,7 @@
-class ProposalDocument < ApplicationRecord
+class Document < ApplicationRecord
 
-  belongs_to :proposal
+  belongs_to :documentable, polymorphic: true
+  has_many :assets, class_name: "Asset",    as: :assetable, dependent: :destroy
 
   state_machine initial: :pending do    
     after_transition :pending => :approved, :do => :update_state

@@ -18,9 +18,20 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   # POST /resource/sign_in
-  # def create
-  #   super
-  # end
+  def create
+    self.resource = resource_class.new(sign_in_params)
+    referer = stored_location_for(resource) || request.referer || root_path
+    @user = User.find_by_email(params[:user][:email])
+    if @user.nil?
+      redirect_to(new_public_broker_path, alert: I18n.t(:unauthenticated_email, scope: 'devise.failure')) 
+    elsif @user.userable.admin?
+      redirect_to admin_new_session_path, alert: I18n.t(:unauthenticated, scope: 'devise.failure')
+    else
+      sign_in @user
+      redirect_to referer
+    end
+    # super
+  end
 
   # DELETE /resource/sign_out
   # def destroy

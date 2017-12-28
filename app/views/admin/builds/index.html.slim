@@ -71,6 +71,9 @@
           = link_to scope_admin_build_path(build, scope: :proposals), :class => 'btn btn-info btn-outline hidden-xs.hidden-sm waves-effect waves-light', :title => t('show', :scope => 'helpers.links') do
             ' All Proposals
           '
+          = link_to admin_brokers_path, :class => 'btn btn-info btn-outline hidden-xs.hidden-sm waves-effect waves-light', :title => t('show', :scope => 'helpers.links') do
+            ' Brokers
+          '
           = link_to assets_admin_build_path(build), :class => 'btn btn-info btn-outline hidden-xs.hidden-sm waves-effect waves-light', :title => t('show', :scope => 'helpers.links'), remote: true do
             | Images
             '

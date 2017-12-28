@@ -23,19 +23,20 @@ class Proposal < ApplicationRecord
                    :update => proc {|model, controller| !model.comment.blank? }
                  }
 
-  has_one :builder, through: :unit, source: :builder
-  has_many :mailers,   class_name: Mailer, as: :mailable
-  has_many :buyers,    class_name: Buyer, dependent: :nullify 
-  has_many :assets,    class_name: "Asset", as: :assetable, dependent: :destroy
-  has_many :documents, class_name: "ProposalDocument", :foreign_key => "proposal_id", dependent: :destroy
+  has_many :mailers,   class_name: 'Mailer',   as: :mailable
+  has_many :buyers,    class_name: 'Buyer',    dependent: :nullify 
+  has_many :assets,    class_name: "Asset",    as: :assetable, dependent: :destroy
+  has_many :documents, class_name: "Document", as: :documentable, dependent: :destroy
   belongs_to :unit, optional: true
   belongs_to :broker, optional: true
+  has_one :builder, through: :unit, source: :builder
 
   accepts_nested_attributes_for :broker, allow_destroy: true  
   accepts_nested_attributes_for :buyers, allow_destroy: true  
   accepts_nested_attributes_for :documents, allow_destroy: true,reject_if: :all_blank
 
   validates :due_at, inclusion: { in: (Date.today..(Date.today + 5.day)) }, if: Proc.new {self.new_record?}
+  validates_presence_of :negociate
 
   state_machine initial: :pending do    
     after_transition any  => [:pending, :refused],     do: :update_states
@@ -174,7 +175,7 @@ class Proposal < ApplicationRecord
   private
     def create_documents
       %w(document1 document2 document3).each do |name|
-        documents.create(name: I18n.t(name, scope:'helpers.document'))
+        documents.create(name: I18n.t(name, scope:'helpers.document.proposal'))
       end
     end
 

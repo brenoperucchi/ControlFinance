@@ -3,7 +3,7 @@ html xmlns="http://www.w3.org/1999/xhtml"
   head
     meta content="width=device-width" name="viewport" /
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    title= I18n.t(:meta_title, scope:'helpers.mailer.create', unit: object.unit.name, build: object.builder.name)
+    title= I18n.t(:meta_title, scope:'helpers.mailer.create', unit: object.unit.name, build: object.unit.builder.name)
   body style=("margin:0px; background: #f8f8f8; ") 
     div style=("background: #f8f8f8; padding: 0px 0px; font-family:arial; line-height:28px; height:100%;  width: 100%; color: #514d6a;") width="100%" 
       div style=("max-width: 700px; padding:50px 0;  margin: 0px auto; font-size: 14px") 
@@ -11,7 +11,7 @@ html xmlns="http://www.w3.org/1999/xhtml"
           tbody
             tr
               td style=("background:#00c0c8; padding:20px; color:#fff; text-align:center;")
-                = I18n.t(:title, scope:'helpers.mailer.create', unit: object.unit.name, build: object.builder.name)
+                = I18n.t(:title, scope:'helpers.mailer.create', unit: object.unit.name, build: object.unit.builder.name)
         div style=("padding: 40px; background: #fff;") 
           table border="0" cellpadding="0" cellspacing="0" style=("width: 100%;") 
             tbody

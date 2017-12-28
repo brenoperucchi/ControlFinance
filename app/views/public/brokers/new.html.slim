@@ -1,88 +1,92 @@
 - model_class = Broker
 
-= simple_form_for [:public, @broker], html: {id: 'form-register', class: 'p-t-15'}, wrapper: :pages_form do |f|
+= simple_form_for [:public, @broker], html: {id: 'form-horizontal', class: 'p-t-15'}, wrapper: :pages_form, wrapper_mappings: { radio_buttons: :pages_vertical_radio} do |f|
+  = f.input :store_id, as: :hidden, input_html:{value: current_store}
   .card.card
-    / .card-header
-    /   .card-title
-    /     | Separated form layouts
     .card-block
       .row
         .col-md-10
-          h3 Corretor faça o seu cadastro aqui!
-          p
-            | A empresa solicita que o correspondente preencha o seus dados e aceite os termos de exigências.
+          h3= t :title1, scope: 'views.broker.new'
+          p= t :title2, scope: 'views.broker.new'
           br/
           = f.input :name, placeholder: model_class.human_attribute_name(:name), input_html: { class: 'input-sm'}
+          - f.object.build_user if f.object.user.nil?
+          = f.simple_fields_for :user do |user|
+            = user.input :store_id, as: :hidden, input_html:{value: current_store}
+            = user.input :email, placeholder: model_class.human_attribute_name(:email)
           = f.input :irs_id, placeholder: model_class.human_attribute_name(:irs_id), input_html: { class: 'input-sm'}
           = f.input :company, placeholder: model_class.human_attribute_name(:company), input_html: { class: 'input-sm'}
-          / = f.input :company, as: :radio_buttons, collection: ["Male", "Female"]  
-          / form#form-work.form-horizontal autocomplete="off" role="form" 
-          .form-group.row
-            .col-md-8
-              label.col-md-10.control-label
-                | O correspondente bancário será indicado pela construtora
-            .col-md-4
-              .radio.radio-primary
-                input name="option1" type="radio" value="0"
-                label for="non"  Não
-                input name="option1" checked="checked" type="radio" value="1"
-                label for="yes"  Sim
-          .form-group.row
-            .col-md-8
-              label.col-md-10.control-label 
-                | o corretor será responsável solicitar/requerer alguns documentos para conclusão do financiamento bancário.
-            .col-md-4
-              .radio.radio-success
-                input#option name="option2" type="radio" value="male" /
-                label for="male"  Male
-                input#option2 checked="checked" name="option2" type="radio" value="female" /
-                label for="female"  Female
-          .form-group.row
-            .col-md-8
-              label.col-md-10.control-label 
-                | o corretor ficará responsável em fazer todo o contato com o cliente até entrega das chaves.
-            .col-md-4
-              .radio.radio-success
-                input#option name="option2" type="radio" value="male" /
-                label for="male"  Male
-                input#option2 checked="checked" name="option2" type="radio" value="female" /
-                label for="female"  Female
-          .form-group.row
-            .col-md-8
-              label.col-md-10.control-label 
-                | O pagamento da corretagem ao corretor acontecerá somente após a entrega da Nota fiscal, com os comprovantes de depósitos do cliente e mediante aos recebimentos efetivos na conta bancária da incorporadora. 
-
-            .col-md-4
-              .radio.radio-success
-                input#male name="option3" type="radio" value="male" /
-                label for="male"  Male
-                input#female checked="checked" name="option3" type="radio" value="female" /
-                label for="female"  Female
-          .form-group.row
-            .col-md-8
-              label.col-md-10.control-label 
-                | O corretor aceita não divulgar os telefones pessoais dos sócios, podendo somente divugar as informações da empresa abaixo:
+          = f.input :address, placeholder: model_class.human_attribute_name(:address), input_html: { class: 'input-sm'}
+          = f.input :phone, placeholder: model_class.human_attribute_name(:phone), input_html: { class: 'input-sm'}
+          = f.input :company_irs_id, placeholder: model_class.human_attribute_name(:company_irs_id), input_html: { class: 'input-sm'}
+          .row
+            .col-md-12
+              = f.input :option1, wrapper: :pages_vertical_radio do
+                .radio.radio-primary
+                  = radio_button_tag '[broker]option1', 0, f.object.option1 == "0", id: 'choice1'
+                  label for="choice1"
+                    = t(:not_accept)
+                  = radio_button_tag '[broker]option1', 1, f.object.option1 == "1", id: 'choice2'
+                  label for="choice2"
+                    = t(:accept)
+          .row
+            .col-md-12
+              = f.input :option2, wrapper: :pages_vertical_radio do
+               .radio.radio-primary
+                  = radio_button_tag '[broker]option2', 0, f.object.option2 == "0", id: 'choice3'
+                  label for="choice3"
+                    = t(:not_accept)
+                  = radio_button_tag '[broker]option2', 1, f.object.option2 == "1", id: 'choice4'
+                  label for="choice4"
+                    = t(:accept)
+          .row
+            .col-md-12
+              = f.input :option3, wrapper: :pages_vertical_radio do
+                .radio.radio-success
+                  = radio_button_tag '[broker]option3', 0, f.object.option3 == "0", id: 'choice5'
+                  label for="choice5"
+                    = t(:not_accept)
+                  = radio_button_tag '[broker]option3', 1, f.object.option3 == "1", id: 'choice6'
+                  label for="choice6"
+                    = t(:accept)
+          .row
+            .col-md-12
+              = f.input :option4, wrapper: :pages_vertical_radio do
+                .radio.radio-success
+                  = radio_button_tag '[broker]option4', 0, f.object.option4 == "0", id: 'choice7'
+                  label for="choice7"
+                    = t(:not_accept)
+                  = radio_button_tag '[broker]option4', 1, f.object.option4 == "1", id: 'choice8'
+                  label for="choice8"
+                    = t(:accept)
+          .row
+            .col-md-12
+              = f.input :option5, label: false, wrapper: :append do                    
+                .form-group.row
+                  .col-md-8
+                    label.col-md-10.control-label 
+                      = t :option5, scope: 'activerecord.attributes.broker'
+                  .col-md-4
+                    .radio.radio-success
+                      = radio_button_tag '[broker]option5', 0, f.object.option5 == "0", id: 'choice9'
+                      label for="choice9"
+                        = t(:not_accept)
+                      = radio_button_tag '[broker]option5', 1, f.object.option5 == "1", id: 'choice10'
+                      label for="choice10"
+                        = t(:accept)
+              br/
+              strong
                 br/
-                strong
-                  br/
-                  | Telefone   e   WhatsApp   para   Contato: 48   99126-8808
-                  br/
-                  | Endereço somente para correspondência:
-                  br/
-                  | Rua Primavera 320,Conj 602, Pagani, Palhoça/SC Cep:88132-100
+                = t :title3, scope: 'views.broker.new'
+                br/
+                = t :title4, scope: 'views.broker.new'
+                br/
+                br/
+                = t :title5, scope: 'views.broker.new'
+                br/
+                = t :title6, scope: 'views.broker.new'
 
-            .col-md-4
-              .radio.radio-success
-                input#male name="option3" type="radio" value="male" /
-                label for="male"  Male
-                input#female checked="checked" name="option3" type="radio" value="female" /
-                label for="female"  Female
           br/
           .row
-            .col-md-3
-              p I hereby certify that the information above is true and accurate.
-            .col-md-9
-              = f.button :submit, "Create a new account", class: 'btn btn-success'
-              button.btn.btn-default
-                i.pg-close
-                | Clear
+            .col-md-6.offset-md-5
+              = f.button :submit, "Create a new account", class: 'col-md-8 btn btn-success'

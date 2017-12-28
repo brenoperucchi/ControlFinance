@@ -58,16 +58,6 @@ RSpec.describe "Admin Proposals" do
     # save_and_open_page
   end
 
-  it 'Admin can send Email Proposal' do
-    admin.make_current
-    login_as(admin, :scope => :user)
-    proposal.book
-    expect(proposal.state).to match('booked')
-    visit admin_builds_path
-    click_link('Request Proposal Email')
-    # save_and_open_page
-  end
-
   it 'State can not change if already had accepted' do
     admin.make_current
     proposal.accept

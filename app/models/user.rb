@@ -4,12 +4,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
   belongs_to :userable, polymorphic: true, optional: true
+  belongs_to :store, optional: true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable#, :validatable
 
   validates_format_of   :email, with: Devise::email_regexp, allow_blank: true  
   validates_presence_of :email#, :on => :create
+  validates_uniqueness_of :email, on: :create, scope: [:store_id]
   # validates :password, :email, presence: true, on: :create, unless: Proc.new {|x| !x.uid.blank?}
   # validates_confirmation_of :password
   # validates_length_of       :password, :within => 4..8, :allow_blank => false

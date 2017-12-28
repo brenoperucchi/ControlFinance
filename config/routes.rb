@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'events/index'
+
+  mount ActionCable.server => '/cable'
+
   root to: "public/builds#index"
 
   devise_for :users, controllers:{
-    :sessions => "public/sessions",
+    sessions: "public/sessions",
   }
 
   namespace :site do
@@ -10,10 +14,19 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    resources :assets, only:[:create, :index], path: 'assetable_type/:assetable_type/assetable_id/:assetable_id'
+    resources :assets, only:[:create, :index, :update], path: 'assetable_type/:assetable_type/assetable_id/:assetable_id'
     resources :assets, only:[:destroy]
     resources :purchase_steps, path: 'proposal/:proposal_id'
-    resources :brokers, only:[:new, :create]
+    resources :brokers, only:[:new, :create, :update] do
+      get 'irs_id', on: :member
+      get 'document', on: :member
+      get 'contract', on: :member
+    end
+
+    resources :stores, only: [] do
+      resources :builds, only:[:index], shallow:true
+    end
+
     resources :builds, only:[:index] do
       resources :units, only:[], shallow:true do
         resources :proposals, except: [:destroy] do
@@ -29,12 +42,14 @@ Rails.application.routes.draw do
   get 'token/:token', to: 'mailers#redirect', as: 'redirect_mailer'
   get 'mailer/:method', to: 'mailers#show', as: 'mailer'
 
+
   namespace :admin do
     devise_scope :user do
       get 'login',   to: 'sessions#new',    as: 'new_session'
       post 'login',  to: 'sessions#create', as: 'session'
       delete 'logout',  to: 'sessions#destroy', as: 'destroy_session'
     end
+    resources :brokers
     resources :dashboards
     resources :builds do 
       get 'assets', on: :member

@@ -22,3 +22,5 @@
           - broker.object.build_user if broker.object.user.nil?
           = broker.simple_fields_for :user do |user|
             = user.input :email, readonly: true, placeholder: model_class.human_attribute_name(:email)
+.row 
+  = f.input :comment, as: :text

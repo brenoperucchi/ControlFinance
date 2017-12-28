@@ -1,9 +1,9 @@
 class Build < ApplicationRecord
   
-  has_many :mailers,   class_name: Mailer, as: :mailable
-  has_many :units, :class_name => "Unit", :foreign_key => "build_id"
-  has_many :proposals, :through => :units, :source => :admin_proposals
-  has_many :assets,    class_name: "Asset", as: :assetable, dependent: :destroy
+  has_many :mailers,    class_name: 'Mailer', as: :mailable
+  has_many :units,      class_name: "Unit", :foreign_key => "build_id"
+  has_many :proposals,  through: :units, :source => :admin_proposals
+  has_many :assets,     class_name: "Asset", as: :assetable, dependent: :destroy
 
   belongs_to :store, optional: true
 

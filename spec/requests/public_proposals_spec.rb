@@ -12,15 +12,16 @@ RSpec.describe "PublicProposals" do
   end
 
   it 'Make Proposal' do
+    login_as(broker.user, :scope => :user)
     visit public_builds_path
     click_link('Proposal')
-    fill_in("proposal_negociate", with: 'Proposal Negociate')    
+    fill_in("proposal_negociate", with: 'Proposal Negociate')
     fill_in("proposal_value", with: '100')    
-    fill_in("proposal_broker_attributes_name", with: 'name')    
-    fill_in("proposal_broker_attributes_user_attributes_email", with: 'email@test.com')
+    # fill_in("proposal_broker_attributes_name", with: 'whatever')    
+    # fill_in("proposal_broker_attributes_user_attributes_email", with: 'email@test.com')
     click_button 'Create'
-    expect(page).not_to have_text('Please review the problems below:')
-    expect(page).to have_text('Proposal was successfully created.')
+    expect(page).not_to have_content('Please review the problems below:')
+    expect(page).to have_content('Proposal was successfully created.')
     
   end
 
@@ -28,22 +29,23 @@ RSpec.describe "PublicProposals" do
     broker.user.make_current
     login_as(broker.user, :scope => :user)
     visit public_builds_path
-    within "body" do 
-      all('div.panel.panel-default')[0].find('a').click
-    end
-    expect(page).to have_text("Proposal")
+    # within "body" do
+    #   all('div.panel.panel-default')[0].find('a').click
+    # end
+    click_link 'Proposal'
+    expect(page).to have_content("Proposal")
   end
 
   it 'Edit and Update Proposal Broker' do
     login_as(broker.user, :scope => :user)
     visit public_builds_path
     page.find(:xpath, "//a[@href='/public/units/1/proposals/new']").click
-    click_link "Proposal's Broker"
+    click_link "Proposals Broker"
     page.find(:xpath, "//a[@href='/public/proposals/1/edit']").click
     fill_in("proposal_negociate", with: 'negociate 2')    
     fill_in("proposal_value", with: '1000')    
     click_button 'Update Proposal'
-    expect(page).to have_text('Proposal was successfully updated.')
+    expect(page).to have_content('Proposal was successfully updated.')
   end
 
   # it 'Destroy Proposal' do
@@ -54,15 +56,18 @@ RSpec.describe "PublicProposals" do
   #   end
   #   expect(page).to have_link('Delete')
   #   click_link 'Delete'
-  #   expect(page).to have_text('Proposal was successfully destroyed.') 
+  #   expect(page).to have_content('Proposal was successfully destroyed.') 
   # end
 
   it 'Proposal Validates' do
+    broker.user.make_current
+    login_as(broker.user, :scope => :user)
     visit public_builds_path
     click_link('Proposal')
-    fill_in("proposal_negociate", with: 'Proposal Negociate')    
+    # fill_in("proposal_negociate", with: 'Proposal Negociate')    
     click_button 'Create'
-    expect(page).to have_text("can't be blank")
+    # save_and_open_page
+    expect(page).to have_content("can't be blank")
   end
 
   it "Can't update Proposal Analyzing" do
@@ -72,7 +77,7 @@ RSpec.describe "PublicProposals" do
     visit edit_public_proposal_path(proposal)
     fill_in("proposal_negociate", with: 'Proposal Negociate 2')    
     click_button 'Update'
-    expect(page).to have_text("Proposal with restriction")
+    expect(page).to have_content("Proposal with restriction")
   end
 
   # it 'Broker can Comment' do
@@ -89,10 +94,10 @@ RSpec.describe "PublicProposals" do
   #   end
   #   fill_in("proposal_comment", with: 'comment')    
   #   click_button 'Send'
-  #   expect(page).to have_text('Comment was successfully updated.')
+  #   expect(page).to have_content('Comment was successfully updated.')
   # end
 
-  it 'Proposal Redirect_if_Restriction to Builds_Path' do
+  it 'Proposal Redirect_if_Restriction' do
     broker.user.make_current
     proposal.accept
     broker2.user.make_current
@@ -100,7 +105,7 @@ RSpec.describe "PublicProposals" do
     visit public_builds_path
     click_link('Proposal')
     expect(current_path).to match(public_builds_path)
-    expect(page).to have_text('Proposal with restriction')
+    expect(page).to have_content('Proposal with restriction')
   end
 
   it  "Other Broker can not create Proposal's accepted" do
@@ -108,15 +113,7 @@ RSpec.describe "PublicProposals" do
     login_as(broker2.user, :scope => :user)
     proposal.accept
     visit edit_public_proposal_path(proposal)
-    expect(page).to have_text('Proposal with restriction')
-  end
-
-  it 'Proposal Redirect_if_Restriction without LOGIN to Builds_Path' do
-    broker2.user.make_current
-    proposal.accept
-    visit public_builds_path
-    click_link('Proposal')
-    expect(page).to have_text('Proposal with restriction')
+    expect(page).to have_content('Proposal with restriction')
   end
   
   it 'Proposal Redirect_if_Restriction to PurchaseSteps' do
@@ -131,7 +128,7 @@ RSpec.describe "PublicProposals" do
   it 'New Proposal without User Authentication' do
     visit public_builds_path
     click_link('Proposal')
-    expect(current_path).to match(new_public_unit_proposal_path(unit))
+    expect(current_path).to match(new_user_session_path)
   end
 
 

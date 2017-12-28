@@ -13,7 +13,7 @@ class MailerMethod::ProposalCreate < MailerMethod::Base
   end
 
   def subject
-    I18n.t(:subject, scope:'helpers.mailer.create', unit: @object.unit.name, build: @object.builder.name)
+    I18n.t(:subject, scope:'helpers.mailer.create', unit: @object.unit.name, build: @object.unit.builder.name)
   end
 
   def url

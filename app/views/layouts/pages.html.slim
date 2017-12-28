@@ -13,24 +13,35 @@ html
     meta content="yes" name="apple-mobile-web-app-capable" /
     meta content="yes" name="apple-touch-fullscreen" /
     meta content="default" name="apple-mobile-web-app-status-bar-style" /
-    meta content="" name="description" /
-    meta content="" name="author" /
-    / = stylesheet_link_tag "pages/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.scss"]
+    / meta content="" name="description" /
+    / meta content="" name="author" /
+    = stylesheet_link_tag "pages/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.scss"]
     = stylesheet_link_tag    'pages', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'pages', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = yield :head
-
-  body.fixed-header.menu-pin
+  / body.fixed-header.menu-pin
+  body.fixed-header.mac.desktop.pace-done
     .page-container
+      .pgn-wrapper data-position="top" 
+        .pgn.push-on-sidebar-open.pgn-bar
+          - flash.each do |name, msg| 
+            .alert[class="alert-#{name}"]
+              .container
+                span.notification-message
+                  = msg
+                button.close data-dismiss="alert" type="button" 
+                  span aria-hidden="true"  ×
+                  span.sr-only Close
+      / .page-content-wrapper
+      /   /! START PAGE CONTENT
+      /   .content
+      /     .social-wrapper
+      /       .social data-pages="social" 
+      /         .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
+      /           = yield
       .page-content-wrapper
-        .content
-          .container-fluid.container-fixed-lg
-            = yield
-      / .register-container.full-height.sm-p-t-30
-    = javascript_include_tag "pages/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.js"]
-    = yield :footer
-    javascript:
-      $(function()
-        { $('#form-register').validate()} 
-      )
+        .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
+          = yield
+= javascript_include_tag "pages/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.js"]
+= yield :footer

@@ -5,10 +5,10 @@
   attr_reader :unit_value
 
   ## TODO CREATE SOFT DELETE
-  has_many :mailers,   class_name: Mailer, as: :mailable
+  has_many :mailers,   class_name: 'Mailer', as: :mailable
   has_many :proposals, class_name: "Proposal", foreign_key: "unit_id", dependent: :nullify 
   has_many :admin_proposals, class_name: "Admin::Proposal", foreign_key: "unit_id", dependent: :nullify 
-  belongs_to :builder, :class_name => Build, :foreign_key => "build_id"
+  belongs_to :builder, class_name: 'Build', :foreign_key => "build_id"
   
   validates_presence_of :name
   # validates_uniqueness_of :name, scope:[:build_id]

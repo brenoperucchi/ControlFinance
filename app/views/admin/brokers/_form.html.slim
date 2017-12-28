@@ -1,0 +1,11 @@
+- model_class = Broker
+/ = f.input :unit_id, as: :hidden, input_html:{value:@unit.id}
+.row 
+  .col-md-6.col-lg-6.col-sm-6
+    = f.input :name, placeholder: model_class.human_attribute_name(:name)
+    = f.input :state, as: :select, collection: model_class::STATES.map{|key,value|key}, selected: f.object.state, placeholder: model_class.human_attribute_name(:status)
+  .col-md-6.col-lg-6.col-sm-6
+    - f.object.build_user if f.object.user.nil?
+    = f.simple_fields_for :user do |user|
+      = user.input :store_id, as: :hidden, input_html:{value: current_store.id} if f.object.user.userable.nil?
+      = user.input :email, placeholder: model_class.human_attribute_name(:email)

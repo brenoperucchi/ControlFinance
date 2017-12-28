@@ -6,8 +6,8 @@ class ApplicationMailer < ActionMailer::Base
     to = options[:to]
     subject = options[:subject]
     body = options[:body]
-    mail(from: from, to: to, subject: subject) do |format|
-      format.html {render :text => body}
+    mail(from: from, to: to, subject: subject, content_type: "text/html") do |format|
+      format.html {render inline: body}
     end
   end
 end

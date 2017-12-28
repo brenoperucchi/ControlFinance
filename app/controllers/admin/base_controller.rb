@@ -15,4 +15,12 @@ class Admin::BaseController < ApplicationController
     end
   end
 
+  def current_store
+    user_id = current_user.try(:userable).try(:id)
+    session[:store_id] = user_id || nil if session[:store_id] != user_id 
+    # session[:store_id] ||= user_id || nil
+    Store.current = Store.find_by_id(session[:store_id])
+  end
+
+
 end

@@ -1,5 +1,5 @@
 class Public::AssetsController < ApplicationController
-  before_action :set_asset, only: [:destroy]
+  before_action :set_asset, only: [:destroy, :update]
   # respond_to :html, :xml, :json
   # skip_before_action :verify_authenticity_token, :if => Proc.new {|c| c.request.format == 'application/json'}
   protect_from_forgery unless: -> { request.format.json? }
@@ -16,6 +16,15 @@ class Public::AssetsController < ApplicationController
     @resource = params[:assetable_type].constantize.find(params[:assetable_id])
     @asset = @resource.assets.new(asset_params)
     if @asset.save
+      respond_to do |format|
+        format.json{ render :json => AssetPresenter.new(@asset).to_json }
+        format.html{ redirect_to admin_builds_path }
+      end
+    end
+  end
+
+  def update
+    if @asset.update(asset_params)
       respond_to do |format|
         format.json{ render :json => AssetPresenter.new(@asset).to_json }
         format.html{ redirect_to admin_builds_path }

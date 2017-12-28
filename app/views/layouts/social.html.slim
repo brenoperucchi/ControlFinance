@@ -1,0 +1,1226 @@
+doctype html
+html
+  head
+    meta content="text/html;charset=UTF-8" http-equiv="content-type" /
+    meta charset="utf-8" /
+    title Pages - Admin Dashboard UI Kit - Lock Screen
+    meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" name="viewport" /
+    / link href="pages/ico/60.png" rel="apple-touch-icon" /
+    / link href="pages/ico/76.png" rel="apple-touch-icon" sizes="76x76" /
+    / link href="pages/ico/120.png" rel="apple-touch-icon" sizes="120x120" /
+    / link href="pages/ico/152.png" rel="apple-touch-icon" sizes="152x152" /
+    / link href="favicon.ico" rel="icon" type="image/x-icon" /
+    meta content="yes" name="apple-mobile-web-app-capable" /
+    meta content="yes" name="apple-touch-fullscreen" /
+    meta content="default" name="apple-mobile-web-app-status-bar-style" /
+    meta content="" name="description" /
+    meta content="" name="author" /
+    / = stylesheet_link_tag "pages/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.scss"]
+    = stylesheet_link_tag    'social', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'social', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = yield :head
+  body.fixed-header.no-header.menu-pin
+    .page-content-wrapper
+      /! START PAGE CONTENT
+      .content
+        .social-wrapper
+          .social data-pages="social" 
+            /! START JUMBOTRON
+            .jumbotron data-pages="parallax" data-social="cover" 
+              .cover-photo
+                
+              .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
+                .inner
+                  .pull-bottom.bottom-left.m-b-40.sm-p-l-15
+                    h5.text-white.no-margin welcome to pages social
+                    h1.text-white.no-margin
+                      span.semi-bold social
+                      | cover
+            /! END JUMBOTRON
+            .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
+              .feed
+                /! START DAY
+                .day data-social="day" 
+                  /! START ITEM
+                  .card.no-border.bg-transparent.full-width data-social="item" 
+                    /! START CONTAINER FLUID
+                    .container-fluid.p-t-30.p-b-30
+                      .row
+                        .col-lg-4
+                          .container-xs-height
+                            .row-xs-height
+                              .social-user-profile.col-xs-height.text-center.col-top
+                                .thumbnail-wrapper.d48.circular.bordered.b-white
+                                  
+                                br/
+                                i.fa.fa-check-circle.text-success.fs-16.m-t-10
+                              .col-xs-height.p-l-20
+                                h3.no-margin.p-b-5 David Nester
+                                p.no-margin.fs-16
+                                  | is excited about the new pages design framework
+                                p.hint-text.m-t-5.small
+                                  | San Fransisco Bay | CEO at Pages.inc
+                        .col-lg-4
+                          p.no-margin.fs-16 Hi My Name is David Nester, &amp; heres my new pages user profile page
+                          p.hint-text.m-t-5.small I love reading people's about page especially those who are in the same industry as me.
+                        .col-lg-4
+                          p.m-b-5.small 1,435 Mutual Friends
+                          ul.list-unstyled
+                            li.m-r-10
+                              .thumbnail-wrapper.d32.circular.b-white.m-r-5.b-a.b-white
+                                
+                            li
+                              .thumbnail-wrapper.d32.circular.b-white.m-r-5.b-a.b-white
+                                
+                            li
+                              .thumbnail-wrapper.d32.circular.b-white.m-r-5.b-a.b-white
+                                
+                            li
+                              .thumbnail-wrapper.d32.circular.b-white.m-r-5.b-a.b-white
+                                
+                            li
+                              .thumbnail-wrapper.d32.circular.b-white.m-r-5.b-a.b-white
+                                
+                            li
+                              .thumbnail-wrapper.d32.circular.b-white.m-r-5.b-a.b-white
+                                
+                            li
+                              .thumbnail-wrapper.d32.circular.b-white.m-r-5.b-a.b-white
+                                
+                            li
+                              .thumbnail-wrapper.d32.circular.b-white
+                                .bg-master.text-center.text-white
+                                  span +34
+                          br/
+                          p.m-t-5.small More friends
+                    /! END CONTAINER FLUID
+                  /! END ITEM
+                  /! START ITEM
+                  .card.social-card.col2.padding-20 data-social="item" 
+                    form.simform.no-margin autocomplete="off" data-social="status" 
+                      .status-form-inner
+                        ol.questions
+                          li
+                            span
+                              label for="status-q1"  What's on your mind?
+                            input#status-q1 name="q1" type="text" /
+                          li
+                            span
+                              label for="status-q2"  What are you feeling?
+                            input#status-q2 name="q2" type="text" /
+                          li
+                            span
+                              label for="status-q3"  What's your location?
+                            input#status-q3 name="q3" type="text" /
+                          li
+                            span
+                              label for="status-q4"  Who are you with?
+                            input#status-q4 name="q4" type="text" /
+                        /! /questions
+                        button.submit type="submit"  Send answers
+                        .controls
+                          button.next
+                          .progress
+                          span.number
+                            span.number-current
+                            span.number-total
+                          span.error-message
+                        /! / controls
+                      /! /simform-inner
+                      span.final-message
+                    /! /simform
+                  /! END ITEM
+                  /! START ITEM
+                  .card.social-card.status.col2 data-social="item" 
+                    .circle data-container="body" data-toggle="tooltip" title="Label" 
+                    h5
+                      | David Nester updated his status
+                      span.hint-text few seconds ago
+                    h2 Earned my first salary bonus for the best design of the year award.
+                    ul.reactions
+                      li
+                        a href="#" 
+                          | 5,345
+                          i.fa.fa-comment-o
+                      li
+                        a href="#" 
+                          | 23K
+                          i.fa.fa-heart-o
+                  /! END ITEM
+                  /! START ITEM
+                  .card.social-card.share.col1 data-social="item" 
+                    .circle data-container="body" data-toggle="tooltip" title="Label" 
+                    .card-header.clearfix
+                      .user-pic
+                        
+                      h5 Shannon Williams
+                      h6
+                        | Shared a photo
+                        span.location.semi-bold
+                          i.fa.fa-map-marker
+                          | NYC, New York
+                    .card-description
+                      p Inspired by : good design is obvious, great design is transparent
+                      .via via themeforest
+                    .card-content
+                      ul.buttons
+                        li
+                          a href="#" 
+                            i.fa.fa-expand
+                        li
+                          a href="#" 
+                            i.fa.fa-heart-o
+                      
+                    .card-footer.clearfix
+                      .time few seconds ago
+                      ul.reactions
+                        li
+                          a href="#" 
+                            | 5,345
+                            i.fa.fa-comment-o
+                        li
+                          a href="#" 
+                            | 23K
+                            i.fa.fa-heart-o
+                  /! END ITEM
+                  /! START ITEM
+                  .card.social-card.share.col1 data-social="item" 
+                    .circle data-container="body" data-toggle="tooltip" title="Label" 
+                    .card-header.clearfix
+                      .user-pic
+                        
+                      h5 Jeff Curtis
+                      h6
+                        | Shared a Tweet
+                        span.location.semi-bold
+                          i.fa.fa-map-marker
+                          | SF, California
+                    .card-description
+                      p
+                        | What you think, you become. What you feel, you attract. What you imagine, you create - Buddha.
+                        a href="#"  #quote
+                      .via via Twitter
+                  /! END ITEM
+                  /! START ITEM
+                  .card.social-card.share.col1 data-social="item" 
+                    .circle data-container="body" data-toggle="tooltip" title="Label" 
+                    .card-header.clearfix
+                      .user-pic
+                        
+                      h5 Andy Young
+                      h6
+                        | Updated his status
+                        span.location.semi-bold
+                          i.icon-map
+                          | NYC, New York
+                    .card-description
+                      p What a lovely day! I think I should go and play outside.
+                  /! END ITEM
+                  /! START ITEM
+                  .card.social-card.share.share-other.col1 data-social="item" 
+                    .circle data-container="body" data-toggle="tooltip" title="Label" 
+                    .card-content
+                      ul.buttons
+                        li
+                          a href="#" 
+                            i.fa.fa-expand
+                        li
+                          a href="#" 
+                            i.fa.fa-heart-o
+                      
+                    .card-description
+                      p Like if you agree
+                    .card-footer.clearfix
+                      .time few seconds ago
+                      ul.reactions
+                        li
+                          a href="#" 
+                            | 5,345
+                            i.fa.fa-comment-o
+                        li
+                          a href="#" 
+                            | 23K
+                            i.fa.fa-heart-o
+                    .card-header.clearfix.last
+                      .user-pic
+                        
+                      h5 Tracy Brooks
+                      h6 Shared a photo on your wall
+                  /! END ITEM
+                  /! START ITEM
+                  .card.social-card.share.share-other.col1 data-social="item" 
+                    .circle data-container="body" data-toggle="tooltip" title="Label" 
+                    .card-content
+                      ul.buttons
+                        li
+                          a href="#" 
+                            i.fa.fa-expand
+                        li
+                          a href="#" 
+                            i.fa.fa-heart-o
+                      
+                    .card-description
+                      p
+                        a href="#"  #TBT
+                        | \:D
+                    .card-footer.clearfix
+                      .time few seconds ago
+                      ul.reactions
+                        li
+                          a href="#" 
+                            | 5,345
+                            i.fa.fa-comment-o
+                        li
+                          a href="#" 
+                            | 23K
+                            i.fa.fa-heart-o
+                    .card-header.clearfix.last
+                      .user-pic
+                        
+                      h5 David Nester
+                      h6 Shared a link on your wall
+                  /! END ITEM
+                  /! START ITEM
+                  .card.social-card.share.col1 data-social="item" 
+                    .circle data-container="body" data-toggle="tooltip" title="Label" 
+                    .card-header.clearfix
+                      .user-pic
+                        
+                      h5 Nathaniel Hamilton
+                      h6
+                        | Shared a Tweet
+                        span.location.semi-bold
+                          i.icon-map
+                          | NYC, New York
+                    .card-description
+                      p Testing can show the presense of bugs, but not their absence.
+                      .via via Twitter
+                  /! END ITEM
+                  /! START ITEM
+                  .card.social-card.share.col1 data-social="item" 
+                    .circle data-container="body" data-toggle="tooltip" title="Label" 
+                    .card-header.clearfix
+                      .user-pic
+                        
+                      h5 Nathaniel Hamilton
+                      h6
+                        | Shared a Tweet
+                        span.location.semi-bold
+                          i.icon-map
+                          | NYC, New York
+                    .card-description
+                      p
+                        | There is nothing new under the sun, but there are lots of old things we don't know yet.
+                      .via via Twitter
+                  /! END ITEM
+                  /! START ITEM
+                  .card.social-card.share.col1 data-social="item" 
+                    .card-header
+                      h5.text-complete.pull-left.fs-12
+                        | News
+                        i.fa.fa-circle.text-complete.fs-11
+                      .pull-right.small.hint-text
+                        | 5,345
+                        i.fa.fa-comment-o
+                      .clearfix
+                    .card-description
+                      h3 Ebola outbreak: Clinical drug trials to start next month as death toll mounts
+                    .card-footer.clearfix
+                      .pull-left
+                        | via
+                        span.text-complete CNN
+                      .pull-right.hint-text
+                        | Apr 23
+                      .clearfix
+                  /! END ITEM
+                  /! START ITEM
+                  .card.social-card.share.col1 data-social="item" 
+                    .card-header.clearfix
+                      h5.text-success.pull-left.fs-12
+                        | Stock Market
+                        i.fa.fa-circle.text-success.fs-11
+                      .pull-right.small.hint-text
+                        | 5,345
+                        i.fa.fa-comment-o
+                      .clearfix
+                    .card-description
+                      h5.hint-text.no-margin Apple Inc.
+                      h5.small.hint-text.no-margin NASDAQ: AAPL - Nov 13 8:37 AM ET
+                      h3
+                        | 111.25
+                        span.text-success
+                          i.fa.fa-sort-up.small.text-success
+                          | 0.15 (0.13%)
+                    .card-footer.clearfix
+                      .pull-left
+                        | by
+                        span.text-success John Smith
+                      .pull-right.hint-text
+                        | Apr 23
+                      .clearfix
+                  /! END ITEM
+                /! END DAY
+              /! END FEED
+            /! END CONTAINER FLUID
+          /! /container
+      /! END PAGE CONTENT
+      /! START COPYRIGHT
+      /! START CONTAINER FLUID
+      /! START CONTAINER FLUID
+      .container-fluid.container-fixed-lg.footer
+        .copyright.sm-text-center
+          p.small.no-margin.pull-left.sm-pull-reset
+            span.hint-text Copyright &copy; 2017
+            |. span.font-montserrat REVOX
+            span.hint-text All rights reserved.
+            span.sm-block
+              a.m-l-10.m-r-10 href="#"  Terms of use
+              span.muted \
+              a.m-l-10 href="#"  Privacy Policy
+          p.small.no-margin.pull-right.sm-pull-reset
+            | Hand-crafted
+            span.hint-text &amp; made with Love
+          .clearfix
+      /! END COPYRIGHT
+    /! END PAGE CONTENT WRAPPER
+  /! END PAGE CONTAINER
+  /! START QUICKVIEW
+  #quickview.quickview-wrapper data-pages="quickview" 
+    /! Nav tabs
+    ul.nav.nav-tabs
+      li data-target="#quickview-notes" data-toggle="tab" 
+        a href="#"  Notes
+      li data-target="#quickview-alerts" data-toggle="tab" 
+        a href="#"  Alerts
+      li.active data-target="#quickview-chat" data-toggle="tab" 
+        a href="#"  Chat
+    a.btn-link.quickview-toggle data-toggle="quickview" data-toggle-element="#quickview" 
+      i.pg-close
+    /! Tab panes
+    .tab-content
+      /! BEGIN Notes !
+      #quickview-notes.tab-pane.no-padding
+        #note-views.view-port.clearfix.quickview-notes
+          /! BEGIN Note List !
+          #quick-note-list.view.list
+            .toolbar.clearfix
+              ul.pull-right
+                li
+                  a.delete-note-link href="#" 
+                    i.fa.fa-trash-o
+                li
+                  a.new-note-link data-navigate="view" data-view-animation="push" data-view-port="#note-views" href="#" 
+                    i.fa.fa-plus
+              button.btn-remove-notes.btn.btn-xs.btn-block.hide
+                i.fa.fa-times
+                | Delete
+            ul
+              /! BEGIN Note Item !
+              li data-noteid="1" 
+                .left
+                  /! BEGIN Note Action !
+                  .checkbox.check-warning.no-margin
+                    input#qncheckbox1 type="checkbox" value="1" /
+                    label for="qncheckbox1" 
+                  /! END Note Action !
+                  /! BEGIN Note Preview Text !
+                  p.note-preview Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  /! BEGIN Note Preview Text !
+                /! BEGIN Note Details !
+                .right.pull-right
+                  /! BEGIN Note Date !
+                  span.date 12/12/14
+                  a data-navigate="view" data-view-animation="push" data-view-port="#note-views" href="#" 
+                    i.fa.fa-chevron-right
+                  /! END Note Date !
+                /! END Note Details !
+              /! END Note List !
+              /! BEGIN Note Item !
+              li data-noteid="2" 
+                .left
+                  /! BEGIN Note Action !
+                  .checkbox.check-warning.no-margin
+                    input#qncheckbox2 type="checkbox" value="1" /
+                    label for="qncheckbox2" 
+                  /! END Note Action !
+                  /! BEGIN Note Preview Text !
+                  p.note-preview Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  /! BEGIN Note Preview Text !
+                /! BEGIN Note Details !
+                .right.pull-right
+                  /! BEGIN Note Date !
+                  span.date 12/12/14
+                  a href="#" 
+                    i.fa.fa-chevron-right
+                  /! END Note Date !
+                /! END Note Details !
+              /! END Note List !
+              /! BEGIN Note Item !
+              li data-noteid="2" 
+                .left
+                  /! BEGIN Note Action !
+                  .checkbox.check-warning.no-margin
+                    input#qncheckbox3 type="checkbox" value="1" /
+                    label for="qncheckbox3" 
+                  /! END Note Action !
+                  /! BEGIN Note Preview Text !
+                  p.note-preview Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  /! BEGIN Note Preview Text !
+                /! BEGIN Note Details !
+                .right.pull-right
+                  /! BEGIN Note Date !
+                  span.date 12/12/14
+                  a href="#" 
+                    i.fa.fa-chevron-right
+                  /! END Note Date !
+                /! END Note Details !
+              /! END Note List !
+              /! BEGIN Note Item !
+              li data-noteid="3" 
+                .left
+                  /! BEGIN Note Action !
+                  .checkbox.check-warning.no-margin
+                    input#qncheckbox4 type="checkbox" value="1" /
+                    label for="qncheckbox4" 
+                  /! END Note Action !
+                  /! BEGIN Note Preview Text !
+                  p.note-preview Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  /! BEGIN Note Preview Text !
+                /! BEGIN Note Details !
+                .right.pull-right
+                  /! BEGIN Note Date !
+                  span.date 12/12/14
+                  a href="#" 
+                    i.fa.fa-chevron-right
+                  /! END Note Date !
+                /! END Note Details !
+              /! END Note List !
+              /! BEGIN Note Item !
+              li data-noteid="4" 
+                .left
+                  /! BEGIN Note Action !
+                  .checkbox.check-warning.no-margin
+                    input#qncheckbox5 type="checkbox" value="1" /
+                    label for="qncheckbox5" 
+                  /! END Note Action !
+                  /! BEGIN Note Preview Text !
+                  p.note-preview Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                  /! BEGIN Note Preview Text !
+                /! BEGIN Note Details !
+                .right.pull-right
+                  /! BEGIN Note Date !
+                  span.date 12/12/14
+                  a href="#" 
+                    i.fa.fa-chevron-right
+                  /! END Note Date !
+                /! END Note Details !
+              /! END Note List !
+          /! END Note List !
+          #quick-note.view.note
+            div
+              ul.toolbar
+                li
+                  a.close-note-link href="#" 
+                    i.pg-arrow_left
+                li
+                  a.fs-12 data-action="Bold" href="#" 
+                    i.fa.fa-bold
+                li
+                  a.fs-12 data-action="Italic" href="#" 
+                    i.fa.fa-italic
+                li
+                  a.fs-12 href="#" 
+                    i.fa.fa-link
+              .body
+                div
+                  .top
+                    span 21st april 2014 2:13am
+                  .content
+                    .quick-note-editor.full-width.full-height.js-input contenteditable="true" 
+      /! END Notes !
+      /! BEGIN Alerts !
+      #quickview-alerts.tab-pane.no-padding
+        #alerts.view-port.clearfix
+          /! BEGIN Alerts View !
+          .view.bg-white
+            /! BEGIN View Header !
+            .navbar.navbar-default.navbar-sm
+              .navbar-inner
+                /! BEGIN Header Controler !
+                a.inline.action.p-l-10.link.text-master data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="javascript:;" 
+                  i.pg-more
+                /! END Header Controler !
+                .view-heading
+                  | Notications
+                /! BEGIN Header Controler !
+                a.inline.action.p-r-10.pull-right.link.text-master href="#" 
+                  i.pg-search
+                /! END Header Controler !
+            /! END View Header !
+            /! BEGIN Alert List !
+            .list-view.boreded.no-top-border data-init-list-view="ioslist" 
+              /! BEGIN List Group !
+              .list-view-group-container
+                /! BEGIN List Group Header!
+                .list-view-group-header.text-uppercase
+                  | Calendar
+                /! END List Group Header!
+                ul
+                  /! BEGIN List Group Item!
+                  li.alert-list
+                    /! BEGIN Alert Item Set Animation using data-view-animation !
+                    a.align-items-center data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="javascript:;" 
+                    p
+                      span.text-warning.fs-10
+                        i.fa.fa-circle
+                    p.p-l-10.overflow-ellipsis.fs-12
+                      span.text-master David Nester Birthday
+                    p.p-r-10.ml-auto.fs-12.text-right
+                      span.text-warning
+                        | Today
+                        br/
+                      span.text-master All Day
+                    /! END Alert Item!
+                    /! BEGIN List Group Item!
+                  /! END List Group Item!
+                  /! BEGIN List Group Item!
+                  li.alert-list
+                    /! BEGIN Alert Item Set Animation using data-view-animation !
+                    a.align-items-center data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                    p
+                      span.text-warning.fs-10
+                        i.fa.fa-circle
+                    p.p-l-10.overflow-ellipsis.fs-12
+                      span.text-master Meeting at 2:30
+                    p.p-r-10.ml-auto.fs-12.text-right
+                      span.text-warning Today
+                    /! END Alert Item!
+                  /! END List Group Item!
+              /! END List Group !
+              .list-view-group-container
+                /! BEGIN List Group Header!
+                .list-view-group-header.text-uppercase
+                  | Social
+                /! END List Group Header!
+                ul
+                  /! BEGIN List Group Item!
+                  li.alert-list
+                    /! BEGIN Alert Item Set Animation using data-view-animation !
+                    a.p-t-10.p-b-10.align-items-center data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="javascript:;" 
+                    p
+                      span.text-complete.fs-10
+                        i.fa.fa-circle
+                    p.col.overflow-ellipsis.fs-12.p-l-10
+                      span.text-master.link
+                        | Jame Smith commented on your status
+                        br/
+                      span.text-master “Perfection Simplified - Company Revox"
+                    /! END Alert Item!
+                  /! END List Group Item!
+                  /! BEGIN List Group Item!
+                  li.alert-list
+                    /! BEGIN Alert Item Set Animation using data-view-animation !
+                    a.p-t-10.p-b-10.align-items-center data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="javascript:;" 
+                    p
+                      span.text-complete.fs-10
+                        i.fa.fa-circle
+                    p.col.overflow-ellipsis.fs-12.p-l-10
+                      span.text-master.link
+                        | Jame Smith commented on your status
+                        br/
+                      span.text-master “Perfection Simplified - Company Revox"
+                    /! END Alert Item!
+                  /! END List Group Item!
+              .list-view-group-container
+                /! BEGIN List Group Header!
+                .list-view-group-header.text-uppercase
+                  | Sever Status
+                /! END List Group Header!
+                ul
+                  /! BEGIN List Group Item!
+                  li.alert-list
+                    /! BEGIN Alert Item Set Animation using data-view-animation !
+                    a.p-t-10.p-b-10.align-items-center data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                    p
+                      span.text-danger.fs-10
+                        i.fa.fa-circle
+                    p.col.overflow-ellipsis.fs-12.p-l-10
+                      span.text-master.link
+                        | 12:13AM GTM, 10230, ID:WR174s
+                        br/
+                      span.text-master Server Load Exceeted. Take action
+                    /! END Alert Item!
+                  /! END List Group Item!
+            /! END Alert List !
+          /! EEND Alerts View !
+      /! END Alerts !
+      #quickview-chat.tab-pane.active.no-padding
+        #chat.view-port.clearfix
+          .view.bg-white
+            /! BEGIN View Header !
+            .navbar.navbar-default
+              .navbar-inner
+                /! BEGIN Header Controler !
+                a.inline.action.p-l-10.link.text-master data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="javascript:;" 
+                  i.pg-plus
+                /! END Header Controler !
+                .view-heading
+                  | Chat List
+                  .fs-11 Show All
+                /! BEGIN Header Controler !
+                a.inline.action.p-r-10.pull-right.link.text-master href="#" 
+                  i.pg-more
+                /! END Header Controler !
+            /! END View Header !
+            .list-view.boreded.no-top-border data-init-list-view="ioslist" 
+              .list-view-group-container
+                .list-view-group-header.text-uppercase
+                  | a
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master ava flores
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase b
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master bella mccoy
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master bob stephens
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase c
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master carole roberts
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master christopher perez
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase d
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master danielle fletcher
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master david sutton
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase e
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master earl hamilton
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master elaine lawrence
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master ellen grant
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master erik taylor
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master everett wagner
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase f
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master freddie gomez
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase g
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master glen jensen
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master gwendolyn walker
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase j
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master janet romero
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase k
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master kim martinez
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase l
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master lawrence white
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master leroy bell
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master letitia carr
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master lucy castro
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase m
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master mae hayes
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master marilyn owens
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master marlene cole
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master marsha warren
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master marsha dean
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master mia diaz
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase n
+                ul
+                  /! BEGIN Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master noah elliott
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase p
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master phyllis hamilton
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase r
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master raul rodriquez
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master rhonda barnett
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master roberta king
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase s
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master scott armstrong
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master sebastian austin
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master sofia davis
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase t
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master terrance young
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master theodore woods
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master todd wood
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master tommy jenkins
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+              .list-view-group-container
+                .list-view-group-header.text-uppercase w
+                ul
+                  /! BEGIN Chat User List Item  !
+                  li.chat-user-list.clearfix
+                    a data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="#" 
+                      span.thumbnail-wrapper.d32.circular.bg-success
+                    p.p-l-10
+                      span.text-master wilma hicks
+                      span.block.text-master.hint-text.fs-12 Hello there
+                  /! END Chat User List Item  !
+          /! BEGIN Conversation View  !
+          .view.chat-view.bg-white.clearfix
+            /! BEGIN Header  !
+            .navbar.navbar-default
+              .navbar-inner
+                a.link.text-master.inline.action.p-l-10.p-r-10 data-navigate="view" data-view-animation="push-parrallax" data-view-port="#chat" href="javascript:;" 
+                  i.pg-arrow_left
+                .view-heading
+                  | John Smith
+                  .fs-11.hint-text Online
+                a.link.text-master.inline.action.p-r-10.pull-right href="#" 
+                  i.pg-more
+            /! END Header  !
+            /! BEGIN Conversation  !
+            #my-conversation.chat-inner
+              /! BEGIN From Me Message  !
+              .message.clearfix
+                .chat-bubble.from-me
+                  | Hello there
+              /! END From Me Message  !
+              /! BEGIN From Them Message  !
+              .message.clearfix
+                .profile-img-wrapper.m-t-5.inline
+                .chat-bubble.from-them
+                  | Hey
+              /! END From Them Message  !
+              /! BEGIN From Me Message  !
+              .message.clearfix
+                .chat-bubble.from-me
+                  | Did you check out Pages framework ?
+              /! END From Me Message  !
+              /! BEGIN From Me Message  !
+              .message.clearfix
+                .chat-bubble.from-me
+                  | Its an awesome chat
+              /! END From Me Message  !
+              /! BEGIN From Them Message  !
+              .message.clearfix
+                .profile-img-wrapper.m-t-5.inline
+                .chat-bubble.from-them
+                  | Yea
+              /! END From Them Message  !
+            /! BEGIN Conversation  !
+            /! BEGIN Chat Input  !
+            .b-t.b-grey.bg-white.clearfix.p-l-10.p-r-10
+              .row
+                .col-1.p-t-15
+                  a.link.text-master href="#" 
+                    i.fa.fa-plus-circle
+                .col-8.no-padding
+                  input.form-control.chat-input data-chat-conversation="#my-conversation" data-chat-input="" placeholder=("Say something") type="text" /
+                .col-2.link.text-master.m-l-10.m-t-15.p-l-10.b-l.b-grey.col-top
+                  a.link.text-master href="#" 
+                    i.pg-camera
+            /! END Chat Input  !
+          /! END Conversation View  !
+  /! END QUICKVIEW
+  /! START OVERLAY
+  .overlay.hide data-pages="search" 
+    /! BEGIN Overlay Content !
+    .overlay-content.has-results.m-t-20
+      /! BEGIN Overlay Header !
+      .container-fluid
+        /! BEGIN Overlay Logo !
+        /! END Overlay Logo !
+        /! BEGIN Overlay Close !
+        a.close-icon-light.overlay-close.text-black.fs-16 href="#" 
+          i.pg-close
+        /! END Overlay Close !
+      /! END Overlay Header !
+      .container-fluid
+        /! BEGIN Overlay Controls !
+        input#overlay-search.no-border.overlay-search.bg-transparent autocomplete="off" placeholder="Search..." spellcheck="false" /
+        br/
+        .inline-block
+          .checkbox.right
+            input#checkboxn checked="checked" type="checkbox" value="1" /
+            label for="checkboxn" 
+              i.fa.fa-search
+              | Search within page
+        .inline-block.m-l-10
+          p.fs-13 Press enter to search
+        /! END Overlay Controls !
+      /! BEGIN Overlay Search Results, This part is for demo purpose, you can add anything you like !
+      .container-fluid
+        span
+          strong suggestions :
+        span#overlay-suggestions
+        br/
+        .search-results.m-t-40
+          p.bold Pages Search Results
+          .row
+            .col-md-6
+              /! BEGIN Search Result Item !
+              div
+                /! BEGIN Search Result Item Thumbnail !
+                .thumbnail-wrapper.d48.circular.bg-success.text-white.inline.m-t-10
+                  div
+                    
+                /! END Search Result Item Thumbnail !
+                .p-l-10.inline.p-t-5
+                  h5.m-b-5
+                    span.semi-bold.result-name ice cream
+                    | on pages
+                  p.hint-text via john smith
+              /! END Search Result Item !
+              /! BEGIN Search Result Item !
+              div
+                /! BEGIN Search Result Item Thumbnail !
+                .thumbnail-wrapper.d48.circular.bg-success.text-white.inline.m-t-10
+                  div T
+                /! END Search Result Item Thumbnail !
+                .p-l-10.inline.p-t-5
+                  h5.m-b-5
+                    span.semi-bold.result-name ice cream
+                    | related topics
+                  p.hint-text via pages
+              /! END Search Result Item !
+              /! BEGIN Search Result Item !
+              div
+                /! BEGIN Search Result Item Thumbnail !
+                .thumbnail-wrapper.d48.circular.bg-success.text-white.inline.m-t-10
+                  div
+                    i.fa.fa-headphones.large-text
+                /! END Search Result Item Thumbnail !
+                .p-l-10.inline.p-t-5
+                  h5.m-b-5
+                    span.semi-bold.result-name ice cream
+                    | music
+                  p.hint-text via pagesmix
+              /! END Search Result Item !
+            .col-md-6
+              /! BEGIN Search Result Item !
+              div
+                /! BEGIN Search Result Item Thumbnail !
+                .thumbnail-wrapper.d48.circular.bg-info.text-white.inline.m-t-10
+                  div
+                    i.fa.fa-facebook.large-text
+                /! END Search Result Item Thumbnail !
+                .p-l-10.inline.p-t-5
+                  h5.m-b-5
+                    span.semi-bold.result-name ice cream
+                    | on facebook
+                  p.hint-text via facebook
+              /! END Search Result Item !
+              /! BEGIN Search Result Item !
+              div
+                /! BEGIN Search Result Item Thumbnail !
+                .thumbnail-wrapper.d48.circular.bg-complete.text-white.inline.m-t-10
+                  div
+                    i.fa.fa-twitter.large-text
+                /! END Search Result Item Thumbnail !
+                .p-l-10.inline.p-t-5
+                  h5.m-b-5
+                    | Tweats on
+                    span.semi-bold.result-name ice cream
+                  p.hint-text via twitter
+              /! END Search Result Item !
+              /! BEGIN Search Result Item !
+              div
+                /! BEGIN Search Result Item Thumbnail !
+                .thumbnail-wrapper.d48.circular.text-white.bg-danger.inline.m-t-10
+                  div
+                    i.fa.fa-google-plus.large-text
+                /! END Search Result Item Thumbnail !
+                .p-l-10.inline.p-t-5
+                  h5.m-b-5
+                    | Circles on
+                    span.semi-bold.result-name ice cream
+                  p.hint-text via google plus
+              /! END Search Result Item !
+      /! END Overlay Search Results !
+    /! END Overlay Content !
+  /! END OVERLAY
+  /! BEGIN VENDOR JS
+  = javascript_include_tag "pages/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.js"]
+  = yield :footer

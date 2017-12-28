@@ -17,6 +17,8 @@
         ".git",
         ".hg",
         "vendor/plugins",
+        "public/images",
+        "public/uploads",
         "tmp",
         "log",
         "doc"

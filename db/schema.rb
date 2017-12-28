@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171011040222) do
+ActiveRecord::Schema.define(version: 20171223002227) do
 
   create_table "activities", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
@@ -37,12 +37,12 @@ ActiveRecord::Schema.define(version: 20171011040222) do
     t.integer "assetable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "serializes"
     t.index ["assetable_type", "assetable_id"], name: "index_assets_on_assetable_type_and_assetable_id"
   end
 
   create_table "brokers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
-    t.integer "store_id"
     t.string "department"
     t.string "person_type"
     t.boolean "active"
@@ -50,7 +50,9 @@ ActiveRecord::Schema.define(version: 20171011040222) do
     t.datetime "updated_at", null: false
     t.string "irs_id"
     t.string "company"
-    t.index ["store_id"], name: "index_brokers_on_store_id"
+    t.text "serializes"
+    t.string "state"
+    t.string "store_id"
   end
 
   create_table "builds", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -76,6 +78,19 @@ ActiveRecord::Schema.define(version: 20171011040222) do
   create_table "dashboards", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "documents", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "name"
+    t.string "state"
+    t.datetime "approved_at"
+    t.integer "proposal_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "documentable_type"
+    t.bigint "documentable_id"
+    t.index ["documentable_type", "documentable_id"], name: "index_documents_on_documentable_type_and_documentable_id"
+    t.index ["proposal_id"], name: "index_documents_on_proposal_id"
   end
 
   create_table "mailers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -106,16 +121,6 @@ ActiveRecord::Schema.define(version: 20171011040222) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["store_id"], name: "index_persons_on_store_id"
-  end
-
-  create_table "proposal_documents", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.string "state"
-    t.datetime "approved_at"
-    t.integer "proposal_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["proposal_id"], name: "index_proposal_documents_on_proposal_id"
   end
 
   create_table "proposals", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

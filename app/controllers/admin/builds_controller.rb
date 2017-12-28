@@ -1,4 +1,5 @@
 class Admin::BuildsController < Admin::BaseController
+  # layout 'pages'
   before_action :set_admin_build, only: [:show, :edit, :update, :destroy, :scope, :assets, :deliver_mail]
   respond_to :js, :html, :json
 
@@ -23,7 +24,7 @@ class Admin::BuildsController < Admin::BaseController
   end
 
   def index
-    @builds = current_store.builds
+    @builds = current_store.try(:builds) || Build.all
   end
 
   def scope
