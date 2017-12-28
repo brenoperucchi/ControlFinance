@@ -18,6 +18,7 @@
         ".hg",
         "vendor/plugins",
         "public/images",
+        "public/assets",
         "public/uploads",
         "tmp",
         "log",

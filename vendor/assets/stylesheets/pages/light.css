@@ -9603,7 +9603,7 @@ input.list-view-search {
   overflow-x: hidden;
 }
 .social-wrapper .social .cover-photo:before {
-  background-image: url(/images/linear_gradient.png");
+  background-image: url("/images/linear_gradient.png");
   background-repeat: repeat-x;
   bottom: 0;
   content: " ";
