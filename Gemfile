@@ -11,7 +11,6 @@ gem 'rails', '5.1.4'
 # Core'
 gem 'devise'
 gem 'mysql2'
-gem 'pg'
 gem 'state_machine', git: 'https://github.com/shopperplus/state_machine.git'
 gem 'public_activity'
 gem 'sentient_user'#, git: 'https://github.com/julioalucero/sentient_user.git'
@@ -26,6 +25,7 @@ gem 'unicorn'
 
 # Development and Test
 group :development, :test do
+  gem 'pg'
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'guard-rspec'
