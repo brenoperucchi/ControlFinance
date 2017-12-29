@@ -3,6 +3,8 @@ pt-BR:
   accept: 'sim'
   views:
     broker:
+      document:
+        comment: 'Histórico de Conversa'
         new:
           title1: 'Corretor faça o seu cadastro aqui!'
           title2: 'Solicitamos que o correspondente preencha o seus dados e aceite os termos de exigências.'
@@ -151,6 +153,13 @@ pt-BR:
         one: 'Não foi possível gravar %{model}: 1 erro'
         other: 'Não foi possível gravar %{model}: %{count} erros'
   helpers:
+    document:
+      pending: pendente
+      approved: aceito
+    broker:
+      pending: pendente
+      approved: aceito
+      comment: 'Digite o seu comentário aqui!'
     system:
       title: Booking Reservation System 
     common:
@@ -282,5 +291,6 @@ pt-BR:
         option3: 'Broker will be responsible in making all the contact with the client until delivery of the keys.'
         option4: 'The payment of the brokerage to the broker will happen only after delivery of the Invoice, with the proofs of deposits of the client and through the effective receipts in the bank account of the developer.'
         option5: 'The broker agrees not to disclose the members personal phones, but may only disclose the company information below:'
+        comment: 'Comentário'
     errors:
       <<: *errors

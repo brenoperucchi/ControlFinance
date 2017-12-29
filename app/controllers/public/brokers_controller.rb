@@ -30,7 +30,6 @@ class Public::BrokersController < Public::BaseController
       respond_to do |format|
       if @broker.save
         flash[:info] = "Broker was successfully created."
-        "sdsd"
         sign_in @broker.user
         format.html { redirect_to document_public_broker_path(@broker)}
         format.json { render :show, status: :created, location: @broker }

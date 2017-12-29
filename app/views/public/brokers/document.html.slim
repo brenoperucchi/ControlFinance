@@ -45,7 +45,7 @@
                       / td.text-right.b-r.b-dashed.b-grey.w-25
                       /   span.hint-text.small Qty 1
                       td.w-25
-                        span.font-montserrat.fs-18= document.state
+                        span.font-montserrat.fs-18= t document.state, scope:'helpers.document'
                       td
                         = link_to ["#{document.name}", :public, @broker] do
                           i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
@@ -62,39 +62,7 @@
   .col-lg-4
     .row
       .col-lg-12 
-        - unless @broker.activities.blank?
-          = simple_form_for [:public, @broker], wrapper: :pages_form2 do |f|
-            = f.input :comment, placeholder: model_class.human_attribute_name(:comment), input_html:{class: 'input-lg'}
+        = simple_form_for [:public, @broker], wrapper: :pages_form2 do |f|
+          = f.input :comment, placeholder: t(:comment, scope: 'helpers.broker'), input_html:{class: 'input-lg'}
     .row
-      .timeline-container.left
-        .p-l-25
-          .pull-left
-            h3.text-success.no-margin Comment
-        section.timeline
-          - @broker.activities.each do |activity|
-            .timeline-block
-              .timeline-point.success
-                i.pg-map
-              /! timeline-point
-              .timeline-content
-                /! START CARD ELEMENT
-                .card.social-card.share.full-width
-                  .circle data-toggle="tooltip" title="Label" 
-                  .card-header.clearfix
-                    h5= activity.owner.name
-                    h6
-                      span.location.semi-bold
-                        | Broker
-                        '
-                        = activity.trackable.state
-                        / i.fa.fa-map-marker
-                        / '
-                        / = activity.unit.name
-                  .card-description
-                    p
-                      = activity.parameters[:comment]
-                      / a href="#"  #quote
-                    / .via 
-                    /   | Unit
-                    /   '
-                    /   = activity.recipient.name
+      = render "timeline", broker:@broker

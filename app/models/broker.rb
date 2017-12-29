@@ -36,21 +36,29 @@ class Broker < ApplicationRecord
 
   accepts_nested_attributes_for :user
 
-  # state_machine initial: :pending do    
-    # after_transition any  => [:pending, :refused],     do: :update_states
-    # after_transition any  => :booked,                  do: :update_booked_at
-    # after_transition any  => [:booked, :accepted],     do: :update_states
-    # after_transition any  => :closed,                  do: :update_states
-    # after_transition [:booked, :accepted, :closed] => :pending, do: :update_to_pending
-    # before_transition :pending => :booked,             do: :restrict_booked?
-    # before_transition any - :booked => :closed,        do: :restrict_closed?
-    # before_transition any - :booked => :accepted,      do: :restrict_accepted?
+  state_machine initial: :pending do    
+    after_transition :pending => :approved, :do => :update_state
+    after_transition :approved => :pending, :do => :update_state
 
-    # event :pending do
-    #   transition [:refused, :booked, :accepted, :closed] => :pending
-    # end
-  # end
+    event :approve do 
+      transition [:pending] => :approved
+    end
+    event :cancel do
+      transition [:approved] => :pending
+    end
 
+    state :approved do
+      def update_state(state)
+        self.update_column(:approved_at, DateTime.now)
+      end
+    end
+    state :pending do
+      def update_state(state)
+        self.update_column(:approved_at, nil)
+      end
+    end
+  end
+  
   def restricted?
     proposals.restricted.present? ? true : false
   end

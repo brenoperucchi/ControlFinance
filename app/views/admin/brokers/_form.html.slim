@@ -2,10 +2,15 @@
 / = f.input :unit_id, as: :hidden, input_html:{value:@unit.id}
 .row 
   .col-md-6.col-lg-6.col-sm-6
-    = f.input :name, placeholder: model_class.human_attribute_name(:name)
-    = f.input :state, as: :select, collection: model_class::STATES.map{|key,value|key}, selected: f.object.state, placeholder: model_class.human_attribute_name(:status)
+    = f.input :name, placeholder: model_class.human_attribute_name(:name), input_html: { class: 'input-sm'}
+    = f.input :irs_id, placeholder: model_class.human_attribute_name(:irs_id), input_html: { class: 'input-sm'}
+    = f.input :company, placeholder: model_class.human_attribute_name(:company), input_html: { class: 'input-sm'}
+    = f.input :state, as: :select, collection: model_class::STATES.map{|key,value|key}, selected: f.object.state, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm'}
   .col-md-6.col-lg-6.col-sm-6
+    = f.input :address, placeholder: model_class.human_attribute_name(:address), input_html: { class: 'input-sm'}
+    = f.input :phone, placeholder: model_class.human_attribute_name(:phone), input_html: { class: 'input-sm'}
+    = f.input :company_irs_id, placeholder: model_class.human_attribute_name(:company_irs_id), input_html: { class: 'input-sm'}
     - f.object.build_user if f.object.user.nil?
     = f.simple_fields_for :user do |user|
       = user.input :store_id, as: :hidden, input_html:{value: current_store.id} if f.object.user.userable.nil?
-      = user.input :email, placeholder: model_class.human_attribute_name(:email)
+      = user.input :email, placeholder: model_class.human_attribute_name(:email), input_html: { class: 'input-sm'}

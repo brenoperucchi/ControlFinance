@@ -3,6 +3,8 @@ en:
   accept: 'yes'
   views:
     broker:
+      document:
+        comment: 'Talk History'
       new:
         title1: Broker make your register here!
         title2: 'Is requested that the correspondent fill in his data and accept the terms of requirements.'
@@ -156,9 +158,17 @@ en:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
   helpers:
+    document:
+      pending: pending
+      approved: approved
+    broker:
+      pending: pending
+      approved: approved
+      comment: 'Digit your comment here!'
     system:
       title: Booking Reservation System 
     common:
+      pending: 'pending'
       approved: 'Approved'
       not_approved: 'Not Approved'
       confirm: 'Confirm'
