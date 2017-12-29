@@ -5,20 +5,23 @@
   .card.card
     .card-block
       .row
-        .col-md-10
+        .col-md-12
           h3= t :title1, scope: 'views.broker.new'
           p= t :title2, scope: 'views.broker.new'
+          .row
+            .col-md-6
+              = f.input :name, placeholder: model_class.human_attribute_name(:name), input_html: { class: 'input-sm'}
+              - f.object.build_user if f.object.user.nil?
+              = f.simple_fields_for :user do |user|
+                = user.input :store_id, as: :hidden, input_html:{value: current_store.id}
+                = user.input :email, placeholder: model_class.human_attribute_name(:email)
+              = f.input :irs_id, placeholder: model_class.human_attribute_name(:irs_id), input_html: { class: 'input-sm'}
+              = f.input :company, placeholder: model_class.human_attribute_name(:company), input_html: { class: 'input-sm'}
+            .col-md-6
+              = f.input :address, placeholder: model_class.human_attribute_name(:address), input_html: { class: 'input-sm'}
+              = f.input :phone, placeholder: model_class.human_attribute_name(:phone), input_html: { class: 'input-sm'}
+              = f.input :company_irs_id, placeholder: model_class.human_attribute_name(:company_irs_id), input_html: { class: 'input-sm'}
           br/
-          = f.input :name, placeholder: model_class.human_attribute_name(:name), input_html: { class: 'input-sm'}
-          - f.object.build_user if f.object.user.nil?
-          = f.simple_fields_for :user do |user|
-            = user.input :store_id, as: :hidden, input_html:{value: current_store.id}
-            = user.input :email, placeholder: model_class.human_attribute_name(:email)
-          = f.input :irs_id, placeholder: model_class.human_attribute_name(:irs_id), input_html: { class: 'input-sm'}
-          = f.input :company, placeholder: model_class.human_attribute_name(:company), input_html: { class: 'input-sm'}
-          = f.input :address, placeholder: model_class.human_attribute_name(:address), input_html: { class: 'input-sm'}
-          = f.input :phone, placeholder: model_class.human_attribute_name(:phone), input_html: { class: 'input-sm'}
-          = f.input :company_irs_id, placeholder: model_class.human_attribute_name(:company_irs_id), input_html: { class: 'input-sm'}
           .row
             .col-md-12
               = f.input :option1, wrapper: :pages_vertical_radio do
@@ -73,6 +76,22 @@
                         = t(:not_accept)
                       = radio_button_tag '[broker]option5', 1, f.object.option5 == "1", id: 'choice10'
                       label for="choice10"
+                        = t(:accept)
+          .row
+            .col-md-12
+              = f.input :option6, label: false, wrapper: :append do                    
+                .form-group.row
+                  .col-md-8
+                    label.col-md-10.control-label 
+                      strong
+                        = t :option6, scope: 'activerecord.attributes.broker'
+                  .col-md-4
+                    .radio.radio-success
+                      = radio_button_tag '[broker]option6', 0, f.object.option6 == "0", id: 'choice11'
+                      label for="choice11"
+                        = t(:not_accept)
+                      = radio_button_tag '[broker]option6', 1, f.object.option6 == "1", id: 'choice12'
+                      label for="choice12"
                         = t(:accept)
               br/
               strong

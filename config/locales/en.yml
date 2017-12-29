@@ -158,6 +158,9 @@ en:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
   helpers:
+    session:
+      title: "Please type your e-mail for fully access"
+      acceptance: "No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials."
     document:
       pending: pending
       approved: approved
@@ -288,11 +291,12 @@ en:
     attributes:
       broker:
         name: 'Name'
-        option1: 'The banking correspondent will be indicated.'
-        option2: 'Broker will be responsible to request / request some documents for completion of bank financing.'
-        option3: 'Broker will be responsible in making all the contact with the client until delivery of the keys.'
-        option4: 'The payment of the brokerage to the broker will happen only after delivery of the Invoice, with the proofs of deposits of the client and through the effective receipts in the bank account of the developer.'
-        option5: 'The broker agrees not to disclose the members personal phones, but may only disclose the company information below:'
-
+        option1: 'Correspondent banking will be indicated by the construction company.'
+        option2: 'The broker will be responsible to request all documents to complete the bank financing.'
+        option3: 'The broker will be responsible to request all documents from the client to complete the bank financing.'
+        option4: "It will be the broker's responsibility to send the customer's payment vouchers to the company's email."
+        option5: 'The payment of the brokerage is by paying the actual values in the company account and with the invoice by the broker.'
+        option6: 'Only the information below may be disclosed by brokers to your customers.'
+        comment: 'comment'
     errors:
       <<: *errors

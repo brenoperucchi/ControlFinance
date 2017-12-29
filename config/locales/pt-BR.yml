@@ -5,13 +5,13 @@ pt-BR:
     broker:
       document:
         comment: 'Histórico de Conversa'
-        new:
-          title1: 'Corretor faça o seu cadastro aqui!'
-          title2: 'Solicitamos que o correspondente preencha o seus dados e aceite os termos de exigências.'
-          title3: 'O corretor aceita não divulgar os telefones pessoais dos sócios, podendo somente divugar as informações da empresa abaixo:'
-          title4: 'Telephone and WhatsApp for contact: 48 99126-8808'
-          title5: 'Endereço somente para correspondência:'
-          title6: 'Rua Primavera 320,Conj 602, Pagani, Palhoça/SC Cep:88132-100'
+      new:
+        title1: 'Corretor faça o seu cadastro aqui!'
+        title2: 'Solicitamos que o correspondente preencha o seus dados e aceite os termos de exigências.'
+        title3: 'Contatos da empresa:'
+        title4: 'Telephone and WhatsApp for contact: 48 99126-8808'
+        title5: 'Endereço somente para correspondência:'
+        title6: 'Rua Primavera 320,Conj 602, Pagani, Palhoça/SC Cep:88132-100'
   date:
     abbr_day_names:
     - Dom
@@ -153,6 +153,9 @@ pt-BR:
         one: 'Não foi possível gravar %{model}: 1 erro'
         other: 'Não foi possível gravar %{model}: %{count} erros'
   helpers:
+    session:
+      title: "Favor digitar o seu e-mail para ter acesso completo."
+      acceptance: "Nenhuma parte deste site ou qualquer conteúdo pode ser reproduzido, copiado, modificado ou adaptado, sem o consentimento prévio por escrito do autor, salvo indicação em contrário para materiais autônomos."
     document:
       pending: pendente
       approved: aceito
@@ -285,12 +288,13 @@ pt-BR:
     models:
     attributes:
       broker:
-        name: 'Name'
-        option1: 'The banking correspondent will be indicated.'
-        option2: 'Broker will be responsible to request / request some documents for completion of bank financing.'
-        option3: 'Broker will be responsible in making all the contact with the client until delivery of the keys.'
-        option4: 'The payment of the brokerage to the broker will happen only after delivery of the Invoice, with the proofs of deposits of the client and through the effective receipts in the bank account of the developer.'
-        option5: 'The broker agrees not to disclose the members personal phones, but may only disclose the company information below:'
-        comment: 'Comentário'
+        name: 'Nome'
+        option1: 'Correspondente bancário será indicado pela construtora'
+        option2: 'O corretor será responsável solicitar todos os documentos ao cliente para conclusão do financiamento bancário.'
+        option3: 'O corretor ficará responsável em fazer todo o contato com o cliente até entrega das chaves.'
+        option4: "It will be the broker's responsibility to send the customer's payment vouchers to the company's email."
+        option5: 'O pagamento da corretagem é mediante ao pagamento dos valores efetivos na conta da empresa e com a Nota Fiscal pela corretora ou corretor.'
+        option6: 'O corretor aceita divulgar somente as informações da empresa abaixo:'
+        comment: 'comentário'
     errors:
       <<: *errors

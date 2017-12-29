@@ -1,6 +1,6 @@
 class Public::ProposalsController < Public::BaseController
 
-  skip_before_action :authenticate_user!, only:[:create, :update, :destroy, :expired, :booking]
+  skip_before_action :authenticate_user!, only:[:create, :update, :destroy, :expired]
 
   before_action :set_proposal, only: [:show, :edit, :update, :destroy, :comment]
   before_action :belongs_to_params, only: [:index, :new, :create, :booking]

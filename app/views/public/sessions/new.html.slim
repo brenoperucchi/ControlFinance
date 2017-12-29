@@ -1,15 +1,44 @@
-.panel.panel-default
-  .panel-heading
-    | Log in
-  .panel-wrapper.collapse.in
-    = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+.register-container.full-height.sm-p-t-30
+  .d-flex.justify-content-center.flex-column.full-height
+    h3= t :title, scope: 'helpers.session'
+    / p
+      | Create a pages account. If you have a facebook account, log into it for this process. Sign in with
+    = simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: :pages_form2 do |f|
       .panel-body
         = f.input :email, required: false, autofocus: true
-        / = f.input :password, required: false
-        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+        / = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+      / .row.m-t-10
+        .col-lg-6
+          p
+            small
+              | I agree to the
+              a.text-info href="#"  Pages Terms
+              | and
+              a.ext-info href="#"  Privacy
+        / .col-lg-6.text-right
+          a.text-info.small href="#"  Help? Contact Support
+      / button.btn.btn-primary.btn-cons.m-t-10 type="submit"  Create a new account
+      = f.button :submit, "Enter", class: 'btn btn-primary btn-cons m-t-10'
+.full-width
+  .register-container.m-b-10.clearfix
+    .m-b-30.sm-m-t-20.sm-p-r-15.sm-p-b-20.clearfix.d-flex-md-up
+      .col-md-2.no-padding.d-flex.align-items-center
+      .col-md-9.no-padding.d-flex.align-items-center
+        p.hinted-text.small.inline.sm-p-t-10 
+          = t :acceptance , scope: 'helpers.session'
 
-      .panel-footer
-        .form-group
-          .col-sm-offset-0.col-sm-9
-            = f.button :submit, "Log in"
-= render "devise/shared/links"
+/ .panel.panel-default
+/   .panel-heading
+/     | Log in
+/   .panel-wrapper.collapse.in
+/     = simple_form_for resource, as: resource_name, url: session_path(resource_name) do |f|
+/       .panel-body
+/         = f.input :email, required: false, autofocus: true
+/         / = f.input :password, required: false
+/         = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+
+/       .panel-footer
+/         .form-group
+/           .col-sm-offset-0.col-sm-9
+/             = f.button :submit, "Log in"
+/ = render "devise/shared/links"
