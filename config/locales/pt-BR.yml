@@ -156,6 +156,9 @@ pt-BR:
     session:
       title: "Favor digitar o seu e-mail para ter acesso completo."
       acceptance: "Nenhuma parte deste site ou qualquer conteúdo pode ser reproduzido, copiado, modificado ou adaptado, sem o consentimento prévio por escrito do autor, salvo indicação em contrário para materiais autônomos."
+    proposal:
+      pending: pendente
+      approved: aceito
     document:
       pending: pendente
       approved: aceito
@@ -287,12 +290,14 @@ pt-BR:
   activerecord:
     models:
     attributes:
+      user:
+        email: "e-mail"
       broker:
         name: 'Nome'
         option1: 'Correspondente bancário será indicado pela construtora'
         option2: 'O corretor será responsável solicitar todos os documentos ao cliente para conclusão do financiamento bancário.'
         option3: 'O corretor ficará responsável em fazer todo o contato com o cliente até entrega das chaves.'
-        option4: "It will be the broker's responsibility to send the customer's payment vouchers to the company's email."
+        option4: "É de responsabilidade do corretor enviar todos os comprovantes de pagamento do cliente ao e-mail da empresa "
         option5: 'O pagamento da corretagem é mediante ao pagamento dos valores efetivos na conta da empresa e com a Nota Fiscal pela corretora ou corretor.'
         option6: 'O corretor aceita divulgar somente as informações da empresa abaixo:'
         comment: 'comentário'

@@ -14,6 +14,11 @@ class Admin::BrokersController < Admin::BaseController
     @broker = current_store.brokers.new
   end
 
+  def documents
+    @document = Document.find(params[:id])
+    respond_with(@build)    
+  end
+
   def edit
   end
 
@@ -59,6 +64,6 @@ class Admin::BrokersController < Admin::BaseController
     end
 
     def admin_broker_params
-      params.require(:broker).permit(:name, :state, :option1, :option2, :option3, :option4, :option5, :store_id, :comment, user_attributes:[:id, :email, :store_id])
+      params.require(:broker).permit(:name, :irs_id, :company, :address, :phone, :company_irs_id, :state, :option1, :option2, :option3, :option4, :option5, :store_id, :comment, user_attributes:[:id, :email, :store_id])
     end
 end

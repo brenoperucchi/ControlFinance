@@ -161,6 +161,9 @@ en:
     session:
       title: "Please type your e-mail for fully access"
       acceptance: "No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials."
+    proposal:
+      pending: pending
+      approved: approved
     document:
       pending: pending
       approved: approved
@@ -289,6 +292,8 @@ en:
   activerecord:
     models:
     attributes:
+      user:
+        email: "e-mail"
       broker:
         name: 'Name'
         option1: 'Correspondent banking will be indicated by the construction company.'

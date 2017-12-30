@@ -7,13 +7,13 @@ class Admin::Proposal < Proposal
   def validate_state
     return true if STATUS[self.state.to_sym] == STATUS[self.status.to_sym]
     self.validated = false
-    # self.class.public_activity_off
+    self.class.public_activity_off
     if send(STATUS[status.to_sym])
       true
     else
       errors.add(:status, :invalid)
     end
-    # self.class.public_activity_on
+    self.class.public_activity_on
   end
 
 end

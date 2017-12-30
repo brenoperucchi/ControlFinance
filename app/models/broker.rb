@@ -22,7 +22,7 @@ class Broker < ApplicationRecord
   
   belongs_to :store, optional: true
   has_one :user, as: :userable, dependent: :destroy
-  has_many :proposals, class_name: 'Proposal', foreign_key: "broker_id"
+  has_many :proposals, class_name: 'Proposal', foreign_key: "broker_id", dependent: :destroy
   has_many :assets,    class_name: "Asset",    as: :assetable, dependent: :destroy
   has_many :documents, class_name: "Document", as: :documentable, dependent: :destroy
 

@@ -17,7 +17,9 @@
 //= require pages/isotope.pkgd.min.js
 //= require pages/classie.js
 //= require pages/stepsForm.js
-
 //= require pages/pages.min.js
 //= require pages/pages.social.min.js
 //= require pages/scripts.js
+//= require pages/dropzone.js
+//= require editable/bootstrap-editable
+//= require editable/rails

@@ -1,35 +1,41 @@
-- model_class = Asset
-
-= simple_form_for Asset.new, url: public_assets_path(@build.class.name, @build) do |f|
-  .modal-header
-      button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
-      h4.modal-title
-        =t 'new', scope: 'helpers.titles', :model => model_class.model_name.human.titleize
+= simple_form_for Asset.new, url: public_assets_path(@document.class.name, @document) do |f|
+  .modal-header.clearfix.text-left
+    button.close aria-hidden="true" data-dismiss="modal" type="button" 
+      i.pg-close.fs-14
+    h5 
+      | Documents
+      / span.semi-bold Information
+    / p.p-b-10 We need payment information inorder to process your order
   .modal-body
-    .dropzone
-    .fallback.hide
-      = f.file_field :file
-  .modal-footer
-    / .form-group
-    /   .col-sm-offset-0.col-sm-9
-          = f.submit nil, :class => 'btn btn-primary'
-    /     '
-    /     = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'  
-
-
+    .row
+      .dropzone
+      .fallback.hide
+        = f.file_field :file
+    / .row
+    /   .col-md-8
+    /     .p-t-20.clearfix.p-l-10.p-r-10
+    /       .pull-left
+    /         p.bold.font-montserrat.text-uppercase TOTAL
+    /       .pull-right
+    /         p.bold.font-montserrat.text-uppercase $20.00
+    /   .col-md-4.m-t-10.sm-m-t-10
+    /     button.btn.btn-primary.btn-block.m-t-5 type="button"  Pay Now
+css:
+  div.dropzone.dz-clickable{
+    width:100%;  
+  }
 javascript:
   $(document).ready(function(){
     Dropzone.autoDiscover = false;
     $(".dropzone").dropzone({
-      url: "#{public_assets_path(@build.class.name, @build)}",
+      url: "#{public_assets_path(@document.class.name, @document)}",
       maxFilesize: 15,
       paramName: "asset[file]",
       addRemoveLinks: true,
-      acceptedFiles: 'image/*',
       init: function() {
         $.ajax({
             type: 'GET',
-            url: "#{public_assets_path(@build.class.name, @build)}",
+            url: "#{public_assets_path(@document.class.name, @document)}",
             dataType: 'JSON',
             success: function(response) {
             $.each(response, function(index, object){ 

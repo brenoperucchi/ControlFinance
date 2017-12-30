@@ -49,7 +49,10 @@ Rails.application.routes.draw do
       post 'login',  to: 'sessions#create', as: 'session'
       delete 'logout',  to: 'sessions#destroy', as: 'destroy_session'
     end
-    resources :brokers
+    resources :documents, only:[:create, :index, :update]
+    resources :brokers do
+      get 'documents', on: :member
+    end
     resources :dashboards
     resources :builds do 
       get 'assets', on: :member

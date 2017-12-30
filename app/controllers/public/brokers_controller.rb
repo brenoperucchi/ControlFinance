@@ -66,14 +66,12 @@ class Public::BrokersController < Public::BaseController
   # end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
 
     def set_public_broker
       @broker = Broker.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def public_broker_params
-      params.require(:broker).permit(:name, :irs_id, :company, :option1, :option2, :option3, :option4, :option5, :address, :phone, :company_irs_id, :store_id, :comment, user_attributes:[:id, :email, :store_id])
+      params.require(:broker).permit(:name, :irs_id, :company, :option1, :option2, :option3, :option4, :option5, :option6, :address, :phone, :company_irs_id, :store_id, :comment, user_attributes:[:id, :email, :store_id])
     end
 end

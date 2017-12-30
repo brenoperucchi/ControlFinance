@@ -12,13 +12,12 @@
 .bg-white
   /! START card
   .card.card-transparent
-    .card-header
-      .card-title
-        | Pages Default Tables Style
+    / .card-header
+    /   .card-title
+    /     | Pages Default Tables Style
     .card-description
       .table-responsive
-        / table.table.table-condensed.table-hover
-        table#basicTable.table.table-hover
+        table#basicTable.table.table-condensed.table-hover
           thead
             tr
               th= model_class.human_attribute_name(:name)
@@ -32,10 +31,10 @@
                 td= broker.state
                 td= broker.user.email
                 td
-                  = link_to edit_admin_broker_path(broker), :class => 'btn btn-info btn-outline hidden-xs.hidden-sm waves-effect waves-light', :title => t('show', :scope => 'helpers.links') do
+                  = link_to edit_admin_broker_path(broker), :class => 'btn btn-info btn-outline btn-xs waves-effect waves-light', :title => t('show', :scope => 'helpers.links') do
                     ' Edit
                   '
-                  = link_to admin_broker_path(broker), class: 'btn btn-danger', data: { confirm: 'Are you sure?' }, method: :delete do
+                  = link_to admin_broker_path(broker), class: 'btn btn-xs btn-danger', data: { confirm: 'Are you sure?' }, method: :delete do
                     i.ti-trash.inline
                     '
                     = t('destroy', scope: "helpers.links")
