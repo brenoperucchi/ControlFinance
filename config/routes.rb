@@ -18,9 +18,9 @@ Rails.application.routes.draw do
     resources :assets, only:[:destroy]
     resources :purchase_steps, path: 'proposal/:proposal_id'
     resources :brokers, only:[:new, :create, :update] do
-      get 'irs_id', on: :member
-      get 'document', on: :member
+      get 'revise', on: :member
       get 'contract', on: :member
+      get 'assets', on: :member
     end
 
     resources :stores, only: [] do
@@ -51,7 +51,7 @@ Rails.application.routes.draw do
     end
     resources :documents, only:[:create, :index, :update]
     resources :brokers do
-      get 'documents', on: :member
+      get 'assets', on: :member
     end
     resources :dashboards
     resources :builds do 

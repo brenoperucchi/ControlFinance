@@ -1,12 +1,11 @@
 class Broker < ApplicationRecord
+  STATES = {pending: 'cancel', approved:'approve'}
+
   include Lib::Personhood
-
-  after_create :create_documents
-
-  STATES = {pending: 'pending', refused:'refuse', accepted:'accept'}
-
   include PublicActivity::Model
   attr_accessor :comment
+
+  store :serializes, accessors:[:option1, :option2, :option3, :option4, :option5, :option6, :address, :phone, :company_irs_id]
   
   tracked :only =>[:update], 
           :owner      =>  proc {|controller, model| User.current.userable},
@@ -16,10 +15,9 @@ class Broker < ApplicationRecord
                      },
           :on => {
                    :update => proc {|model, controller| !model.comment.blank? }
-                 }
+                 }  
+  after_create :create_documents
 
-  store :serializes, accessors:[:option1, :option2, :option3, :option4, :option5, :option6, :address, :phone, :company_irs_id]
-  
   belongs_to :store, optional: true
   has_one :user, as: :userable, dependent: :destroy
   has_many :proposals, class_name: 'Proposal', foreign_key: "broker_id", dependent: :destroy
@@ -68,7 +66,10 @@ class Broker < ApplicationRecord
   end
 
   def create_documents
-    documents.create([{name: 'irs_id'},{name: 'contract'}])
+    documents.create([
+      {name: 'irs_id', kind:'irs_id'},
+      {name: 'contract', kind:'contract'}
+    ])
   end
 
 end

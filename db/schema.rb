@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229144230) do
+ActiveRecord::Schema.define(version: 20171231001932) do
 
   create_table "activities", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20171229144230) do
 
   create_table "brokers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
+    t.integer "store_id"
     t.string "department"
     t.string "person_type"
     t.boolean "active"
@@ -52,8 +53,8 @@ ActiveRecord::Schema.define(version: 20171229144230) do
     t.string "company"
     t.text "serializes"
     t.string "state"
-    t.string "store_id"
     t.datetime "approved_at"
+    t.index ["store_id"], name: "index_brokers_on_store_id"
   end
 
   create_table "builds", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(version: 20171229144230) do
     t.datetime "updated_at", null: false
     t.string "documentable_type"
     t.bigint "documentable_id"
+    t.string "kind"
     t.index ["documentable_type", "documentable_id"], name: "index_documents_on_documentable_type_and_documentable_id"
     t.index ["proposal_id"], name: "index_documents_on_proposal_id"
   end

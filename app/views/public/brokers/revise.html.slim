@@ -4,14 +4,13 @@
     .row
       .col-lg-12
         .card.social-card.status data-social="item" style="width:100%"
-          h5
-          h2 Calma, falta pouco para você se tornar um corretor da Elo Empreedimentos e começar a vender os nossos produtos. 
+          h2=t :revise_title1, scope:'helpers.broker' 
     .row
       .col-lg-12.col-xl-12.m-b-10
         .card.widget-12.no-border.widget-loader-circle.no-margin
           .p-t-25.p-l-25.p-r-25
             .pull-left
-              h2.text-success.no-margin A sua conta ainda está como pendente. Veja abaixo como solucionar o seu caso.
+              h3.text-success.no-margin=t :revise_title2, scope:'helpers.broker'
               p.no-margin 
           .card-block.p-t-0
             .table-responsive
@@ -20,7 +19,6 @@
                   tr
                     th Item
                     th Status
-                    th -
                 tbody
                   - @broker.documents.each do |document|
                     tr
@@ -28,16 +26,22 @@
                       td.w-25
                         span.font-montserrat.fs-18
                           = t document.state, scope:'helpers.document'
-                      td
-                        = link_to ["#{document.name}", :public, @broker] do
-                          i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
-                          '
-                          | Clique aqui
-          .padding-25.mt-auto
-            p.small.no-margin
-              a href="#" 
-                i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
-              span.hint-text Show more details of APPLE . INC
+            .p-t-10.mt-auto.text-center
+              = link_to contract_public_broker_path(@broker), class: 'btn btn-complete' do
+                =t :contract_print, scope:'helpers.broker'
+              '
+              = link_to assets_public_broker_path(@broker), class: 'btn btn-complete',  remote: true do
+                =t :send_files, scope:'helpers.broker'
+              / p.small.no-margin
+              /   a href="#" 
+              /     i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
+              /   span.hint-text Show more details of APPLE . INC
+    br/
+    .row
+      .col-lg-12.col-xl-12.m-b-10.text-center
+        = link_to public_builds_path(@broker), class: 'btn btn-primary btn-block btn-compose'
+          = t :back_builds, scope:'helpers.broker'
+
 
   .col-lg-4
     .row

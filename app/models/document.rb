@@ -1,7 +1,10 @@
 class Document < ApplicationRecord
+  STATUS = {pending: 'cancel', approved:'approve'}
+
   attr_accessor :validated, :status
 
-  STATUS = {pending: 'cancel', approved:'approve'}
+  scope :irs_id,   ->{ where(kind: 'irs_id'  ) }
+  scope :contract, ->{ where(kind: 'contract') }
 
   belongs_to :documentable, polymorphic: true
   has_many :assets, class_name: "Asset",    as: :assetable, dependent: :destroy

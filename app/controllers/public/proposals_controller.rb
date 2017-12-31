@@ -9,16 +9,6 @@ class Public::ProposalsController < Public::BaseController
   before_action :set_activities, only: [:document, :edit, :update]
   respond_to :html, :json, :js
 
-  def redirect_if_restriction
-    @broker = current_user.try(:userable) if user_signed_in? and current_user.try(:userable).is_a?(Broker)
-    if user_signed_in?
-      redirect_to public_purchase_steps_path(@broker.restricted, :proposal) if @unit.restricted? and @broker.try(:restricted) == @unit.restricted
-    end
-    if @unit.restricted? and @broker.try(:restricted) != @unit.restricted
-      redirect_to public_builds_path, notice: t(:proposal_restricted, scope:'errors.custom')
-    end
-  end
-
   def booking
     @proposal = @unit.proposals.new
     respond_with(@proposal)
@@ -116,6 +106,21 @@ class Public::ProposalsController < Public::BaseController
   end
 
   private
+
+    def redirect_if_restriction
+      @broker = current_user.try(:userable) if user_signed_in? and current_user.try(:userable).is_a?(Broker)
+      if @broker.pending?
+        redirect_to revise_public_broker_path(@broker) 
+        return false
+      end
+      if user_signed_in?
+        redirect_to public_purchase_steps_path(@broker.restricted, :proposal) if @unit.restricted? and @broker.try(:restricted) == @unit.restricted
+      end
+      if @unit.restricted? and @broker.try(:restricted) != @unit.restricted
+        redirect_to public_builds_path, notice: t(:proposal_restricted, scope:'errors.custom')
+      end
+    end
+
     def resource
       current_store.proposals
     end

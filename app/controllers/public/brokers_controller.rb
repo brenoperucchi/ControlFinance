@@ -2,23 +2,20 @@ class Public::BrokersController < Public::BaseController
   layout 'pages'
 
   skip_before_action :authenticate_user!, only:[:new, :create, :update]
-  before_action :set_public_broker, only: [:contract, :document, :update]
-  respond_to :html, :json
+  before_action :set_public_broker, only: [:contract, :revise, :update, :assets]
+  respond_to :html, :json, :js
 
-  def contract
-    respond_to do |format|
-      format.html do
-        render :contract
-      end
-    end
+  def assets
+    @resource = @broker
+    respond_with(@broker)
   end
 
-  def document
-    respond_to do |format|
-      format.html do
-        render :document
-      end
-    end
+  def contract
+    respond_with(@broker)
+  end
+
+  def revise
+    respond_with(@broker)
   end
 
   def new
@@ -31,7 +28,7 @@ class Public::BrokersController < Public::BaseController
       if @broker.save
         flash[:info] = "Broker was successfully created."
         sign_in @broker.user
-        format.html { redirect_to document_public_broker_path(@broker)}
+        format.html { redirect_to revise_public_broker_path(@broker)}
         format.json { render :show, status: :created, location: @broker }
         format.js {  }
       else
@@ -46,7 +43,7 @@ class Public::BrokersController < Public::BaseController
   def update
     respond_to do |format|
       if @broker.update(public_broker_params)
-        format.html { redirect_to document_public_broker_path(@broker), notice: 'Information was successfully updated.' }
+        format.html { redirect_to revise_public_broker_path(@broker), notice: 'Information was successfully updated.' }
         format.json { render :show, status: :ok, location: [:public, @broker] }
       else
         format.html { render :document }

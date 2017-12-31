@@ -1,9 +1,9 @@
-= simple_form_for Asset.new, url: public_assets_path(@document.class.name, @document) do |f|
+= simple_form_for Asset.new, url: public_assets_path(@resource.class.name, @resource) do |f|
   .modal-header.clearfix.text-left
     button.close aria-hidden="true" data-dismiss="modal" type="button" 
       i.pg-close.fs-14
     h5 
-      | Documents
+      =t(:assets, scope:'helpers.broker')
       / span.semi-bold Information
     / p.p-b-10 We need payment information inorder to process your order
   .modal-body
@@ -28,28 +28,28 @@ javascript:
   $(document).ready(function(){
     Dropzone.autoDiscover = false;
     $(".dropzone").dropzone({
-      url: "#{public_assets_path(@document.class.name, @document)}",
+      url: "#{public_assets_path(@resource.class.name, @resource)}",
       maxFilesize: 15,
       paramName: "asset[file]",
       addRemoveLinks: true,
       init: function() {
         $.ajax({
             type: 'GET',
-            url: "#{public_assets_path(@document.class.name, @document)}",
+            url: "#{public_assets_path(@resource.class.name, @resource)}",
             dataType: 'JSON',
             success: function(response) {
-            $.each(response, function(index, object){ 
+            $.each(response, function(index, resource){ 
               var imgDropzone = Dropzone.forElement(".dropzone");
               var mockFile = {
-                  name: object.asset.name,
-                  size: object.asset.size,
+                  name: resource.asset.name,
+                  size: resource.asset.size,
                   accepted: true,
-                  kind: object.asset.type,
+                  kind: resource.asset.type,
               };
               imgDropzone.emit("addedfile", mockFile);
-              imgDropzone.createThumbnailFromUrl(mockFile, object.asset.imageURL);
+              imgDropzone.createThumbnailFromUrl(mockFile, resource.asset.imageURL);
               imgDropzone.emit("complete", mockFile);
-              $(imgDropzone.element.lastChild).find(".dz-remove").data('id', object.asset.id)
+              $(imgDropzone.element.lastChild).find(".dz-remove").data('id', resource.asset.id)
             })
           }
         });

@@ -163,6 +163,12 @@ pt-BR:
       pending: pendente
       approved: aceito
     broker:
+      revise_title1: 'Falta pouco para você se tornar um corretor da Elo Empreedimentos e começar a vender os nossos produtos. '
+      revise_title2: 'A sua conta ainda está como pendente. Veja abaixo como solucionar o seu caso.'
+      back_builds: 'Tabela de Vendas'
+      contract_print: Imprimir Contrato
+      send_files: "Enviar Arquivos"
+      assets: 'Arquivos'
       pending: pendente
       approved: aceito
       comment: 'Digite o seu comentário aqui!'

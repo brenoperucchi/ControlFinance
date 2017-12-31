@@ -1,76 +1,7 @@
 .card-block.no-padding
-  #card-advance.card.card-default.card-maximized style=("right: 10px; left: 10px; top: 60px;") 
+  #card-advance.card.card-default.card-maximized[style="right: 10px; left: 10px; top: 60px;"]
     .card-header
       .card-title
         | Contract
-      .card-controls
-        ul
-          li
-            .dropdown
-              a#card-settings aria-expanded="false" aria-haspopup="true" data-target="#" data-toggle="dropdown" href="#" role="button" 
-                i.card-icon.card-icon-settings
-              .dropdown-menu.dropdown-menu-right aria-labelledby="card-settings" role="menu" 
-                a.dropdown-item href="#"  API
-                a.dropdown-item href="#"  Preferences
-                a.dropdown-item href="#"  About
-          li
-            a.card-collapse data-toggle="collapse" href="#" 
-              i.card-icon.card-icon-collapse
-          li
-            a.card-refresh data-toggle="refresh" href="#" 
-              i.card-icon.card-icon-refresh
-          li
-            a.card-maximize data-toggle="maximize" href="#" 
-              i.card-icon.card-icon-maximize.pg-fullscreen_restore
-          li
-            a.card-close data-toggle="close" href="#" 
-              i.card-icon.card-icon-close
-    .card-block
+    .card-block.responsive
       = render "contract", broker: @broker
-      div
-        .profile-img-wrapper.m-t-5.inline
-          img alt="" data-src="assets/img/profiles/avatar_small.jpg" data-src-retina="assets/img/profiles/avatar_small2x.jpg" height="35" src="assets/img/profiles/avatar_small2x.jpg" width="35" /
-          .chat-status.available
-        .inline.m-l-10
-          p.small.hint-text.m-t-5
-            | VIA senior product manage
-            br/
-            | UI/UX at REVOX
-
-
-/ / = raw @contract
-
-/ .row
-/   .col-md-10
-/     - @broker.documents.each do |document|
-/       .card.card-default.hover-stroke
-/         .card-block.no-padding
-/           .container-sm-height
-/             .row.row-sm-height
-/               .col-md-7.col-sm-height.padding-20.col-top
-/                 p.font-montserrat.bold Require Documents
-/                 h3.no-margin.font-arial
-/                   = document.name
-/                 / p.small.hint-text The Arial® typeface : http://www.fonts.com/font/monotype/arial
-/               / .col-md-3.justify-content-center.d-flex.flex-column.bg-master-lighter
-/                 / h4.text-center.text-primary.no-margin
-/                 / = asset.status
-/               .col-md-5.justify-content-center.d-flex.flex-column.bg-master-lighter.no-padding
-/                 = simple_form_for document.asset.new, url: public_asset_path(@broker.class.name, @broker, asset), html:{class: 'dropzone no-margin'} do |f| 
-/                   / form.dropzone.no-margin action="/file-upload" 
-/                   h2.text-center.text-primary.no-margin= document.state
-/                   p.small.hint-text.text-center
-/                     | Click here to Upload
-
-/                   .fallback
-/                     / = f.file_field :file
-/                     / input multiple="" name="file" type="file" /
-
-
-/ .row
-/   .col-md-10
-/     .card.card
-/       .card-block
-/         .row
-/           .col-md-10
-/             = render "contract", broker: @broker

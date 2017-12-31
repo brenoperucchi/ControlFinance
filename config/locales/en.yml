@@ -165,9 +165,17 @@ en:
       pending: pending
       approved: approved
     document:
+      contract_print: "Print Contract"
+      send_files: "Send Files"
       pending: pending
       approved: approved
     broker:
+      revise_title1: 'There is little left for you become a broker of Elo Ventures and to start selling our products.'
+      revise_title2: 'Your account is still are pending. See bellow how to solve your case.'
+      back_builds: "Price List"
+      contract_print: "Print contract"
+      send_files: "Send Files"
+      assets: 'Files'
       pending: pending
       approved: approved
       comment: 'Digit your comment here!'

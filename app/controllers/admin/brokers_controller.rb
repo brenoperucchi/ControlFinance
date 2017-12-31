@@ -1,6 +1,6 @@
 class Admin::BrokersController < Admin::BaseController
   layout 'pages'
-  before_action :set_admin_broker, only: [:show, :edit, :update, :destroy, :scope, :assets, :deliver_mail]
+  before_action :set_admin_broker, only: [:show, :edit, :update, :destroy, :scope, :assets, :deliver_mail, :documents]
   respond_to :js, :html, :json
 
   def index
@@ -14,8 +14,8 @@ class Admin::BrokersController < Admin::BaseController
     @broker = current_store.brokers.new
   end
 
-  def documents
-    @document = Document.find(params[:id])
+  def assets
+    @resource = @broker
     respond_with(@build)    
   end
 
