@@ -83,10 +83,18 @@ class Public::ProposalsController < Public::BaseController
   end
 
   def destroy
-    @proposal.destroy
-    respond_to do |format|
-      format.html { redirect_to public_builds_path, notice: 'Proposal was successfully destroyed.' }
-      format.json { head :no_content }
+    build = @proposal.unit.builder
+    if @proposal.destroy
+      respond_to do |format|
+        format.html { redirect_to public_build_units_path(build), notice: 'Proposal was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      respond_to do |format|
+        format.html { render :index } 
+        format.json { render json: @proposal.errors, status: :unprocessable_entity }
+        format.js { } 
+      end
     end
   end
 
@@ -120,7 +128,7 @@ class Public::ProposalsController < Public::BaseController
         redirect_to public_purchase_steps_path(@broker.restricted, :proposal) if @unit.restricted? and @broker.try(:restricted) == @unit.restricted
       end
       if @unit.restricted? and @broker.try(:restricted) != @unit.restricted
-        redirect_to public_builds_path, notice: t(:proposal_restricted, scope:'errors.custom')
+        redirect_to public_build_units_path(@unit.builder), notice: t(:proposal_restricted, scope:'errors.custom')
       end
     end
 
