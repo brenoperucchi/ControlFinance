@@ -1,6 +1,6 @@
 class Admin::UnitsController < ApplicationController
-  before_action :set_admin_build, only: [:index, :edit, :new, :create, :purchase]
-  before_action :set_admin_unit, only: [:show, :edit, :update, :destroy, :purchase]
+  before_action :set_build, only: [:index, :edit, :new, :create, :purchase]
+  before_action :set_unit, only: [:show, :edit, :update, :destroy, :purchase]
   respond_to :html, :json, :js
 
   # GET /admin/units
@@ -75,11 +75,11 @@ class Admin::UnitsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
 
-    def set_admin_build
+    def set_build
       @build = Build.find(params[:build_id])
     end
 
-    def set_admin_unit
+    def set_unit
       @unit = Unit.find(params[:id])
     end
 

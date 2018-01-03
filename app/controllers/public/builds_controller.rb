@@ -1,5 +1,5 @@
 class Public::BuildsController < Public::BaseController
-  skip_before_action :authenticate_user!, only:[:index]
+  layout 'pages'
 
   def index
     @builds = current_store.try(:builds) || Build.all

@@ -175,6 +175,8 @@ pt-BR:
     system:
       title: Booking Reservation System 
     common:
+      sign_in: Login
+      sign_out: Sair
       approved: 'Approved'
       not_approved: 'Not Approved'
       confirm: 'Confirm'

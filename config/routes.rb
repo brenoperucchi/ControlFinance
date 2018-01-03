@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
+    resources :dashboards, only:[:index] 
+    
     resources :assets, only:[:create, :index, :update], path: 'assetable_type/:assetable_type/assetable_id/:assetable_id'
     resources :assets, only:[:destroy]
     resources :purchase_steps, path: 'proposal/:proposal_id'
@@ -28,7 +30,7 @@ Rails.application.routes.draw do
     end
 
     resources :builds, only:[:index] do
-      resources :units, only:[], shallow:true do
+      resources :units, only:[:index], shallow:true do
         resources :proposals, except: [:destroy] do
           get 'booking', on: :collection
           get 'expired', on: :member

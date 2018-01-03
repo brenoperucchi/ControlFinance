@@ -25,7 +25,7 @@ gem 'unicorn'
 
 # Development and Test
 group :development, :test do
-  gem 'pg'
+  # gem 'pg'
   gem 'spring-commands-rspec'
   gem 'rspec-rails'
   gem 'guard-rspec'

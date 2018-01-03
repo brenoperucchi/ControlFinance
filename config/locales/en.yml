@@ -182,6 +182,8 @@ en:
     system:
       title: Booking Reservation System 
     common:
+      sign_in: Sign-out
+      sign_out: Sign-in
       pending: 'pending'
       approved: 'Approved'
       not_approved: 'Not Approved'

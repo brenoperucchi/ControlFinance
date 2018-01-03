@@ -23,10 +23,6 @@ html
   / body.fixed-header.menu-pin
   body.fixed-header.mac.desktop.pace-done
     .page-container.m-t-20
-      #modalSlideUp.modal.fade.slide-up.disable-scroll aria-hidden="false" role="dialog" tabindex="-1" 
-        .modal-dialog
-          .modal-content-wrapper
-            .modal-content
       / .pgn-wrapper data-position="top" 
       /   .pgn.push-on-sidebar-open.pgn-bar
       /     - flash.each do |name, msg| 
@@ -44,7 +40,12 @@ html
       /       .social data-pages="social" 
       /         .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
       /           = yield
-      .page-content-wrapper
+      = render 'layouts/pages/header'
+      #modalSlideUp.modal.fade.slide-up.disable-scroll aria-hidden="false" role="dialog" tabindex="-1" 
+        .modal-dialog
+          .modal-content-wrapper
+            .modal-content
+      .page-content-wrapper.m-t-70
         .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
           = yield
 = javascript_include_tag "pages/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.js"]

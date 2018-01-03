@@ -1065,12 +1065,17 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/brenoperucchi/Google Drive/03-Apps/appweb"
+		"/Users/brenoperucchi/Google Drive/03-Apps/appweb",
+		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/app",
+		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/config"
 	],
 	"file_history":
 	[
-		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/Gemfile",
 		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/config/database.yml",
+		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/Gemfile",
+		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/.rspec",
+		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/app/views/public/sessions/new.html.slim",
+		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/app/views/admin/sessions/new.html.slim",
 		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/config/boot.rb",
 		"/Users/brenoperucchi/.zshrc",
 		"/usr/local/lib/ruby/gems/2.4.0/extensions/x86_64-darwin-17/2.4.0/capybara-webkit-1.14.0/gem_make.out",
@@ -1193,14 +1198,11 @@
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/builds_controller.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/mailers/application_mailer.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/price_list.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/proposal.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/helpers/application_helper.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/empty.html.slim",
-		"/Users/brenoperucchi/.rbenv/versions/2.3.3/gemsets/app-5.0.1/gems/better_errors-2.1.1/lib/better_errors/raised_exception.rb"
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/proposal.rb"
 	],
 	"find":
 	{
-		"height": 29.0
+		"height": 42.0
 	},
 	"find_in_files":
 	{
@@ -1342,6 +1344,8 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"localhost",
+			"postgres",
 			"current_admin?",
 			"elite.js",
 			"digest",
@@ -1467,9 +1471,7 @@
 			"user_signed_in?",
 			"current_user.userable.admin?",
 			"collection",
-			".select",
-			"'select'",
-			"select"
+			".select"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1643,12 +1645,20 @@
 		"selected_items":
 		[
 			[
+				"gem",
+				"Gemfile"
+			],
+			[
 				"data",
 				"config/database.yml"
 			],
 			[
-				"gem",
-				"Gemfile"
+				"dat",
+				"config/database.yml"
+			],
+			[
+				"sessionnew",
+				"app/views/admin/sessions/new.html.slim"
 			],
 			[
 				"appli",
@@ -2145,14 +2155,6 @@
 			[
 				"propsal.rb",
 				"app/models/proposal.rb"
-			],
-			[
-				"chat",
-				"app/views/layouts/common/chat.html.slim"
-			],
-			[
-				"buildprop",
-				"app/views/admin/builds/proposals.html.slim"
 			]
 		],
 		"width": 0.0

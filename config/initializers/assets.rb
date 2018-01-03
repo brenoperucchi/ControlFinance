@@ -11,10 +11,14 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w( social.scss )
-Rails.application.config.assets.precompile += %w( social.js )
 Rails.application.config.assets.precompile += %w( pages.css )
 Rails.application.config.assets.precompile += %w( pages.js )
+Rails.application.config.assets.precompile += %w( social.js )
+Rails.application.config.assets.precompile += %w( social.css )
+Rails.application.config.assets.precompile += %w( pages/social.js )
+Rails.application.config.assets.precompile += %w( pages/social.scss )
+Rails.application.config.assets.precompile += %w( pages/public/dashboards.js )
+Rails.application.config.assets.precompile += %w( pages/public/builds.js )
 Rails.application.config.assets.precompile += %w( pages/public/brokers.js )
 Rails.application.config.assets.precompile += %w( pages/public/brokers.css )
 Rails.application.config.assets.precompile += %w( pages/admin/builds.js )

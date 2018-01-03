@@ -1,0 +1,44 @@
+- model_class = Build
+
+.feed.p-t-20
+  .day data-social="day" 
+  - @builds.each do |build|
+    .card.social-card.share.share-other.col1 data-social="item" 
+      .circle data-container="body" data-original-title="Label" data-toggle="tooltip" title="Label" 
+      .card-content
+        ul.buttons
+          li
+            a href="#" 
+              i.fa.fa-expand
+          li
+            a href="#" 
+              i.fa.fa-heart-o
+        / img alt=("Person photo") src="assets/img/social/person-1.jpg" /
+        = link_to public_build_units_path(build) do
+          img.img-responsive alt="user" src="#{build.image('fit400')}"
+      .card-description
+        span.pull-left
+          = link_to public_build_units_path(build) do
+            h5 = build.name
+        span.pull-right
+          = link_to public_build_units_path(build) do 
+            h6
+              | Units:
+              '
+              = build.units.count
+
+    /   p
+    /     a href="#"  #TBT
+    /     | \:D
+    / .card-footer.clearfix
+    /   .time few seconds ago
+    /   ul.reactions
+    /     li
+    /       a href="#" 
+    /         | 5,345
+    /         i.fa.fa-comment-o
+    /     li
+    /       a href="#" 
+    /         | 23K
+    /         i.fa.fa-heart-o
+    / .card-header.clearfix.last

@@ -1,0 +1,48 @@
+css:
+  .profile-dropdown>a:last-child {
+      margin-top: 0px!important;
+      padding-bottom: 3px!important;
+      padding-top: 3px;
+  }
+.header
+  a.btn-link.toggle-sidebar.hidden-lg-up.pg.pg-menu data-toggle="sidebar" href="#" 
+  div
+    .brand.inline
+      = link_to t(:title, scope:'helpers.system'), public_dashboards_path
+  .d-flex.align-items-center
+    ul.hidden-md-down.notification-list.no-margin.hidden-sm-down.b-grey.b-r.no-style.p-l-30.p-r-20
+      / li.p-r-10.inline
+      /   .dropdown
+      /     a#notification-center.header-icon.pg.pg-world data-toggle="dropdown" href="javascript:;" 
+      /       span.bubble
+      / li.p-r-10.inline
+      /   a.header-icon.pg.pg-thumbs href="#" 
+    / .pull-left.p-r-10.fs-14.font-heading.hidden-md-down.m-l-20
+    /   span.semi-bold David
+    /   span.text-master Nest
+    - if user_signed_in?
+      .dropdown.pull-right.b-r 
+        button.profile-dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
+          span.text-master= current_user.userable.name 
+        .dropdown-menu.dropdown-menu-right.profile-dropdown role="menu" 
+          = link_to destroy_user_session_path, class: 'clearfix bg-master-lighter dropdown-item', method: :delete do 
+            span.pull-left= t(:sign_out, scope: [:helpers, :links])
+            span.pull-right
+              i.pg-power
+          / a.dropdown-item href="#" 
+          /   i.pg-settings_small
+          /   | Settings
+          / a.dropdown-item href="#" 
+          /   i.pg-outdent
+          /   | Feedback
+          / a.dropdown-item href="#" 
+          /   i.pg-signals
+          /   | Help
+          / a.clearfix.bg-master-lighter.dropdown-item href="#" 
+    - else 
+      .pull-left.p-r-10.fs-14.font-heading.hidden-md-down.m-l-20
+        = link_to [:new, namespace, :session] do 
+          span.text-master
+            i.pg-power
+            '
+            b.hidden-xs= t(:sign_in, scope: [:helpers, :common])

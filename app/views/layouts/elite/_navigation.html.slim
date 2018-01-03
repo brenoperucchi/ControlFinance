@@ -12,19 +12,6 @@
           a.dropdown-toggle.profile-pic data-toggle="dropdown" href="#" 
             b = current_user.try(:email)
           ul.dropdown-menu.dropdown-user.animated.flipInY
-            / li
-            /   a href="#" 
-            /     i.ti-user
-            /     | My Profile
-            / li
-            /   a href="#" 
-            /     i.ti-wallet
-            /     | My Balance
-            / li
-            /   a href="#" 
-            /     i.ti-email
-            /     | Inbox
-            / li.divider role="separator" 
             li                    
               - if current_admin?
                 = link_to admin_destroy_session_path, method: :delete do 
@@ -37,7 +24,6 @@
         - else
           = link_to [:new, namespace, :session] do 
             b Login
-
   .sidebar-nav.navbar-collapse.slimscrollsidebar
     ul.nav.navbar-top-links.navbar-right.pull-right
       li.dropdown
@@ -45,19 +31,6 @@
           a.dropdown-toggle.profile-pic data-toggle="dropdown" href="#" 
             b.hidden-xs = current_user.try(:email)
           ul.dropdown-menu.dropdown-user.animated.flipInY
-            / li
-            /   a href="#" 
-            /     i.ti-user
-            /     | My Profile
-            / li
-            /   a href="#" 
-            /     i.ti-wallet
-            /     | My Balance
-            / li
-            /   a href="#" 
-            /     i.ti-email
-            /     | Inbox
-            / li.divider role="separator" 
             li          
               - if current_admin?
                 = link_to admin_destroy_session_path, method: :delete do 
@@ -70,30 +43,9 @@
         - else
           = link_to [:new, namespace, :session] do 
             b.hidden-xs Login
-
-        /! /.dropdown-user
-      /! .Megamenu
     ul#side-menu.nav
-      / li.sidebar-search.hidden-sm.hidden-md.hidden-lg
-      /   /! input-group
-      /   .input-group.custom-search-form
-      /     input.form-control placeholder="Search..." type="text" /
-      /     span.input-group-btn
-      /       button.btn.btn-default type="button" 
-      /         i.fa.fa-search
-      /   /! /input-group
       li
         a.waves-effect.active href="#" 
           i.linea-icon.linea-basic.fa-fw data-icon="v" 
           span.hide-menu
             = t :title, scope:'helpers.system'
-        /     span.fa.arrow
-        / ul.nav.nav-second-level
-        /   li
-        /     a href="index.html"  Minimalistic
-        /   li
-        /     a href="index2.html"  Demographical
-        /   li
-        /     a href="index3.html"  Analitical
-        /   li
-        /     a href="index4.html"  Simpler

@@ -110,7 +110,10 @@ class Public::ProposalsController < Public::BaseController
     def redirect_if_restriction
       @broker = current_user.try(:userable) if user_signed_in? and current_user.try(:userable).is_a?(Broker)
       if @broker.pending?
-        redirect_to revise_public_broker_path(@broker) 
+        respond_to do |format|
+          format.html { redirect_to revise_public_broker_path(@broker) }
+          format.js { render :js => "window.location.href='"+revise_public_broker_path(@broker)+"'" }
+        end
         return false
       end
       if user_signed_in?
