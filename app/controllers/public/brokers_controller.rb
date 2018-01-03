@@ -15,11 +15,12 @@ class Public::BrokersController < Public::BaseController
   end
 
   def revise
-    respond_with(@broker)
+    respond_with(@broker, layouts:'layouts/pages/broker')
   end
 
   def new
     @broker = Broker.new
+    render :new, layout:'layouts/pages/broker'
   end
 
   def create

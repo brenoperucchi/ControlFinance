@@ -1,0 +1,71 @@
+doctype html
+html
+  head
+    meta content="text/html;charset=UTF-8" http-equiv="content-type" /
+    meta charset="utf-8" /
+    title Proposals & Brokers Web App
+    meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" name="viewport" /
+    / link href="pages/ico/60.png" rel="apple-touch-icon" /
+    / link href="pages/ico/76.png" rel="apple-touch-icon" sizes="76x76" /
+    / link href="pages/ico/120.png" rel="apple-touch-icon" sizes="120x120" /
+    / link href="pages/ico/152.png" rel="apple-touch-icon" sizes="152x152" /
+    / link href="favicon.ico" rel="icon" type="image/x-icon" /
+    meta content="yes" name="apple-mobile-web-app-capable" /
+    meta content="yes" name="apple-touch-fullscreen" /
+    meta content="default" name="apple-mobile-web-app-status-bar-style" /
+    / meta content="" name="description" /
+    / meta content="" name="author" /
+    = stylesheet_link_tag "pages/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.scss"]
+    = stylesheet_link_tag    'pages', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'pages', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = yield :head
+  body.fixed-header.mac.desktop.pace-done
+    .page-container
+      .page-content-wrapper
+        .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
+          = yield
+= javascript_include_tag "pages/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.js"]
+= yield :footer
+
+/ doctype html
+/ html lang="en" 
+/   head
+/     meta charset="utf-8" /
+/     meta content="IE=edge" http-equiv="X-UA-Compatible" /
+/     meta content="width=device-width, initial-scale=1" name="viewport" /
+/     meta content="" name="description" /
+/     meta content="" name="author" /
+/     / link href="../plugins/images/favicon.png" rel="icon" sizes="16x16" type="image/png" /
+/     title= "AppWeb - #{I18n.t(params[:controller], scope:'navigate')}"
+/     = stylesheet_link_tag "elite/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["elite/#{params[:controller]}.scss"]
+/     = stylesheet_link_tag    'elite', media: 'all', 'data-turbolinks-track' => true
+/     = javascript_include_tag 'elite', 'data-turbolinks-track' => true
+/     = csrf_meta_tags
+/     = yield :head
+/     css:
+/       .table > tbody > tr > td,
+/       .table > tbody > tr > th,
+/       .table > tfoot > tr > td,
+/       .table > tfoot > tr > th,
+/       .table > thead > tr > td,
+/       .table > thead > tr > th {
+/         padding: 10px 8px;
+/       }
+
+/   body
+/     #wrapper
+/       #page-wrapper
+/         .container-fluid.p-t-20
+/           - if flash[:notice]
+/             .alert.alert-info.alert-dismissable
+/               button.close aria-hidden="true" data-dismiss="alert" type="button"  ×
+/               = flash[:notice]
+/           - if flash[:alert]
+/             .alert.alert-warning.alert-dismissable
+/               button.close aria-hidden="true" data-dismiss="alert" type="button"  x
+/               = flash[:alert]
+/           = yield
+/       / footer.footer.text-center 2016 &copy; Elite Admin brought to you by themedesigner.in
+/     = javascript_include_tag "elite/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["elite/#{params[:controller]}.js"]
+/     = yield :footer
