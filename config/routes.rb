@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   mount ActionCable.server => '/cable'
 
-  root to: "public/builds#index"
+  root to: "public/dashboards#index"
 
   devise_for :users, controllers:{
     sessions: "public/sessions",
