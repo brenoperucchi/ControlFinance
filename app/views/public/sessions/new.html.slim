@@ -1,6 +1,6 @@
 .register-container.full-height.sm-p-t-30
   .d-flex.justify-content-center.flex-column.full-height
-    h3= t :title, scope: 'helpers.session'
+    h3= t :title, scope: 'views.session'
     / p
       | Create a pages account. If you have a facebook account, log into it for this process. Sign in with
     = simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: :pages_form2 do |f|
@@ -25,7 +25,7 @@
       .col-md-2.no-padding.d-flex.align-items-center
       .col-md-9.no-padding.d-flex.align-items-center
         p.hinted-text.small.inline.sm-p-t-10 
-          = t :acceptance , scope: 'helpers.session'
+          = t :acceptance , scope: 'views.session'
 
 / .panel.panel-default
 /   .panel-heading

@@ -32,11 +32,11 @@ css:
               - if ff.object.approved?
                 = link_to action_admin_proposal_path(@proposal, :cancel, ff.object), remote:true do
                   span.label.label-info   
-                    = t(:approved, scope: 'helpers.common')
+                    = t(:approved, scope: 'views.common')
               - else
                 = link_to action_admin_proposal_path(@proposal, :approve, ff.object), remote:true do
                   span.label.label-danger   
-                    = t(:not_approved, scope: 'helpers.common')
+                    = t(:not_approved, scope: 'views.common')
             td 
               = link_to_remove_association t(:remove), ff
         tr

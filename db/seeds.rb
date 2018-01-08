@@ -1,29 +1,24 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-store = Store.create(name: 'store 1', language:'pt-BR')
-person = store.persons.create(name: 'Admin Person', department:'admin', person_type:'person', active:1)
-person.create_user(email: 'admin@email.com', password: 123123)
-@broker = store.brokers.create(name: 'Broker', department:'user', person_type:'person', active:1)
-@broker.create_user(email: 'test@email.com', password: 123123)
 
-build = store.builds.create(name: 'Build 1')
-(1..6).each do |i|
-  unit = build.units.create({name: "10#{i}", value: "#{i}50000", size: 55, garage:"#{i}", brokerage:5.5})
-  unit.proposals.create(negociate: 'negoaciate', value: "#{i}000", broker:@broker, due_at: Date.today)
+@count = 1
+(1..2).each do |i|
+  store = Store.create(name: "store #{i}", language:'pt-BR')
+  person = store.persons.create(name: "Person #{i}", department:'admin', person_type:'person', active:1)
+  person.create_user(email: "admin#{i}@test.com", password: 123123)
+  @broker = store.brokers.create(name: "Broker #{i}", department:'user', person_type:'person', active:1, option1: true, option2: true, option3: true, option4: true, option5: true, option6: true, address: 'Address', phone: 'Phone' , company_irs_id: 'company_irs_id')
+  @broker.create_user(email: "test#{i}@test.com", password: 123123)
+
+  (1..2).each do |i|
+    build = store.builds.create(name: "Build #{@count}")
+    asset = build.assets.create
+    asset.file = Rails.root.join("public/images/system/build_image_#{i}.jpg").open
+    asset.save!
+    @count +=1
+    (1..6).each do |i|
+      unit = build.units.create({name: "10#{i}", value: "#{i}50000", size: 55, garage:"#{i}", brokerage:5.5})
+      p = unit.proposals.create(negociate: 'negoaciate', value: "#{i}000", broker:@broker, due_at: Date.today)
+    end
+    Proposal.first.update_columns(state:'booked', due_at: Date.today - 1.days)
+  end
 end
-Proposal.first.update_columns(state:'booked', due_at: Date.today - 1.days)
-
-### Store 2
-
-store = Store.create(name: 'store 2', language:'pt-BR')
-person = store.persons.create(name: 'Admin Person 2', department:'admin', person_type:'person', active:1)
-person.create_user(email: 'admin2@email.com', password: 123123)
-@broker = store.brokers.create(name: 'Broker 2', department:'user', person_type:'person', active:1)
-@broker.create_user(email: 'test2@email.com', password: 123123)
-
-build = store.builds.create(name: 'Build 2')
-(7..10).each do |i|
-  unit = build.units.create({name: "10#{i}", value: "#{i}50000", size: 55, garage:"#{i}", brokerage:5.5})
-  unit.proposals.create(negociate: 'negoaciate', value: "#{i}000", broker:@broker, due_at: Date.today)
-end
-Proposal.first.update_columns(state:'booked', due_at: Date.today - 1.days)

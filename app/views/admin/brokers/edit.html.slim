@@ -39,7 +39,7 @@
                             =localize document.updated_at, format: :short
                   .p-t-10.mt-auto.text-center
                     = link_to assets_admin_broker_path(@broker), class: 'btn btn-complete',  remote: true do
-                      =t(:assets, scope:'helpers.broker').capitalize
+                      =t(:assets, scope:'views.broker').capitalize
       - if @broker.proposals.present?
         .row
           .card.no-border.card-condensed.no-margin.widget-loader-circle.full-height.d-flex.flex-column
@@ -58,7 +58,7 @@
                         span.hint-text.small dewdrops
                       td.text-right.b-r.b-dashed.b-grey.w-25
                         span.hint-text.small
-                          =t proposal.state, scope:'helpers.proposal'
+                          =t proposal.state, scope:'views.proposal'
                       td.w-25
                         span.font-montserrat.fs-18= proposal.value
 

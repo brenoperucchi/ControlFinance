@@ -8,11 +8,11 @@ default: &default
 
 default2: &default2
   adapter: mysql2
-  host: 192.168.0.50
+  host: localhost
   pool: 5
   timeout: 5000
   username: root
-  password: 123
+  password:
 
 # postgres: &postgres
 #   adapter: postgresql

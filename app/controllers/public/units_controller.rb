@@ -4,7 +4,7 @@ class Public::UnitsController < Public::BaseController
   # skip_before_action :authenticate_user!, only:[:index]
 
   def index
-    @units = current_store.try(:Units) || Unit.all
+    @units = @build.units
   end
 
   private

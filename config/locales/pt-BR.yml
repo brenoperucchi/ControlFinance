@@ -2,6 +2,12 @@ pt-BR:
   not_accept: 'não'
   accept: 'sim'
   views:
+    session:
+      title: "Favor digitar o seu e-mail para ter acesso completo."
+      acceptance: "Nenhuma parte deste site ou qualquer conteúdo pode ser reproduzido, copiado, modificado ou adaptado, sem o consentimento prévio por escrito do autor, salvo indicação em contrário para materiais autônomos."
+    proposal:
+      pending: pendente
+      approved: aceito
     broker:
       document:
         comment: 'Histórico de Conversa'
@@ -12,6 +18,40 @@ pt-BR:
         title4: 'Telephone and WhatsApp for contact: 48 99126-8808'
         title5: 'Endereço somente para correspondência:'
         title6: 'Rua Primavera 320,Conj 602, Pagani, Palhoça/SC Cep:88132-100'
+      revise_title1: 'Falta pouco para você se tornar um corretor da Elo Empreedimentos e começar a vender os nossos produtos. '
+      revise_title2: 'A sua conta ainda está como pendente. Veja abaixo como solucionar o seu caso.'
+      back_builds: 'Tabela de Vendas'
+      contract_print: Imprimir Contrato
+      send_files: "Enviar Arquivos"
+      assets: 'Arquivos'
+      pending: pendente
+      approved: aceito
+      comment: 'Digite o seu comentário aqui!'
+    system:
+      title: Booking Reservation System 
+    common:
+      unit: Unidade
+      created_at: Criado em
+      sign_in: Login
+      sign_out: Sair
+      pending: pendente
+      approved: 'Approved'
+      not_approved: 'Not Approved'
+      confirm: 'Confirm'
+    document:
+      contract_print: "Imprimir contrato"
+      send_files: "Enviar Arquivos"
+      pending: pendente
+      approved: aceito
+      broker:
+        document1 : 'Corretor CRECI'
+        document2 : 'Contrato'
+      proposal:
+        document1 : 'Document 1'
+        document2 : 'Document 2'
+        document3 : 'Document 3'
+    build:
+      last_sales: 'Últimas propostas'
   date:
     abbr_day_names:
     - Dom
@@ -47,6 +87,7 @@ pt-BR:
       default: "%d/%m/%Y"
       long: "%d de %B de %Y"
       short: "%d de %B"
+      short2: "%B %Y"
     month_names:
     -
     - Janeiro
@@ -147,72 +188,45 @@ pt-BR:
         one: não possui o tamanho esperado (1 caracter)
         other: não possui o tamanho esperado (%{count} caracteres)
       other_than: deve ser diferente de %{count}
+      record_invalid: "Validação com problema: %{errors}"
+      restrict_dependent_destroy:
+        has_one: "Registro com dependência de %{record} não é possível remover"
+        has_many: "Registro com dependência de %{record} não é possível remover"
     template:
       body: 'Por favor, verifique o(s) seguinte(s) campo(s):'
       header:
         one: 'Não foi possível gravar %{model}: 1 erro'
         other: 'Não foi possível gravar %{model}: %{count} erros'
   helpers:
-    session:
-      title: "Favor digitar o seu e-mail para ter acesso completo."
-      acceptance: "Nenhuma parte deste site ou qualquer conteúdo pode ser reproduzido, copiado, modificado ou adaptado, sem o consentimento prévio por escrito do autor, salvo indicação em contrário para materiais autônomos."
-    proposal:
-      pending: pendente
-      approved: aceito
-    document:
-      pending: pendente
-      approved: aceito
-    broker:
-      revise_title1: 'Falta pouco para você se tornar um corretor da Elo Empreedimentos e começar a vender os nossos produtos. '
-      revise_title2: 'A sua conta ainda está como pendente. Veja abaixo como solucionar o seu caso.'
-      back_builds: 'Tabela de Vendas'
-      contract_print: Imprimir Contrato
-      send_files: "Enviar Arquivos"
-      assets: 'Arquivos'
-      pending: pendente
-      approved: aceito
-      comment: 'Digite o seu comentário aqui!'
-    system:
-      title: Booking Reservation System 
-    common:
-      sign_in: Login
-      sign_out: Sair
-      approved: 'Approved'
-      not_approved: 'Not Approved'
-      confirm: 'Confirm'
-    document:
-      document1 : 'Document 1'
-      document2 : 'Document 2'
-      document3 : 'Document 3'
     mailer:
-        price_list:
-            title: 'Price List of Build: %{build}'
-            link: More Info
-            subject: 'Price List of Build: %{build}'
-            message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
-        expired:
-            title: Booked Expired
-            link: Verify
-            subject: Unit %{unit} expired Today
-            message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
-        accepted:
-            title: Proposal accepted
-            link: Complete with purchase
-            subject: Proposal accepted to %{unit} of %{build}
-            message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
-        create:
-            meta_title: "Proposal create to Unit %{unit}"
-            title: 'Unit %{unit} of %{build} was created a proposal' 
-            link: Analyze your proposal
-            subject: 'Proposal created to Unit %{unit} of %{build}'
-            message: 'Due AT: %{due_at}'
-        proposal:
-            title: 'Bid Proposal Unit'
-            subject: Reserve unit %{unit}
-            link_message: 'BOOK NOW'
-            message1: 'Lorem ipsum Labore anim laboris anim do proident sed aute reprehenderit et commodo tempor est pariatur anim minim ut fugiat.'
-            message2: 'Lorem ipsum'
-            unsubscribe: 'unsubscribe'
+      price_list:
+        title: 'Price List of Build: %{build}'
+        link: More Info
+        subject: 'Price List of Build: %{build}'
+        message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
+      expired:
+        title: Booked Expired
+        link: Verify
+        subject: Unit %{unit} expired Today
+        message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
+      accepted:
+        title: Proposal accepted
+        link: Complete with purchase
+        subject: Proposal accepted to %{unit} of %{build}
+        message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
+      create:
+        meta_title: "Proposal create to Unit %{unit}"
+        title: 'Unit %{unit} of %{build} was created a proposal' 
+        link: Analyze your proposal
+        subject: 'Proposal created to Unit %{unit} of %{build}'
+        message: 'Due AT: %{due_at}'
+      proposal:
+        title: 'Bid Proposal Unit'
+        subject: Reserve unit %{unit}
+        link_message: 'BOOK NOW'
+        message1: 'Lorem ipsum Labore anim laboris anim do proident sed aute reprehenderit et commodo tempor est pariatur anim minim ut fugiat.'
+        message2: 'Lorem ipsum'
+        unsubscribe: 'unsubscribe'
     titles:
       edit: Editar %{model}
       new: Novo %{model}
@@ -291,6 +305,7 @@ pt-BR:
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
+      option1: "%d de %b, %Y"
     pm: ''
   activemodel:
     errors:

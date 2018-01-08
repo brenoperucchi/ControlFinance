@@ -9,6 +9,8 @@ class Proposal < ApplicationRecord
   include PublicActivity::Model
   attr_accessor :comment
 
+  scope :not_refuse, ->{ where.not(state: 'refuse') }
+  scope :finished,   ->{ where(state: ['accepted', 'closed']) }
   scope :accepted,   ->{ where(state: 'accepted') }
   scope :restricted, ->{ where(state: ['accepted', 'closed']) }
   scope :expired,    ->{ where(state:'booked').where("proposals.due_at < ?", Date.today) }

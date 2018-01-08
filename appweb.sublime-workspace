@@ -1065,13 +1065,13 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/brenoperucchi/Google Drive/03-Apps/appweb",
-		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/app",
-		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/config"
+		"/Users/brenoperucchi/Google Drive/03-Apps/appweb"
 	],
 	"file_history":
 	[
 		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/config/database.yml",
+		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/config/initializers/better_errors.rb",
+		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/appweb.sublime-project",
 		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/Gemfile",
 		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/.rspec",
 		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/app/views/public/sessions/new.html.slim",
@@ -1082,7 +1082,6 @@
 		"/usr/local/lib/ruby/gems/2.4.0/extensions/x86_64-darwin-17/2.4.0/capybara-webkit-1.10.0/gem_make.out",
 		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/spec/requests/public_proposals_spec.rb",
 		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/app/controllers/application_controller.rb",
-		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/appweb.sublime-project",
 		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/config/initializers/sentient_store.rb",
 		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/app/presenters/notice_presenter.rb",
 		"/Users/brenoperucchi/Google Drive/03-Apps/appweb/app/presenters/asset_presenter.rb",
@@ -1197,8 +1196,7 @@
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/uploaders/file_uploader.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/builds_controller.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/mailers/application_mailer.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/price_list.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/proposal.rb"
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/price_list.rb"
 	],
 	"find":
 	{
@@ -1645,6 +1643,14 @@
 		"selected_items":
 		[
 			[
+				"better",
+				"config/initializers/better_errors.rb"
+			],
+			[
+				"da",
+				"config/database.yml"
+			],
+			[
 				"gem",
 				"Gemfile"
 			],
@@ -1743,10 +1749,6 @@
 			[
 				"secret",
 				"config/secrets.yml"
-			],
-			[
-				"da",
-				"config/database.yml"
 			],
 			[
 				"devise",
@@ -2151,10 +2153,6 @@
 			[
 				"adminproposal.rb",
 				"app/controllers/admin/proposals_controller.rb"
-			],
-			[
-				"propsal.rb",
-				"app/models/proposal.rb"
 			]
 		],
 		"width": 0.0

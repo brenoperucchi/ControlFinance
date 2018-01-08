@@ -2,6 +2,12 @@ en:
   not_accept: 'no'
   accept: 'yes'
   views:
+    session:
+      title: "Please type your e-mail for fully access"
+      acceptance: "No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials."
+    proposal:
+      pending: pending
+      approved: approved
     broker:
       document:
         comment: 'Talk History'
@@ -12,6 +18,40 @@ en:
         title4: 'Telephone and WhatsApp for contact: 48 99126-8808'
         title5: 'Primavera 320 Street,Conj 602, Pagani, Palhoça/SC'
         title6: 'Zipcode 88132-100'
+      revise_title1: 'There is little left for you become a broker of Elo Ventures and to start selling our products.'
+      revise_title2: 'Your account is still are pending. See bellow how to solve your case.'
+      back_builds: "Price List"
+      contract_print: "Print contract"
+      send_files: "Send Files"
+      assets: 'Files'
+      pending: pending
+      approved: approved
+      comment: 'Digit your comment here!'
+    system:
+      title: Booking Reservation System 
+    common:
+      unit: Unit
+      created_at: Created at
+      sign_in: Sign-out
+      sign_out: Sign-in
+      pending: 'pending'
+      approved: 'Approved'
+      not_approved: 'Not Approved'
+      confirm: 'Confirm'
+    document:      
+      contract_print: "Print Contract"
+      send_files: "Send Files"
+      pending: pending
+      approved: approved
+      broker:
+        document1 : 'Broker Id'
+        document2 : 'Contract'
+      proposal:
+        document1 : 'Document 1'
+        document2 : 'Document 2'
+        document3 : 'Document 3'
+    build:
+      last_sales: 'Last proposals'
   date:
     abbr_day_names:
     - Sun
@@ -158,44 +198,6 @@ en:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
   helpers:
-    session:
-      title: "Please type your e-mail for fully access"
-      acceptance: "No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials."
-    proposal:
-      pending: pending
-      approved: approved
-    document:
-      contract_print: "Print Contract"
-      send_files: "Send Files"
-      pending: pending
-      approved: approved
-    broker:
-      revise_title1: 'There is little left for you become a broker of Elo Ventures and to start selling our products.'
-      revise_title2: 'Your account is still are pending. See bellow how to solve your case.'
-      back_builds: "Price List"
-      contract_print: "Print contract"
-      send_files: "Send Files"
-      assets: 'Files'
-      pending: pending
-      approved: approved
-      comment: 'Digit your comment here!'
-    system:
-      title: Booking Reservation System 
-    common:
-      sign_in: Sign-out
-      sign_out: Sign-in
-      pending: 'pending'
-      approved: 'Approved'
-      not_approved: 'Not Approved'
-      confirm: 'Confirm'
-    document:
-        broker:
-          document1 : 'Broker Id'
-          document2 : 'Contract'
-        proposal:
-          document1 : 'Document 1'
-          document2 : 'Document 2'
-          document3 : 'Document 3'
     mailer:
         price_list:
             title: 'Price List of Build: %{build}'
