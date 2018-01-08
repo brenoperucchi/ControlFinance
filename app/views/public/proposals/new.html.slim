@@ -1,24 +1,65 @@
 - model_class = Proposal
 
-.panel.panel-default
-  .panel-heading
-    = model_class.model_name.human
-  .panel-wrapper.collapse.in
-    = simple_form_for [:public, @unit, @proposal] do |f|
-      .panel-body
-        = f.error_notification
-        - if @proposal.restricted?
-          == render 'form_disable', f: f
-        - else
-          == render 'form', f: f 
-      .panel-footer
-        .form-group
-          .col-sm-offset-0.col-sm-12
-            - if user_signed_in? and not current_admin?
-              .span.pull-right
-                = link_to public_unit_proposals_path(@unit), class: 'btn btn-info btn-outline' do
-                  span Proposals Broker
+.row
+  .col-lg-3
+    .card.card-default.bg-white.widget-loader-bar.m-b-20
+      .card-block
+        .row
+          .col-lg-4.col-md-4.col-sm-4.col-xs-6
+            h4.semi-bold.no-margin.text-information = @unit.name
+            p.small.no-margin = model_class.human_attribute_name(:unit)
+          .col-lg-4.col-md-4.col-sm-4.col-xs-6
+            h4.semi-bold.no-margin.text-information = @build.name
+            p.small.no-margin = model_class.human_attribute_name(:build)
+          .col-lg-4.col-md-4.col-sm-4.col-xs-3
+            h4.semi-bold.no-margin.text-information = @unit.state
+            p.small.no-margin = model_class.human_attribute_name(:state)
+        .clearfix
+        hr.line-dashed
+        .row
+          .col-lg-12.col-md-12.text-center
+            h4.no-margin.p-b-5.text-info.semi-bold= number_to_currency @unit.value
+            p.small.no-margin = t :value_request, scope: 'views.proposal.new'
+        .clearfix
+        hr.line-dashed
+        .row
+          .col-lg-4.col-md-4
+            h4.semi-bold.no-margin.text-information = @broker.name
+            p.small.no-margin = @broker.class.human_attribute_name(:name)
+          .col-lg-4.col-md-4
+            h4.semi-bold.no-margin.text-information = @broker.user.email
+            p.small.no-margin = @broker.user.class.human_attribute_name(:name)
+        .clearfix
+        hr.line-dashed
+        .row
+          .col-lg-12.col-md-12.text-center
+            h4.no-margin.p-b-5.text-danger.semi-bold= @unit.deadline || 10
+            p.small.no-margin = t :deadline, scope: 'views.proposal'
+        .clearfix
+    - if user_signed_in? and not current_admin?
+      .span.text-center
+        = link_to public_unit_proposals_path(@unit), class: 'btn btn-info btn-outline' do
+          = t :broker_list, scope: 'views.proposal.new'
 
+    / = render 'timeline'
+  .col-lg-9
+    = simple_form_for [:public, @unit, @proposal], wrapper: :pages_form_default, html:{class: 'sdsd'} do |f|
+      .card.card-default.m-b-5
+        .card-header
+          .card-title
+            h5
+              = t :title1, scope:'views.proposal.new', unit:@unit.name, build:@build.name
+              / = model_class.model_name.human
+        .card-block
+          / h5
+          /   | Pages default style
+          = f.error_notification
+          - if @proposal.restricted?
+            == render 'form_disable', f: f
+          - else
+          == render 'form', f: f 
+          hr.line-dashed
+          .form-group
             = f.submit nil, :class => 'btn btn-primary'
             '
             = link_to t('back', scope: "helpers.links"), public_build_units_path(@build), :class => 'btn'

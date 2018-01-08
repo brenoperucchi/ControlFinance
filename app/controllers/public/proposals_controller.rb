@@ -1,5 +1,4 @@
 class Public::ProposalsController < Public::BaseController
-
   skip_before_action :authenticate_user!, only:[:create, :update, :destroy, :expired]
 
   before_action :set_proposal, only: [:show, :edit, :update, :destroy, :comment]
@@ -30,7 +29,7 @@ class Public::ProposalsController < Public::BaseController
     @proposal = @unit.proposals.new
     @proposal.due_at = Date.today.strftime("%d/%m/%Y")
     @proposal.broker = @broker
-    render :new, layout: 'elite'
+    render :new, layout: 'pages'
   end
 
   def edit

@@ -6,8 +6,13 @@ pt-BR:
       title: "Favor digitar o seu e-mail para ter acesso completo."
       acceptance: "Nenhuma parte deste site ou qualquer conteúdo pode ser reproduzido, copiado, modificado ou adaptado, sem o consentimento prévio por escrito do autor, salvo indicação em contrário para materiais autônomos."
     proposal:
+      new:
+        title1: 'Proposta de compra para Unidade %{unit} do Empreendimento %{build}'
+        broker_list: 'Veja todas as suas Propostas'
+        value_request: Valor base
       pending: pendente
       approved: aceito
+      deadline: Prazo da Proposta
     broker:
       document:
         comment: 'Histórico de Conversa'
@@ -198,6 +203,8 @@ pt-BR:
         one: 'Não foi possível gravar %{model}: 1 erro'
         other: 'Não foi possível gravar %{model}: %{count} erros'
   helpers:
+    proposal:
+      state_change: 'State change from %{from} to %{to}'
     mailer:
       price_list:
         title: 'Price List of Build: %{build}'
@@ -231,13 +238,13 @@ pt-BR:
       edit: Editar %{model}
       new: Novo %{model}
     select:
-      prompt: Please select
-    select:
       prompt: Por favor selecione
     submit:
       create: Criar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
+    links:
+      back: Voltar
   number:
     currency:
       format:
@@ -305,13 +312,14 @@ pt-BR:
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
-      option1: "%d de %b, %Y"
+      unit: "%d de %b, %Y"
     pm: ''
   activemodel:
     errors:
       <<: *errors
   activerecord:
     models:
+      proposal: 'Propostas'
     attributes:
       user:
         email: "e-mail"

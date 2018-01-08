@@ -46,7 +46,7 @@
   .col-lg-4
     .row
       .col-lg-12 
-        = simple_form_for [:public, @broker], wrapper: :pages_form2 do |f|
+        = simple_form_for [:public, @broker], wrapper: :pages_form_default do |f|
           = f.input :comment, placeholder: t(:comment, scope: 'views.broker'), input_html:{class: 'input-lg'}
     .row
       = render "timeline", broker:@broker

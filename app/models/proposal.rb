@@ -1,4 +1,7 @@
 class Proposal < ApplicationRecord
+  include PublicActivity::Model
+  attr_accessor :comment
+  
   store :information, accessors:[:name, :negociate, :value, :brokerage]
 
   STATUS = {pending: 'pending', booked:'book', refused:'refuse', accepted:'accept', closed:'close'}
@@ -6,8 +9,6 @@ class Proposal < ApplicationRecord
   before_create :default_brokerage
   after_create :create_documents
 
-  include PublicActivity::Model
-  attr_accessor :comment
 
   scope :not_refuse, ->{ where.not(state: 'refuse') }
   scope :finished,   ->{ where(state: ['accepted', 'closed']) }

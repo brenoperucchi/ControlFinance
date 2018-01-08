@@ -85,6 +85,6 @@ class Admin::UnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_unit_params
-      params.require(:unit).permit(:name, :value, :size, :build_id, :garage, :brokerage)
+      params.require(:unit).permit(:name, :value, :size, :build_id, :garage, :brokerage, :deadline)
     end
 end

@@ -6,8 +6,13 @@ en:
       title: "Please type your e-mail for fully access"
       acceptance: "No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials."
     proposal:
+      new:
+        title1: 'Purchase propsosal of Unit %{unit} do %{build}'
+        broker_list: 'List all your proposals'
+        value_reques: Base value
       pending: pending
       approved: approved
+      deadline: Proposal deadline
     broker:
       document:
         comment: 'Talk History'
@@ -198,35 +203,38 @@ en:
         one: 1 error prohibited this %{model} from being saved
         other: "%{count} errors prohibited this %{model} from being saved"
   helpers:
+    proposal:
+      update:
+        state_change: 'State change from %{from} to %{to}'
     mailer:
-        price_list:
-            title: 'Price List of Build: %{build}'
-            link: More Info
-            subject: 'Price List of Build: %{build}'
-            message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
-        expired:
-            title: Booked Expired
-            link: Verify
-            subject: Unit %{unit} expired Today
-            message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
-        accepted:
-            title: Proposal accepted
-            link: Complete with purchase
-            subject: Proposal accepted to %{unit} of %{build}
-            message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
-        create:
-            meta_title: "Proposal create to Unit %{unit}"
-            title: 'Unit %{unit} of %{build} was created a proposal' 
-            link: Analyze your proposal
-            subject: 'Proposal created to Unit %{unit} of %{build}'
-            message: 'Due AT: %{due_at}'
-        proposal:
-            title: 'Bid Proposal Unit'
-            subject: Reserve unit %{unit}
-            link_message: 'BOOK NOW'
-            message1: 'Lorem ipsum Labore anim laboris anim do proident sed aute reprehenderit et commodo tempor est pariatur anim minim ut fugiat.'
-            message2: 'Lorem ipsum'
-            unsubscribe: 'unsubscribe'
+      price_list:
+        title: 'Price List of Build: %{build}'
+        link: More Info
+        subject: 'Price List of Build: %{build}'
+        message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
+      expired:
+        title: Booked Expired
+        link: Verify
+        subject: Unit %{unit} expired Today
+        message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
+      accepted:
+        title: Proposal accepted
+        link: Complete with purchase
+        subject: Proposal accepted to %{unit} of %{build}
+        message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
+      create:
+        meta_title: "Proposal create to Unit %{unit}"
+        title: 'Unit %{unit} of %{build} was created a proposal' 
+        link: Analyze your proposal
+        subject: 'Proposal created to Unit %{unit} of %{build}'
+        message: 'Due AT: %{due_at}'
+      proposal:
+        title: 'Bid Proposal Unit'
+        subject: Reserve unit %{unit}
+        link_message: 'BOOK NOW'
+        message1: 'Lorem ipsum Labore anim laboris anim do proident sed aute reprehenderit et commodo tempor est pariatur anim minim ut fugiat.'
+        message2: 'Lorem ipsum'
+        unsubscribe: 'unsubscribe'
     titles:
       edit: Edit %{model}
       new: New %{model}
@@ -236,6 +244,8 @@ en:
       create: Create %{model}
       submit: Save %{model}
       update: Update %{model}
+    links:
+      back: Back
   number:
     currency:
       format:
@@ -296,13 +306,14 @@ en:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
-      option1: "%dth %b %Y"
+      unit: "%dth %b %Y"
     pm: pm
   activemodel:
     errors:
       <<: *errors
   activerecord:
     models:
+      proposal: 'Proposals'
     attributes:
       user:
         email: "e-mail"

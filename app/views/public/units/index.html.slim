@@ -1,14 +1,17 @@
 - content_for :footer
   css:
+    .card#build {
+      margin-bottom: 10px!important;
+    }
     .card#build img {
-    height:20vh;
+      height:20vh;
     }
 - model_class = Build
 
 .row
-  .col-lg-8.col-sm-8
+  .col-lg-8.col-sm-12.col-md-12
     .row
-      .col-lg-12.col-sm-12.col-xs-12
+      .col-lg-12.col-sm-12.col-xs-12.col-md-12
         .card#build
           .card-description
             .row.padding-10
@@ -28,7 +31,7 @@
                 .progress
                   .progress-bar style="width:45%" 
     .row
-      .col-lg-12.col-sm-12.col-xs-12
+      .col-lg-12.col-sm-12.col-xs-12.col-md-12
         .row
           .col-lg-12.col-sm-12.col-xs-12
             .card
@@ -71,7 +74,7 @@
       .p-l-25.p-r-25.p-t-25
         .pull-left
           h2.text-success.no-margin = t(:last_sales, scope: 'views.build')
-          p.no-margin Today's sales
+          / p.no-margin Today's sales
         / h3.pull-right.semi-bold
         /   sup
         /     small.semi-bold $
@@ -90,7 +93,7 @@
                 / td.text-right.hidden-lg
                   span.hint-text.small dewdrops
                 td.text-right.b-l.b-dashed.b-grey.w-25
-                  span.font-montserrat.fs-18= l proposal.created_at, format: :option1
+                  span.font-montserrat.fs-18= l proposal.created_at, format: :unit
 
                         / ' 
                         / = link_to t('booking', scope: "helpers.links"), booking_public_unit_proposals_path(unit), class: 'btn btn-sm btn-info btn-outline', remote: true

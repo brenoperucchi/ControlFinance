@@ -183,7 +183,7 @@ SimpleForm.setup do |config|
     end
   end
 
-  config.wrappers :pages_form2, tag: 'div', class: 'row', error_class: 'has-error' do |b|
+  config.wrappers :pages_form_default, tag: 'div', class: 'row', error_class: 'has-error' do |b|
     b.wrapper tag: 'div', class: 'form-group form-group-default' do |bb|
       # ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
       bb.use :label, class: ''

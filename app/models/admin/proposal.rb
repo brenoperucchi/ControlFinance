@@ -1,19 +1,30 @@
 class Admin::Proposal < Proposal
-
+  include PublicActivity::Common
   attr_accessor :validated, :status
 
   validate :validate_state, if: Proc.new {|obj| obj.validated.nil? and not obj.status.nil?}
+  before_save :state_update
+
+  private
+  
+  def state_update
+    if self.state_changed?
+      self.create_activity :create, owner: proc {|controller, model| User.current.userable},
+      :recipient  =>  proc {|controller, model| model.unit},
+      :params     => { :comment => proc {|contronller, model| I18n.t :state_change, scope:'helpers.proposal', from: self.state_change[0], to: self.state_change[1]} }
+    end
+  end
 
   def validate_state
     return true if STATUS[self.state.to_sym] == STATUS[self.status.to_sym]
     self.validated = false
-    self.class.public_activity_off
+    # self.class.public_activity_off
     if send(STATUS[status.to_sym])
       true
     else
       errors.add(:status, :invalid)
     end
-    self.class.public_activity_on
+    # self.class.public_activity_on
   end
 
 end
