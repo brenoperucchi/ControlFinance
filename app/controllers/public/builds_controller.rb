@@ -4,7 +4,8 @@ class Public::BuildsController < Public::BaseController
   def index
     @builds = current_store.try(:builds) || Build.all
     respond_to do |format|
-      format.html {  }
+      format.html { render :index }
+      format.js { render :index }
     end
   end
 end
