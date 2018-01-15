@@ -2,6 +2,9 @@ pt-BR:
   not_accept: 'não'
   accept: 'sim'
   views:
+    unit:
+      index:
+        proposal: "Envia proposta"
     session:
       title: "Favor digitar o seu e-mail para ter acesso completo."
       acceptance: "Nenhuma parte deste site ou qualquer conteúdo pode ser reproduzido, copiado, modificado ou adaptado, sem o consentimento prévio por escrito do autor, salvo indicação em contrário para materiais autônomos."
@@ -29,8 +32,8 @@ pt-BR:
       contract_print: Imprimir Contrato
       send_files: "Enviar Arquivos"
       assets: 'Arquivos'
-      pending: pendente
-      approved: aceito
+      pending: Pendente
+      approved: Aceito
       comment: 'Digite o seu comentário aqui!'
     system:
       title: Booking Reservation System 
@@ -43,6 +46,8 @@ pt-BR:
       approved: 'Approved'
       not_approved: 'Not Approved'
       confirm: 'Confirm'
+      booked: Reservado
+      bought: Vendido
     document:
       contract_print: "Imprimir contrato"
       send_files: "Enviar Arquivos"

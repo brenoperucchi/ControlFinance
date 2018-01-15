@@ -4,3 +4,13 @@ div.has-error div.form-group{
 .text-information {
     color: #10cfbd!important;
 }
+.btn-complete2, .btn-complete2:focus {
+    color: #fff;
+    background-color: #48b0f7;
+    border-color: #48b0f7;
+}
+.btn-complete2.hover, .btn-complete2:hover, .show .dropdown-toggle.btn-complete {
+    background-color: #6dc0f9;
+    border-color: #6dc0f9;
+    color: #fff;
+}

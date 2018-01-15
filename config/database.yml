@@ -12,7 +12,7 @@ default2: &default2
   pool: 5
   timeout: 5000
   username: root
-  password:
+  password: 123
 
 # postgres: &postgres
 #   adapter: postgresql

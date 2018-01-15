@@ -1,3 +1,8 @@
+/ Check list de compra
+/ info do empreendimento (incoporação, matricula, endereço)
+/ impressao
+/book
+
 - model_class = Proposal
 
 - f.object.buyers.new if f.object.buyers.empty?
@@ -22,7 +27,8 @@
       = buyer.input :income, as: :string, placeholder: buyer.object.class.human_attribute_name(:income)
   .row
     .col-lg-12.col-md-12.col-sm-12
-      = buyer.input :address, as: :string, placeholder: buyer.object.class.human_attribute_name(:address)
+      = buyer.input :address, as: :string, placeholder: buyer.object.class.human_attribute_name(:address) 
+
 hr.line-dashed
 .row
   / .col-lg-6.col-md-6.col-sm-6
@@ -32,4 +38,4 @@ hr.line-dashed
 
 .row
   .col-lg-12.col-md-12.col-sm-12
-    = f.input :negociate, as: :text, placeholder: model_class.human_attribute_name(:negociate)
+    = f.input :negociate, as: :text, placeholder: model_class.human_attribute_name(:negociate), input_html:{rows: 40, style:"margin-top: 0px; margin-bottom: 0px; height: 70px;" }

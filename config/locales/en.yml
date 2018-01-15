@@ -2,6 +2,9 @@ en:
   not_accept: 'no'
   accept: 'yes'
   views:
+    unit:
+      index:
+        proposal: "Proposal Order"
     session:
       title: "Please type your e-mail for fully access"
       acceptance: "No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials."
@@ -29,8 +32,8 @@ en:
       contract_print: "Print contract"
       send_files: "Send Files"
       assets: 'Files'
-      pending: pending
-      approved: approved
+      pending: Pending
+      approved: Approved
       comment: 'Digit your comment here!'
     system:
       title: Booking Reservation System 
@@ -43,6 +46,8 @@ en:
       approved: 'Approved'
       not_approved: 'Not Approved'
       confirm: 'Confirm'
+      booked: Booked
+      bought: Bought
     document:      
       contract_print: "Print Contract"
       send_files: "Send Files"

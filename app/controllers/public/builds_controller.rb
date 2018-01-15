@@ -3,5 +3,8 @@ class Public::BuildsController < Public::BaseController
 
   def index
     @builds = current_store.try(:builds) || Build.all
+    respond_to do |format|
+      format.html {  }
+    end
   end
 end
