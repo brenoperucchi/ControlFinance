@@ -185,14 +185,25 @@ SimpleForm.setup do |config|
 
   config.wrappers :pages_form_default, tag: 'div', class: 'row', error_class: 'has-error' do |b|
     b.wrapper tag: 'div', class: 'form-group form-group-default' do |bb|
-      # ba.use :hint,  wrap_with: { tag: 'p', class: 'help-block' }
       bb.use :label, class: ''
       bb.use :html5
       bb.use :placeholder
       bb.use :input, class: 'form-control'
-      # ba.wrapper tag: 'div', class: 'form-group form-group-default' do |append|
-         
-      # end
+    end
+    b.use :error, wrap_with: { tag: 'label', class: 'error' }
+  end
+
+  config.wrappers :pages_form_attach, tag: 'div', class: 'row', error_class: 'has-error' do |b|
+    b.wrapper tag: 'div', class: 'form-group form-group-default input-group' do |bb|
+      bb.wrapper tag: 'div', class: 'form-input-group' do |bc|
+        bc.use :label, class: ''
+        bc.use :html5
+        bc.use :placeholder
+        bc.use :input, class: 'form-control'
+      end
+      bb.wrapper tag: 'div', class: 'input-group-addon d-flex' do |bb|
+        bb.use :hint
+      end
     end
     b.use :error, wrap_with: { tag: 'label', class: 'error' }
   end

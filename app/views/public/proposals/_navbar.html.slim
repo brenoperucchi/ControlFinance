@@ -1,0 +1,45 @@
+nav.navbar.navbar-default.bg-master-lighter.sm-padding-10.full-width.p-t-0.p-b-0 role="navigation" 
+  .container-fluid.full-width
+    .navbar-header.text-center
+      button.navbar-toggle.collapsed.btn.btn-link.no-padding data-target="#sub-nav" data-toggle="collapse" type="button" 
+        i.pg.pg-more.v-align-middle
+    #sub-nav.collapse.navbar-collapse
+      .row
+        .col-sm-4
+          ul.navbar-nav.col-sm-12.col-md-12.col-lg-5
+            li.nav-item.dropdown
+              a#navbarDropdownMenuLink.nav-link.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="http://example.com" 
+                i.fa.fa-file-text.m-r-10
+                | Squarespace
+              .dropdown-menu aria-labelledby="navbarDropdownMenuLink" 
+                a.dropdown-item href="#"  Action
+                a.dropdown-item href="#"  Another action
+                a.dropdown-item href="#"  Something else here
+                .divider
+                a.dropdown-item href="#"  Separated link
+                .divider
+                a.dropdown-item href="#"  One more separated link
+        .col-sm-4
+          ul.navbar-nav.d-flex.flex-row
+            li.nav-item
+              a href="#"  Open
+            li.nav-item
+              a data-original-title="Print" data-placement="bottom" data-toggle="tooltip" href="#" title="" 
+                i.fa.fa-print
+            li.nav-item
+              a data-original-title="Download" data-placement="bottom" data-toggle="tooltip" href="#" title="" 
+                i.fa.fa-download
+        .col-sm-4
+          ul.navbar-nav.d-flex.flex-row.justify-content-sm-end
+            li.nav-item
+              a.p-r-10 href="#" 
+                img.icon-pdf alt="" data-src="assets/img/invoice/pdf.png" data-src-retina="assets/img/invoice/pdf2x.png" height="25" src="assets/img/invoice/pdf2x.png" width="25" /
+            li.nav-item
+              a.p-r-10 href="#" 
+                img.icon-image alt="" data-src="assets/img/invoice/image.png" data-src-retina="assets/img/invoice/image2x.png" height="25" src="assets/img/invoice/image2x.png" width="25" /
+            li.nav-item
+              a.p-r-10 href="#" 
+                img.icon-doc alt="" data-src="assets/img/invoice/doc.png" data-src-retina="assets/img/invoice/doc2x.png" height="25" src="assets/img/invoice/doc2x.png" width="25" /
+            li.nav-item
+              a.p-r-10 href="#" onclick="$.Pages.setFullScreen(document.querySelector('html'));" 
+                i.fa.fa-expand

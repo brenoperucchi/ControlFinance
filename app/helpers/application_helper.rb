@@ -19,4 +19,12 @@ module ApplicationHelper
     super if object.present?
   end
 
+  def t_holder(name, object)
+    I18n.t name, scope: "placeholder.#{object.name.downcase}"
+  end
+  def t_view(name, object, option={})
+    translate = "views.#{object.to_s.downcase}.#{option.try(:downcase).try(:to_s)}"
+    I18n.t name, scope: translate.strip
+  end
+
 end

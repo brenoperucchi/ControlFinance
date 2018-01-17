@@ -6,7 +6,7 @@ class Proposal < ApplicationRecord
 
   STATUS = {pending: 'pending', booked:'book', refused:'refuse', accepted:'accept', closed:'close'}
 
-  before_create :default_brokerage
+  before_create :set_defaults
   after_create :create_documents
 
 
@@ -34,11 +34,11 @@ class Proposal < ApplicationRecord
   belongs_to :broker, optional: true
   has_one :builder, through: :unit, source: :builder
 
-  accepts_nested_attributes_for :broker, allow_destroy: true  
+  # accepts_nested_attributes_for :broker, allow_destroy: true  
   accepts_nested_attributes_for :buyers, allow_destroy: true  
   accepts_nested_attributes_for :documents, allow_destroy: true,reject_if: :all_blank
 
-  validates :due_at, inclusion: { in: (Date.today..(Date.today + 5.day)) }, if: Proc.new {self.new_record?}
+  # validates :due_at, inclusion: { in: (Date.today..(Date.today + 5.day)) }, if: Proc.new {self.new_record?}
   validates_presence_of :negociate
 
   state_machine initial: :pending do    
@@ -171,8 +171,9 @@ class Proposal < ApplicationRecord
     self.value.to_f * (100 + self.brokerage.to_f/100)
   end
 
-  def default_brokerage
+  def set_defaults
     self.brokerage ||= unit.brokerage 
+    self.due_at = Date.today + 5.day
   end
 
   private

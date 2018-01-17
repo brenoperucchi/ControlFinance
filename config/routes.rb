@@ -29,12 +29,13 @@ Rails.application.routes.draw do
       resources :builds, only:[:index], shallow:true
     end
 
-    resources :builds, only:[:index] do
+    resources :builds do
       resources :units, only:[:index], shallow:true do
         resources :proposals, except: [:destroy] do
           get 'booking', on: :collection
           get 'expired', on: :member
           patch 'comment', on: :member
+          get 'print', on: :member
         end
       end
     end

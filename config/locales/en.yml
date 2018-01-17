@@ -318,6 +318,7 @@ en:
       <<: *errors
   activerecord:
     models:
+      unit: Unit
       proposal: 'Proposals'
     attributes:
       user:

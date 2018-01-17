@@ -18,8 +18,8 @@
         hr.line-dashed
         .row
           .col-lg-12.col-md-12.text-center
-            h5.no-margin.p-b-5.text-info.semi-bold= number_to_currency @unit.value
-            p.small.no-margin = t :value_request, scope: 'views.proposal.new'
+            h5.no-margin.p-b-5.text-info.bold= number_to_currency @unit.value
+            p.small.no-margin = t :value_table, scope: 'views.proposal.new'
         .clearfix
         hr.line-dashed
         .row
@@ -48,11 +48,10 @@
         .card-header
           .card-title
             h5
-              = t :title1, scope:'views.proposal.new', unit:@unit.name, build:@build.name
+              strong
+                = t :title1, scope:'views.proposal.new', unit:@unit.name, build:@build.name
               / = model_class.model_name.human
         .card-block
-          / h5
-          /   | Pages default style
           = f.error_notification
           - if @proposal.restricted?
             == render 'form_disable', f: f
@@ -63,15 +62,3 @@
             = f.submit nil, :class => 'btn btn-primary'
             '
             = link_to t('back', scope: "helpers.links"), public_build_units_path(@build), :class => 'btn'
-
-/ section
-/   .sttabs.tabs-style-linetriangle
-/     nav
-/       ul
-/         li.tab-current
-/           = link_to '#' do 
-/             span New Proposal
-/         - if user_signed_in? and not current_admin?
-/           li
-/     .content-wrap
-/       section#section-linetriangle-1.content-current

@@ -1,20 +1,18 @@
 - model_class = Proposal
   
 
-.panel.panel-default
-  .panel-heading
-    =t '.title', :default => [:'helpers.titles.edit', 'edit %{model}'], :model => model_class.model_name.human.titleize
-  .panel-wrapper.collapse.in
-    = simple_form_for [:public, @proposal] do |f|
-      .panel-body
-        = f.error_notification
-        - if @proposal.restricted?
-          == render 'form_disable', f: f 
-        - else
-          == render 'form', f: f 
-      .panel-footer
-        .form-group
-          .col-sm-offset-0.col-sm-9
-            = f.submit nil, :class => 'btn btn-primary'
-            '
-            = link_to t('back', scope: "helpers.links"), public_unit_proposals_path(@unit), :class => 'btn'
+.card.card-default
+  .card-header
+    .card-title
+      =t '.title', :default => [:'helpers.titles.edit', 'edit %{model}'], :model => model_class.model_name.human.titleize
+  .card-block
+    = simple_form_for [:public, @proposal], wrapper: :pages_form_default do |f|
+      = f.error_notification
+      - if @proposal.restricted?
+        == render 'form_disable', f: f 
+      - else
+        == render 'form', f: f 
+      .form-group
+        = f.submit nil, :class => 'btn btn-primary'
+        '
+        = link_to t('back', scope: "helpers.links"), public_unit_proposals_path(@unit), :class => 'btn'

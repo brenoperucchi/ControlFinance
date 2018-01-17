@@ -8,34 +8,49 @@
 - f.object.buyers.new if f.object.buyers.empty?
 = f.simple_fields_for :buyers do |buyer|
   .row
-    .col-lg-12.col-md-12.col-sm-12
-      = buyer.input :name, as: :string, placeholder: buyer.object.class.human_attribute_name(:name)
-  .row
     .col-lg-6.col-md-6.col-sm-6
-      = buyer.input :irs_id, as: :string, placeholder: buyer.object.class.human_attribute_name(:irs_id)    
+      = buyer.input :name, as: :string, placeholder: t_holder(:name, Buyer)
     .col-lg-6.col-md-6.col-sm-6
-      = buyer.input :national_id, as: :string, placeholder: buyer.object.class.human_attribute_name(:national_id)
-  .row
-    .col-lg-6.col-md-6.col-sm-6
-      = buyer.input :birthdate, as: :string, placeholder: buyer.object.class.human_attribute_name(:birthdate)    
-    .col-lg-6.col-md-6.col-sm-6
-      = buyer.input :occupation, as: :string, placeholder: buyer.object.class.human_attribute_name(:occupation)
-  .row
-    .col-lg-6.col-md-6.col-sm-6
-      = buyer.input :base_salary, as: :string, placeholder: buyer.object.class.human_attribute_name(:base_salary)    
-    .col-lg-6.col-md-6.col-sm-6
-      = buyer.input :income, as: :string, placeholder: buyer.object.class.human_attribute_name(:income)
-  .row
-    .col-lg-12.col-md-12.col-sm-12
-      = buyer.input :address, as: :string, placeholder: buyer.object.class.human_attribute_name(:address) 
+      = f.input :value, placeholder: t_holder(:value, model_class), hint: t(:unit, scope:'number.currency.format'), wrapper: :pages_form_attach
+  / .row
+  /   .col-lg-6.col-md-6.col-sm-6
+  /     = buyer.input :irs_id, as: :string, placeholder: buyer.object.class.human_attribute_name(:irs_id)    
+  /   .col-lg-6.col-md-6.col-sm-6
+  /     = buyer.input :national_id, as: :string, placeholder: buyer.object.class.human_attribute_name(:national_id)
+  / .row
+  /   .col-lg-6.col-md-6.col-sm-6
+  /     = buyer.input :birthdate, as: :string, placeholder: buyer.object.class.human_attribute_name(:birthdate)    
+  /   .col-lg-6.col-md-6.col-sm-6
+  /     = buyer.input :occupation, as: :string, placeholder: buyer.object.class.human_attribute_name(:occupation)
+  / .row
+  /   .col-lg-6.col-md-6.col-sm-6
+  /     = buyer.input :base_salary, as: :string, placeholder: buyer.object.class.human_attribute_name(:base_salary)    
+  /   .col-lg-6.col-md-6.col-sm-6
+  /     = buyer.input :income, as: :string, placeholder: buyer.object.class.human_attribute_name(:income)
+  / .row
+  /   .col-lg-12.col-md-12.col-sm-12
+  /     = buyer.input :address, as: :string, placeholder: buyer.object.class.human_attribute_name(:address) 
 
 hr.line-dashed
 .row
   / .col-lg-6.col-md-6.col-sm-6
   /   = f.input :due_at, :as => :string, input_html: { class: 'datepicker', value: localize(f.object.due_at, format: '%d/%m/%Y')}, placeholder: model_class.human_attribute_name(:due_at)
-  .col-lg-6.col-md-6.col-sm-6
-    = f.input :value, placeholder: model_class.human_attribute_name(:value)
+
+/ .form-group.form-group-default.input-group
+/   .form-input-group
+/     label Pages username
+/     input.form-control aria-required="true" name="username" placeholder=("yourname.pages.com (this can be changed later)") required="" type="text" /
+/   .input-group-addon.d-flex
+/     | \.pages.com
+
+/ .row.string.optional.proposal_value
+/   .form-input-group
+/     label.string.optional for="proposal_value"  Value
+/     input#proposal_value.form-control.string.optional name="proposal[value]" placeholder="Value" type="text" /
+/   .input-group-addon.d-flex test
+/   .form-group.form-group-default.input-group
+
 
 .row
   .col-lg-12.col-md-12.col-sm-12
-    = f.input :negociate, as: :text, placeholder: model_class.human_attribute_name(:negociate), input_html:{rows: 40, style:"margin-top: 0px; margin-bottom: 0px; height: 70px;" }
+    = f.input :negociate, as: :text, placeholder: t_holder(:negociate, model_class), input_html:{rows: 40, style:"margin-top: 0px; margin-bottom: 0px; height: 70px;" }

@@ -1,12 +1,17 @@
 class Public::ProposalsController < Public::BaseController
+  layout 'pages'
   skip_before_action :authenticate_user!, only:[:create, :update, :destroy, :expired]
 
-  before_action :set_proposal, only: [:show, :edit, :update, :destroy, :comment]
+  before_action :set_proposal, only: [:show, :edit, :update, :destroy, :comment, :print]
   before_action :belongs_to_params, only: [:index, :new, :create, :booking]
-  before_action :belongs_to_persited, only: [:edit, :update, :comment, :redirect_if_restriction]
+  before_action :belongs_to_persited, only: [:edit, :update, :comment, :redirect_if_restriction, :print]
   before_action :redirect_if_restriction, except: [:comment, :expired]
   before_action :set_activities, only: [:document, :edit, :update]
   respond_to :html, :json, :js
+
+  def print
+    respond_with(@proposal)
+  end
 
   def booking
     @proposal = @unit.proposals.new
@@ -29,7 +34,7 @@ class Public::ProposalsController < Public::BaseController
     @proposal = @unit.proposals.new
     @proposal.due_at = Date.today.strftime("%d/%m/%Y")
     @proposal.broker = @broker
-    render :new, layout: 'pages'
+    render :new
   end
 
   def edit
@@ -39,12 +44,13 @@ class Public::ProposalsController < Public::BaseController
   def create
     @proposal = @unit.proposals.new(proposal_params)
     @proposal.brokerage = @unit.brokerage
-    sign_in @proposal.broker.user if @proposal.try(:broker).try(:user).try(:persisted?)
+    @proposal.broker = @broker
+    # sign_in @proposal.broker.user if @proposal.try(:broker).try(:user).try(:persisted?)
     if not @proposal.unit.restricted?
       respond_to do |format|
         if @proposal.save
           MailerMethod::ProposalCreate.new(@proposal).deliver_mail
-          format.html { redirect_to public_unit_proposals_path(@unit), notice: 'Proposal was successfully created.' }
+          format.html { redirect_to print_public_proposal_path(@unit), notice: 'Proposal was successfully created.' }
           format.json { render :show, status: :created, location: @proposal }
           format.js { } 
         else
@@ -156,6 +162,8 @@ class Public::ProposalsController < Public::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proposal_params
-      params.require(:proposal).permit(:state, :name, :negociate, :value, :comment, :due_at, broker_attributes:[:id, :name, user_attributes:[:id, :email]])
+      params.require(:proposal).permit(:state, :name, :negociate, :value, :comment, :due_at,
+                                       broker_attributes:[:id, :name, user_attributes:[:id, :email]],
+                                       buyers_attributes:[:id, :name])
     end
 end

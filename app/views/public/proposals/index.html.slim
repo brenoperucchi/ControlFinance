@@ -1,12 +1,10 @@
 - model_class = Proposal
 
-.panel.panel-default
-  .panel-heading
-    = model_class.model_name.human
-  .panel-wrapper.collapse.in
-    .panel-body
-      = render 'index', unit:@unit
-    .panel-footer
-      .form-group
-        .col-sm-offset-0.col-sm-9
-          = link_to t('back', scope: "helpers.links"), new_public_unit_proposal_path(@unit), :class => 'btn'
+.card.card-default
+  .card-header
+    .card-title
+      = model_class.model_name.human
+  .card-block
+    = render 'index', unit:@unit
+    .form-group.m-t-10
+      = link_to t('back', scope: "helpers.links"), new_public_unit_proposal_path(@unit), class: 'btn'

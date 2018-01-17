@@ -1,18 +1,29 @@
 pt-BR:
   not_accept: 'não'
   accept: 'sim'
+  placeholder:
+    buyer:
+      name: Nome do seu cliente (não é obrigatório)
+    proposal:
+      name: Nome do seu cliente
+      value: Valor total da proposta
+      negociate: "Aqui você deve descrever a negociação.\nExemplo: valor de entrada, ato do cliente, o número de parcelamento e vencimento."
   views:
     unit:
       index:
-        proposal: "Envia proposta"
+        proposal_create: "Criar proposta"
     session:
       title: "Favor digitar o seu e-mail para ter acesso completo."
       acceptance: "Nenhuma parte deste site ou qualquer conteúdo pode ser reproduzido, copiado, modificado ou adaptado, sem o consentimento prévio por escrito do autor, salvo indicação em contrário para materiais autônomos."
     proposal:
+      print:
+        title1: Contato comercial
+        title2: Sua proposta!
+        title3: Valor da Proposta
       new:
         title1: 'Proposta de compra para Unidade %{unit} do Empreendimento %{build}'
-        broker_list: 'Veja todas as suas Propostas'
-        value_request: Valor base
+        broker_list: 'Veja as suas propostas'
+        value_table: Valor da tabela
       pending: pendente
       approved: aceito
       deadline: Prazo da Proposta
@@ -25,7 +36,6 @@ pt-BR:
         title3: 'Contatos da empresa:'
         title4: 'Telephone and WhatsApp for contact: 48 99126-8808'
         title5: 'Endereço somente para correspondência:'
-        title6: 'Rua Primavera 320,Conj 602, Pagani, Palhoça/SC Cep:88132-100'
       revise_title1: 'Falta pouco para você se tornar um corretor da Elo Empreedimentos e começar a vender os nossos produtos. '
       revise_title2: 'A sua conta ainda está como pendente. Veja abaixo como solucionar o seu caso.'
       back_builds: 'Tabela de Vendas'
@@ -38,6 +48,8 @@ pt-BR:
     system:
       title: Booking Reservation System 
     common:
+      business_phone: (48) 99126-8808
+      business_address: 'Rua Primavera 320,Conj 602, Pagani, Palhoça/SC Cep:88132-100'
       unit: Unidade
       created_at: Criado em
       sign_in: Login
@@ -250,6 +262,7 @@ pt-BR:
       update: Atualizar %{model}
     links:
       back: Voltar
+      print:  Imprimir
   number:
     currency:
       format:
@@ -317,15 +330,29 @@ pt-BR:
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
-      unit: "%d de %b, %Y"
+      option1: "%d de %b %Y"
+      option2: "%d de %B %Y"
     pm: ''
   activemodel:
     errors:
       <<: *errors
   activerecord:
     models:
-      proposal: 'Propostas'
+      unit:
+        one: Unidade
+        other: Unidades
+      proposal: 
+        one: 'Proposta'
+        other: Propostas
     attributes:
+      buyer:
+        name: Nome
+      proposal:
+        unit:  Unidade
+        build: Obra
+        state: Status
+        negociate: Negociação
+        value: Valor Total
       user:
         email: "e-mail"
       broker:
