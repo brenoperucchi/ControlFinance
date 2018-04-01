@@ -1,6 +1,6 @@
    class Unit < ApplicationRecord
 
-  store :information, accessors:[:name, :state, :garage, :deadline]
+  store :information, accessors:[:name, :state, :garage, :deadline, :location]
 
   attr_reader :unit_value
 
@@ -28,12 +28,13 @@
     end
   end
 
-  def restricted?
-    proposals.restricted.present? ? true : false
+  def proposal_bought?
+    proposals.bought.present? ? true : false
   end
 
-  def restricted
-    proposals.try(:restricted).try(:first)
+  ## TODO COLOCAR EM TODOS
+  def proposal_bought
+    proposals.try(:bought).try(:last)
   end
 
 end

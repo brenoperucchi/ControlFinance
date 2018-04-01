@@ -15,19 +15,12 @@ nav.navbar.navbar-default.bg-master-lighter.sm-padding-10.full-width.p-t-0.p-b-0
                 i.fa.fa-print
             li.nav-item
               = link_to t('back', scope: "helpers.links"), public_build_units_path(@build), :class => ''
-        .col-sm-4
-          ul.navbar-nav.d-flex.flex-row.justify-content-sm-end
-            li.nav-item
-              a.p-r-10 href="#" 
-                img.icon-pdf alt="" data-src="assets/img/invoice/pdf.png" data-src-retina="assets/img/invoice/pdf2x.png" height="25" src="assets/img/invoice/pdf2x.png" width="25" /
-
 
 .card.card-default.m-t-10
   .card-block
     .invoice.p-t-20.p-l-50.p-r-50.p-b-20
       div
-        .pull-left
-          img.invoice-logo alt="" data-src="assets/img/invoice/squarespace.png" data-src-retina="assets/img/invoice/squarespace2x.png" height="47" src="assets/img/invoice/squarespace2x.png" width="235" /
+        .pull-left.large-text
           address.m-t-10
             = t_view(:title1, model_class, :print)
             br>/
@@ -36,12 +29,13 @@ nav.navbar.navbar-default.bg-master-lighter.sm-padding-10.full-width.p-t-0.p-b-0
             br/
         .pull-right.sm-m-t-20
           h2.font-montserrat.all-caps.hint-text= t_view(:title2, model_class, :print)
+          h4.semi-bold= t :due_at, scope:'views.proposal', due_at: I18n.l(@proposal.due_at, format: :long)
         .clearfix
       br/
       br/
       .col-12
         .row
-          .col-lg-9.col-sm-height.sm-no-padding
+          .col-lg-9.col-sm-height.sm-no-padding.large-text
             h5.semi-bold.m-t-0 Elo Empreendimentos
             address
               .col-lg-4
@@ -63,17 +57,17 @@ nav.navbar.navbar-default.bg-master-lighter.sm-padding-10.full-width.p-t-0.p-b-0
           thead
             tr
               th
-              th.text-right Negociação
+              th
           tbody
             tr
               td
-                p.text-black
+                p.large-text.text-black
                   = @proposal.builder.name
                   '
                   | - Unidade:
                   ' 
                   = @proposal.unit.name
-                p.small.hint-text
+                p.large-text.hint-text
                   | Corretor
                   '
                   = @proposal.broker.name 
@@ -82,18 +76,19 @@ nav.navbar.navbar-default.bg-master-lighter.sm-padding-10.full-width.p-t-0.p-b-0
                   '
                   = @proposal.broker.user.email
               td.text-right.bold
-                = @proposal.negociate
+                p.text-black.large-text.text-right = I18n.t :negociate, scope:'views.proposal'
+                p.large-text.text-right= @proposal.negociate
       br/
       br/
       .p-l-15.p-r-15
         .row.b-a.b-grey
           .col-md-2.p-l-15.sm-p-t-15.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
-            h5.font-montserrat.all-caps.small.no-margin.hint-text.bold Bonus
-            h3.no-margin R$ 1.000,00
-          .col-md-5.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
             h5.font-montserrat.all-caps.small.no-margin.hint-text.bold Corretagem
             h3.no-margin 5%
-          .col-md-5.text-right.bg-master-darker.col-sm-height.padding-15.d-flex.flex-column.justify-content-center.align-items-end
+          .col-md-6.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
+            h5.font-montserrat.all-caps.small.no-margin.hint-text.bold R$
+            h3.no-margin = number_with_precision @proposal.value.to_f * (@proposal.brokerage/100)
+          .col-md-4.text-right.bg-master-darker.col-sm-height.padding-15.d-flex.flex-column.justify-content-center.align-items-end
             h5.font-montserrat.all-caps.small.no-margin.hint-text.text-white.bold= t_view(:title3, model_class, :print)
             h1.no-margin.text-white= number_to_currency @proposal.value
       hr/

@@ -1,11 +1,11 @@
 class Public::ProposalsController < Public::BaseController
   layout 'pages'
-  skip_before_action :authenticate_user!, only:[:create, :update, :destroy, :expired]
+  # skip_before_action :authenticate_user!, only:[:create, :update, :destroy, :expired]
 
   before_action :set_proposal, only: [:show, :edit, :update, :destroy, :comment, :print]
   before_action :belongs_to_params, only: [:index, :new, :create, :booking]
-  before_action :belongs_to_persited, only: [:edit, :update, :comment, :redirect_if_restriction, :print]
-  before_action :redirect_if_restriction, except: [:comment, :expired]
+  before_action :belongs_to_persited, only: [:edit, :update, :comment, :redirect_to_step_or_back, :print]
+  before_action :redirect_to_step_or_back, except: [:comment, :expired]
   before_action :set_activities, only: [:document, :edit, :update]
   respond_to :html, :json, :js
 
@@ -31,6 +31,7 @@ class Public::ProposalsController < Public::BaseController
   end
 
   def new
+    @proposals = @broker.proposals.where(unit: @unit)
     @proposal = @unit.proposals.new
     @proposal.due_at = Date.today.strftime("%d/%m/%Y")
     @proposal.broker = @broker
@@ -46,11 +47,11 @@ class Public::ProposalsController < Public::BaseController
     @proposal.brokerage = @unit.brokerage
     @proposal.broker = @broker
     # sign_in @proposal.broker.user if @proposal.try(:broker).try(:user).try(:persisted?)
-    if not @proposal.unit.restricted?
+    if not @proposal.unit.bought?
       respond_to do |format|
         if @proposal.save
           MailerMethod::ProposalCreate.new(@proposal).deliver_mail
-          format.html { redirect_to print_public_proposal_path(@unit), notice: 'Proposal was successfully created.' }
+          format.html { redirect_to print_public_proposal_path(@proposal), notice: 'Proposal was successfully created.' }
           format.json { render :show, status: :created, location: @proposal }
           format.js { } 
         else
@@ -66,7 +67,7 @@ class Public::ProposalsController < Public::BaseController
 
   def update
     respond_to do |format|
-      if not @proposal.unit.restricted? and not @proposal.booked?
+      if not @proposal.unit.bought? and not @proposal.booked?
         if @proposal.update(proposal_params)
           format.html { redirect_to edit_public_proposal_path(@proposal), notice: 'Proposal was successfully updated.' }
           format.json { render :show, status: :ok, location: @proposal }
@@ -120,19 +121,25 @@ class Public::ProposalsController < Public::BaseController
 
   private
 
-    def redirect_if_restriction
-      @broker = current_user.try(:userable) if user_signed_in? and current_user.try(:userable).is_a?(Broker)
-      if @broker.pending?
+    def redirect_to_step_or_back
+      @broker = current_user.try(:userable) if current_user.try(:userable).is_a?(Broker)
+      proposal = @unit.proposal_bought
+      return true if proposal.nil?
+      if @broker.try(:pending?)
         respond_to do |format|
           format.html { redirect_to revise_public_broker_path(@broker) }
           format.js { render :js => "window.location.href='"+revise_public_broker_path(@broker)+"'" }
         end
-        return false
-      end
-      if user_signed_in?
-        redirect_to public_purchase_steps_path(@broker.restricted, :proposal) if @unit.restricted? and @broker.try(:restricted) == @unit.restricted
-      end
-      if @unit.restricted? and @broker.try(:restricted) != @unit.restricted
+      elsif current_user.try(:userable).is_a?(Broker) and proposal.broker == @broker
+        if proposal.try(:accepted?)
+          redirect_to public_purchase_steps_path(proposal)
+        elsif proposal.try(:closed?)
+          redirect_to finish_public_purchase_steps_path(proposal)
+        end
+        # else
+        #   redirect_to public_build_units_path(@unit.builder), notice: t(:proposal_restricted, scope:'errors.custom')
+        # end
+      else
         redirect_to public_build_units_path(@unit.builder), notice: t(:proposal_restricted, scope:'errors.custom')
       end
     end

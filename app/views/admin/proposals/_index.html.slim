@@ -12,7 +12,7 @@
     tbody
       - @collection.each do |proposal|
         tr
-          td= proposal.broker.user.email
+          td= proposal.broker.try(:user).try(:email)
           td= proposal.value
           td= editable proposal, :status, url: admin_proposal_path(proposal), type: 'select', class: 'editable', source: model_class::STATUS.map{|key,value|key}, value: proposal.state
           td= proposal.negociate

@@ -7,7 +7,7 @@ class Public::SessionsController < Devise::SessionsController
   end
 
   def after_sign_out_path_for(resource)
-    public_builds_path
+    public_dashboards_path
   end
 
   # before_action :configure_sign_in_params, only: [:create]

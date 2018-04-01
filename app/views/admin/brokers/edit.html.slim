@@ -42,7 +42,7 @@
                       =t(:assets, scope:'views.broker').capitalize
       - if @broker.proposals.present?
         .row
-          .card.no-border.card-condensed.no-margin.widget-loader-circle.full-height.d-flex.flex-column
+          .card.no-border.card-condensed.widget-loader-circle.full-height.d-flex.flex-column
             .p-t-25.p-l-25.p-r-25
               .pull-left
                 h2.text-success.no-margin Proposals
@@ -50,17 +50,20 @@
               .clearfix
             .auto-overflow.widget-11-2-table
               table.table.table-condensed.table-hover
+                thead
+                  tr
+                    th.text-center[style="width:30%!important"]= t :unit, scope:'views.common'
+                    th.text-center= t :status, scope:'views.common'
+                    th.text-right= t :email, scope:'views.common'
                 tbody
                   - @broker.proposals.order('created_at desc').each do |proposal|
                     tr
-                      td.font-montserrat.all-caps.fs-12.w-50= proposal.broker.user.email
-                      td.text-right
-                        span.hint-text.small dewdrops
-                      td.text-right.b-r.b-dashed.b-grey.w-25
-                        span.hint-text.small
-                          =t proposal.state, scope:'views.proposal'
-                      td.w-25
-                        span.font-montserrat.fs-18= proposal.value
+                      td.fs-12.b-l.b-dashed.b-grey.text-center
+                        span.font-montserrat.fs-18= proposal.unit.name
+                      td.text-center.b-l.b-dashed.b-grey
+                        =t proposal.state, scope:'views.proposal'
+                      td.text-right.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
+                        = proposal.broker.user.email
 
       .row
         .padding-25

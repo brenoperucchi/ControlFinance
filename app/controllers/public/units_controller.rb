@@ -4,6 +4,7 @@ class Public::UnitsController < Public::BaseController
   # skip_before_action :authenticate_user!, only:[:index]
 
   def index
+    @proposals = @build.proposals
     @units = @build.units
   end
 

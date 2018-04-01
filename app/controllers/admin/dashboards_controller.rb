@@ -1,28 +1,28 @@
 class Admin::DashboardsController < ApplicationController
   before_action :set_dashboard, only: [:show, :edit, :update, :destroy]
 
-  # GET /dashboards
-  # GET /dashboards.json
-  def index
-    @dashboards = Dashboard.all
-  end
+  # # GET /dashboards
+  # # GET /dashboards.json
+  # def index
+  #   @dashboards = Dashboard.all
+  # end
 
-  # GET /dashboards/1
-  # GET /dashboards/1.json
-  def show
-  end
+  # # GET /dashboards/1
+  # # GET /dashboards/1.json
+  # def show
+  # end
 
-  # GET /dashboards/new
-  def new
-    @dashboard = Dashboard.new
-  end
+  # # GET /dashboards/new
+  # def new
+  #   @dashboard = Dashboard.new
+  # end
 
-  # GET /dashboards/1/edit
-  def edit
-  end
+  # # GET /dashboards/1/edit
+  # def edit
+  # end
 
-  # POST /dashboards
-  # POST /dashboards.json
+  # # POST /dashboards
+  # # POST /dashboards.json
   def create
     @dashboard = Dashboard.new(dashboard_params)
 

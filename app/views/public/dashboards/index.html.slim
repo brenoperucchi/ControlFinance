@@ -9,43 +9,36 @@
 
 .feed.p-t-20
   .day data-social="day" 
-  - @builds.each do |build|
-    .card.social-card.share.share-other.col1 data-social="item" 
-      .circle data-container="body" data-original-title="Label" data-toggle="tooltip" title="Label" 
-      .card-content
-        ul.buttons
-          li
-            a href="#" 
-              i.fa.fa-expand
-          li
-            a href="#" 
-              i.fa.fa-heart-o
-        / img alt=("Person photo") src="assets/img/social/person-1.jpg" /
-        = link_to public_build_units_path(build) do
-          img.img-responsive alt="user" src="#{build.image('fit400')}"
-      .card-description
-        span.pull-left
-          = link_to public_build_units_path(build) do
-            h5 = build.name
-        span.pull-right
-          = link_to public_build_units_path(build) do 
-            h6
-              | Units:
+    - @builds.each do |build|
+      .card.social-card.share.col1 data-social="item" 
+        .circle data-container="body" data-original-title="Label" data-toggle="tooltip" title="Label" 
+        .card-header.clearfix
+          h4.font-montserrat= build.name
+          h6
+            | Situado em
+            '
+            span.location.semi-bold
+              i.fa.fa-map-marker
               '
-              = build.units.count
+              | SF, California
 
-    /   p
-    /     a href="#"  #TBT
-    /     | \:D
-    / .card-footer.clearfix
-    /   .time few seconds ago
-    /   ul.reactions
-    /     li
-    /       a href="#" 
-    /         | 5,345
-    /         i.fa.fa-comment-o
-    /     li
-    /       a href="#" 
-    /         | 23K
-    /         i.fa.fa-heart-o
-    / .card-header.clearfix.last
+        .card-content
+          ul.buttons
+            li
+              a href="#" 
+                i.fa.fa-expand
+            li
+              a href="#" 
+                i.fa.fa-heart-o
+          / img alt=("Person photo") src="assets/img/social/person-1.jpg" /
+          = link_to public_build_units_path(build) do
+            img.img-responsive[alt="user" src="#{build.image('fit400')}" height="33"  width="33"]
+          / .card-footer.m-t-0.p-b-0
+          / p.text-center.hint-text.font-montserrat.all-caps.fs-14.m-b-0
+          /   = link_to public_build_units_path(build) do 
+          /     = t :title1, scope:'views.dashboard'
+          /     '
+          /     = build.units.count
+        .card-description.clearfix.last.m-t-0.p-t-0
+          a.btn.btn-complete2.btn-block.m-t-10.all-caps href="#"
+            = t :link, scope: 'views.dashboard', units: build.units.count

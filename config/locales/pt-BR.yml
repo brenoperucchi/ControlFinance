@@ -23,10 +23,13 @@ pt-BR:
       new:
         title1: 'Proposta de compra para Unidade %{unit} do Empreendimento %{build}'
         broker_list: 'Veja as suas propostas'
-        value_table: Valor da tabela
+        value_table: Valor de tabela
       pending: pendente
       approved: aceito
       deadline: Prazo da Proposta
+      negociate: Negociação
+      due_at: 'Vencimento em: %{due_at}'
+      all_proposal: 'ver todas as propostas'
     broker:
       document:
         comment: 'Histórico de Conversa'
@@ -66,14 +69,17 @@ pt-BR:
       pending: pendente
       approved: aceito
       broker:
-        document1 : 'Corretor CRECI'
-        document2 : 'Contrato'
+        document1: 'Corretor CRECI'
+        document2: 'Contrato'
       proposal:
-        document1 : 'Document 1'
-        document2 : 'Document 2'
-        document3 : 'Document 3'
+        document1: 'Document 1'
+        document2: 'Document 2'
+        document3: 'Document 3'
     build:
       last_sales: 'Últimas propostas'
+    dashboard:
+        title1: 'Unidades disponível'
+        link: 'Unidades disponível: %{units}'
   date:
     abbr_day_names:
     - Dom
@@ -243,7 +249,7 @@ pt-BR:
         title: 'Unit %{unit} of %{build} was created a proposal' 
         link: Analyze your proposal
         subject: 'Proposal created to Unit %{unit} of %{build}'
-        message: 'Due AT: %{due_at}'
+        message: 'Vencimento para o dia: %{due_at}'
       proposal:
         title: 'Bid Proposal Unit'
         subject: Reserve unit %{unit}
@@ -261,6 +267,7 @@ pt-BR:
       submit: Salvar %{model}
       update: Atualizar %{model}
     links:
+      edit: Editar
       back: Voltar
       print:  Imprimir
   number:
@@ -275,7 +282,7 @@ pt-BR:
         unit: R$
     format:
       delimiter: "."
-      precision: 3
+      precision: 2
       separator: ","
       significant: false
       strip_insignificant_zeros: false
@@ -329,7 +336,8 @@ pt-BR:
     formats:
       default: "%a, %d de %B de %Y, %H:%M:%S %z"
       long: "%d de %B de %Y, %H:%M"
-      short: "%d de %B, %H:%M"
+      short: "%d/%b/%y, %H:%M"
+      short2: "%d/%b/%Y, %H:%M"
       option1: "%d de %b %Y"
       option2: "%d de %B %Y"
     pm: ''
@@ -352,7 +360,7 @@ pt-BR:
         build: Obra
         state: Status
         negociate: Negociação
-        value: Valor Total
+        value: Valor
       user:
         email: "e-mail"
       broker:

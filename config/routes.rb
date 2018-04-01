@@ -18,7 +18,9 @@ Rails.application.routes.draw do
     
     resources :assets, only:[:create, :index, :update], path: 'assetable_type/:assetable_type/assetable_id/:assetable_id'
     resources :assets, only:[:destroy]
-    resources :purchase_steps, path: 'proposal/:proposal_id'
+    resources :purchase_steps, path: 'proposal/:proposal_id' do
+      get 'finish', on: :collection
+    end
     resources :brokers, only:[:new, :create, :update] do
       get 'revise', on: :member
       get 'contract', on: :member

@@ -5,8 +5,13 @@ class Public::PurchaseStepsController < Public::BaseController
 
   layout 'common/chat'
 
-  before_action :set_parent, only: [:show, :update]
+  before_action :set_parent, only: [:show, :update, :finish]
   respond_to :html, :json
+
+  def finish
+    @activities = @proposal.activities.order('created_at desc')
+    respond_with @proposal
+  end
 
   def show 
     @activities = @proposal.activities.order('created_at desc')
@@ -45,6 +50,7 @@ class Public::PurchaseStepsController < Public::BaseController
   end  
 
   private
+   
    def set_parent
     @name_space = :public
     @proposal = Proposal.find(params[:proposal_id])

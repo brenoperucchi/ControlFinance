@@ -21,8 +21,10 @@ class Public::BaseController < ApplicationController
   end
 
   def current_store
-    ## TODO MODIFY AFTER BETA IN SALES PRODUCTION 
-    param = params[:store_id]|| 1
+    ## TODO MODIFY AFTER BETA TEST
+    ## this should have baseline with subdomain in http
+    param = params[:store_id] || 1
+    param = current_user.userable.store.id if user_signed_in?
     Store.current = Store.find_by_id(param)
   end
 

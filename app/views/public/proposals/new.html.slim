@@ -1,8 +1,8 @@
 - model_class = Proposal
 
 .row
-  .col-lg-3
-    .card.card-default.bg-white.widget-loader-bar.m-b-20
+  .col-lg-4
+    .widget-card.card-default.bg-white.widget-loader-bar.m-b-20
       .card-block
         .row
           .col-lg-4.col-md-4.col-sm-4.col-xs-6
@@ -15,11 +15,10 @@
             h5.semi-bold.no-margin.text-information = @unit.state
             p.small.no-margin = model_class.human_attribute_name(:state)
         .clearfix
-        hr.line-dashed
-        .row
+        .row.m-t-20
           .col-lg-12.col-md-12.text-center
             h5.no-margin.p-b-5.text-info.bold= number_to_currency @unit.value
-            p.small.no-margin = t :value_table, scope: 'views.proposal.new'
+            p.all-caps.small.no-margin = t :value_table, scope: 'views.proposal.new'
         .clearfix
         hr.line-dashed
         .row
@@ -35,16 +34,40 @@
           .col-lg-12.col-md-12.text-center
             h4.no-margin.p-b-5.text-danger.semi-bold= @unit.deadline || "5 days"
             p.small.no-margin = t :deadline, scope: 'views.proposal'
-        .clearfix
-    - if user_signed_in? and not current_admin?
-      .span.text-center
-        = link_to public_unit_proposals_path(@unit), class: 'btn btn-info btn-outline' do
-          = t :broker_list, scope: 'views.proposal.new'
+    .clearfix
+    / .span.text-center
+    /   = link_to public_unit_proposals_path(@unit), class: 'btn btn-info btn-outline' do
+    /     = t :broker_list, scope: 'views.proposal.new'
 
     / = render 'timeline'
-  .col-lg-9
+    - unless @proposals.blank?
+      .widget.card.no-border.card-condensed.no-margin.widget-loader-circle.align-self-stretch.d-flex.flex-column
+        .p-l-25.p-r-25.p-t-25
+          .pull-left
+            h4.text-success.no-margin = t(:last_sales, scope: 'views.build')
+        .p-l-25.p-r-25.p-t-0
+          .pull-right
+            =link_to t('all_proposal', scope: "views.proposal"),public_unit_proposals_path(@unit), class: 'small hint-text' 
+        .clearfix
+        .widget-11-2-table.auto-overflow
+          table.table.table-condensed.table-hover
+            thead
+              tr
+                th.text-center[style="width:30%!important"]= t :unit, scope:'views.common'
+                th.text-right= t :created_at, scope:'views.common'
+                / th.text-right= t '.action', scope:'views.common'
+            tbody
+              - @proposals.order('created_at desc')[0..10].each do |proposal|
+                tr
+                  td.text-center.font-montserrat.all-caps.fs-12= proposal.unit.name
+                  / td.text-right.hidden-lg
+                    span.hint-text.small dewdrops
+                  td.text-right.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
+                    span.font-montserrat.fs-18= l proposal.created_at, format: :short2
+                    
+  .col-lg-8
     = simple_form_for [:public, @unit, @proposal], wrapper: :pages_form_default, html:{class: 'sdsd'} do |f|
-      .card.card-default.m-b-5
+      .widget-card.card.card-default.m-b-5.no-border.no-margin
         .card-header
           .card-title
             h5
@@ -58,6 +81,15 @@
           - else
           == render 'form', f: f 
           hr.line-dashed
+          .row
+            .col-lg-12
+              p Comentário da Empresa
+            - @proposal.activities.order('created_at desc').each do |activity|
+              .card.social-card.status.background-condensed data-social="item"
+                h5
+                  span.hint-text few seconds ago
+                h2 = activity.comment
+
           .form-group
             = f.submit nil, :class => 'btn btn-primary'
             '

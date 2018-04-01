@@ -1,6 +1,13 @@
 en:
   not_accept: 'no'
   accept: 'yes'
+  placeholder:
+    buyer:
+      name: Nome do seu cliente (não é obrigatório)
+    proposal:
+      name: Nome do seu cliente
+      value: Valor total da proposta
+      negociate: "Aqui você deve descrever a negociação.\nExemplo: valor de entrada, ato do cliente, o número de parcelamento e vencimento."
   views:
     unit:
       index:
@@ -9,6 +16,10 @@ en:
       title: "Please type your e-mail for fully access"
       acceptance: "No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials."
     proposal:
+      print:
+        title1: Contato comercial
+        title2: Sua proposta!
+        title3: Valor da Proposta
       new:
         title1: 'Purchase propsosal of Unit %{unit} do %{build}'
         broker_list: 'List all your proposals'
@@ -16,6 +27,7 @@ en:
       pending: pending
       approved: approved
       deadline: Proposal deadline
+      negociate: Negociação
     broker:
       document:
         comment: 'Talk History'

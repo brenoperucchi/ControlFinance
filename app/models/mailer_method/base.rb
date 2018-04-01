@@ -1,6 +1,9 @@
 class MailerMethod::Base
   include Rails.application.routes.url_helpers
 
+  HOST = ActionMailer::Base.default_url_options[:host]
+  PORT = ActionMailer::Base.default_url_options[:port]
+
   def initialize(obj = nil)
     @object = obj || object
   end
@@ -17,7 +20,7 @@ class MailerMethod::Base
     # view.controller.request =  ActionDispatch::Request.new(request)
     # view.controller.response = ActionController::Response.new
     # view.controller.headers = Rack::Utils::HeaderHash.new
-    view.class_eval do 
+    view.class_eval do       
       include Rails.application.routes.url_helpers
       include ApplicationHelper
 
@@ -29,7 +32,7 @@ class MailerMethod::Base
         false
       end
     end
-    view.render partial: "mailers/#{name.to_s}", locals: { object: @object, token:token }, layout:false
+    view.render partial: "mailers/#{name.to_s}", locals: { object: @object, token:token, host: HOST, port: PORT }, layout:false
   end
 
   def token

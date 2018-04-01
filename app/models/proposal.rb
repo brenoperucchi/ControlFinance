@@ -9,11 +9,9 @@ class Proposal < ApplicationRecord
   before_create :set_defaults
   after_create :create_documents
 
-
   scope :not_refuse, ->{ where.not(state: 'refuse') }
-  scope :finished,   ->{ where(state: ['accepted', 'closed']) }
+  scope :bought,   ->{ where(state: ['accepted', 'closed']) }
   scope :accepted,   ->{ where(state: 'accepted') }
-  scope :restricted, ->{ where(state: ['accepted', 'closed']) }
   scope :expired,    ->{ where(state:'booked').where("proposals.due_at < ?", Date.today) }
 
   tracked :only =>[:update], 
@@ -26,6 +24,7 @@ class Proposal < ApplicationRecord
                    :update => proc {|model, controller| !model.comment.blank? }
                  }
 
+  has_many :activitys,   class_name: 'Activity',   as: :recipentable
   has_many :mailers,   class_name: 'Mailer',   as: :mailable
   has_many :buyers,    class_name: 'Buyer',    dependent: :nullify 
   has_many :assets,    class_name: "Asset",    as: :assetable, dependent: :destroy

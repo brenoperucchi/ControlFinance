@@ -57,12 +57,12 @@ class Broker < ApplicationRecord
     end
   end
   
-  def restricted?
-    proposals.restricted.present? ? true : false
+  def proposal_accepted?
+    proposals.accepted.present? ? true : false
   end
 
-  def restricted
-    proposals.try(:restricted).try(:first)
+  def proposal_accepted
+    proposals.try(:accepted).try(:first)
   end
 
   def create_documents

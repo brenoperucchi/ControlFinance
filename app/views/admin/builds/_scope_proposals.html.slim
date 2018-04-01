@@ -38,7 +38,7 @@
               - @collection.each do |proposal|
                 tr
                   td= proposal.unit.name
-                  td= proposal.broker.user.email
+                  td= proposal.try(:broker).try(:user).try(:email)
                   td=localize proposal.due_at, format: :short
                   td= proposal.value
                   td= editable proposal, :status, url: admin_proposal_path(proposal), type: 'select', class: 'editable', source: model_class::STATUS.map{|key,value|key}, value: proposal.state
