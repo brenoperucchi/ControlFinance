@@ -40,5 +40,4 @@
           /     '
           /     = build.units.count
         .card-description.clearfix.last.m-t-0.p-t-0
-          a.btn.btn-complete2.btn-block.m-t-10.all-caps href="#"
-            = t :link, scope: 'views.dashboard', units: build.units.count
+          = link_to t(:link, scope: 'views.dashboard', units: build.units.count),public_build_units_path(build), class: 'btn btn-complete2 btn-block m-t-10 all-caps'
