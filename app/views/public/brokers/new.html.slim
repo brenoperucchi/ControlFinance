@@ -3,11 +3,13 @@
 = simple_form_for [:public, @broker], html: {id: 'form-horizontal', class: 'p-t-15'}, wrapper: :pages_form, wrapper_mappings: { radio_buttons: :pages_vertical_radio} do |f|
   = f.input :store_id, as: :hidden, input_html:{value: current_store.id}
   .card.card
+    .card-header.text-center
+      h3= t :title1, scope: 'views.broker.new'
+      p= t :title2, scope: 'views.broker.new'
+      hr
     .card-block
       .row
-        .col-md-12
-          h3= t :title1, scope: 'views.broker.new'
-          p= t :title2, scope: 'views.broker.new'
+        .col-md-6
           .row
             .col-md-6
               = f.input :name, placeholder: model_class.human_attribute_name(:name), input_html: { class: 'input-sm'}
@@ -16,12 +18,13 @@
                 = user.input :store_id, as: :hidden, input_html:{value: current_store.id}
                 = user.input :email, placeholder: model_class.human_attribute_name(:email)
               = f.input :irs_id, placeholder: model_class.human_attribute_name(:irs_id), input_html: { class: 'input-sm'}
-              = f.input :company, placeholder: model_class.human_attribute_name(:company), input_html: { class: 'input-sm'}
-            .col-md-6
               = f.input :address, placeholder: model_class.human_attribute_name(:address), input_html: { class: 'input-sm'}
+            .col-md-6
               = f.input :phone, placeholder: model_class.human_attribute_name(:phone), input_html: { class: 'input-sm'}
+              = f.input :company, placeholder: model_class.human_attribute_name(:company), input_html: { class: 'input-sm'}
               = f.input :company_irs_id, placeholder: model_class.human_attribute_name(:company_irs_id), input_html: { class: 'input-sm'}
           hr
+        .col-md-6
           .row
             .col-md-12
               = f.input :option1, wrapper: :pages_vertical_radio do
@@ -79,7 +82,7 @@
                         = t(:accept)
           .row
             .col-md-12
-              = f.input :option6, label: false, wrapper: :append do                    
+              = f.input :option6, label: false, wrapper: :append do
                 .form-group.row.m-b-0
                   .col-md-8
                     label.col-md-10.control-label 

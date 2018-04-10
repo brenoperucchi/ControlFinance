@@ -40,4 +40,4 @@
           /     '
           /     = build.units.count
         .card-description.clearfix.last.m-t-0.p-t-0
-          = link_to t(:link, scope: 'views.dashboard', units: build.units.count),public_build_units_path(build), class: 'btn btn-complete2 btn-block m-t-10 all-caps'
+          = link_to t(:link, scope: 'views.dashboard', units: build.units.pending_or_booked.count),public_build_units_path(build), class: 'btn btn-complete2 btn-block m-t-10 all-caps'

@@ -1,4 +1,5 @@
-class Admin::DashboardsController < ApplicationController
+class Admin::DashboardsController < Admin::BaseController
+  layout 'pages'
   before_action :set_dashboard, only: [:show, :edit, :update, :destroy]
 
   # # GET /dashboards

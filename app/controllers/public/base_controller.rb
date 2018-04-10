@@ -2,9 +2,7 @@ class Public::BaseController < ApplicationController
   include PublicActivity::StoreController
 
   layout 'elite'
-  
   protect_from_forgery with: :null_session
-
   before_action :authenticate_user!
   
   def authenticate_user!
@@ -16,7 +14,18 @@ class Public::BaseController < ApplicationController
           render :js => "window.location.href='"+new_user_session_path+"'" 
         end
       end
-      
+    else
+      if current_user.userable.admin?
+        sign_out current_user
+        respond_to do |format|
+          format.html { redirect_to(new_user_session_path, alert: I18n.t(:unauthenticated, scope: 'devise.failure')) }
+          format.js do 
+            flash[:alert] = I18n.t(:unauthenticated, scope: 'devise.failure')
+            render :js => "window.location.href='"+new_user_session_path+"'" 
+          end
+        end
+
+      end  
     end
   end
 
@@ -27,5 +36,4 @@ class Public::BaseController < ApplicationController
     param = current_user.userable.store.id if user_signed_in?
     Store.current = Store.find_by_id(param)
   end
-
 end

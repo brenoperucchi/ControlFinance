@@ -54,6 +54,7 @@ Rails.application.routes.draw do
       post 'login',  to: 'sessions#create', as: 'session'
       delete 'logout',  to: 'sessions#destroy', as: 'destroy_session'
     end
+    resource :store, only:[:edit, :update]
     resources :documents, only:[:create, :index, :update]
     resources :brokers do
       get 'assets', on: :member

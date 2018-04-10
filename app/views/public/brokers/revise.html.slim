@@ -1,46 +1,43 @@
 - model_class = Broker
 .row
   .col-lg-8
-    .row
-      .col-lg-12
-        .card.social-card.status data-social="item" style="width:100%"
-          h2=t :revise_title1, scope:'views.broker' 
+    / .row
+    /   .col-lg-12
+    /     .card.social-card.status.blue data-social="item" style="width:100%"
+    /       h2=t :revise_title1, scope:'views.broker' 
     .row
       .col-lg-12.col-xl-12.m-b-10
         .card.widget-12.no-border.widget-loader-circle.no-margin
-          .p-t-25.p-l-25.p-r-25
+          .p-t-25.p-l-25.p-r-25.p-b-25
             .pull-left
-              h3.text-success.no-margin=t :revise_title2, scope:'views.broker'
+              h3.semi-bold.text-success.no-margin=t :revise_title2, scope:'views.broker'
               p.no-margin 
-          .card-block.p-t-0
-            .table-responsive
-              table.table.table-condensed.table-hover
-                thead
-                  tr
-                    th Item
-                    th Status
-                tbody
-                  - @broker.documents.each do |document|
-                    tr
-                      td.font-montserrat.all-caps.fs-12.w-50 = document.name
-                      td.w-25
-                        span.font-montserrat.fs-18
-                          = t document.state, scope:'views.document'
-            .p-t-10.mt-auto.text-center
-              = link_to contract_public_broker_path(@broker), class: 'btn btn-complete' do
-                =t :contract_print, scope:'views.broker'
-              '
-              = link_to assets_public_broker_path(@broker), class: 'btn btn-complete',  remote: true do
-                =t :send_files, scope:'views.broker'
-              / p.small.no-margin
-              /   a href="#" 
-              /     i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
-              /   span.hint-text Show more details of APPLE . INC
+    .row
+      .col-lg-12.col-xl-12.m-b-10.text-center
+        .row
+          - @broker.documents.each do |document|
+            .col-lg-5
+              .card.card-default.bg-primary
+                .card-header.separator
+                  .card-title.fs-16.text-white
+                    = t document.name, scope:'views.broker.revise.document.attribute'
+                .card-block
+                  h3.text-white
+                    / span.semi-bold With
+                    / '
+                    / | Separator
+                  p.text-white= t document.name, scope:'views.broker.revise.document.text'
+              - if document.name == "irs_id"
+                = link_to assets_public_broker_path(@broker), class: 'btn ',  remote: true do
+                  =t :send_files, scope:'views.broker'
+              - else
+                = link_to contract_public_broker_path(@broker), class: 'btn' do
+                  =t :contract_print, scope:'views.broker'
     br/
     .row
       .col-lg-12.col-xl-12.m-b-10.text-center
-        = link_to public_dashboards_path, class: 'btn btn-primary btn-block btn-compose'
-          = t :back_builds, scope:'views.broker'
+        = link_to public_dashboards_path, class: 'btn btn-block btn-success'
+          = t :table_sales, scope:'views.broker.revise'
 
 
   .col-lg-4

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
    
   def set_locale
-    I18n.locale = 'pt-BR'
+    I18n.locale = self.try(:current_store).try(:language) || 'pt-BR'
   end
 
   def flash_clean

@@ -3,7 +3,10 @@ class Store < ApplicationRecord
 
   include SentientStore 
 
-  store :settings, accessors:[:language]
+  LANGUAGE = {'pt-br': 'pt-BR', en:'en'}
+
+
+  store :settings, accessors:[:language, :broker_config]
   has_many :users, dependent: :destroy
   has_many :brokers, dependent: :destroy
   has_many :persons, dependent: :destroy

@@ -29,7 +29,7 @@ class Broker < ApplicationRecord
   accepts_nested_attributes_for :user, allow_destroy: true  
 
   validates :option1, :option2, :option3, :option4, :option5, :option6, acceptance: { accept: "1" }, on: :create
-  validates_presence_of :name, :option1, :option2, :option3, :option4, :option5, :option6, on: :create
+  validates_presence_of :name, :option1, :option2, :option3, :option4, :option5, :option6, :irs_id, on: :create
   validates_uniqueness_of :irs_id, scope:[:store_id]
 
   accepts_nested_attributes_for :user

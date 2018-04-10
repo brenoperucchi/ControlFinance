@@ -27,14 +27,14 @@
           tbody
             - @brokers.each do |broker|
               tr
-                td= broker.name
-                td= broker.state
-                td= broker.user.email
+                td.fs-15= broker.name
+                td.fs-15= broker.state
+                td.fs-15= broker.user.email
                 td
-                  = link_to edit_admin_broker_path(broker), :class => 'btn btn-info btn-outline btn-xs waves-effect waves-light', :title => t('show', :scope => 'helpers.links') do
+                  = link_to edit_admin_broker_path(broker), :class => 'btn btn-info btn-outline btn-sm waves-effect waves-light', :title => t('show', :scope => 'helpers.links') do
                     ' Edit
                   '
-                  = link_to admin_broker_path(broker), class: 'btn btn-xs btn-danger', data: { confirm: 'Are you sure?' }, method: :delete do
+                  = link_to admin_broker_path(broker), class: 'btn btn-sm btn-danger', data: { confirm: 'Are you sure?' }, method: :delete do
                     i.ti-trash.inline
                     '
                     = t('destroy', scope: "helpers.links")

@@ -41,7 +41,7 @@ class Admin::BrokersController < Admin::BaseController
   def update
     respond_to do |format|
       if @broker.update(admin_broker_params)
-        format.html { redirect_to edit_admin_broker_path(@broker), notice: 'broker was successfully updated.' }
+        format.html { redirect_to admin_brokers_path(@broker), notice: 'broker was successfully updated.' }
         format.json { render :show, status: :ok, location: [:admin, @broker] }
       else
         format.html { render :edit }

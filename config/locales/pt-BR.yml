@@ -1,7 +1,12 @@
 pt-BR:
+  language:
+    pt-br: Português Brasil
+    en: Inglês Americano
   not_accept: 'não'
   accept: 'sim'
   placeholder:
+    store: 
+      broker_config: 'Permitir que corretor não aprovado faça propostas?'
     buyer:
       name: Nome do seu cliente (não é obrigatório)
     proposal:
@@ -9,6 +14,10 @@ pt-BR:
       value: Valor total da proposta
       negociate: "Aqui você deve descrever a negociação.\nExemplo: valor de entrada, ato do cliente, o número de parcelamento e vencimento."
   views:
+    header:
+      dashboard: Painel de Controle
+      setting: Configuração
+      brokers: Corretores
     unit:
       index:
         proposal_create: "Criar proposta"
@@ -31,6 +40,15 @@ pt-BR:
       due_at: 'Vencimento em: %{due_at}'
       all_proposal: 'ver todas as propostas'
     broker:
+      revise:
+        table_sales: Clique aqui para ver a Tabela de Vendas
+        document:
+          attribute:
+            irs_id: 'Documento CRECI do Corretor/Imobiliária'
+            contract: 'Contrato de Autorização de Vendas'
+          text:
+            irs_id: 'Você deve enviar a cópia do CRECI do corretor responsável e/ou da imobiliária'
+            contract: 'Contrato de Autorização de Vendas'
       document:
         comment: 'Histórico de Conversa'
       new:
@@ -41,7 +59,6 @@ pt-BR:
         title5: 'Endereço somente para correspondência:'
       revise_title1: 'Falta pouco para você se tornar um corretor da Elo Empreedimentos e começar a vender os nossos produtos. '
       revise_title2: 'A sua conta ainda está como pendente. Veja abaixo como solucionar o seu caso.'
-      back_builds: 'Tabela de Vendas'
       contract_print: Imprimir Contrato
       send_files: "Enviar Arquivos"
       assets: 'Arquivos'
@@ -353,6 +370,8 @@ pt-BR:
         one: 'Proposta'
         other: Propostas
     attributes:
+      store:
+        language: Idioma
       buyer:
         name: Nome
       proposal:
@@ -365,6 +384,11 @@ pt-BR:
         email: "e-mail"
       broker:
         name: 'Nome'
+        address: Endereço
+        phone: Telefone
+        irs_id: CRECI do Corretor responsável
+        company: Nome da Imobiliária
+        company_irs_id: CRECI da Imobiliária (se houver)
         option1: 'Correspondente bancário será indicado pela construtora'
         option2: 'O corretor será responsável solicitar todos os documentos ao cliente para conclusão do financiamento bancário.'
         option3: 'O corretor ficará responsável em fazer todo o contato com o cliente até entrega das chaves.'

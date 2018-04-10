@@ -1,9 +1,11 @@
 doctype html
 html
   = render 'layouts/pages/html_head'
-  body.fixed-header.mac.desktop.pace-done
+  / body.fixed-header.mac.desktop.pace-done
+  body.fixed-header.horizontal-menu.horizontal-app-menu.dashboard>
+    = render 'layouts/pages/header'
     .page-container.m-t-20
-      .page-content-wrapper.m-t-70
+      .page-content-wrapper
         .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
           = yield
       / .pgn-wrapper data-position="top" 
@@ -23,6 +25,5 @@ html
       /       .social data-pages="social" 
       /         .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
       /           = yield
-      = render 'layouts/pages/header'
       = render 'layouts/pages/modal'
       = render 'layouts/pages/footer'

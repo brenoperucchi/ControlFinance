@@ -1,8 +1,13 @@
    class Unit < ApplicationRecord
 
-  store :information, accessors:[:name, :state, :garage, :deadline, :location]
+  store :information, accessors:[:name, :garage, :deadline, :location]
 
   attr_reader :unit_value
+
+  scope :pending, ->{ where(state: 'pending') }
+  scope :booked,  ->{ where(state: 'booked') }
+  scope :bought,  ->{ where(state: 'bought') }
+  scope :pending_or_booked,  ->{ where(state: ['booked', 'pending']) }
 
   ## TODO CREATE SOFT DELETE
   has_many :mailers,   class_name: 'Mailer', as: :mailable
