@@ -1,7 +1,11 @@
+css:
+  form .row [class*=col-]:last-child {
+    padding-right: 7px!important; 
+  }
+
 - model_class = Broker
 
 = simple_form_for [:public, @broker], html: {id: 'form-horizontal', class: 'p-t-15'}, wrapper: :pages_form, wrapper_mappings: { radio_buttons: :pages_vertical_radio} do |f|
-  = f.input :store_id, as: :hidden, input_html:{value: current_store.id}
   .card.card
     .card-header.text-center
       h3= t :title1, scope: 'views.broker.new'
@@ -11,19 +15,24 @@
       .row
         .col-md-6
           .row
-            .col-md-6
+            = f.input :store_id, as: :hidden, input_html:{value: current_store.id}
+            .col-md-12
               = f.input :name, placeholder: model_class.human_attribute_name(:name), input_html: { class: 'input-sm'}
+            .col-md-12
               - f.object.build_user if f.object.user.nil?
               = f.simple_fields_for :user do |user|
                 = user.input :store_id, as: :hidden, input_html:{value: current_store.id}
                 = user.input :email, placeholder: model_class.human_attribute_name(:email)
+            .col-md-12
               = f.input :irs_id, placeholder: model_class.human_attribute_name(:irs_id), input_html: { class: 'input-sm'}
+            .col-md-12
               = f.input :address, placeholder: model_class.human_attribute_name(:address), input_html: { class: 'input-sm'}
-            .col-md-6
+            .col-md-12
               = f.input :phone, placeholder: model_class.human_attribute_name(:phone), input_html: { class: 'input-sm'}
+            .col-md-12
               = f.input :company, placeholder: model_class.human_attribute_name(:company), input_html: { class: 'input-sm'}
+            .col-md-12
               = f.input :company_irs_id, placeholder: model_class.human_attribute_name(:company_irs_id), input_html: { class: 'input-sm'}
-          hr
         .col-md-6
           .row
             .col-md-12
@@ -96,17 +105,18 @@
                       = radio_button_tag '[broker]option6', 1, f.object.option6 == "1", id: 'choice12'
                       label for="choice12"
                         = t(:accept)
-              strong
-                = t :title3, scope: 'views.broker.new'
-                br/
-                = t :title4, scope: 'views.broker.new'
-                br/
-                br/
-                = t :title5, scope: 'views.broker.new'
-                br/
-                = t :title6, scope: 'views.broker.new'
-
-          hr
-          .row
-            .col-md-6.offset-md-4
-              = f.button :submit, "Create a new account", class: 'col-md-8 btn btn-success'
+      hr
+      .p-t-10.mt-auto.text-center
+        .font-montserrat.no-margin.fs-16
+          = t :title3, scope: 'views.broker.new'
+          br/
+          = t :title4, scope: 'views.broker.new', phone: current_store.phone
+          br/
+          br/
+          = t :title5, scope: 'views.broker.new'
+          br/
+          = current_store.address
+      hr
+      .row
+        .col-md-6.offset-md-4
+          = f.button :submit, t(:broker_create, scope:'views.broker.new').upcase, class: 'col-md-8 btn btn-success'

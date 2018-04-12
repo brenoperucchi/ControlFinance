@@ -2,8 +2,9 @@ doctype html
 html
   = render 'layouts/pages/html_head'
   / body.fixed-header.mac.desktop.pace-done
-  body.fixed-header.horizontal-menu.horizontal-app-menu.dashboard>
-    = render 'layouts/pages/header'
+  body.fixed-header.horizontal-menu.horizontal-app-menu.dashboard
+    - if user_signed_in?  
+      = render 'layouts/pages/header'
     .page-container.m-t-20
       .page-content-wrapper
         .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0

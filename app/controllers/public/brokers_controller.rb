@@ -19,7 +19,7 @@ class Public::BrokersController < Public::BaseController
   end
 
   def new
-    @broker = Broker.new
+    @broker = Broker.new(user_attributes:{email:params[:email]})
     render :new, layout:'layouts/pages/broker'
   end
 

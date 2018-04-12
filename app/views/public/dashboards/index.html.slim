@@ -20,24 +20,9 @@
             span.location.semi-bold
               i.fa.fa-map-marker
               '
-              | SF, California
-
+              = build.address
         .card-content
-          ul.buttons
-            li
-              a href="#" 
-                i.fa.fa-expand
-            li
-              a href="#" 
-                i.fa.fa-heart-o
-          / img alt=("Person photo") src="assets/img/social/person-1.jpg" /
           = link_to public_build_units_path(build) do
             img.img-responsive[alt="user" src="#{build.image('fit400')}" height="33"  width="33"]
-          / .card-footer.m-t-0.p-b-0
-          / p.text-center.hint-text.font-montserrat.all-caps.fs-14.m-b-0
-          /   = link_to public_build_units_path(build) do 
-          /     = t :title1, scope:'views.dashboard'
-          /     '
-          /     = build.units.count
         .card-description.clearfix.last.m-t-0.p-t-0
           = link_to t(:link, scope: 'views.dashboard', units: build.units.pending_or_booked.count),public_build_units_path(build), class: 'btn btn-complete2 btn-block m-t-10 all-caps'

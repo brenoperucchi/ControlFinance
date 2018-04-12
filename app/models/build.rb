@@ -1,4 +1,6 @@
 class Build < ApplicationRecord
+
+  store :information, accessors:[:address]
   
   has_many :mailers,    class_name: 'Mailer', as: :mailable
   has_many :units,      class_name: "Unit", :foreign_key => "build_id"

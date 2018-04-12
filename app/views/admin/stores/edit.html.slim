@@ -13,6 +13,8 @@
               / == render 'form', f: f, model_class: model_class
               .row
                 .col-md-12.col-lg-12.col-sm-12
+                  = f.input :phone, input: :string
+                  = f.input :address, input: :string
                   = f.input :language, as: :select, collection: model_class::LANGUAGE.map{|key, value| [I18n.t(key, scope:'language'),value]}, selected: f.object.language, placeholder: model_class.human_attribute_name(:language)
                   = f.input :broker_config, wrapper: :append do
                     .checkbox.check-success

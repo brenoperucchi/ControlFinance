@@ -6,7 +6,7 @@ class Store < ApplicationRecord
   LANGUAGE = {'pt-br': 'pt-BR', en:'en'}
 
 
-  store :settings, accessors:[:language, :broker_config]
+  store :settings, accessors:[:language, :broker_config, :address, :phone]
   has_many :users, dependent: :destroy
   has_many :brokers, dependent: :destroy
   has_many :persons, dependent: :destroy

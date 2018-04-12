@@ -52,10 +52,11 @@ pt-BR:
       document:
         comment: 'Histórico de Conversa'
       new:
+        broker_create: "Finalize o registro aqui!"
         title1: 'Corretor faça o seu cadastro aqui!'
         title2: 'Solicitamos que o correspondente preencha o seus dados e aceite os termos de exigências.'
         title3: 'Contatos da empresa:'
-        title4: 'Telephone and WhatsApp for contact: 48 99126-8808'
+        title4: 'Telefone e Whastapp para contato: %{phone}'
         title5: 'Endereço somente para correspondência:'
       revise_title1: 'Falta pouco para você se tornar um corretor da Elo Empreedimentos e começar a vender os nossos produtos. '
       revise_title2: 'A sua conta ainda está como pendente. Veja abaixo como solucionar o seu caso.'
@@ -64,12 +65,10 @@ pt-BR:
       assets: 'Arquivos'
       pending: Pendente
       approved: Aceito
-      comment: 'Digite o seu comentário aqui!'
+      new_comment: 'Registre aqui sua dúvida!'
     system:
       title: Booking Reservation System 
     common:
-      business_phone: (48) 99126-8808
-      business_address: 'Rua Primavera 320,Conj 602, Pagani, Palhoça/SC Cep:88132-100'
       unit: Unidade
       created_at: Criado em
       sign_in: Login
@@ -372,6 +371,8 @@ pt-BR:
     attributes:
       store:
         language: Idioma
+        address: Endereço que será divulgado
+        phone: Telefone que será divulgado
       buyer:
         name: Nome
       proposal:

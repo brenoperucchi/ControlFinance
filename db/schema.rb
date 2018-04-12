@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180402034603) do
+ActiveRecord::Schema.define(version: 20180411013341) do
 
   create_table "activities", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20180402034603) do
     t.integer "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "information"
     t.index ["store_id"], name: "index_builds_on_store_id"
   end
 

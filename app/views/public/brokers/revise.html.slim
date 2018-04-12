@@ -17,7 +17,7 @@
         .row
           - @broker.documents.each do |document|
             .col-lg-5
-              .card.card-default.bg-primary
+              .card.card-default.bg-brown
                 .card-header.separator
                   .card-title.fs-16.text-white
                     = t document.name, scope:'views.broker.revise.document.attribute'
@@ -44,6 +44,6 @@
     .row
       .col-lg-12 
         = simple_form_for [:public, @broker], wrapper: :pages_form_default do |f|
-          = f.input :comment, placeholder: t(:comment, scope: 'views.broker'), input_html:{class: 'input-lg'}
+          = f.input :comment, placeholder: t(:new_comment, scope: 'views.broker'), input_html:{class: 'input-lg'}
     .row
       = render "timeline", broker:@broker
