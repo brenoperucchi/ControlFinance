@@ -6,7 +6,7 @@ pt-BR:
   accept: 'sim'
   placeholder:
     store: 
-      broker_config: 'Permitir que corretor não aprovado faça propostas?'
+      broker_config: 'Permitir corretor ainda não aprovado crie propostas?'
     buyer:
       name: Nome do seu cliente (não é obrigatório)
     proposal:
@@ -34,7 +34,7 @@ pt-BR:
         broker_list: 'Veja as suas propostas'
         value_table: Valor de tabela
       pending: pendente
-      approved: aceito
+      approved: aprovado
       deadline: Prazo da Proposta
       negociate: Negociação
       due_at: 'Vencimento em: %{due_at}'
@@ -362,6 +362,10 @@ pt-BR:
       <<: *errors
   activerecord:
     models:
+      broker: 
+        one: Corretor
+        other: Corretores
+      store: Empresa
       unit:
         one: Unidade
         other: Unidades
@@ -386,6 +390,7 @@ pt-BR:
       broker:
         name: 'Nome'
         address: Endereço
+        state: Situação
         phone: Telefone
         irs_id: CRECI do Corretor responsável
         company: Nome da Imobiliária
