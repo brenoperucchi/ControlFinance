@@ -93,7 +93,7 @@ pt-BR:
         document2: 'Document 2'
         document3: 'Document 3'
     build:
-      last_sales: 'Últimas propostas'
+      last_sales: 'As ultimas propostas realizadas pelo nossos corretores parceiros'
     dashboard:
         title1: 'Unidades disponível'
         link: 'Unidades disponível: %{units}'

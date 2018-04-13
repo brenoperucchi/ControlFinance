@@ -67,12 +67,24 @@ $(function() {
         Touch enabled slideshow for gallery item images using owlCarousel
         www.owlcarousel.owlgraphic.com
     */
-    $(".item-slideshow").owlCarousel({
+    $('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:false,
         items: 1,
-        nav: true,
-        navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
-        dots: true
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true
     });
+    $('.play').on('click',function(){
+      owl.trigger('play.owl.autoplay',[1000])
+    })
+    // $(".item-slideshow").owlCarousel({
+    //     items: 1,
+    //     nav: true,
+    //     navText: ['<i class="fa fa-chevron-left"></i>', '<i class="fa fa-chevron-right"></i>'],
+    //     dots: true
+    // });
 
 
      /* FILTERS OVERLAY
@@ -83,14 +95,14 @@ $(function() {
     });
 
 
-    $("#slider-margin").noUiSlider({
-        start: [20, 80],
-        margin: 30,
-        connect: true,
-        range: {
-            'min': 0,
-            'max': 100
-        }
-    });
+    // $("#slider-margin").noUiSlider({
+    //     start: [20, 80],
+    //     margin: 30,
+    //     connect: true,
+    //     range: {
+    //         'min': 0,
+    //         'max': 100
+    //     }
+    // });
 
 });
