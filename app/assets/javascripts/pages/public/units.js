@@ -15,5 +15,12 @@
 //= require pages/jquery.validate.min.js
 //= require pages/pages.min.js
 //= require pages/notifications.js
+//= require pages/MetroJs.min.js
+//= require pages/imagesloaded.pkgd.min.js
+//= require pages/isotope.pkgd.min.js
+//= require pages/dialogFx.js
+//= require pages/owl.carousel.min.js
+//= require pages/jquery.nouislider.min.js
+//= require pages/jquery.liblink.js
+//= require pages/gallery.js
 //= require pages/scripts.js
-//= require pages/dropzone.min.js

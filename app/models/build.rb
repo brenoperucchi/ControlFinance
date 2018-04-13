@@ -15,4 +15,8 @@ class Build < ApplicationRecord
     img = assets.detect{|asset| asset.file.content_type.include?('image')}
     img.try(:file).try(:url, scope)
   end
+
+  def images(scope = nil)
+    imgs = assets.find_all {|asset| asset.file.content_type.include?('image')}
+  end
 end

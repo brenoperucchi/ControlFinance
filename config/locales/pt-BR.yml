@@ -20,6 +20,7 @@ pt-BR:
       brokers: Corretores
     unit:
       index:
+        unit_available: 'Existe %{count} unidades disponíveis'
         proposal_create: "Criar proposta"
     session:
       title: "Favor digitar o seu e-mail para ter acesso completo."
