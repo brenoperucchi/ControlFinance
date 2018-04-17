@@ -1037,7 +1037,7 @@ body.menu-pin .overlay .overlay-brand {
   padding: 0;
   position: relative;
 }
-.horizontal-app-menu .menu-bar > ul > li:hover:not(":open") > a {
+.horizontal-app-menu .menu-bar > ul > li:hover:not(.open) > a {
   color: #fff;
 }
 .horizontal-app-menu .menu-bar > ul > li:first-child > a {
