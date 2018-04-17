@@ -1,30 +1,13 @@
 doctype html
 html
   = render 'layouts/pages/html_head'
-  / body.fixed-header.mac.desktop.pace-done
   body.fixed-header.horizontal-menu.horizontal-app-menu.dashboard
-    - if user_signed_in?  
-      = render 'layouts/pages/header'
-    .page-container.m-t-20
+    .page-container
+      - if user_signed_in?  
+        = render 'layouts/pages/header'
       .page-content-wrapper
-        .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
+        .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0.m-t-10
+          = render "layouts/pages/notification"
           = yield
-      / .pgn-wrapper data-position="top" 
-      /   .pgn.push-on-sidebar-open.pgn-bar
-      /     - flash.each do |name, msg| 
-      /       .alert[class="alert-#{name}"]
-      /         .container
-      /           span.notification-message
-      /             = msg
-      /           button.close data-dismiss="alert" type="button" 
-      /             span aria-hidden="true"  ×
-      /             span.sr-only Close
-      / .page-content-wrapper
-      /   /! START PAGE CONTENT
-      /   .content
-      /     .social-wrapper
-      /       .social data-pages="social" 
-      /         .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
-      /           = yield
       = render 'layouts/pages/modal'
       = render 'layouts/pages/footer'

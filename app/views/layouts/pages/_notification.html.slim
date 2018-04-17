@@ -1,0 +1,9 @@
+.pgn-wrapper data-position="bottom" 
+  .pgn.push-on-sidebar-open.pgn-bar
+    - flash.each do |key, value|
+      div[class="#{flash_helper(key)}"]
+        .container
+          span.font-montsearrat.all-caps.fs-14= value
+          button.close data-dismiss="alert" type="button" 
+            span aria-hidden="true"  ×
+            span.sr-only Close

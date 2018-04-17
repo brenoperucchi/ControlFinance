@@ -3,6 +3,15 @@ module ApplicationHelper
     true # Or something like current_user.xeditable?
   end
 
+  def flash_helper(level)
+    case level.to_sym
+        when :notice then "alert alert-info"
+        when :success then "alert alert-success"
+        when :error then "alert alert-error"
+        when :alert then "alert alert-danger"
+    end
+  end
+
   def namespace
     if self.class.parent == "admin"
       "admin"

@@ -1,7 +1,7 @@
 class Public::BrokersController < Public::BaseController
   layout 'pages'
 
-  skip_before_action :authenticate_user!, only:[:new, :create, :update]
+  skip_before_action :authenticate_user!, only:[:new, :create, :update, :revise]
   before_action :set_public_broker, only: [:contract, :revise, :update, :assets]
   respond_to :html, :json, :js
 
@@ -11,11 +11,11 @@ class Public::BrokersController < Public::BaseController
   end
 
   def contract
-    respond_with(@broker)
+    respond_with(@broker, layout:'layouts/pages/print')
   end
 
   def revise
-    respond_with(@broker, layouts:'layouts/pages/broker')
+    respond_with(@broker, layout:'layouts/pages/broker')
   end
 
   def new
@@ -25,20 +25,25 @@ class Public::BrokersController < Public::BaseController
 
   def create
     @broker = Broker.new(public_broker_params)
-      respond_to do |format|
-      if @broker.save
-        flash[:info] = "Broker was successfully created."
-        sign_in @broker.user
-        format.html { redirect_to revise_public_broker_path(@broker)}
-        format.json { render :show, status: :created, location: @broker }
-        format.js {  }
-      else
-        flash[:warning] = "Double check your form before continuing."
-        format.html { render :new}
-        format.json { render json: @broker.errors, status: :unprocessable_entity }
-        format.js {  }
-      end
+    if @broker.save
+      respond_with @broker, location: revise_public_broker_path(@broker), layout:'layouts/pages/broker'
+    else
+      respond_with @broker, render:{ action: :new, layout:'layouts/pages/broker' }
     end
+    #   respond_to do |format|
+    #   if @broker.save
+    #     flash[:notice] = "Broker was successfully created."
+    #     sign_in @broker.user
+    #     format.html { redirect_to revise_public_broker_path(@broker)}
+    #     format.json { render :show, status: :created, location: @broker }
+    #     format.js {  }
+    #   else
+    #     flash[:alert] = "Double check your form before continuing."
+    #     format.html { render :new}
+    #     format.json { render json: @broker.errors, status: :unprocessable_entity }
+    #     format.js {  }
+    #   end
+    # end
   end
 
   def update

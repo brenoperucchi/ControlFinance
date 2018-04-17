@@ -24,14 +24,16 @@ class Admin::BrokersController < Admin::BaseController
 
   def create
     @broker = current_store.brokers.new(admin_broker_params)
-
+    @broker.validate_off = true
     respond_to do |format|
       if @broker.save
         format.html { redirect_to admin_brokers_path, notice: 'broker was successfully created.' }
         format.json { render :show, status: :created, location: @broker }
         format.js { }
       else
-        format.html { render :new }
+        format.html do
+          render :new
+        end
         format.json { render json: @broker.errors, status: :unprocessable_entity }
         format.js { }
       end
@@ -39,15 +41,8 @@ class Admin::BrokersController < Admin::BaseController
   end
 
   def update
-    respond_to do |format|
-      if @broker.update(admin_broker_params)
-        format.html { redirect_to admin_brokers_path(@broker), notice: 'broker was successfully updated.' }
-        format.json { render :show, status: :ok, location: [:admin, @broker] }
-      else
-        format.html { render :edit }
-        format.json { render json: @broker.errors, status: :unprocessable_entity }
-      end
-    end
+    @broker.update(admin_broker_params)
+    respond_with @broker, location: admin_brokers_path
   end
 
   def destroy

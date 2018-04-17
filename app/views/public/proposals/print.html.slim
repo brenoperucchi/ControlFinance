@@ -1,94 +1,95 @@
 - model_class = Proposal
-nav.navbar.navbar-default.bg-master-lighter.sm-padding-10.full-width.p-t-0.p-b-0 role="navigation"
-  .container-fluid.full-width
-    .navbar-header.text-center
-      button.navbar-toggle.collapsed.btn.btn-link.no-padding data-target="#sub-nav" data-toggle="collapse" type="button" 
-        i.pg.pg-more.v-align-middle
-    #sub-nav.collapse.navbar-collapse
-      .row
-        .col-sm-4
-          ul.navbar-nav.d-flex.flex-row
-            li.nav-item
-              a data-original-title="Print" data-placement="bottom" data-toggle="tooltip" href="#" title="" 
-                = t('print', scope: "helpers.links")
-                '
-                i.fa.fa-print
-            li.nav-item
-              = link_to t('back', scope: "helpers.links"), public_build_units_path(@build), :class => ''
-
-.card.card-default.m-t-10
-  .card-block
-    .invoice.p-t-20.p-l-50.p-r-50.p-b-20
-      div
-        .pull-left.large-text
-          address.m-t-10
-            = t_view(:title1, model_class, :print)
-            br>/
-            strong
-              = t(:business_phone, scope: 'views.common')
-            br/
-        .pull-right.sm-m-t-20
-          h2.font-montserrat.all-caps.hint-text= t_view(:title2, model_class, :print)
-          h4.semi-bold= t :due_at, scope:'views.proposal', due_at: I18n.l(@proposal.due_at, format: :long)
-        .clearfix
-      br/
-      br/
-      .col-12
+.container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
+  nav.navbar.navbar-default.bg-master-lighter.sm-padding-10.full-width.p-t-0.p-b-0 role="navigation"
+    .container-fluid.full-width
+      .navbar-header.text-center
+        button.navbar-toggle.collapsed.btn.btn-link.no-padding data-target="#sub-nav" data-toggle="collapse" type="button" 
+          i.pg.pg-more.v-align-middle
+      #sub-nav.collapse.navbar-collapse
         .row
-          .col-lg-9.col-sm-height.sm-no-padding.large-text
-            h5.semi-bold.m-t-0 Elo Empreendimentos
-            address
-              .col-lg-4
-                = t(:business_address, scope: 'views.common')
+          .col-sm-4
+            ul.navbar-nav.d-flex.flex-row
+              li.nav-item
+                a data-original-title="Print" data-placement="bottom" data-toggle="tooltip" href="#" title="" 
+                  = t('print', scope: "helpers.links")
+                  '
+                  i.fa.fa-print
+              li.nav-item
+                = link_to t('back', scope: "helpers.links"), public_build_units_path(@build), :class => ''
 
-          .col-lg-3.sm-no-padding.sm-p-b-20.d-flex.align-items-end.justify-content-between
-            div
-              .font-montserrat.bold.all-caps Número :
-              .font-montserrat.bold.all-caps Data :
-              .clearfix
-            .text-right
+  .card.card-default.m-t-10
+    .card-block
+      .invoice.p-t-20.p-l-50.p-r-50.p-b-20
+        div
+          .pull-left.large-text
+            address.m-t-10
+              = t_view(:title1, model_class, :print)
+              br>/
+              strong
+                = t(:business_phone, scope: 'views.common')
+              br/
+          .pull-right.sm-m-t-20
+            h2.font-montserrat.all-caps.hint-text= t_view(:title2, model_class, :print)
+            h4.semi-bold= t :due_at, scope:'views.proposal', due_at: I18n.l(@proposal.due_at, format: :long)
+          .clearfix
+        br/
+        br/
+        .col-12
+          .row
+            .col-lg-9.col-sm-height.sm-no-padding.large-text
+              h5.semi-bold.m-t-0 Elo Empreendimentos
+              address
+                .col-lg-4
+                  = t(:business_address, scope: 'views.common')
+
+            .col-lg-3.sm-no-padding.sm-p-b-20.d-flex.align-items-end.justify-content-between
               div
-                | #
-                = @proposal.id
-              div= localize @proposal.created_at, format: :option2
-              .clearfix
-      .table-responsive.table-invoice
-        table.table.m-t-20
-          thead
-            tr
-              th
-              th
-          tbody
-            tr
-              td
-                p.large-text.text-black
-                  = @proposal.builder.name
-                  '
-                  | - Unidade:
-                  ' 
-                  = @proposal.unit.name
-                p.large-text.hint-text
-                  | Corretor
-                  '
-                  = @proposal.broker.name 
-                  '
-                  |- E-mail: 
-                  '
-                  = @proposal.broker.user.email
-              td.text-right.bold
-                p.text-black.large-text.text-right = I18n.t :negociate, scope:'views.proposal'
-                p.large-text.text-right= @proposal.negociate
-      br/
-      br/
-      .p-l-15.p-r-15
-        .row.b-a.b-grey
-          .col-md-2.p-l-15.sm-p-t-15.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
-            h5.font-montserrat.all-caps.small.no-margin.hint-text.bold Corretagem
-            h3.no-margin 5%
-          .col-md-6.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
-            h5.font-montserrat.all-caps.small.no-margin.hint-text.bold R$
-            h3.no-margin = number_with_precision @proposal.value.to_f * (@proposal.brokerage/100)
-          .col-md-4.text-right.bg-master-darker.col-sm-height.padding-15.d-flex.flex-column.justify-content-center.align-items-end
-            h5.font-montserrat.all-caps.small.no-margin.hint-text.text-white.bold= t_view(:title3, model_class, :print)
-            h1.no-margin.text-white= number_to_currency @proposal.value
-      hr/
+                .font-montserrat.bold.all-caps Número :
+                .font-montserrat.bold.all-caps Data :
+                .clearfix
+              .text-right
+                div
+                  | #
+                  = @proposal.id
+                div= localize @proposal.created_at, format: :option2
+                .clearfix
+        .table-responsive.table-invoice
+          table.table.m-t-20
+            thead
+              tr
+                th
+                th
+            tbody
+              tr
+                td
+                  p.large-text.text-black
+                    = @proposal.builder.name
+                    '
+                    | - Unidade:
+                    ' 
+                    = @proposal.unit.name
+                  p.large-text.hint-text
+                    | Corretor
+                    '
+                    = @proposal.broker.name 
+                    '
+                    |- E-mail: 
+                    '
+                    = @proposal.broker.user.email
+                td.text-right.bold
+                  p.text-black.large-text.text-right = I18n.t :negociate, scope:'views.proposal'
+                  p.large-text.text-right= @proposal.negociate
+        br/
+        br/
+        .p-l-15.p-r-15
+          .row.b-a.b-grey
+            .col-md-2.p-l-15.sm-p-t-15.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
+              h5.font-montserrat.all-caps.small.no-margin.hint-text.bold Corretagem
+              h3.no-margin 5%
+            .col-md-6.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
+              h5.font-montserrat.all-caps.small.no-margin.hint-text.bold R$
+              h3.no-margin = number_with_precision @proposal.value.to_f * (@proposal.brokerage.to_f/100)
+            .col-md-4.text-right.bg-master-darker.col-sm-height.padding-15.d-flex.flex-column.justify-content-center.align-items-end
+              h5.font-montserrat.all-caps.small.no-margin.hint-text.text-white.bold= t_view(:title3, model_class, :print)
+              h1.no-margin.text-white= number_to_currency @proposal.value
+        hr/

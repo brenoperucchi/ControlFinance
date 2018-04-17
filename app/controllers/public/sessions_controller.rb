@@ -1,5 +1,7 @@
 class Public::SessionsController < Devise::SessionsController
 
+  skip_before_action :require_no_authentication, only:[:create]
+
   layout 'pages/empty'
 
   def after_sign_in_path_for(resource)
@@ -29,7 +31,7 @@ class Public::SessionsController < Devise::SessionsController
       redirect_to admin_new_session_path, alert: I18n.t(:unauthenticated, scope: 'devise.failure')
     else
       sign_in user
-      redirect_to referer
+      redirect_to public_dashboards_path, notice: I18n.t(:signed_in, scope: 'devise.sessions')
     end
     # super
   end

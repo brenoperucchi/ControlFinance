@@ -1,7 +1,22 @@
-.card-block.no-padding
-  #card-advance.card.card-default[style="right: 10px; left: 10px; top: 60px;"]
-    .card-header
-      .card-title
-        | Contract
+nav.hidden-xs.navbar.navbar-default.bg-master-lighter.sm-padding-10.full-width.p-t-0.p-b-0 role="navigation"
+  .container-fluid.full-width
+    .navbar-header.text-center
+      button.navbar-toggle.collapsed.btn.btn-link.no-padding data-target="#sub-nav" data-toggle="collapse" type="button" 
+        i.pg.pg-more.v-align-middle
+    #sub-nav.collapse.navbar-collapse
+      .row
+        .col-sm-4
+          ul.navbar-nav.d-flex.flex-row
+            li.nav-item
+              a data-original-title="Print" data-placement="bottom" data-toggle="tooltip" href="javascript:print()" title="" 
+                = t('print', scope: "helpers.links")
+                '
+                i.fa.fa-print
+            li.nav-item
+              = link_to t('back', scope: "helpers.links"), revise_public_broker_path(@broker), :class => ''
+
+.container-fluid.container-fixed-lg
+  .card.card-default.no-border
     .card-block.responsive
-      = render "contract", broker: @broker
+      .invoice.padding-50.sm-padding-10
+        = render "contract", broker: @broker

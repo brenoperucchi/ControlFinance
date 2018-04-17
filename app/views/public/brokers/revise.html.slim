@@ -1,49 +1,37 @@
 - model_class = Broker
-.row
-  .col-lg-8
-    / .row
-    /   .col-lg-12
-    /     .card.social-card.status.blue data-social="item" style="width:100%"
-    /       h2=t :revise_title1, scope:'views.broker' 
-    .row
-      .col-lg-12.col-xl-12.m-b-10
-        .card.widget-12.no-border.widget-loader-circle.no-margin
-          .p-t-25.p-l-25.p-r-25.p-b-25
-            .pull-left
-              h3.semi-bold.text-success.no-margin=t :revise_title2, scope:'views.broker'
-              p.no-margin 
-    .row
-      .col-lg-12.col-xl-12.m-b-10.text-center
-        .row
-          - @broker.documents.each do |document|
-            .col-lg-5
-              .card.card-default.bg-brown
-                .card-header.separator
-                  .card-title.fs-16.text-white
-                    = t document.name, scope:'views.broker.revise.document.attribute'
-                .card-block
-                  h3.text-white
-                    / span.semi-bold With
-                    / '
-                    / | Separator
-                  p.text-white= t document.name, scope:'views.broker.revise.document.text'
-              - if document.name == "irs_id"
-                = link_to assets_public_broker_path(@broker), class: 'btn ',  remote: true do
-                  =t :send_files, scope:'views.broker'
-              - else
-                = link_to contract_public_broker_path(@broker), class: 'btn' do
-                  =t :contract_print, scope:'views.broker'
-    br/
-    .row
-      .col-lg-12.col-xl-12.m-b-10.text-center
-        = link_to public_dashboards_path, class: 'btn btn-block btn-success'
-          = t :table_sales, scope:'views.broker.revise'
-
-
-  .col-lg-4
-    .row
-      .col-lg-12 
-        = simple_form_for [:public, @broker], wrapper: :pages_form_default do |f|
-          = f.input :comment, placeholder: t(:new_comment, scope: 'views.broker'), input_html:{class: 'input-lg'}
-    .row
-      = render "timeline", broker:@broker
+.container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0.m-t-20
+  .card.card
+    .card-header.text-center
+        h4.font-montserrat.text-lilac=t :revise_title1, scope:'views.broker', broker: @broker.name
+        p.font-montserrat.text-lilac=t :revise_title2, scope:'views.broker'
+        hr
+    .card-block
+      .row
+        .col-lg-12
+          .row
+            - @broker.documents.each do |document|
+              .col-lg-6
+                .container-xs-height
+                  .row-xs-height
+                    .social-user-profile.col-xs-height.text-center.col-top
+                      .thumbnail-wrapper.d48.circular.bordered.b-white
+                      / i.fa.fa-check-circle.text-success.fs-16.m-t-10
+                    .col-xs-height.p-l-20
+                      h3.no-margin.p-b-5= t document.name, scope:'views.broker.revise.document.attribute'
+                      / p.no-margin.fs-16
+                      /   = t document.name, scope:'views.broker.revise.document.text'
+                      p.hint-text.m-t-5.small
+                        = t document.name, scope:'views.broker.revise.document.text'
+                      p
+                        - if document.name == "irs_id"
+                          = link_to assets_public_broker_path(@broker), class: 'btn btn-complete2 ',  remote: true do
+                            =t :send_files, scope:'views.broker'
+                        - else
+                          = link_to contract_public_broker_path(@broker), class: 'btn btn-complete2' do
+                            =t :contract_print, scope:'views.broker'
+  .row
+    .col-lg-12
+      ul.no-style
+        li
+          = link_to public_dashboards_path, class: 'btn btn-primary btn-cons btn-animated from-left fa pull-right fa-credit-card type' do
+            span= t :table_sales, scope:'views.broker.revise'

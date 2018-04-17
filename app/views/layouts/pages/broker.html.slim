@@ -1,10 +1,11 @@
 doctype html
 html
   = render 'layouts/pages/html_head'
-  body.fixed-header.mac.desktop.pace-done
+  / body.fixed-header.mac.desktop.pace-done
+  body.fixed-header.horizontal-menu.horizontal-app-menu.dashboard
     .page-container
       .page-content-wrapper
-        .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
-          = yield
+        = render "layouts/pages/notification"
+        = yield
       = render 'layouts/pages/modal'
       = render 'layouts/pages/footer'

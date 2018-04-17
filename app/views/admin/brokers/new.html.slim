@@ -7,11 +7,6 @@
   = simple_form_for [:admin, @broker] do |f|
     .card-block
       = f.input :store_id, as: :hidden, input_html:{value: current_store.id}
-      = f.input :option1, as: :hidden, input_html:{value:'1'}
-      = f.input :option2, as: :hidden, input_html:{value:'1'}
-      = f.input :option3, as: :hidden, input_html:{value:'1'}
-      = f.input :option4, as: :hidden, input_html:{value:'1'}
-      = f.input :option5, as: :hidden, input_html:{value:'1'}
       == render 'form', f: f, model_class: model_class
     .card-footer
       .form-group

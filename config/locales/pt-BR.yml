@@ -1,10 +1,23 @@
 pt-BR:
+  flash:
+    actions:
+      create:
+        notice: '%{resource_name} foi criado com sucesso'
+        alert: 'Cheque as informações para continuar'
+      update:
+        notice: '%{resource_name} foi atualizado com sucesso'
+        alert: 'Cheque as informações para continuar'
+      destroy:
+        notice: '%{resource_name} foi removido com sucesso'
+        alert: 'Cheque as informações para continuar'
   language:
     pt-br: Português Brasil
     en: Inglês Americano
   not_accept: 'não'
   accept: 'sim'
   placeholder:
+    broker:
+      address: Endereço da Imobiliária ou Corretor
     store: 
       broker_config: 'Permitir corretor ainda não aprovado crie propostas?'
     buyer:
@@ -20,7 +33,9 @@ pt-BR:
       brokers: Corretores
     unit:
       index:
-        unit_available: 'Existe %{count} unidades disponíveis'
+        unit_available_html:
+          one: 'Existe <strong> %{count} </strong> unidade disponível'
+          other: 'Existe <strong> %{count} </strong> unidades disponíveis'
         proposal_create: "Criar proposta"
     session:
       title: "Favor digitar o seu e-mail para ter acesso completo."
@@ -42,7 +57,7 @@ pt-BR:
       all_proposal: 'ver todas as propostas'
     broker:
       revise:
-        table_sales: Clique aqui para ver a Tabela de Vendas
+        table_sales: Tabela de Vendas
         document:
           attribute:
             irs_id: 'Documento CRECI do Corretor/Imobiliária'
@@ -53,14 +68,14 @@ pt-BR:
       document:
         comment: 'Histórico de Conversa'
       new:
-        broker_create: "Finalize o registro aqui!"
-        title1: 'Corretor faça o seu cadastro aqui!'
+        broker_create: "Finalizar registro"
+        title1: 'Corretor faça o seu cadastro'
         title2: 'Solicitamos que o correspondente preencha o seus dados e aceite os termos de exigências.'
         title3: 'Contatos da empresa:'
         title4: 'Telefone e Whastapp para contato: %{phone}'
         title5: 'Endereço somente para correspondência:'
-      revise_title1: 'Falta pouco para você se tornar um corretor da Elo Empreedimentos e começar a vender os nossos produtos. '
-      revise_title2: 'A sua conta ainda está como pendente. Veja abaixo como solucionar o seu caso.'
+      revise_title1: 'Parabéns corretor(a) %{broker} seu registro foi realizado com sucesso.'
+      revise_title2: 'Agora você deve enviar para a empresa o CONTRATO assinado e a cópia do CRECI (empresa ou pessoa física)'
       contract_print: Imprimir Contrato
       send_files: "Enviar Arquivos"
       assets: 'Arquivos'
@@ -93,7 +108,7 @@ pt-BR:
         document2: 'Document 2'
         document3: 'Document 3'
     build:
-      last_sales: 'As ultimas propostas realizadas pelo nossos corretores parceiros'
+      last_sales: 'Ultimas propostas recebidas'
     dashboard:
         title1: 'Unidades disponível'
         link: 'Unidades disponível: %{units}'

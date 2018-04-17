@@ -8,7 +8,7 @@ class Public::BaseController < ApplicationController
   def authenticate_user!
     if not(user_signed_in?)
       respond_to do |format|
-        format.html { redirect_to(new_user_session_path, alert: I18n.t(:unauthenticated, scope: 'devise.failure')) }
+        format.html { redirect_to(new_user_session_path )}#, alert: I18n.t(:unauthenticated, scope: 'devise.failure')) }
         format.js do 
           flash[:alert] = I18n.t(:unauthenticated, scope: 'devise.failure')
           render :js => "window.location.href='"+new_user_session_path+"'" 
@@ -18,7 +18,7 @@ class Public::BaseController < ApplicationController
       if current_user.userable.admin?
         sign_out current_user
         respond_to do |format|
-          format.html { redirect_to(new_user_session_path, alert: I18n.t(:unauthenticated, scope: 'devise.failure')) }
+          format.html { redirect_to(new_user_session_path )}#, alert: I18n.t(:unauthenticated, scope: 'devise.failure')) }
           format.js do 
             flash[:alert] = I18n.t(:unauthenticated, scope: 'devise.failure')
             render :js => "window.location.href='"+new_user_session_path+"'" 

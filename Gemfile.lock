@@ -404,6 +404,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (= 5.1.4)
   rb-fsevent
+  responders
   rspec-rails
   sass-rails
   sentient_user
