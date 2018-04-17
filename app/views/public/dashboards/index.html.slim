@@ -25,4 +25,4 @@
           = link_to public_build_units_path(build) do
             img.img-responsive[alt="user" src="#{build.image('fit400')}" height="33"  width="33"]
         .card-description.clearfix.last.m-t-0.p-t-0
-          = link_to t(:link, scope: 'views.dashboard', units: build.units.pending_or_booked.count),public_build_units_path(build), class: 'btn btn-complete2 btn-block m-t-10 all-caps'
+          = link_to t(:link, scope: 'views.dashboard', units: build.units.pending.count),public_build_units_path(build), class: 'btn btn-complete2 btn-block m-t-10 all-caps'
