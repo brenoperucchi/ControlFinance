@@ -3,7 +3,7 @@
     h3= t :title, scope: 'views.session'
     / p
       | Create a pages account. If you have a facebook account, log into it for this process. Sign in with
-    = simple_form_for resource, as: resource_name, url: session_path(resource_name), wrapper: :pages_form_default do |f|
+    = simple_form_for @resource, as: resource_name, url: session_path(resource_name), wrapper: :pages_form_default do |f|
       .panel-body
         = f.input :email, required: false, autofocus: true
         / = f.input :remember_me, as: :boolean if devise_mapping.rememberable?

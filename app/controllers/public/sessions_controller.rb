@@ -15,17 +15,21 @@ class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  # def new
-  #   super
-  # end
+  def new
+    @resource = resource_class.new(sign_in_params)
+    # super
+  end
 
   # POST /resource/sign_in
   def create
     email = params[:user][:email]
-    self.resource = resource_class.new(sign_in_params)
-    referer = stored_location_for(resource) || request.referer || root_path
+    @resource = resource_class.new(sign_in_params)
+    @resource.validate_off = true
+    # referer = stored_location_for(resource) || request.referer || root_path
     user = User.find_by_email(email)
-    if user.nil?
+    if not @resource.valid?
+      render :new
+    elsif user.nil?
       redirect_to(new_public_broker_path(email: email), alert: I18n.t(:unauthenticated_email, scope: 'devise.failure')) 
     elsif user.userable.admin?
       redirect_to admin_new_session_path, alert: I18n.t(:unauthenticated, scope: 'devise.failure')

@@ -75,7 +75,7 @@
                 = t :title1, scope:'views.proposal.new', unit:@unit.name, build:@build.name
               / = model_class.model_name.human
         .card-block
-          = f.error_notification
+          / = f.error_notification
           - if @proposal.restricted?
             == render 'form_disable', f: f
           - else

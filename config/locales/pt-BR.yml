@@ -2,14 +2,14 @@ pt-BR:
   flash:
     actions:
       create:
-        notice: '%{resource_name} foi criado com sucesso'
-        alert: 'Cheque as informações para continuar'
+        notice: '%{resource_name} criado com sucesso'
+        alert: 'Por favor, revise as informações acima.'
       update:
-        notice: '%{resource_name} foi atualizado com sucesso'
-        alert: 'Cheque as informações para continuar'
+        notice: '%{resource_name} atualizado com sucesso'
+        alert: 'Por favor, revise as informações acima.'
       destroy:
-        notice: '%{resource_name} foi removido com sucesso'
-        alert: 'Cheque as informações para continuar'
+        notice: '%{resource_name} removido com sucesso'
+        alert: 'Por favor, revise as informações acima.'
   language:
     pt-br: Português Brasil
     en: Inglês Americano

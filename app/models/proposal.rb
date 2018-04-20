@@ -38,7 +38,8 @@ class Proposal < ApplicationRecord
   accepts_nested_attributes_for :documents, allow_destroy: true,reject_if: :all_blank
 
   # validates :due_at, inclusion: { in: (Date.today..(Date.today + 5.day)) }, if: Proc.new {self.new_record?}
-  validates_presence_of :negociate
+  validates_presence_of :negociate, :value
+  validates_numericality_of :value
 
   state_machine initial: :pending do    
     after_transition any  => [:pending, :refused],     do: :update_states

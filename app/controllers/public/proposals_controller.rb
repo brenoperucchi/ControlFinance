@@ -49,17 +49,11 @@ class Public::ProposalsController < Public::BaseController
     @proposal.broker = @broker
     # sign_in @proposal.broker.user if @proposal.try(:broker).try(:user).try(:persisted?)
     if not @proposal.unit.bought?
-      respond_to do |format|
-        if @proposal.save
-          MailerMethod::ProposalCreate.new(@proposal).deliver_mail
-          format.html { redirect_to print_public_proposal_path(@proposal), notice: 'Proposal was successfully created.' }
-          format.json { render :show, status: :created, location: @proposal }
-          format.js { } 
-        else
-          format.html { render :new}
-          format.json { render json: @proposal.errors, status: :unprocessable_entity }
-          format.js { } 
-        end
+      if @proposal.save
+        MailerMethod::ProposalCreate.new(@proposal).deliver_mail
+        respond_with @proposal, location: print_public_proposal_path(@proposal)
+      else
+        respond_with @proposal
       end
     else
       redirect_if_restriction
@@ -67,25 +61,15 @@ class Public::ProposalsController < Public::BaseController
   end
 
   def update
-    respond_to do |format|
-      if not @proposal.unit.bought? and not @proposal.booked?
-        if @proposal.update(proposal_params)
-          format.html { redirect_to edit_public_proposal_path(@proposal), notice: 'Proposal was successfully updated.' }
-          format.json { render :show, status: :ok, location: @proposal }
-          format.js { } 
-        else
-          format.html { render :edit }
-          format.json { render json: @proposal.errors, status: :unprocessable_entity }
-          format.js { } 
-        end
+    if not @proposal.unit.bought? and not @proposal.booked?
+      if @proposal.update(proposal_params)
+        respond_with @proposal, location: public_unit_proposals_path(@proposal.unit)
       else
-        format.html do
-          flash[:notice] = t(:proposal_restricted, scope:'errors.custom')
-          render :edit 
-        end
-        format.js { } 
-        format.json { render json: @proposal.errors, status: :unprocessable_entity }
+        respond_with @proposal
       end
+    else
+      flash[:notice] = t(:proposal_restricted, scope:'errors.custom')
+      respond_with @proposal 
     end
   end
 
