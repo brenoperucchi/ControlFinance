@@ -27,6 +27,11 @@ pt-BR:
       value: Valor total da proposta
       negociate: "Aqui você deve descrever a negociação.\nExemplo: valor de entrada, ato do cliente, o número de parcelamento e vencimento."
   views:
+    purchase_step:
+      item:  
+        proposal: Sua Proposta
+        buyer: Comprador
+        document: Documentos
     header:
       dashboard: Painel de Controle
       setting: Configuração
@@ -54,7 +59,7 @@ pt-BR:
       deadline: Prazo da Proposta
       negociate: Negociação
       due_at: 'Vencimento em: %{due_at}'
-      all_proposal: 'ver todas as propostas'
+      all_proposal: 'Clique para ver suas propostas'
     broker:
       revise:
         table_sales: Tabela de Vendas
@@ -299,9 +304,11 @@ pt-BR:
       submit: Salvar %{model}
       update: Atualizar %{model}
     links:
+      actions: Ações
       edit: Editar
       back: Voltar
       print:  Imprimir
+      destroy: Remover
   number:
     currency:
       format:

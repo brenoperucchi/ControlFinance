@@ -3,7 +3,7 @@ class Public::PurchaseStepsController < Public::BaseController
   skip_before_action :authenticate_user!, only:[:show]
   steps :proposal, :buyer, :document, :finish, :finish2
 
-  layout 'common/chat'
+  layout 'pages'
 
   before_action :set_parent, only: [:show, :update, :finish]
   respond_to :html, :json

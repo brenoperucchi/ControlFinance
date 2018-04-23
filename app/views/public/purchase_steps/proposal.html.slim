@@ -1,24 +1,228 @@
-- model_class = Proposal
-
 = simple_form_for @proposal, url: wizard_path do |f|
-  .panel.panel-default
-    .panel-wrapper.collapse.in
-      .panel-body
-        .row.line-steps
-          .col-md-4.column-step.active
-            .step-number 1
-            .step-title Proposal
-          .col-md-4.column-step
-            .step-number 2
-            .step-title Buyer
-          .col-md-4.column-step
-            .step-number 3
-            .step-title Documents
-        = f.error_notification
-        == render 'public/proposals/form_disable', f: f, disabled: true
-      .panel-footer
-        .form-group
-          .col-sm-offset-0.col-sm-9
-            = f.submit nil, :class => 'btn btn-primary'
-            '
-            = link_to t('back', scope: "helpers.links"), public_build_units_path(@unit.builder), :class => 'btn'
+  #rootwizard.m-t-50
+    /! Nav tabs
+    ul.nav.nav-tabs.nav-tabs-linetriangle.nav-tabs-separator.nav-stack-sm data-init-reponsive-tabs="dropdownfx" role="tablist" 
+      li.nav-item
+        a.active data-toggle="tab" href="#tab1" role="tab" 
+          i.fa.fa-shopping-cart.tab-icon
+          span= t(:proposal, scope:'views.purchase_step.item')
+      li.nav-item
+        a data-toggle="tab" href="#tab2" role="tab" 
+          i.fa.fa-truck.tab-icon
+          span= t(:buyer, scope:'views.purchase_step.item')
+      li.nav-item
+        a data-toggle="tab" href="#tab3" role="tab" 
+          i.fa.fa-credit-card.tab-icon
+          span= t(:document, scope:'views.purchase_step.item')
+      li.nav-item
+        a data-toggle="tab" href="#tab4" role="tab" 
+          i.fa.fa-check.tab-icon
+          span Summary
+    /! Tab panes
+    .tab-content
+      #tab1.tab-pane.padding-20.sm-no-padding.active.slide-left
+        .row.row-same-height
+          .col-md-5.b-r.b-dashed.b-grey.sm-b-b
+            .padding-30.sm-padding-5.sm-m-t-15.m-t-50
+              i.fa.fa-shopping-cart.fa-2x.hint-text
+              h2 Your Bags are ready to check out!
+              p Discover goods you'll love from brands that inspire. The easiest way to open your own online store. Discover amazing stuff or open your own store for free!
+              p.small.hint-text Below is a sample page for your cart , Created using pages design UI Elementes
+          .col-md-7
+            == render 'public/proposals/form_disable', f: f, disabled: true
+      #tab2.tab-pane.slide-left.padding-20.sm-no-padding
+        .row.row-same-height
+          .col-md-5.b-r.b-dashed.b-grey
+            .padding-30.sm-padding-5.sm-m-t-15.m-t-50
+              h2 Your Information is safe with us!
+              p We respect your privacy and protect it with strong encryption, plus strict policies . Two-step verification, which we encourage all our customers to use.
+              p.small.hint-text Below is a sample page for your cart , Created using pages design UI Elementes
+          .col-md-7
+            .padding-30.sm-padding-5
+              form role="form" 
+                p Name and Email Address
+                .form-group-attached
+                  .row.clearfix
+                    .col-sm-6
+                      .form-group.form-group-default.required
+                        label First name
+                        input.form-control required="" type="text" /
+                    .col-sm-6
+                      .form-group.form-group-default
+                        label Last name
+                        input.form-control type="text" /
+                  .form-group.form-group-default.required
+                    label Email
+                    input.form-control required="" type="text" /
+                br/
+                p Billing Address
+                .form-group-attached
+                  .form-group.form-group-default.required
+                    label Address
+                    input.form-control placeholder=("Current address") required="" type="text" /
+                  .row.clearfix
+                    .col-sm-6
+                      .form-group.form-group-default.required.form-group-default-selectFx
+                        label Country
+                        select.cs-select.cs-skin-slide.cs-transparent.form-control data-init-plugin="cs-select" 
+                    .col-sm-6
+                      .form-group.form-group-default
+                        label City
+                        input.form-control type="text" /
+                  .row.clearfix
+                    .col-sm-9
+                      .form-group.form-group-default.required
+                        label State/Province
+                        input.form-control placeholder=("Outside US/Canada") required="" type="text" /
+                    .col-sm-3
+                      .form-group.form-group-default
+                        label Zip code
+                        input.form-control type="text" /
+                  .form-group.form-group-default.input-group
+                    .input-group-addon.d-flex
+                      select.cs-select.cs-skin-slide.cs-transparent data-init-plugin="cs-select" 
+                    .form-input-group.flex-1
+                      label Project
+                      input.form-control type="email" /
+      #tab3.tab-pane.slide-left.padding-20.sm-no-padding
+        .row.row-same-height
+          .col-md-5.b-r.b-dashed.b-grey
+            .padding-30.sm-padding-5.sm-m-t-15.m-t-50
+              h2 We Secured Your Line
+              p Below is a sample page for your cart , Created using pages design UI Elementes
+              p.small.hint-text Below is a sample page for your cart , Created using pages design UI Elementes
+              table.table.table-condensed
+                tr
+                  td.col-md-9
+                    span.m-l-10.font-montserrat.fs-11.all-caps Webarch UI Framework
+                    span.m-l-10 Dashboard UI Pack
+                  td.col-md-3.text-right
+                    span Qty 1
+                tr
+                  td.col-md-9
+                    span.m-l-10.font-montserrat.fs-11.all-caps Pages UI Framework
+                    span.m-l-10 Next Gen UI Pack
+                  td.col-md-3.text-right
+                    span Qty 1
+                tr
+                  td.col-md-3.text-right colspan="2" 
+                    h4.text-primary.no-margin.font-montserrat $27
+              p.small Invoice are issued on the date of despatch. Payment terms: Pre-orders: within 10 days of invoice date with 4% discount, from the 11th to the 30th day net. Re-orders: non-reduced stock items are payable net after 20 days.
+              p.small
+                | By pressing Pay Now You will Agree to the Payment
+                a href="#"  Terms &amp; Conditions
+          .col-md-7
+            .padding-30.sm-padding-5
+              ul.list-unstyled.list-inline.m-l-30
+                li
+                  a.p-r-30.text-black href="#"  Credit card
+                li
+                  a.p-r-30.text-black.hint-text href="#"  PayPal
+                li
+                  a.p-r-30.text-black.hint-text href="#"  Wire transfer
+              form role="form" 
+                .bg-master-light.padding-30.b-rad-lg
+                  h2.pull-left.no-margin Credit Card
+                  ul.list-unstyled.pull-right.list-inline.no-margin
+                    li
+                      a href="#" 
+                    li
+                      a.hint-text href="#" 
+                    li
+                      a.hint-text href="#" 
+                  .clearfix
+                  .form-group.form-group-default.required.m-t-25
+                    label Card holder's name
+                    input.form-control placeholder=("Name on the card") required="" type="text" /
+                  .form-group.form-group-default.required
+                    label Card number
+                    input.form-control placeholder="8888-8888-8888-8888" required="" type="text" /
+                  .row
+                    .col-md-6
+                      label Expiration
+                      br/
+                      select.cs-select.cs-skin-slide data-init-plugin="cs-select" 
+                        option selected=""  Jan (01)
+                        option Feb (02)
+                        option Mar (03)
+                        option Apr (04)
+                        option May (05)
+                        option Jun (06)
+                        option Jul (07)
+                        option Aug (08)
+                        option Sep (09)
+                        option Oct (10)
+                        option Nov (11)
+                        option Dec (12)
+                      select.cs-select.cs-skin-slide data-init-plugin="cs-select" 
+                        option value="2014"  2014
+                        option value="2015"  2015
+                        option value="2016"  2016
+                        option value="2017"  2017
+                        option value="2018"  2018
+                        option value="2019"  2019
+                        option value="2020"  2020
+                        option value="2021"  2021
+                        option value="2022"  2022
+                        option value="2023"  2023
+                        option value="2024"  2024
+                        option value="2025"  2025
+                        option value="2026"  2026
+                        option value="2027"  2027
+                        option value="2028"  2028
+                        option value="2029"  2029
+                        option value="2030"  2030
+                    .col-md-2.offset-md-4
+                      .form-group.required
+                        label CVC Code
+                        input.form-control placeholder="000" required="" type="text" /
+      #tab4.tab-pane.slide-left.padding-20.sm-no-padding
+        h1 Thank you.
+      .padding-20.sm-padding-5.sm-m-b-20.sm-m-t-20.bg-white.clearfix
+        ul.pager.wizard.no-style
+          li.next
+            button.btn.btn-primary.btn-cons.btn-animated.from-left.fa.fa-truck.pull-right type="button" 
+              span Next
+          li.next.finish.hidden
+            button.btn.btn-primary.btn-cons.btn-animated.from-left.fa.fa-cog.pull-right type="button" 
+              span Finish
+          li.previous.first.hidden
+            button.btn.btn-default.btn-cons.btn-animated.from-left.fa.fa-cog.pull-right type="button" 
+              span First
+          li.previous
+            button.btn.btn-default.btn-cons.pull-right type="button" 
+              span Previous
+      .wizard-footer.padding-20.bg-master-light
+        p.small.hint-text.pull-left.no-margin
+          | The Top Content Is Soley Created using pages UI Elements such as Invoice, Tabs, Form Layouts etc. and are prior for representation Purpose Only.
+        .pull-right
+        .clearfix
+
+
+
+
+
+  / - model_class = Proposal
+
+  / = simple_form_for @proposal, url: wizard_path do |f|
+  /   .panel.panel-default
+  /     .panel-wrapper.collapse.in
+  /       .panel-body
+  /         .row.line-steps
+  /           .col-md-4.column-step.active
+  /             .step-number 1
+  /             .step-title Proposal
+  /           .col-md-4.column-step
+  /             .step-number 2
+  /             .step-title Buyer
+  /           .col-md-4.column-step
+  /             .step-number 3
+  /             .step-title Documents
+  /         = f.error_notification
+  /         == render 'public/proposals/form_disable', f: f, disabled: true
+  /       .panel-footer
+  /         .form-group
+  /           .col-sm-offset-0.col-sm-9
+  /             = f.submit nil, :class => 'btn btn-primary'
+  /             '
+  /             = link_to t('back', scope: "helpers.links"), public_build_units_path(@unit.builder), :class => 'btn'

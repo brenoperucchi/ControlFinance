@@ -3,7 +3,7 @@
 .card.card-default
   .card-header
     .card-title
-      = model_class.model_name.human
+      h4.font-montserrat= t :broker_list, scope: 'views.proposal.new'
   .card-block
     = render 'index', unit:@unit
     .form-group.m-t-10
