@@ -1,16 +1,16 @@
 - model_class = Buyer
 
-= f.input :name, label: false, placeholder: model_class.human_attribute_name(:name)
-= f.input :irs_id, label: false, placeholder: model_class.human_attribute_name(:irs_id)
+= f.input :name, placeholder: model_class.human_attribute_name(:name)
+= f.input :irs_id, placeholder: model_class.human_attribute_name(:irs_id)
 .row
   .col-md-6.col-lg-6.col-sm-6
-    = f.input :national_id, label: false, placeholder: model_class.human_attribute_name(:national_id)
-    = f.input :birthdate, as:'string', label: false, placeholder: model_class.human_attribute_name(:birthdate), input_html:{ class: 'datepicker' }
+    = f.input :national_id, placeholder: model_class.human_attribute_name(:national_id)
+    = f.input :birthdate, as:'string', placeholder: model_class.human_attribute_name(:birthdate), input_html:{ class: 'datepicker' }
   .col-md-6.col-lg-6.col-sm-6
-    = f.input :occupation, label: false, placeholder: model_class.human_attribute_name(:occupation)
-    = f.input :base_salary, label: false, placeholder: model_class.human_attribute_name(:base_salary)
+    = f.input :occupation, placeholder: model_class.human_attribute_name(:occupation)
+    = f.input :base_salary, placeholder: model_class.human_attribute_name(:base_salary)
 
-= f.input :address, as: :text, label: false, placeholder: model_class.human_attribute_name(:address)
+= f.input :address, as: :text, placeholder: model_class.human_attribute_name(:address)
 
 javascript:
   $(document).ready(function(){

@@ -179,7 +179,7 @@ class Proposal < ApplicationRecord
   private
     def create_documents
       %w(document1 document2 document3).each do |name|
-        documents.create(name: I18n.t(name, scope:'helpers.document.proposal'))
+        documents.create(name: I18n.t(name, scope:'views.document.proposal'))
       end
     end
 

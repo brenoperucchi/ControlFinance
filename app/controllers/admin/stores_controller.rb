@@ -25,6 +25,6 @@ class Admin::StoresController < Admin::BaseController
     end
 
     def admin_store_params
-      params.require(:store).permit(:broker_config, :language, :address, :phone)
+      params.require(:store).permit(:broker_config, :language, :address, :phone, :email)
     end
 end

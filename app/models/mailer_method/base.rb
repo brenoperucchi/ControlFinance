@@ -9,23 +9,15 @@ class MailerMethod::Base
   end
 
   def render
-    options = Rails.application.routes.default_url_options
-    view = ApplicationController.renderer.new(http_host: options[:host])
+    options = Rails.configuration.action_mailer.default_url_options
+    view = ApplicationController.renderer.new(http_host: "#{options[:host]}:#{options[:port]}")
     view.extend ApplicationHelper
-    # view = ActionView::Base.new(Rails.configuration.paths['app/views'], {})
-    # view = ActionView::Base.new(ActionController::Base.view_paths, {})  
-    # view.request = self.request
-    # view.config = Rails.application.config
-    # view.controller = ActionController::Base.new
-    # view.controller.request =  ActionDispatch::Request.new(request)
-    # view.controller.response = ActionController::Response.new
-    # view.controller.headers = Rack::Utils::HeaderHash.new
     view.class_eval do       
       include Rails.application.routes.url_helpers
       include ApplicationHelper
 
       def default_url_options
-        Rails.application.routes.default_url_options
+        # Rails.configuration.action_mailer.default_url_options[:host]
       end
 
       def protect_against_forgery?

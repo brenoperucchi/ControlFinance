@@ -16,5 +16,5 @@
 //= require pages/pages.min.js
 //= require pages/pages.social.min.js
 //= require pages/notifications.js
-//= require pages/form_wizard.js
 //= require pages/scripts.js
+//= require pages/dropzone.min.js

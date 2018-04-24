@@ -1,26 +1,49 @@
 - model_class = Proposal
-
 = simple_form_for @proposal, url: wizard_path do |f|
-  .panel.panel-default
-    .panel-wrapper.collapse.in
-      .panel-body
-        .row.line-steps
-          .col-md-4.column-step
-            .step-number 1
-            .step-title Proposal
-          .col-md-4.column-step.active
-            .step-number 2
-            .step-title Buyer
-          .col-md-4.column-step
-            .step-number 3
-            .step-title Documents
-        = f.error_notification
-        - f.object.buyers.build if f.object.buyers.blank?
-        = f.simple_fields_for :buyers, wrapper: :vertical_form do |ff|
-          == render 'form_buyer', f: ff 
-      .panel-footer
-        .form-group
-          .col-sm-offset-0.col-sm-9
-            = f.submit nil, :class => 'btn btn-primary'
-            '
-            = link_to t('back', scope: "helpers.links"), wizard_path(:proposal), :class => 'btn'
+  #rootwizard.m-t-50
+    /! Nav tabs
+    ul.nav.nav-tabs.nav-tabs-linetriangle.nav-tabs-separator.nav-stack-sm data-init-reponsive-tabs="dropdownfx" role="tablist" 
+      li.nav-item
+        a data-toggle="tab" href="#tab1" role="tab" 
+          i.fa.fa-shopping-cart.tab-icon
+          span= t(:proposal, scope:'views.purchase_step.item')
+      li.nav-item.active
+        a.active data-toggle="tab" href="#tab2" role="tab" 
+          i.fa.fa-truck.tab-icon
+          span= t(:buyer, scope:'views.purchase_step.item')
+      li.nav-item
+        a data-toggle="tab" href="#tab3" role="tab" 
+          i.fa.fa-credit-card.tab-icon
+          span= t(:document, scope:'views.purchase_step.item')
+      li.nav-item
+        a data-toggle="tab" href="#tab4" role="tab" 
+          i.fa.fa-check.tab-icon
+          span Summary
+    /! Tab panes
+    .tab-content
+      #tab1.tab-pane.padding-20.sm-no-padding.slide-left
+      #tab2.active.tab-pane.slide-left.padding-20.sm-no-padding
+        .row.row-same-height
+          .col-md-5.b-r.b-dashed.b-grey
+            .padding-30.sm-padding-5.sm-m-t-15.m-t-50
+              h2=t :title1, scope: 'views.purchase_step.buyer'
+              p=t :title2, scope: 'views.purchase_step.buyer'
+              / p.small.hint-text Below is a sample page for your cart , Created using pages design UI Elementes
+          .col-md-7
+            = f.error_notification
+            - f.object.buyers.build if f.object.buyers.blank?
+            = f.simple_fields_for :buyers, wrapper: :pages_form_default do |ff|
+              == render 'form_buyer', f: ff 
+
+
+      #tab3.tab-pane.slide-left.padding-20.sm-no-padding
+      #tab4.tab-pane.slide-left.padding-20.sm-no-padding
+        h1 Thank you.
+      hr
+      .padding-20.sm-padding-5.sm-m-b-20.sm-m-t-20.bg-white.clearfix
+        ul.pager.wizard.no-style
+          li.next
+            = f.submit t(:next, scope:'views.submit'), :class => 'btn btn-primary pull-right'
+              span Next
+          li.previous
+            = link_to t('back', scope: "helpers.links"), wizard_path(:proposal), :class => 'btn btn-default btn-cons pull-right'

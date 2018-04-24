@@ -20,6 +20,7 @@ Rails.application.config.assets.precompile += %w( pages/public/brokers.scss )
 Rails.application.config.assets.precompile += %w( pages/admin/builds.scss )
 Rails.application.config.assets.precompile += %w( pages/admin/brokers.css )
 Rails.application.config.assets.precompile += %w( pages/admin/stores.css )
+Rails.application.config.assets.precompile += %w( pages/public/purchase_steps.scss )
 
 Rails.application.config.assets.precompile += %w( pages.js )
 Rails.application.config.assets.precompile += %w( social.js )

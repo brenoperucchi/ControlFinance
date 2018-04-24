@@ -18,21 +18,7 @@
     }
 
 
-
-.col-md-6.col-lg-6.col-sm-6
-  .white-box
-    h3.box-title = t :title, scope:'helpers.purchase_step.document'
-    ul.common-list
-      - @proposal.documents.each do |document|      
-        li
-          a href="javascript:void(0)" 
-            = document.name
-            '
-            - if document.approved?
-              i.fa.fa-check.text-success
-            - else
-              i.fa.fa-circle-o.text-danger
-#upload.col-md-6.col-lg-6.col-sm-6
+.col-md-12.col-lg-12.col-sm-12#upload
   .dropzone
   .fallback.hide
     = f.file_field :file
