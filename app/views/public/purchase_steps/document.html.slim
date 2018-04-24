@@ -4,43 +4,37 @@
     /! Nav tabs
     ul.nav.nav-tabs.nav-tabs-linetriangle.nav-tabs-separator.nav-stack-sm data-init-reponsive-tabs="dropdownfx" role="tablist" 
       li.nav-item
-        a data-toggle="tab" href="#tab1" role="tab" 
+
+        a data-toggle="" href="#tab1" role="" 
           i.fa.fa-shopping-cart.tab-icon
           span= t(:proposal, scope:'views.purchase_step.item')
       li.nav-item
-        a data-toggle="tab" href="#tab2" role="tab" 
+        a data-toggle="" href="#" role="tab" 
           i.fa.fa-truck.tab-icon
           span= t(:buyer, scope:'views.purchase_step.item')
       li.nav-item.active
-        a.active data-toggle="tab" href="#tab3" role="tab" 
+        a.active data-toggle="" href="#" role="" 
           i.fa.fa-credit-card.tab-icon
           span= t(:document, scope:'views.purchase_step.item')
-      li.nav-item
-        a data-toggle="tab" href="#tab4" role="tab" 
-          i.fa.fa-check.tab-icon
-          span Summary
     /! Tab panes
     .tab-content
-      #tab1.tab-pane.padding-20.sm-no-padding.slide-left
-      #tab2.tab-pane.slide-left.padding-20.sm-no-padding
-      #tab3.tab-pane.slide-left.padding-20.sm-no-padding.active
+      .tab-pane.padding-20.sm-no-padding.slide-left
+      .tab-pane.slide-left.padding-20.sm-no-padding
+      .tab-pane.slide-left.padding-20.sm-no-padding.active
         .row.row-same-height
           .col-md-5.b-r.b-dashed.b-grey
             .padding-30.sm-padding-5.sm-m-t-15.m-t-50
               h2=t :title1, scope: 'views.purchase_step.document'
               p=t :title2, scope: 'views.purchase_step.document', email: current_store.email
               / p.small.hint-text Below is a sample page for your cart , Created using pages design UI Elementes
-            ul.common-list
-              - @proposal.documents.each do |document|      
-                li
-                  a href="#" 
-                    = document.name
-                    '
-                    - if document.approved?
-                      i.fa.fa-check.text-success
-                    - else
-                      i.fa.fa-circle-o.text-danger
-
+              .padding-30.sm-padding-5.sm-m-t-15
+                table.table.table-condensed
+                  - @proposal.documents.each do |document|      
+                    tr
+                      td.col-md-9
+                        span.m-l-10.font-montserrat.fs-11.all-caps= document.name
+                      td.col-md-3.text-center
+                        span.m-l-10= t(document.state, scope:'views.common')
           .col-md-7
             .padding-30.sm-padding-5.sm-m-t-15.m-t-50
               = simple_form_for Asset.new, url: public_assets_path(@proposal.class.name, @proposal) do |f|
@@ -52,31 +46,7 @@
       .padding-20.sm-padding-5.sm-m-b-20.sm-m-t-20.bg-white.clearfix
         ul.pager.wizard.no-style
           li.next
-            = f.submit t(:next, scope:'views.submit'), :class => 'btn btn-primary pull-right'
-              span Next
+
+            = f.submit t(:finish, scope:'views.purchase_step.document'), :class => 'btn btn-primary pull-right'
           li.previous
             = link_to t('back', scope: "helpers.links"), wizard_path(:buyer), :class => 'btn btn-default btn-cons pull-right'
-/ - model_class = Proposal
-
-/ .panel.panel-default
-/   .panel-wrapper.collapse.in
-/     .panel-body
-/       .row.line-steps
-/         .col-md-4.column-step
-/           .step-number 1
-/           .step-title Proposal
-/         .col-md-4.column-step
-/           .step-number 2
-/           .step-title Buyer
-/         .col-md-4.column-step.active
-/           .step-number 3
-/           .step-title Documents
-/       = simple_form_for Asset.new, url: public_assets_path(@proposal.class.name, @proposal) do |f|
-/         = render 'form_uploader', f:f, proposal:@proposal
-/     = simple_form_for @proposal, url: wizard_path do |f|
-/       .panel-footer
-/         .form-group
-/           .col-sm-offset-0.col-sm-9
-/             = f.submit 'Finished', :class => 'btn btn-success'
-/             '
-/             = link_to t('back', scope: "helpers.links"), wizard_path(:buyer), :class => 'btn'

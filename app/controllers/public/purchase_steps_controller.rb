@@ -10,7 +10,8 @@ class Public::PurchaseStepsController < Public::BaseController
 
   def finish
     @activities = @proposal.activities.order('created_at desc')
-    respond_with @proposal
+    respond_with @proposal, layout: 'pages/print'
+
   end
 
   def show 

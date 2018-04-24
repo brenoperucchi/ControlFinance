@@ -4,24 +4,20 @@
     /! Nav tabs
     ul.nav.nav-tabs.nav-tabs-linetriangle.nav-tabs-separator.nav-stack-sm data-init-reponsive-tabs="dropdownfx" role="tablist" 
       li.nav-item
-        a.active data-toggle="tab" href="#tab1" role="tab" 
+        a.active data-toggle="" href="#tab1" role="" 
           i.fa.fa-shopping-cart.tab-icon
           span= t(:proposal, scope:'views.purchase_step.item')
       li.nav-item
-        a data-toggle="tab" href="#tab2" role="tab" 
+        a data-toggle="" href="#" role="tab" 
           i.fa.fa-truck.tab-icon
           span= t(:buyer, scope:'views.purchase_step.item')
-      li.nav-item
-        a data-toggle="tab" href="#tab3" role="tab" 
+      li.nav-item.active
+        a data-toggle="" href="#" role="" 
           i.fa.fa-credit-card.tab-icon
           span= t(:document, scope:'views.purchase_step.item')
-      li.nav-item
-        a data-toggle="tab" href="#tab4" role="tab" 
-          i.fa.fa-check.tab-icon
-          span Summary
     /! Tab panes
     .tab-content
-      #tab1.tab-pane.padding-20.sm-no-padding.active.slide-left
+      .tab-pane.padding-20.sm-no-padding.active.slide-left
         .row.row-same-height
           .col-md-5.b-r.b-dashed.b-grey.sm-b-b
             .padding-30.sm-padding-5.sm-m-t-15.m-t-50
@@ -36,47 +32,3 @@
         ul.pager.wizard.no-style
           li.next
             = f.submit t(:next, scope:'views.submit'), :class => 'btn btn-primary pull-right'
-              span Next
-            / button.btn.btn-primary.btn-cons.btn-animated.from-left.fa.fa-truck.pull-right type="button" 
-          li.next.finish.hidden
-            button.btn.btn-primary.btn-cons.btn-animated.from-left.fa.fa-cog.pull-right type="button" 
-              span Finish
-          li.previous.first.hidden
-            = link_to t('back', scope: "helpers.links"), wizard_path(:proposal), :class => 'btn'
-          / li.previous
-          /   button.btn.btn-default.btn-cons.pull-right type="button" 
-          /     span Previous
-      / .wizard-footer.padding-20.bg-master-light
-      /   p.small.hint-text.pull-left.no-margin
-      /     | The Top Content Is Soley Created using pages UI Elements such as Invoice, Tabs, Form Layouts etc. and are prior for representation Purpose Only.
-      /   .pull-right
-      /   .clearfix
-
-
-
-
-
-  / - model_class = Proposal
-
-  / = simple_form_for @proposal, url: wizard_path do |f|
-  /   .panel.panel-default
-  /     .panel-wrapper.collapse.in
-  /       .panel-body
-  /         .row.line-steps
-  /           .col-md-4.column-step.active
-  /             .step-number 1
-  /             .step-title Proposal
-  /           .col-md-4.column-step
-  /             .step-number 2
-  /             .step-title Buyer
-  /           .col-md-4.column-step
-  /             .step-number 3
-  /             .step-title Documents
-  /         = f.error_notification
-  /         == render 'public/proposals/form_disable', f: f, disabled: true
-  /       .panel-footer
-  /         .form-group
-  /           .col-sm-offset-0.col-sm-9
-  /             = f.submit nil, :class => 'btn btn-primary'
-  /             '
-  /             = link_to t('back', scope: "helpers.links"), public_build_units_path(@unit.builder), :class => 'btn'

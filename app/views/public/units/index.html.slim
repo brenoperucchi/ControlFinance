@@ -50,8 +50,7 @@
           /   i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
           / span.hint-text Show more details of APPLE . INC
 .row
-  .col-lg-8.col-sm-8.col-md-8
-  .col-lg-4.col-sm-4.col-md-4
+  .col-lg-5.col-sm-5.col-md-5
     .widget.card.no-border.card-condensed.no-margin.widget-loader-circle.align-self-stretch.d-flex.flex-column
       .p-l-25.p-r-25.p-t-25
         .pull-left
@@ -67,7 +66,7 @@
           tbody
             - @proposals.order('created_at desc')[0..10].each do |proposal|
               tr
-                td.text-right.b-l.b-dashed.b-grey.w-25
-                  span.font-montserrat.fs-18= l proposal.created_at, format: :short2
-                td.font-montserrat.all-caps.fs-12.w-25= proposal.unit.name
-                td.font-montserrat.all-caps.fs-12.w-25= proposal.broker.name
+                td.text-right.b-l.b-dashed.b-grey
+                  span.font-montserrat.fs-18= l proposal.created_at, format: :date
+                td.font-montserrat.all-caps.fs-12= proposal.unit.name
+                td.font-montserrat.all-caps.fs-12= proposal.broker.name

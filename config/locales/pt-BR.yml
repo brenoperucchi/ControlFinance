@@ -29,8 +29,9 @@ pt-BR:
   views:
     purchase_step:
       document:
-        title1: Você precisa enviar alguns documentos para nos.
-        title2: 'Caso deseje você pode enviar para o e-mail: %{email}'
+        finish: Imprimir a Minuta do Contrato
+        title1: Favor, enviar os documentos abaixo.
+        title2: 'Caso deseje você pode também enviar por e-mail: %{email}'
       buyer:
         title1: Informar os dados do cliente!
         title2: Preencher com os dados do clientes corretamente para que possamos fazer o contrato entre a empresa e cliente.
@@ -390,6 +391,7 @@ pt-BR:
       short2: "%d/%b/%Y, %H:%M"
       option1: "%d de %b %Y"
       option2: "%d de %B %Y"
+      date: "%d/%m/%Y"
     pm: ''
   activemodel:
     errors:
