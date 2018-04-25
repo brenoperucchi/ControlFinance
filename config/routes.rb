@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
     resources :builds do
       resources :units, only:[:index], shallow:true do
-        resources :proposals, except: [:destroy] do
+        resources :proposals do
           get 'booking', on: :collection
           get 'expired', on: :member
           patch 'comment', on: :member

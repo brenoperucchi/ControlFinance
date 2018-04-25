@@ -27,21 +27,17 @@
               h2=t :title1, scope: 'views.purchase_step.document'
               p=t :title2, scope: 'views.purchase_step.document', email: current_store.email
               / p.small.hint-text Below is a sample page for your cart , Created using pages design UI Elementes
-              .padding-30.sm-padding-5.sm-m-t-15
-                table.table.table-condensed
-                  - @proposal.documents.each do |document|      
-                    tr
-                      td.col-md-9
-                        span.m-l-10.font-montserrat.fs-11.all-caps= document.name
-                      td.col-md-3.text-center
-                        span.m-l-10= t(document.state, scope:'views.common')
+              table.table.table-condensed
+                - @proposal.documents.each do |document|      
+                  tr
+                    td.col-md-9
+                      span.m-l-10.font-montserrat.fs-11.all-caps= document.name
+                    td.col-md-3.text-center
+                      span.m-l-10= t(document.state, scope:'views.common')
           .col-md-7
             .padding-30.sm-padding-5.sm-m-t-15.m-t-50
               = simple_form_for Asset.new, url: public_assets_path(@proposal.class.name, @proposal) do |f|
                 = render 'form_uploader', f:f, proposal:@proposal
-
-      #tab4.tab-pane.slide-left.padding-20.sm-no-padding
-        h1 Thank you.
       hr
       .padding-20.sm-padding-5.sm-m-b-20.sm-m-t-20.bg-white.clearfix
         ul.pager.wizard.no-style

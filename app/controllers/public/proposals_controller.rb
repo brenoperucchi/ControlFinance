@@ -4,7 +4,7 @@ class Public::ProposalsController < Public::BaseController
   before_action :broker_set, except: [:comment, :expired]
   before_action :proposal_set, only: [:show, :edit, :update, :destroy, :comment, :print]
   before_action :init_of_params, only: [:index, :new, :create, :booking]
-  before_action :init_of_unit, only: [:edit, :update, :comment, :redirect_if_proposal_bought, :print]
+  before_action :init_of_proposal, only: [:edit, :update, :comment, :redirect_if_proposal_bought, :print, :destroy]
   before_action :init_activities, only: [:document, :edit, :update]
   before_action :redirect_if_proposal_bought, except: [:comment, :expired]
   before_action :redirect_if_broker_config_set, except: [:comment, :expired]
@@ -68,7 +68,7 @@ class Public::ProposalsController < Public::BaseController
         respond_with @proposal
       end
     else
-      flash[:notice] = t(:proposal_restricted, scope:'errors.custom')
+      flash[:alert] = t(:proposal_restricted, scope:'errors.custom')
       respond_with @proposal 
     end
   end
@@ -76,16 +76,9 @@ class Public::ProposalsController < Public::BaseController
   def destroy
     build = @proposal.unit.builder
     if @proposal.destroy
-      respond_to do |format|
-        format.html { redirect_to public_build_units_path(build), notice: 'Proposal was successfully destroyed.' }
-        format.json { head :no_content }
-      end
+      respond_with @proposal, location: public_build_units_path(build)
     else
-      respond_to do |format|
-        format.html { render :index } 
-        format.json { render json: @proposal.errors, status: :unprocessable_entity }
-        format.js { } 
-      end
+      respond_with @proposal
     end
   end
 
@@ -125,7 +118,7 @@ class Public::ProposalsController < Public::BaseController
           redirect_to finish_public_purchase_steps_path(proposal)
         end
       else
-        redirect_to public_build_units_path(@unit.builder), notice: t(:proposal_restricted, scope:'errors.custom')
+        redirect_to public_build_units_path(@unit.builder), alert: t(:proposal_restricted, scope:'errors.custom')
       end
     end
 
@@ -151,7 +144,7 @@ class Public::ProposalsController < Public::BaseController
       @build = @unit.builder
     end
 
-    def init_of_unit
+    def init_of_proposal
       @unit = @proposal.unit
       @build = @unit.builder
     end

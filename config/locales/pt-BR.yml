@@ -231,8 +231,8 @@ pt-BR:
       year: Ano
   errors: &errors
     custom:
-        proposal_accepted: 'Unit already Accepted'
-        proposal_restricted: "Proposal with restriction"
+        proposal_accepted: 'Unidade vendida'
+        proposal_restricted: "Proposta reservada ou bloqueada"
     format: "%{attribute} %{message}"
     messages:
       accepted: deve ser aceito
