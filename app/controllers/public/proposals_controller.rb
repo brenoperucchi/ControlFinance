@@ -6,8 +6,8 @@ class Public::ProposalsController < Public::BaseController
   before_action :init_of_params, only: [:index, :new, :create, :booking]
   before_action :init_of_proposal, only: [:edit, :update, :comment, :redirect_if_proposal_bought, :print, :destroy]
   before_action :init_activities, only: [:document, :edit, :update]
-  before_action :redirect_if_proposal_bought, except: [:comment, :expired]
-  before_action :redirect_if_broker_config_set, except: [:comment, :expired]
+  before_action :redirect_if_proposal_bought, except: [:comment, :expired, :print]
+  before_action :redirect_if_broker_config_set, except: [:comment, :expired, :print]
   respond_to :html, :json, :js
 
   def print
@@ -50,7 +50,6 @@ class Public::ProposalsController < Public::BaseController
     # sign_in @proposal.broker.user if @proposal.try(:broker).try(:user).try(:persisted?)
     if not @proposal.unit.bought?
       if @proposal.save
-        MailerMethod::ProposalCreate.new(@proposal).deliver_mail
         respond_with @proposal, location: print_public_proposal_path(@proposal)
       else
         respond_with @proposal

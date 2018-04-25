@@ -2,13 +2,13 @@ pt-BR:
   flash:
     actions:
       create:
-        notice: '%{resource_name} criado com sucesso'
+        notice: 'Informação criada com sucesso'
         alert: 'Por favor, revise as informações acima.'
       update:
-        notice: '%{resource_name} atualizado com sucesso'
+        notice: 'Atualizado com sucesso'
         alert: 'Por favor, revise as informações acima.'
       destroy:
-        notice: '%{resource_name} removido com sucesso'
+        notice: 'Removido com sucesso'
         alert: 'Por favor, revise as informações acima.'
   language:
     pt-br: Português Brasil
@@ -48,6 +48,7 @@ pt-BR:
       brokers: Corretores
     unit:
       index:
+        booked_to_broker: Reservado para você!
         unit_available_html:
           one: 'Existe <strong> %{count} </strong> unidade disponível'
           other: 'Existe <strong> %{count} </strong> unidades disponíveis'
@@ -232,7 +233,7 @@ pt-BR:
   errors: &errors
     custom:
         proposal_accepted: 'Unidade vendida'
-        proposal_restricted: "Proposta reservada ou bloqueada"
+        proposal_restricted: "Proposta reservada ou restrita"
     format: "%{attribute} %{message}"
     messages:
       accepted: deve ser aceito

@@ -8,6 +8,7 @@ class Proposal < ApplicationRecord
 
   before_create :set_defaults
   after_create :create_documents
+  after_create :mailer_created
 
   scope :not_refuse, ->{ where.not(state: 'refuse') }
   scope :bought,   ->{ where(state: ['accepted', 'closed']) }
@@ -100,7 +101,7 @@ class Proposal < ApplicationRecord
 
     state :pending, :refused do
       def update_states(state)
-        self.update_columns(booked_at: nil, accepted_at: nil, due_at: nil)
+        self.update_columns(booked_at: nil, accepted_at: nil)
       end
       def update_to_pending(state)
         unit.pending
@@ -176,7 +177,15 @@ class Proposal < ApplicationRecord
     self.due_at = Date.today + 5.day
   end
 
+  def current_broker?(broker)
+    self.broker == broker
+  end
+
   private
+    def mailer_created
+      MailerMethod::ProposalCreate.new(self).deliver_mail
+    end
+
     def create_documents
       %w(document1 document2 document3).each do |name|
         documents.create(name: I18n.t(name, scope:'views.document.proposal'))

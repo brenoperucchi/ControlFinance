@@ -17,7 +17,7 @@ class MailerMethod::ProposalCreate < MailerMethod::Base
   end
 
   def url
-    edit_public_proposal_path(@object)
+    print_public_proposal_path(@object)
   end
 
   def attributes
