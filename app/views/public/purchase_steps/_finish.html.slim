@@ -4,17 +4,13 @@
   div
     .pull-left.large-text
       address.m-t-10
-        h5.semi-bold.m-t-0 Elo Empreendimentos
-        / = t_view(:title1, model_class, :print)
+        h5.semi-bold.m-t-0= current_store.name
         strong
           = current_store.phone
-        br/
     .pull-right.sm-m-t-20
       h2.font-montserrat.all-caps.hint-text= t_view(:title2, model_class, :print)
-      h4.semi-bold= t :due_at, scope:'views.proposal', due_at: I18n.l(@proposal.due_at, format: :long)
+      h4.semi-bold= t :accepted_at, scope:'views.proposal', date: I18n.l(@proposal.accepted_at, format: :long)
     .clearfix
-  br/
-  br/
   .col-12
     .row
       .col-lg-9.col-sm-height.sm-no-padding.large-text

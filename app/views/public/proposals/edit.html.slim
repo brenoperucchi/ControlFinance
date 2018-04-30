@@ -2,7 +2,9 @@
 .inner
   ol.breadcrumb
     li.breadcrumb-item
-      = link_to t(:home, scope: 'breadcrumb'), public_build_units_path(@build)
+      = link_to t(:home, scope: 'breadcrumb'), public_dashboards_path
+    li.breadcrumb-item
+      = link_to @build.name , public_build_units_path(@build)
     li.breadcrumb-item
       = link_to t(:new, scope: 'breadcrumb.proposal'), new_public_unit_proposal_path(@unit)
     li.breadcrumb-item

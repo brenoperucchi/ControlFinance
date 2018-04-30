@@ -73,6 +73,10 @@ pt-BR:
       acceptance: "Nenhuma parte deste site ou qualquer conteúdo pode ser reproduzido, copiado, modificado ou adaptado, sem o consentimento prévio por escrito do autor, salvo indicação em contrário para materiais autônomos."
     proposal:
       print:
+        irs_id: 'CPF: %{value}'
+        company_irs_id: 'RG: %{value}'
+        address: 'Endereço: %{value}'
+        email: 'Email: %{value}'
         title1: Proposta Comercial
         title2: Sua proposta!
         title3: Valor da Proposta
@@ -83,6 +87,7 @@ pt-BR:
       deadline: Prazo da Proposta
       negociate: Negociação
       due_at: 'Vencimento em: %{due_at}'
+      accepted_at: 'Aceita na data: %{date}'
       all_proposal: 'Clique para ver suas propostas'
     broker:
       revise:
@@ -114,6 +119,7 @@ pt-BR:
     system:
       title: Booking Reservation System 
     common:
+      broker: Corretor
       unit: Unidade
       created_at: Criado em
       sign_in: Login
@@ -126,7 +132,6 @@ pt-BR:
       booked: Reservado
       pending: Pendente
       approved: Aprovado
-
     document:
       contract: "Minuta do Contrato"
       send_files: "Enviar Arquivos"

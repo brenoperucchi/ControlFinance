@@ -7,22 +7,28 @@
 
 - model_class = Build
 
-.feed.p-t-20
-  .day data-social="day" 
-    - @builds.each do |build|
-      .card.social-card.share.col1 data-social="item" 
-        .circle data-container="body" data-original-title="Label" data-toggle="tooltip" title="Label" 
-        .card-header.clearfix
-          h4.font-montserrat= build.name
-          h6
-            | Situado em
-            '
-            span.location.semi-bold
-              i.fa.fa-map-marker
+.inner
+  ol.breadcrumb
+    li.breadcrumb-item.active
+      = t(:home, scope: 'breadcrumb')
+
+
+  .feed.p-t-20
+    .day data-social="day" 
+      - @builds.each do |build|
+        .card.social-card.share.col1 data-social="item" 
+          .circle data-container="body" data-original-title="Label" data-toggle="tooltip" title="Label" 
+          .card-header.clearfix
+            h4.font-montserrat= build.name
+            h6
+              | Situado em
               '
-              = build.address
-        .card-content
-          = link_to public_build_units_path(build) do
-            img.img-responsive[alt="user" src="#{build.image('fit400')}" height="33"  width="33"]
-        .card-description.clearfix.last.m-t-0.p-t-0
-          = link_to t(:link, scope: 'views.dashboard', units: build.units.pending.count),public_build_units_path(build), class: 'btn btn-complete2 btn-block m-t-10 all-caps'
+              span.location.semi-bold
+                i.fa.fa-map-marker
+                '
+                = build.address
+          .card-content
+            = link_to public_build_units_path(build) do
+              img.img-responsive[alt="user" src="#{build.image('fit400')}" height="33"  width="33"]
+          .card-description.clearfix.last.m-t-0.p-t-0
+            = link_to t(:link, scope: 'views.dashboard', units: build.units.pending.count),public_build_units_path(build), class: 'btn btn-complete2 btn-block m-t-10 all-caps'

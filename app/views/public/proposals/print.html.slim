@@ -6,11 +6,9 @@
       div
         .pull-left.large-text
           address.m-t-10
-            = t_view(:title1, model_class, :print)
-            br>/
+            h5.semi-bold.m-t-0= current_store.name
             strong
-              = t(:business_phone, scope: 'views.common')
-            br/
+              = current_store.phone
         .pull-right.sm-m-t-20
           h2.font-montserrat.all-caps.hint-text= t_view(:title2, model_class, :print)
           h4.semi-bold= t :due_at, scope:'views.proposal', due_at: I18n.l(@proposal.due_at, format: :long)
@@ -20,10 +18,16 @@
       .col-12
         .row
           .col-lg-9.col-sm-height.sm-no-padding.large-text
-            h5.semi-bold.m-t-0 Elo Empreendimentos
+            h5.semi-bold.m-t-0= @proposal.broker.name
             address
-              .col-lg-4
-                = t(:business_address, scope: 'views.common')
+              = t(:irs_id, scope: 'views.proposal.print', value: @proposal.broker.irs_id)
+              br/
+              = t(:company_irs_id, scope: 'views.proposal.print', value: @proposal.broker.company_irs_id)
+              br/
+              = t(:address, scope: 'views.proposal.print', value: @proposal.broker.address)
+              br/
+              = t(:email, scope: 'views.proposal.print', value: @proposal.broker.user.email)
+
 
           .col-lg-3.sm-no-padding.sm-p-b-20.d-flex.align-items-end.justify-content-between
             div
@@ -45,13 +49,13 @@
           tbody
             tr
               td
-                p.large-text.text-black
+                address.large-text
                   = @proposal.builder.name
                   '
                   | - Unidade:
                   ' 
                   = @proposal.unit.name
-                p.large-text.hint-text
+                  br
                   | Corretor
                   '
                   = @proposal.broker.name 
@@ -59,6 +63,18 @@
                   |- E-mail: 
                   '
                   = @proposal.broker.user.email
+                  br
+                  | Incorporação
+                  '
+                  = @proposal.unit.incorporation 
+                  '
+                  |- Mátricula
+                  '
+                  = @proposal.unit.registry
+                  br
+                  | Endereço
+                  '
+                  = @proposal.unit.address
               td.text-right.bold
                 p.text-black.large-text.text-right = I18n.t :negociate, scope:'views.proposal'
                 p.large-text.text-right= @proposal.negociate

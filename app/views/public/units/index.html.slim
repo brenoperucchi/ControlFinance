@@ -21,8 +21,10 @@
 - model_class = Build
 .inner
   ol.breadcrumb
+    li.breadcrumb-item
+      = link_to t(:home, scope: 'breadcrumb'), public_dashboards_path
     li.breadcrumb-item.active
-      = link_to t(:home, scope: 'breadcrumb'), public_build_units_path(@build)
+      = @build.name
   .row
     .col-lg-4.col-xl-4.m-b-10
       .owl-carousel.owl-theme

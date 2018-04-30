@@ -6,7 +6,7 @@ css:
 
 - model_class = Proposal
 = simple_form_for @proposal, url: wizard_path do |f|
-  #rootwizard.m-t-50
+  #rootwizard.m-t-20
     /! Nav tabs
     ul.nav.nav-tabs.nav-tabs-linetriangle.nav-tabs-separator.nav-stack-sm data-init-reponsive-tabs="dropdownfx" role="tablist" 
       li.nav-item
@@ -36,5 +36,10 @@ css:
       hr
       .sm-padding-5.sm-m-b-20.sm-m-t-20.bg-white.clearfix
         ul.pager.wizard.no-style
+          li.next
+            = link_to public_dashboards_path, :class => 'btn btn-default btn-cons pull-left'
+              i.fa.fa-mail-reply
+              '
+              = t('back', scope: "helpers.links")
           li.next
             = f.submit t(:next, scope:'views.submit'), :class => 'btn btn-primary pull-right'

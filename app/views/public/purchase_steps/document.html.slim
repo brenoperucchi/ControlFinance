@@ -1,6 +1,6 @@
 - model_class = Proposal
 = simple_form_for @proposal, url: wizard_path do |f|
-  #rootwizard.m-t-50
+  #rootwizard.m-t-20
     /! Nav tabs
     ul.nav.nav-tabs.nav-tabs-linetriangle.nav-tabs-separator.nav-stack-sm data-init-reponsive-tabs="dropdownfx" role="tablist" 
       li.nav-item
@@ -38,14 +38,14 @@
                 = render 'form_uploader', f:f, proposal:@proposal
       hr
       .sm-padding-5.sm-m-b-2.sm-m-t-20.bg-white.clearfix
-        ul.no-style.pull-right
-          li.inline
-            = link_to wizard_path(:buyer), :class => 'btn btn-default btn-cons' do 
+        ul.no-style
+          li
+            = link_to wizard_path(:buyer), :class => 'btn btn-default btn-cons pull-left' do 
              i.fa.fa-mail-reply
              '
              = t('back', scope: "helpers.links")
-          li.inline
-            = button_tag :class => 'btn btn-primary btn-cons' do
+          li
+            = button_tag :class => 'btn btn-primary btn-cons pull-right' do
              i.fa.fa-mail-forward
              '
              = t(:finish, scope:'views.purchase_step.document')
