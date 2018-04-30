@@ -1,3 +1,9 @@
+css:
+  .form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+      background: #f8f8f8;
+      color: rgba(99, 99, 99, 0.75);
+  }
+
 - model_class = Proposal
 = simple_form_for @proposal, url: wizard_path do |f|
   #rootwizard.m-t-50
@@ -28,7 +34,7 @@
           .col-md-7
             == render 'public/proposals/form_disable', f: f, disabled: true
       hr
-      .padding-20.sm-padding-5.sm-m-b-20.sm-m-t-20.bg-white.clearfix
+      .sm-padding-5.sm-m-b-20.sm-m-t-20.bg-white.clearfix
         ul.pager.wizard.no-style
           li.next
             = f.submit t(:next, scope:'views.submit'), :class => 'btn btn-primary pull-right'

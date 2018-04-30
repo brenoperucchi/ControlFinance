@@ -1,6 +1,8 @@
 class Build < ApplicationRecord
 
-  store :information, accessors:[:address]
+  STATES = {pending: 'pending', booked:'book', closed:'close'}
+
+  store :information, accessors:[:address, :registry, :incorporation]
   
   has_many :mailers,    class_name: 'Mailer', as: :mailable
   has_many :units,      class_name: "Unit", :foreign_key => "build_id"

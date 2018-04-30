@@ -64,7 +64,7 @@ class Admin::BuildsController < Admin::BaseController
   def update
     respond_to do |format|
       if @build.update(admin_build_params)
-        format.html { redirect_to @build, notice: 'Build was successfully updated.' }
+        format.html { redirect_to [:edit, :admin, @build], notice: 'Build was successfully updated.' }
         format.json { render :show, status: :ok, location: @build }
       else
         format.html { render :edit }
@@ -87,6 +87,6 @@ class Admin::BuildsController < Admin::BaseController
     end
 
     def admin_build_params
-      params.require(:build).permit(:name)
+      params.require(:build).permit(:name, :state, :address, :registry, :incorporation)
     end
 end

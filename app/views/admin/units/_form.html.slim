@@ -3,11 +3,14 @@
 = f.input :build_id, as: :hidden, input_html:{value: @build.id}
 .row
   .col-lg-6.col-md-6.col-sm-6
-    = f.input :state, label: false, placeholder: model_class.human_attribute_name(:state), disabled: true
+    = f.input :state, label: false, placeholder: model_class.human_attribute_name(:state), disabled: true, input_html:{value: t(f.object.state, scope:'views.common').upcase}
     = f.input :value, label: false, placeholder: model_class.human_attribute_name(:value)
     = f.input :garage, label: false, placeholder: model_class.human_attribute_name(:garage)
     = f.input :deadline, label: false, placeholder: model_class.human_attribute_name(:deadline)
+    = f.input :registry, label: false, placeholder: model_class.human_attribute_name(:registry)
   .col-lg-6.col-md-6.col-sm-6
     = f.input :name, label: false, placeholder: model_class.human_attribute_name(:name)
     = f.input :size, label: false, placeholder: model_class.human_attribute_name(:size)
     = f.input :brokerage, label: false, placeholder: model_class.human_attribute_name(:brokerage)
+    = f.input :address, label: false, placeholder: model_class.human_attribute_name(:address)
+    = f.input :incorporation, label: false, placeholder: model_class.human_attribute_name(:incorporation)

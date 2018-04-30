@@ -1,96 +1,102 @@
 - model_class = Proposal
+.inner
+  ol.breadcrumb
+    li.breadcrumb-item
+      = link_to t(:home, scope: 'breadcrumb'), public_build_units_path(@build)
+    li.breadcrumb-item.active
+      = t(:new, scope: 'breadcrumb.proposal')
 
-.row
-  .col-lg-4
-    .widget-card.card-default.bg-white.widget-loader-bar.m-b-20
-      .card-block
-        .row
-          .col-lg-4.col-md-4.col-sm-4.col-xs-6
-            h5.semi-bold.no-margin.text-information = @unit.name
-            p.small.no-margin = model_class.human_attribute_name(:unit)
-          .col-lg-4.col-md-4.col-sm-4.col-xs-6
-            h5.semi-bold.no-margin.text-information = @build.name
-            p.small.no-margin = model_class.human_attribute_name(:build)
-          .col-lg-4.col-md-4.col-sm-4.col-xs-3
-            h5.semi-bold.no-margin.text-information = @unit.state
-            p.small.no-margin = model_class.human_attribute_name(:state)
-        .clearfix
-        .row.m-t-20
-          .col-lg-12.col-md-12.text-center
-            h5.no-margin.p-b-5.text-info.bold= number_to_currency @unit.value
-            p.all-caps.small.no-margin = t :value_table, scope: 'views.proposal.new'
-        .clearfix
-        hr.line-dashed
-        .row
-          .col-lg-6.col-md-6
-            h5.semi-bold.no-margin.text-information = @broker.name
-            p.small.no-margin = @broker.class.human_attribute_name(:name)
-          .col-lg-6.col-md-6
-            h5.semi-bold.no-margin.text-information = @broker.user.email
-            p.small.no-margin = @broker.user.class.human_attribute_name(:email)
-        .clearfix
-        hr.line-dashed
-        .row
-          .col-lg-12.col-md-12.text-center
-            h4.no-margin.p-b-5.text-danger.semi-bold= @unit.deadline || "5 days"
-            p.small.no-margin = t :deadline, scope: 'views.proposal'
-    .clearfix
-    / .span.text-center
-    /   = link_to public_unit_proposals_path(@unit), class: 'btn btn-info btn-outline' do
-    /     = t :broker_list, scope: 'views.proposal.new'
-
-    / = render 'timeline'
-    - unless @proposals.blank?
-      .widget.card.no-border.card-condensed.no-margin.widget-loader-circle.align-self-stretch.d-flex.flex-column
-        .p-l-25.p-r-25.p-t-25
-          .pull-left
-            h4.text-success.no-margin = t(:last_sales, scope: 'views.build')
-        .p-l-25.p-r-25.p-t-0
-          .pull-right
-            =link_to t('all_proposal', scope: "views.proposal"),public_unit_proposals_path(@unit), class: 'small hint-text' 
-        .clearfix
-        .widget-11-2-table.auto-overflow
-          table.table.table-condensed.table-hover
-            thead
-              tr
-                th.text-center[style="width:30%!important"]= t :unit, scope:'views.common'
-                th.text-right= t :created_at, scope:'views.common'
-                / th.text-right= t '.action', scope:'views.common'
-            tbody
-              - @proposals.order('created_at desc')[0..10].each do |proposal|
-                tr
-                  td.text-center.font-montserrat.all-caps.fs-12= proposal.unit.name
-                  / td.text-right.hidden-lg
-                    span.hint-text.small dewdrops
-                  td.text-right.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
-                    span.font-montserrat.fs-18= l proposal.created_at, format: :short2
-                    
-  .col-lg-8
-    = simple_form_for [:public, @unit, @proposal], wrapper: :pages_form_default, html:{class: 'sdsd'} do |f|
-      .widget-card.card.card-default.m-b-5.no-border.no-margin
-        .card-header
-          .card-title
-            h5
-              strong
-                = t :title1, scope:'views.proposal.new', unit:@unit.name, build:@build.name
-              / = model_class.model_name.human
+  .row
+    .col-lg-4
+      .widget-card.card-default.bg-white.widget-loader-bar.m-b-20
         .card-block
-          / = f.error_notification
-          - if @proposal.restricted?
-            == render 'form_disable', f: f
-          - else
-          == render 'form', f: f 
+          .row
+            .col-lg-4.col-md-4.col-sm-4.col-xs-6
+              h5.semi-bold.no-margin.text-information = @unit.name
+              p.small.no-margin = model_class.human_attribute_name(:unit)
+            .col-lg-4.col-md-4.col-sm-4.col-xs-6
+              h5.semi-bold.no-margin.text-information = @build.name
+              p.small.no-margin = model_class.human_attribute_name(:build)
+            .col-lg-4.col-md-4.col-sm-4.col-xs-3
+              h5.semi-bold.no-margin.text-information = @unit.state
+              p.small.no-margin = model_class.human_attribute_name(:state)
+          .clearfix
+          .row.m-t-20
+            .col-lg-12.col-md-12.text-center
+              h5.no-margin.p-b-5.text-info.bold= number_to_currency @unit.value
+              p.all-caps.small.no-margin = t :value_table, scope: 'views.proposal.new'
+          .clearfix
           hr.line-dashed
           .row
-            .col-lg-12
-              p Comentário da Empresa
-            - @proposal.activities.order('created_at desc').each do |activity|
-              .card.social-card.status.background-condensed data-social="item"
-                h5
-                  span.hint-text few seconds ago
-                h2 = activity.comment
+            .col-lg-6.col-md-6
+              h5.semi-bold.no-margin.text-information = @broker.name
+              p.small.no-margin = @broker.class.human_attribute_name(:name)
+            .col-lg-6.col-md-6
+              h5.semi-bold.no-margin.text-information = @broker.user.email
+              p.small.no-margin = @broker.user.class.human_attribute_name(:email)
+          .clearfix
+          hr.line-dashed
+          .row
+            .col-lg-12.col-md-12.text-center
+              h4.no-margin.p-b-5.text-danger.semi-bold= @unit.deadline || "5 days"
+              p.small.no-margin = t :deadline, scope: 'views.proposal'
+      .clearfix
+      / .span.text-center
+      /   = link_to public_unit_proposals_path(@unit), class: 'btn btn-info btn-outline' do
+      /     = t :broker_list, scope: 'views.proposal.new'
 
-          .form-group
-            = f.submit nil, :class => 'btn btn-primary'
-            '
-            = link_to t('back', scope: "helpers.links"), public_build_units_path(@build), :class => 'btn'
+      / = render 'timeline'
+      - unless @proposals.blank?
+        .widget.card.no-border.card-condensed.no-margin.widget-loader-circle.align-self-stretch.d-flex.flex-column
+          .p-l-25.p-r-25.p-t-25
+            .pull-left
+              h4.text-success.no-margin = t(:last_sales, scope: 'views.build')
+          .p-l-25.p-r-25.p-t-0
+            .pull-right
+              =link_to t('all_proposal', scope: "views.proposal"),public_unit_proposals_path(@unit), class: 'small hint-text' 
+          .clearfix
+          .widget-11-2-table.auto-overflow
+            table.table.table-condensed.table-hover
+              thead
+                tr
+                  th.text-center[style="width:30%!important"]= t :unit, scope:'views.common'
+                  th.text-right= t :created_at, scope:'views.common'
+                  / th.text-right= t '.action', scope:'views.common'
+              tbody
+                - @proposals.order('created_at desc')[0..10].each do |proposal|
+                  tr
+                    td.text-center.font-montserrat.all-caps.fs-12= proposal.unit.name
+                    / td.text-right.hidden-lg
+                      span.hint-text.small dewdrops
+                    td.text-right.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
+                      span.font-montserrat.fs-18= l proposal.created_at, format: :short2
+                      
+    .col-lg-8
+      = simple_form_for [:public, @unit, @proposal], wrapper: :pages_form_default, html:{class: 'sdsd'} do |f|
+        .widget-card.card.card-default.m-b-5.no-border.no-margin
+          .card-header
+            .card-title
+              h5
+                strong
+                  = t :title1, scope:'views.proposal.new', unit:@unit.name, build:@build.name
+                / = model_class.model_name.human
+          .card-block
+            / = f.error_notification
+            - if @proposal.restricted?
+              == render 'form_disable', f: f
+            - else
+            == render 'form', f: f 
+            hr.line-dashed
+            .row
+              .col-lg-12
+                p Comentário da Empresa
+              - @proposal.activities.order('created_at desc').each do |activity|
+                .card.social-card.status.background-condensed data-social="item"
+                  h5
+                    span.hint-text few seconds ago
+                  h2 = activity.comment
+
+            .form-group
+              = f.submit nil, :class => 'btn btn-primary'
+              '
+              = link_to t('back', scope: "helpers.links"), public_build_units_path(@build), :class => 'btn'

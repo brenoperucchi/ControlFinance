@@ -1,10 +1,18 @@
 - model_class = Proposal
+.inner
+  ol.breadcrumb
+    li.breadcrumb-item
+      = link_to t(:home, scope: 'breadcrumb'), public_build_units_path(@build)
+    li.breadcrumb-item
+      = link_to t(:new, scope: 'breadcrumb.proposal'), new_public_unit_proposal_path(@unit)
+    li.breadcrumb-item.active
+      = t(:index, scope: 'breadcrumb.proposal')
 
-.card.card-default
-  .card-header
-    .card-title
-      h4.font-montserrat= t :broker_list, scope: 'views.proposal.new'
-  .card-block
-    = render 'index', unit:@unit
-    .form-group.m-t-10
-      = link_to t('back', scope: "helpers.links"), new_public_unit_proposal_path(@unit), class: 'btn'
+  .card.card-default
+    .card-header
+      .card-title
+        h4.font-montserrat= t :broker_list, scope: 'views.proposal.new'
+    .card-block
+      = render 'index', unit:@unit
+      .form-group.m-t-10
+        = link_to t('back', scope: "helpers.links"), new_public_unit_proposal_path(@unit), class: 'btn'

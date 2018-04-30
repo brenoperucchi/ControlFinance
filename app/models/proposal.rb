@@ -1,6 +1,6 @@
 class Proposal < ApplicationRecord
   include PublicActivity::Model
-  attr_accessor :comment
+  attr_accessor :comment, :is_validate
   
   store :information, accessors:[:name, :negociate, :value, :brokerage]
 

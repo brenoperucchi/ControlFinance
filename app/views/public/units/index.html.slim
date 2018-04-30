@@ -19,57 +19,62 @@
         margin: unset!important;
     }
 - model_class = Build
-.row
-  .col-lg-4.col-xl-4.m-b-10
-    .owl-carousel.owl-theme
-      - @build.images.each_with_index do |image, count|
-        .item
-          img.image-responsive-height alt="" src="#{image.try(:file).try(:url)}"
-  .col-lg-8.col-xl-8.m-b-10
-    .widget-11-2.card.no-border.card-condensed.no-margin.widget-loader-circle.full-height.d-flex.flex-column
-      .padding-25
-        .pull-left
-          h3.text-success.no-margin= @build.name
-        h4.pull-right
-          = t :unit_available_html, scope: 'views.unit.index', count: @build.units.pending.count
-        .clearfix
-      .auto-overflow
-        table.table.table-condensed.table-hover
-          tbody
-            - @units.each do |unit|
+.inner
+  ol.breadcrumb
+    li.breadcrumb-item.active
+      = link_to t(:home, scope: 'breadcrumb'), public_build_units_path(@build)
+  .row
+    .col-lg-4.col-xl-4.m-b-10
+      .owl-carousel.owl-theme
+        - @build.images.each_with_index do |image, count|
+          .item
+            img.image-responsive-height alt="" src="#{image.try(:file).try(:url)}"
+    .col-lg-8.col-xl-8.m-b-10
+      .widget-11-2.card.no-border.card-condensed.no-margin.widget-loader-circle.full-height.d-flex.flex-column
+        .padding-25
+          .pull-left
+            h3.text-success.no-margin= @build.name
+          h4.pull-right
+            = t :unit_available_html, scope: 'views.unit.index', count: @build.units.pending.count
+          .clearfix
+        .auto-overflow
+          table.table.table-condensed.table-hover
+            tbody
+              - @units.each do |unit|
+                tr
+                  td.text-right.b-r.b-dashed.b-grey.w-15= unit.name
+                  - if unit.try(:proposal_bought).try(:current_broker?, (current_user.userable))
+                    td.b-r.b-dashed.b-grey.font-montserrat.all-caps.fs-12.w-25= t(:booked_to_broker, scope:'views.unit.index').upcase
+                  - else
+                    td.b-r.b-dashed.b-grey.font-montserrat.all-caps.fs-12.w-25= t(unit.state, scope:'views.common').upcase
+                  td.text-center.b-r.b-dashed.b-grey.w-25
+                    span.font-montserrat.fs-18= number_with_precision unit.value
+                  td.text-right.text-primary.no-margin.font-montserrat.fs-14
+                    = link_to t('proposal_create', scope: "views.unit.index"), new_public_unit_proposal_path(unit), class: ''  
+        .padding-25.mt-auto
+          p.small.no-margin
+            / a href="#" 
+            /   i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
+            / span.hint-text Show more details of APPLE . INC
+    .col-lg-12.col-xl-12.m-b-10
+      .widget.card.no-border.card-condensed.no-margin.widget-loader-circle.align-self-stretch.d-flex.flex-column
+        .p-l-25.p-r-25.p-t-25
+          .text-center
+            h4.semi-bold.text-primary.no-margin = t(:last_sales, scope: 'views.build')
+          .clearfix
+        .auto-overflow.widget-11-2-table
+          table.table.table-condensed.table-hover
+            thead
               tr
-                td.text-right.b-r.b-dashed.b-grey.w-15= unit.name
-                - if unit.try(:proposal_bought).try(:current_broker?, (current_user.userable))
-                  td.b-r.b-dashed.b-grey.font-montserrat.all-caps.fs-12.w-25= t(:booked_to_broker, scope:'views.unit.index').upcase
-                - else
-                  td.b-r.b-dashed.b-grey.font-montserrat.all-caps.fs-12.w-25= t(unit.state, scope:'views.common').upcase
-                td.text-center.b-r.b-dashed.b-grey.w-25
-                  span.font-montserrat.fs-18= number_with_precision unit.value
-                td.text-right.text-primary.no-margin.font-montserrat.fs-14
-                  = link_to t('proposal_create', scope: "views.unit.index"), new_public_unit_proposal_path(unit), class: ''  
-      .padding-25.mt-auto
-        p.small.no-margin
-          / a href="#" 
-          /   i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
-          / span.hint-text Show more details of APPLE . INC
-.row
-  .col-lg-5.col-sm-5.col-md-5
-    .widget.card.no-border.card-condensed.no-margin.widget-loader-circle.align-self-stretch.d-flex.flex-column
-      .p-l-25.p-r-25.p-t-25
-        .pull-left
-          h4.semi-bold.text-primary.no-margin = t(:last_sales, scope: 'views.build')
-        .clearfix
-      .auto-overflow.widget-11-2-table
-        table.table.table-condensed.table-hover
-          thead
-            tr
-              th.text-right= t :created_at, scope:'views.common'
-              th= t :unit, scope:'views.common'
-              th= t :broker, scope:'views.common'
-          tbody
-            - @proposals.order('created_at desc')[0..10].each do |proposal|
-              tr
-                td.text-right.b-l.b-dashed.b-grey
-                  span.font-montserrat.fs-18= l proposal.created_at, format: :date
-                td.font-montserrat.all-caps.fs-12= proposal.unit.name
-                td.font-montserrat.all-caps.fs-12= proposal.broker.name
+                th= t :created_at, scope:'views.common'
+                th= t :unit, scope:'views.common'
+                th= t :broker, scope:'views.common'
+            tbody
+              - @proposals.order('created_at desc')[0..10].each do |proposal|
+                tr
+                  td
+                    span.font-montserrat.fs-18= l proposal.created_at, format: :date
+                  td.b-l.b-dashed.b-grey.font-montserrat.all-caps.fs-12= proposal.unit.name
+                  td.b-l.b-dashed.b-grey.font-montserrat.all-caps.fs-12= proposal.broker.name
+    / .row
+    /   .col-lg-5.col-sm-5.col-md-5

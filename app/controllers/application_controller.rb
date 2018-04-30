@@ -8,9 +8,17 @@ class ApplicationController < ActionController::Base
   include SentientController
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  helper_method :current_admin?, :current_store
+  helper_method :current_admin?, :current_store, :back_url
   # after_action :flash_clean
   before_action :set_locale
+
+  def back_url
+   if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+     URI(request.referer).path
+   else
+     root_url
+   end
+  end
    
   def set_locale
     I18n.locale = self.try(:current_store).try(:language) || 'pt-BR'

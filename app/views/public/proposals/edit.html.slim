@@ -1,18 +1,27 @@
 - model_class = Proposal
-  
+.inner
+  ol.breadcrumb
+    li.breadcrumb-item
+      = link_to t(:home, scope: 'breadcrumb'), public_build_units_path(@build)
+    li.breadcrumb-item
+      = link_to t(:new, scope: 'breadcrumb.proposal'), new_public_unit_proposal_path(@unit)
+    li.breadcrumb-item
+      = link_to t(:index, scope: 'breadcrumb.proposal'), public_unit_proposals_path(@unit)
+    li.breadcrumb-item.active
+      = t(:edit, scope: 'breadcrumb.proposal')  
 
-.card.card-default
-  .card-header
-    .card-title
-      =t '.title', :default => [:'helpers.titles.edit', 'edit %{model}'], :model => model_class.model_name.human.titleize
-  .card-block
-    = simple_form_for [:public, @proposal], wrapper: :pages_form_default do |f|
-      = f.error_notification
-      - if @proposal.restricted?
-        == render 'form_disable', f: f 
-      - else
-        == render 'form', f: f 
-      .form-group
-        = f.submit nil, :class => 'btn btn-primary'
-        '
-        = link_to t('back', scope: "helpers.links"), public_unit_proposals_path(@unit), :class => 'btn'
+  .card.card-default
+    .card-header
+      .card-title
+        =t '.title', :default => [:'helpers.titles.edit', 'edit %{model}'], :model => model_class.model_name.human.titleize
+    .card-block
+      = simple_form_for [:public, @proposal], wrapper: :pages_form_default do |f|
+        = f.error_notification
+        - if @proposal.restricted?
+          == render 'form_disable', f: f 
+        - else
+          == render 'form', f: f 
+        .form-group
+          = f.submit nil, :class => 'btn btn-primary'
+          '
+          = link_to t('back', scope: "helpers.links"), public_unit_proposals_path(@unit), :class => 'btn'

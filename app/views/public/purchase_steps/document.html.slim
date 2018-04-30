@@ -18,31 +18,34 @@
           span= t(:document, scope:'views.purchase_step.item')
     /! Tab panes
     .tab-content
-      .tab-pane.padding-20.sm-no-padding.slide-left
-      .tab-pane.slide-left.padding-20.sm-no-padding
       .tab-pane.slide-left.padding-20.sm-no-padding.active
         .row.row-same-height
-          .col-md-5.b-r.b-dashed.b-grey
-            .padding-30.sm-padding-5.sm-m-t-15.m-t-50
+          .col-md-7.b-r.b-dashed.b-grey
+            .sm-padding-5.sm-m-t-15.m-t-50
               h2=t :title1, scope: 'views.purchase_step.document'
-              p=t :title2, scope: 'views.purchase_step.document', email: current_store.email
+              h5.bold=t :title2, scope: 'views.purchase_step.document', email: current_store.email
               / p.small.hint-text Below is a sample page for your cart , Created using pages design UI Elementes
               table.table.table-condensed
-                - @proposal.documents.each do |document|      
+                - @proposal.documents.each do |document|
                   tr
                     td.col-md-9
                       span.m-l-10.font-montserrat.fs-11.all-caps= document.name
                     td.col-md-3.text-center
                       span.m-l-10= t(document.state, scope:'views.common')
-          .col-md-7
-            .padding-30.sm-padding-5.sm-m-t-15.m-t-50
+          .col-md-5
+            .sm-padding-5.sm-m-t-15.m-t-50
               = simple_form_for Asset.new, url: public_assets_path(@proposal.class.name, @proposal) do |f|
                 = render 'form_uploader', f:f, proposal:@proposal
       hr
-      .padding-20.sm-padding-5.sm-m-b-20.sm-m-t-20.bg-white.clearfix
-        ul.pager.wizard.no-style
-          li.next
-
-            = f.submit t(:finish, scope:'views.purchase_step.document'), :class => 'btn btn-primary pull-right'
-          li.previous
-            = link_to t('back', scope: "helpers.links"), wizard_path(:buyer), :class => 'btn btn-default btn-cons pull-right'
+      .sm-padding-5.sm-m-b-2.sm-m-t-20.bg-white.clearfix
+        ul.no-style.pull-right
+          li.inline
+            = link_to wizard_path(:buyer), :class => 'btn btn-default btn-cons' do 
+             i.fa.fa-mail-reply
+             '
+             = t('back', scope: "helpers.links")
+          li.inline
+            = button_tag :class => 'btn btn-primary btn-cons' do
+             i.fa.fa-mail-forward
+             '
+             = t(:finish, scope:'views.purchase_step.document')

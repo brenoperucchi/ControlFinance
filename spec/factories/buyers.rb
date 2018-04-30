@@ -5,7 +5,8 @@ FactoryGirl.define do
     national_id 'Buyer National Id'
     birthdate 'Buyer birthdate'
     occupation 'Buyer ocuppation'
-    base_salary 'Base Salary'
+    income 'Base Salary'
+    email 'Buyer@email.com'
 
     # trait :analyze do
     #   email 'analyze'

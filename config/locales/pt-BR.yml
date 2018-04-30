@@ -1,4 +1,10 @@
 pt-BR:
+  breadcrumb:
+    home: Inicio
+    proposal:
+      new: Nova Proposta
+      index: Veja as suas Propostas
+      edit: Editar propostas
   flash:
     actions:
       create:
@@ -28,9 +34,17 @@ pt-BR:
       negociate: "Aqui você deve descrever a negociação.\nExemplo: valor de entrada, ato do cliente, o número de parcelamento e vencimento."
   views:
     purchase_step:
+      finish:
+        irs_id: 'CPF: %{value}'
+        national_id: 'RG: %{value}'
+        birthdate: 'Data Nascimento: %{value}'
+        occupation: 'Ocupação: %{value}'
+        income: 'Renda: %{value}'
+        address: 'Endereço: %{value}'
+        email: 'Email: %{value}'
       document:
-        finish: Imprimir a Minuta do Contrato
-        title1: Favor, enviar os documentos abaixo.
+        finish: Finalizar Proposta
+        title1: Favor, enviar os documentos abaixo para a empresa.
         title2: 'Caso deseje você pode também enviar por e-mail: %{email}'
       buyer:
         title1: Informar os dados do cliente!
@@ -39,9 +53,10 @@ pt-BR:
         title1: Caro Corretor(a) sua proposta foi aceita!
         title2: Você deve verificar se os dados da propostas estão corretores ao lado
       item:  
-        proposal: Sua Proposta
+        proposal: Proposta
         buyer: Comprador
         document: Documentos
+        finish: Sua Proposta!
     header:
       dashboard: Painel de Controle
       setting: Configuração
@@ -58,15 +73,13 @@ pt-BR:
       acceptance: "Nenhuma parte deste site ou qualquer conteúdo pode ser reproduzido, copiado, modificado ou adaptado, sem o consentimento prévio por escrito do autor, salvo indicação em contrário para materiais autônomos."
     proposal:
       print:
-        title1: Contato comercial
+        title1: Proposta Comercial
         title2: Sua proposta!
         title3: Valor da Proposta
       new:
         title1: 'Proposta de compra para Unidade %{unit} do Empreendimento %{build}'
         broker_list: 'Veja as suas propostas'
         value_table: Valor de tabela
-      pending: pendente
-      approved: aprovado
       deadline: Prazo da Proposta
       negociate: Negociação
       due_at: 'Vencimento em: %{due_at}'
@@ -105,14 +118,17 @@ pt-BR:
       created_at: Criado em
       sign_in: Login
       sign_out: Sair
-      pending: pendente
-      approved: 'Approved'
       not_approved: 'Not Approved'
       confirm: 'Confirm'
       booked: Reservado
       bought: Vendido
+      accepted: Aceita
+      booked: Reservado
+      pending: Pendente
+      approved: Aprovado
+
     document:
-      contract_print: "Imprimir contrato"
+      contract: "Minuta do Contrato"
       send_files: "Enviar Arquivos"
       pending: pendente
       approved: aceito
@@ -399,6 +415,9 @@ pt-BR:
       <<: *errors
   activerecord:
     models:
+      build: 
+        one: Obra
+        other: Obras
       broker: 
         one: Corretor
         other: Corretores
@@ -410,6 +429,23 @@ pt-BR:
         one: 'Proposta'
         other: Propostas
     attributes:
+      unit:
+        name: Imóvel
+        size: Área (m2)
+        brokerage: Comissão do Corretor
+        state: Situação
+        value: Valor
+        garage: Vaga
+        deadline: Prazo limite
+        address: Endereço
+        registry: Mátricula
+        incorporation: Incorporação
+      build:
+        name: Nome
+        address: Endereço
+        registry: Mátricula
+        incorporation: Incorporação
+        state: Situação
       store:
         language: Idioma
         address: Endereço que será divulgado
@@ -420,7 +456,7 @@ pt-BR:
         national_id: Número do RG
         occupation: Ocupação
         birthdate: Data Nascimento
-        base_salary: Base salárial
+        income: Base salárial
         address: Endereço Atual
       proposal:
         unit:  Unidade
@@ -428,6 +464,10 @@ pt-BR:
         state: Status
         negociate: Negociação
         value: Valor
+        due_at: Prazo
+        unit_value: Preço de tabela
+        value: Valor da proposta
+        state: Situação
       user:
         email: "e-mail"
       broker:

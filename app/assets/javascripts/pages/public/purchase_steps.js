@@ -13,6 +13,8 @@
 //= require pages/classie.js
 //= require pages/switchery.min.js
 //= require pages/jquery.validate.min.js
+//= require pages/bootstrap-datepicker.js
+//= require pages/bootstrap-datepicker.pt-BR.js
 //= require pages/pages.min.js
 //= require pages/pages.social.min.js
 //= require pages/notifications.js

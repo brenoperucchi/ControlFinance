@@ -1,4 +1,9 @@
 en:
+  breadcrumb:
+    home: Inicio
+    proposal:
+      new: Nova Proposta
+      index: Veja as suas Propostas
   flash:
     actions:
       create:

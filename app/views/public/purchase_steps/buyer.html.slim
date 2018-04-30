@@ -32,10 +32,13 @@
               == render 'form_buyer', f: ff 
       #tab3.tab-pane.slide-left.padding-20.sm-no-padding
       hr
-      .padding-20.sm-padding-5.sm-m-b-20.sm-m-t-20.bg-white.clearfix
+      .sm-padding-5.sm-m-b-20.sm-m-t-20.bg-white.clearfix
         ul.pager.wizard.no-style
           li.next
             = f.submit t(:next, scope:'views.submit'), :class => 'btn btn-primary pull-right'
               span Next
           li.previous
-            = link_to t('back', scope: "helpers.links"), wizard_path(:proposal), :class => 'btn btn-default btn-cons pull-right'
+            = link_to wizard_path(:proposal), :class => 'btn btn-default btn-cons pull-right'
+              i.fa.fa-mail-reply
+              '
+              = t('back', scope: "helpers.links")

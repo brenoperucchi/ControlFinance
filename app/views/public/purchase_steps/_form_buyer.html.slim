@@ -8,13 +8,15 @@
     = f.input :birthdate, as:'string', placeholder: model_class.human_attribute_name(:birthdate), input_html:{ class: 'datepicker' }
   .col-md-6.col-lg-6.col-sm-6
     = f.input :occupation, placeholder: model_class.human_attribute_name(:occupation)
-    = f.input :base_salary, placeholder: model_class.human_attribute_name(:base_salary)
+    = f.input :income, placeholder: model_class.human_attribute_name(:income)
 
 = f.input :address, as: :text, placeholder: model_class.human_attribute_name(:address)
+= f.input :email, as: :string, placeholder: model_class.human_attribute_name(:email)
 
 javascript:
   $(document).ready(function(){
     $('.datepicker').datepicker({
-      format: 'dd/mm/yyyy'
+      format: 'dd/mm/yyyy',
+      language: 'pt-BR'
     })
   })
