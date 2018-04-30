@@ -1,6 +1,6 @@
    class Unit < ApplicationRecord
 
-  store :information, accessors:[:name, :garage, :deadline, :address, :registry, :incorporation]
+  store :information, accessors:[:name, :garage, :deadline, :registry, :incorporation]
 
   attr_reader :unit_value
 

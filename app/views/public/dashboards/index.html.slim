@@ -4,15 +4,12 @@
     height:25vh;
     }
 
-
 - model_class = Build
 
 .inner
   ol.breadcrumb
     li.breadcrumb-item.active
       = t(:home, scope: 'breadcrumb')
-
-
   .feed.p-t-20
     .day data-social="day" 
       - @builds.each do |build|
@@ -21,8 +18,6 @@
           .card-header.clearfix
             h4.font-montserrat= build.name
             h6
-              | Situado em
-              '
               span.location.semi-bold
                 i.fa.fa-map-marker
                 '
