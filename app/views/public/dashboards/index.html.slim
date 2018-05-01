@@ -1,7 +1,10 @@
 - content_for :footer
   css:
     .social-card img {
-    height:25vh;
+      height:25vh;
+    }
+    .social-card.share .card-header {
+        min-height: 107px;
     }
 
 - model_class = Build
@@ -10,7 +13,7 @@
   ol.breadcrumb
     li.breadcrumb-item.active
       = t(:home, scope: 'breadcrumb')
-  .feed.p-t-20
+  .feed
     .day data-social="day" 
       - @builds.each do |build|
         .card.social-card.share.col1 data-social="item" 

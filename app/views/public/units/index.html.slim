@@ -58,7 +58,8 @@
             / a href="#" 
             /   i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
             / span.hint-text Show more details of APPLE . INC
-    .col-lg-12.col-xl-12.m-b-10
+  .row
+    .col-lg-6.col-xl-6.m-b-10
       .widget.card.no-border.card-condensed.no-margin.widget-loader-circle.align-self-stretch.d-flex.flex-column
         .p-l-25.p-r-25.p-t-25
           .text-center
@@ -78,5 +79,48 @@
                     span.font-montserrat.fs-18= l proposal.created_at, format: :date
                   td.b-l.b-dashed.b-grey.font-montserrat.all-caps.fs-12= proposal.unit.name
                   td.b-l.b-dashed.b-grey.font-montserrat.all-caps.fs-12= proposal.broker.name
+    .col-lg-12.col-xl-12.m-b-10
+      .card.card-default
+        .card-header
+          .card-title
+            | Sparkline Charts
+        .card-block.d-flex.flex-wrap
+          .col-lg-4.no-padding
+            .p-r-30
+              h3 Lighter but Smarter
+              br/
+              p
+                | This jQuery plugin generates sparklines (small inline charts) directly in the browser using data supplied either inline in the HTML, or via javascript. The plugin is compatible with most modern browsers and has been tested with Firefox 2+, Safari 3+, Opera 9, Google Chrome and Internet Explorer 6, 7, 8, 9 & 10 as well as iOS and Android.
+              br/
+              .inline
+                p.small.hint-text
+                  | Sparkline
+                  br/
+                  a href="http://omnipotent.net/jquery.sparkline/#s-about" 
+                    | View the official
+                    | documentation
+          .col-lg-8
+            .card.card-transparent
+              .card-header
+                .card-controls
+                  ul
+                    li
+                      a.card-collapse data-toggle="collapse" href="#" 
+                        i.pg-arrow_maximize
+                    li
+                      a.card-refresh data-toggle="refresh" href="#" 
+                        i.pg-refresh_new
+                    li
+                      a.card-close data-toggle="close" href="#" 
+                        i.pg-close
+              .card-block
+                .row
+                  .col-sm-6.text-center
+                    #sparkline-line.sparkline-chart.m-t-40
+                  .col-sm-6.text-center
+                    #sparkline-pie.sparkline-chart.m-t-40
+        /! END card
+      /! END CONTAINER FLUID
+
     / .row
     /   .col-lg-5.col-sm-5.col-md-5

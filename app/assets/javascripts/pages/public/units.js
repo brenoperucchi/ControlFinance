@@ -9,11 +9,11 @@
 //= require pages/jquery.ioslist.min.js
 //= require pages/jquery.actual.min.js
 //= require pages/jquery.scrollbar.min.js
+//= require pages/jquery.sparkline.min.js
 //= require pages/select2.full.min.js
 //= require pages/classie.js
 //= require pages/switchery.min.js
 //= require pages/jquery.validate.min.js
-//= require pages/pages.min.js
 //= require pages/notifications.js
 //= require pages/MetroJs.min.js
 //= require pages/imagesloaded.pkgd.min.js
@@ -22,5 +22,10 @@
 //= require pages/owl.carousel.min.js
 //= require pages/jquery.nouislider.min.js
 //= require pages/jquery.liblink.js
+//= require pages/d3.v3.js
+//= require pages/nv.d3.min.js
+//= require pages/rickshaw.js
 //= require pages/gallery.js
+//= require pages/pages.min.js
+//= require pages/charts.js
 //= require pages/scripts.js
