@@ -33,7 +33,8 @@
       .owl-carousel.owl-theme
         - @build.images.each_with_index do |image, count|
           .item
-            img.image-responsive-height alt="" src="#{image.try(:file).try(:url)}"
+            / img.image-responsive-height alt="" src="#{image.try(:file).try(:url)}"
+            img.img-responsive[alt="user" src="#{image.try(:file).try(:url)}" height="433"]
     .col-lg-8.col-xl-8.m-b-10
       .widget-11-2.card.no-border.card-condensed.no-margin.widget-loader-circle.full-height.d-flex.flex-column
         .padding-25
