@@ -12,12 +12,12 @@
         = link_to scope_admin_build_path(@build, scope: :proposals), input_html:{ 'aria-controls' => "home", 'aria-expanded'=> "true", data:{toggle:"tab", role: "tab"} } do
           span.visible-xs
             i.ti-home
-          span.hidden-xs Proposals
+          span.hidden-xs= t :proposals, scope:'views.admin.build.scope'
       li[role="presentation"]
         = link_to scope_admin_build_path(@build, scope: :expired), input_html:{ 'aria-controls' => "home", 'aria-expanded'=> "true", data:{toggle:"tab", role: "tab"} } do
           span.visible-xs
             i.ti-user
-          span.hidden-xs Expired's
+          span.hidden-xs= t :proposals_expired, scope:'views.admin.build.scope'
     /! Tab panes
     .tab-content
       #home.tab-pane.active role="tabpanel"
@@ -32,8 +32,8 @@
                 th= model_class.human_attribute_name(:state)
                 th= model_class.human_attribute_name(:negociate)
                 th= model_class.human_attribute_name(:value)
-                th= model_class.human_attribute_name(:created_at)
-                th=t 'actions', :scope => "helpers.menu"
+                th= model_class.human_attribute_name(:updated_at)
+                th=t :actions, scope: "helpers.links"
             tbody
               - @collection.each do |proposal|
                 tr
@@ -41,10 +41,10 @@
                   td= proposal.try(:broker).try(:user).try(:email)
                   td=localize proposal.due_at, format: :short
                   td= proposal.value
-                  td= editable proposal, :status, url: admin_proposal_path(proposal), type: 'select', class: 'editable', source: model_class::STATUS.map{|key,value|key}, value: proposal.state
+                  td.text-uppercase= editable proposal, :status, url: admin_proposal_path(proposal), type: 'select', class: 'editable', source: model_class::STATUS.map{|key,value|{value:key, text: I18n.t(key, scope:'views.common')}}, value: proposal.state
                   td= proposal.negociate
                   td= proposal.value
-                  td=localize proposal.created_at, format: :short
+                  td=localize proposal.updated_at, format: :short
                   td
                     .btn-group.m-r-10
                       button.btn.btn-default.btn-outline.dropdown-toggle.waves-effect.waves-light aria-expanded="true" data-toggle="dropdown" type="button" 
@@ -55,10 +55,8 @@
                           - if proposal.accepted? or proposal.closed?
                             = link_to t('Document', scope: "helpers.links"), document_admin_proposal_path(proposal)
         .clearfix
-    .panel-footer
-      .form-group
-        .col-sm-offset-0.col-sm-9
-          = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'
+    .form-group.p-l-25.p-b-25.p-r-25
+      = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'
 javascript:
   $(function(){
     $('.editable_button').editable({

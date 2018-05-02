@@ -18,8 +18,8 @@ Rails.application.config.assets.precompile += %w( pages/social.scss )
 Rails.application.config.assets.precompile += %w( pages/public/units.scss )
 Rails.application.config.assets.precompile += %w( pages/public/brokers.scss )
 Rails.application.config.assets.precompile += %w( pages/admin/builds.scss )
-Rails.application.config.assets.precompile += %w( pages/admin/brokers.css )
-Rails.application.config.assets.precompile += %w( pages/admin/stores.css )
+Rails.application.config.assets.precompile += %w( pages/admin/brokers.scss )
+Rails.application.config.assets.precompile += %w( pages/admin/proposals.scss )
 Rails.application.config.assets.precompile += %w( pages/public/purchase_steps.scss )
 
 Rails.application.config.assets.precompile += %w( pages.js )
@@ -35,6 +35,7 @@ Rails.application.config.assets.precompile += %w( pages/public/purchase_steps.js
 Rails.application.config.assets.precompile += %w( pages/admin/builds.js )
 Rails.application.config.assets.precompile += %w( pages/admin/brokers.js )
 Rails.application.config.assets.precompile += %w( pages/admin/stores.js )
+Rails.application.config.assets.precompile += %w( pages/admin/proposals.js )
 
 Rails.application.config.assets.precompile += %w( elite.js )
 Rails.application.config.assets.precompile += %w( elite.css )

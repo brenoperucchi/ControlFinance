@@ -1,6 +1,6 @@
 class Admin::BaseController < ApplicationController
 
-  layout 'elite'
+  layout 'pages'
   
   protect_from_forgery
 

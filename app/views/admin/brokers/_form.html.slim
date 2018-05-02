@@ -5,7 +5,7 @@
     = f.input :name, placeholder: model_class.human_attribute_name(:name), input_html: { class: 'input-sm'}
     = f.input :irs_id, placeholder: model_class.human_attribute_name(:irs_id), input_html: { class: 'input-sm'}
     = f.input :company, placeholder: model_class.human_attribute_name(:company), input_html: { class: 'input-sm'}
-    = f.input :state, as: :select, collection: model_class::STATES.map{|key,value|[I18n.t(key, scope:'views.proposal').upcase, key]}, selected: t(f.object.state, scope:'views.proposal').upcase, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm'}
+    = f.input :state, as: :select, collection: model_class::STATES.map{|key,value|[I18n.t(key, scope:'views.common').upcase, key]}, selected: t(f.object.state, scope:'views.common').upcase, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm'}
   .col-md-6.col-lg-6.col-sm-6
     - f.object.build_user if f.object.user.nil?
     = f.simple_fields_for :user do |user|

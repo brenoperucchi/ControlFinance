@@ -1,14 +1,17 @@
 - model_class = Proposal
 
-.panel.panel-default
-  .panel-heading
-    = model_class.model_name.human
-  .panel-wrapper.collapse.in
-      .panel-body
-        == render "index", proposal:@proposal, model_class:model_class, unit:@unit, collection:@collection
-      .panel-footer
-        .form-group
-          .col-sm-offset-0.col-sm-12
-            = link_to new_admin_build_unit_proposal_path(@build, @unit)
-              | New Proposal
-            = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'
+.card.card-default
+  .card-header
+    h3.no-margin.overflow-ellipsis= model_class.model_name.human
+  .card-block
+      == render "index", proposal:@proposal, model_class:model_class, unit:@unit, collection:@collection
+      hr
+      .div
+        = link_to new_admin_build_unit_proposal_path(@build, @unit), :class => 'btn btn-info pull-right'
+          i.fa.fa-plus
+          '
+          = t('new', scope: "helpers.links")
+        = link_to admin_builds_path, :class => 'btn', :class => 'btn pull-left' do
+          i.fa.fa-mail-forward
+          '
+          =t('back', scope: "helpers.links")

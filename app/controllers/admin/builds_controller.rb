@@ -1,5 +1,5 @@
 class Admin::BuildsController < Admin::BaseController
-  # layout 'pages'
+  layout 'pages'
   before_action :set_admin_build, only: [:show, :edit, :update, :destroy, :scope, :assets, :deliver_mail]
   respond_to :js, :html, :json
 
@@ -29,9 +29,9 @@ class Admin::BuildsController < Admin::BaseController
 
   def scope
     if params[:scope] != "proposals"
-      @collection = @build.proposals.send(params[:scope]).order('created_at desc')
+      @collection = @build.proposals.send(params[:scope]).order('updated_at desc')
     else
-      @collection = @build.proposals.order('created_at desc')
+      @collection = @build.proposals.order('updated_at desc')
     end
   end
 

@@ -33,6 +33,15 @@ pt-BR:
       value: Valor total da proposta
       negociate: "Aqui você deve descrever a negociação.\nExemplo: valor de entrada, ato do cliente, o número de parcelamento e vencimento."
   views:
+    admin:
+      proposal:
+        notify_all: Notificar todos
+      build: 
+        proposals: Todas as Propostas
+        images: Imagens
+        scope:
+          proposals: Propostas ativas
+          proposals_expired: Propostas Expiradas
     purchase_step:
       finish:
         irs_id: 'CPF: %{value}'
@@ -61,6 +70,7 @@ pt-BR:
       dashboard: Painel de Controle
       setting: Configuração
       brokers: Corretores
+      builds: Obras
     unit:
       index:
         booked_to_broker: Reservado para você!
@@ -119,6 +129,8 @@ pt-BR:
     system:
       title: Booking Reservation System 
     common:
+      closed: Finalizado
+      refused: Recusado
       broker: Corretor
       unit: Unidade
       created_at: Criado em
@@ -335,6 +347,8 @@ pt-BR:
       prompt: Por favor selecione
     submit:
       create: Criar %{model}
+      new: Nova %{model}
+      edit: Editar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
     links:
@@ -343,6 +357,7 @@ pt-BR:
       back: Voltar
       print:  Imprimir
       destroy: Remover
+      new: Novo
   number:
     currency:
       format:
@@ -451,6 +466,11 @@ pt-BR:
         registry: Mátricula
         incorporation: Incorporação
         state: Situação
+        garage: Vaga
+        size: Área (m2)
+        value: Valor 
+        created_at: Criado em
+        updated_at: Atualizado em
       store:
         language: Idioma
         address: Endereço que será divulgado
@@ -473,6 +493,8 @@ pt-BR:
         unit_value: Preço de tabela
         value: Valor da proposta
         state: Situação
+        created_at: Criado em
+        updated_at: Atualizado em
       user:
         email: "e-mail"
       broker:

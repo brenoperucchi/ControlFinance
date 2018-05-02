@@ -4,17 +4,13 @@
   .col-lg-3.col-md-4.col-sm-4.col-xs-12
     h4.page-title Brokers
   .col-lg-9.col-sm-8.col-md-8.col-xs-12
-    = link_to new_admin_broker_path, :class => 'btn btn-info pull-right btn-rounded btn-outline hidden-xs.hidden-sm waves-effect waves-light', :title => t('show', :scope => 'helpers.links') do
-      ' Add
+    = link_to new_admin_broker_path, :class => 'btn btn-info pull-right ' do
+      = t('new', scope: "helpers.links")
       '
       i.fa.fa-plus
 
 .bg-white
-  /! START card
-  .card.card-transparent
-    / .card-header
-    /   .card-title
-    /     | Pages Default Tables Style
+  .card.card-default
     .card-description
       .table-responsive
         table#basicTable.table.table-condensed.table-hover
@@ -22,66 +18,24 @@
             tr
               th= model_class.human_attribute_name(:name)
               th= model_class.human_attribute_name(:state)
-              th= model_class.human_attribute_name(:value)
-              th=t 'actions', :scope => "helpers.menu"
+              th= model_class.human_attribute_name(:email)
+              th=t :actions, scope: "helpers.links"
           tbody
             - @brokers.each do |broker|
               tr
                 td.fs-15= broker.name
-                td.fs-15= broker.state
+                td.fs-15= t(broker.state, scope:'views.common').upcase
                 td.fs-15= broker.user.email
                 td
-                  = link_to edit_admin_broker_path(broker), :class => 'btn btn-info btn-outline btn-sm waves-effect waves-light', :title => t('show', :scope => 'helpers.links') do
-                    ' Edit
+                  = link_to edit_admin_broker_path(broker), :class => 'btn btn-info btn-outline btn-sm waves-effect waves-light' do
+                    i.fa.fa-edit
+                    '
+                    = t('edit', scope: "helpers.links")
                   '
                   = link_to admin_broker_path(broker), class: 'btn btn-sm btn-danger', data: { confirm: 'Are you sure?' }, method: :delete do
-                    i.ti-trash.inline
+                    i.fa.fa-trash
                     '
                     = t('destroy', scope: "helpers.links")
-                  / .btn-group.m-r-10
-                  /   button.btn.btn-default.btn-outline.dropdown-toggle.waves-effect.waves-light aria-expanded="true" data-toggle="dropdown" type="button" 
-                  /     span.caret
-                  /   ul.dropdown-menu role="menu" 
-                  /     li
     .padding-25
       .pull-left
         = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'
-      / p.small.no-margin
-      /   a href="#" 
-      /     i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
-      /   span.hint-text Show more details of APPLE . INC
-    / .card-footer.clearfix
-    /     | via
-    /     span.text-complete CNN
-    /   .pull-right.hint-text
-    /     | Apr 23
-    /   .clearfix
-    / .card-footer.clearfix
-          / .col-sm-offset-0.col-sm-12
-            / = link_to new_admin_builds_path
-              | New Proposal
-                    / li
-                    /   = link_to t('Proposals', scope: "helpers.navigate"), admin_broker_unit_proposals_path(broker, unit)
-                    / li
-                    /   = link_to t('Request Proposal Email', scope: "helpers.links"), new_mailer_path(:unit, unit, :proposal_request)                          
-                    / li.divider
-                    / li
-      / .panel-footer
-      /   = link_to new_mailer_path(:broker, broker, :price_list), :class => 'pull-right btn btn-danger btn-outline hidden-xs.hidden-sm waves-effect waves-light'
-      /     ' Send PriceList
-      /     '
-      /     i.fa.fa-envelope
-      /   '
-      /   = link_to new_admin_broker_unit_path(broker), :class => 'btn btn-info btn-outline hidden-xs.hidden-sm waves-effect waves-light', :title => t('show', :scope => 'helpers.links'), remote:true do
-      /     ' Add
-      /     '
-      /     i.fa.fa-plus
-      /   '
-      /   = link_to scope_admin_broker_path(broker, scope: :proposals), :class => 'btn btn-info btn-outline hidden-xs.hidden-sm waves-effect waves-light', :title => t('show', :scope => 'helpers.links') do
-      /     ' All Proposals
-      /   '
-      /   = link_to assets_admin_broker_path(broker), :class => 'btn btn-info btn-outline hidden-xs.hidden-sm waves-effect waves-light', :title => t('show', :scope => 'helpers.links'), remote: true do
-      /     | Images
-      /     '
-      /     i.fa.fa-image
-

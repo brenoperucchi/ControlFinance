@@ -66,11 +66,11 @@
                         = proposal.broker.user.email
 
       .row
-        .padding-25
-          .pull-left
-            = f.submit nil, :class => 'btn btn-primary'
+        .col-lg-12
+          .padding-25
+            = link_to t('back', scope: "helpers.links"), admin_brokers_path, :class => 'btn pull-left'
             '
-            = link_to t('back', scope: "helpers.links"), admin_brokers_path, :class => 'btn'
+            = f.submit nil, :class => 'btn btn-primary pull-right'
   .col-lg-4
     .row
       .col-lg-12

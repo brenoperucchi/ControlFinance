@@ -6,7 +6,7 @@
       thead
         tr
           th.w-10= model_class.human_attribute_name(:id)
-          th.w-10= model_class.human_attribute_name(:state)
+          th.w-15= model_class.human_attribute_name(:state)
           / th= model_class.human_attribute_name(:negociate)
           th.w-15= model_class.human_attribute_name(:value)
           / th= model_class.human_attribute_name(:email)
@@ -16,7 +16,7 @@
         - @proposals.order('created_at desc').each do |proposal|
           tr
             td= proposal.id
-            td= proposal.state
+            td= t(proposal.state, scope:'views.common').upcase
             / td= proposal.negociate
             td= number_with_precision proposal.value
             / td= proposal.broker.user.email

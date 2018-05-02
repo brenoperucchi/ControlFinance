@@ -51,3 +51,6 @@ div.has-error div.form-group{
 .nav-tabs-linetriangle > li > a.active {
     color: black;
 }
+.horizontal-app-menu .menu-bar > ul > li:hover:not(.open) > a {
+  color: black;
+}

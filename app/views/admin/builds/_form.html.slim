@@ -4,4 +4,4 @@
 = f.input :address
 = f.input :registry
 = f.input :incorporation
-= f.input :state, as: :select, collection: model_class::STATES.map{|key,value|[I18n.t(key, scope:'views.common').upcase, key]}, selected: t(f.object.state, scope:'views.common').upcase, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm'}
+/ = f.input :state, as: :select, collection: model_class::STATES.map{|key,value|[I18n.t(key, scope:'views.common').upcase, key]}, selected: t(f.object.state, scope:'views.common').upcase, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm'}

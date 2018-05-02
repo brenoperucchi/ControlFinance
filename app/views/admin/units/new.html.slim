@@ -1,16 +1,12 @@
 - model_class = Unit
 .row.m-t-20
   .col-md-12.col-lg-12.col-sm-12
-    .white-box
-      h3.box-title.m-b-0 
-        =t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
-      / p.text-muted.m-b-30.font-13 Bootstrap Elements
+    .bg-white
+      h3=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize
       .row
-        .col-sm-12.col-xs-12
-          = simple_form_for @unit, url:admin_build_units_path(@build, @unit), :html => { :class => "" }, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean } do |f|
-            == render 'form', f:f
-            .form-group
-              .col-sm-offset-0.col-sm-9
-                = f.submit nil, :class => 'btn btn-primary'
-                '
-                = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'
+        = simple_form_for @unit, url:admin_build_units_path(@build, @unit), :html => { :class => "" }, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean } do |f|
+          == render 'form', f:f
+        .padding-25.pull-left
+            = f.submit nil, :class => 'btn btn-primary'
+            '
+            = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'

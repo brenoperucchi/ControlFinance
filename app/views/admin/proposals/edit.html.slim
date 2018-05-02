@@ -1,15 +1,13 @@
 - model_class = Proposal
 
-.panel.panel-default
-  .panel-heading
-    =t 'edit', scope: :'helpers.titles.edit', :model => model_class.model_name.human.titleize
-  .panel-wrapper.collapse.in
+.card.card-default
+  .card-header
+    h3.no-margin.overflow-ellipsis=t 'edit', scope: 'helpers.submit', :model => model_class.model_name.human.titleize
+  .card-block
     = simple_form_for @proposal do |f|
-      .panel-body
-        == render 'form', f: f, model_class: model_class
-      .panel-footer
-        .form-group
-          .col-sm-offset-0.col-sm-9
-            = f.submit nil, :class => 'btn btn-primary'
-            '
-            = link_to t('back', scope: "helpers.links"), admin_build_unit_proposals_path(@proposal.unit.builder, @proposal.unit), :class => 'btn'
+      == render 'form', f: f, model_class: model_class
+      hr
+      .div
+        = link_to t('back', scope: "helpers.links"), admin_build_unit_proposals_path(@proposal.unit.builder, @proposal.unit), :class => 'btn pull-left'
+        '
+        = f.submit nil, :class => 'btn btn-primary pull-right'

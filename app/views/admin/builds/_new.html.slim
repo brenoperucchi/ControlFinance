@@ -1,15 +1,16 @@
 - model_class = Build
 
-= simple_form_for [:admin, @build], remote:true do |f|
-  .modal-header
-      button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
-      h4.modal-title
-        =t 'new', scope: 'helpers.titles', :model => model_class.model_name.human.titleize
-  .modal-body
-    == render 'form', f:f
-  .modal-footer
-    .form-group
-      .col-sm-offset-0.col-sm-9
-        = f.submit nil, :class => 'btn btn-primary'
-        '
-        = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'  
+.row
+  .col-lg-12
+    = simple_form_for [:admin, @build], remote:true do |f|
+      .modal-header.p-b-10
+          button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+          h4.modal-title
+            =t 'new', scope: 'helpers.titles', :model => model_class.model_name.human.titleize
+      .modal-body
+        == render 'form', f:f
+      .modal-footer
+        .col-sm-12.col-xs-12
+          = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn pull-left'  
+          '
+          = f.submit nil, :class => 'btn btn-primary pull-right'
