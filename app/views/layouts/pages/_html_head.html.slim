@@ -1,7 +1,7 @@
 head
   meta content="text/html;charset=UTF-8" http-equiv="content-type" /
   meta charset="utf-8" /
-  title Proposals & Brokers Web App
+  title= (current_user.try(:admin?) ? t(:title_admin, scope:'views.common') : t(:title_public, scope:'views.common'))
   meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" name="viewport" /
   / link href="pages/ico/60.png" rel="apple-touch-icon" /
   / link href="pages/ico/76.png" rel="apple-touch-icon" sizes="76x76" /

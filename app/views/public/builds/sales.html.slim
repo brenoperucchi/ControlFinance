@@ -1,0 +1,44 @@
+css:
+  .card {
+    margin-bottom:10px!important;
+  }
+
+- current_store.builds.each do |build|
+  .card.card-transparent
+    .widget-11-2.card.card-condensed.widget-loader-circle.full-height.d-flex.flex-column
+      .card-header
+        .pull-left
+          h3.text-success.no-margin= build.name
+        h4.pull-right
+          = t :unit_available_html, scope: 'views.unit.index', count: build.units.pending.count
+        .clearfix
+      .card-block
+        .auto-overflow.widget-11-2-table
+          table.table.table-condensed.table-hover
+            thead
+              th= t :unit, scope:'views.build'
+              th= t :position, scope:'views.build'
+              th= t :dormitory, scope:'views.build'
+              th= t :garage, scope:'views.build'
+              th= t :box, scope:'views.build'
+              th= t :area_privative, scope:'views.build'
+              th= t :area_common, scope:'views.build'
+              th= t :area_total, scope:'views.build'
+              th= t :area_value, scope:'views.build'
+            tbody
+              - build.units.each do |unit|
+                tr
+                  td.w-15= unit.name
+                  td.w-10= unit.name
+                  td.w-15= unit.name
+                  td.w-15= unit.name
+                  td.w-15= unit.name
+                  td= unit.name
+                  td= unit.name
+                  td= unit.name
+                  td.w-15= unit.name
+      / .padding-25.mt-auto
+      /   p.small.no-margin
+      /     / a href="#" 
+      /     /   i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
+      /     / span.hint-text Show more details of APPLE . INC

@@ -20,6 +20,8 @@
                         = t_holder(:broker_config, Store)
                   hr
                   = f.input :language, as: :select, collection: model_class::LANGUAGE.map{|key, value| [I18n.t(key, scope:'language'),value]}, selected: f.object.language, placeholder: model_class.human_attribute_name(:language)
+                  hr
+                  = f.input :name, input: :string
                   = f.input :phone, input: :string
                   = f.input :address, input: :string
                   = f.input :email, input: :string

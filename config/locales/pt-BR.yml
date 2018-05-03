@@ -129,6 +129,8 @@ pt-BR:
     system:
       title: Booking Reservation System 
     common:
+      title_admin: Admin
+      title_public: Public
       closed: Finalizado
       refused: Recusado
       broker: Corretor
@@ -138,7 +140,6 @@ pt-BR:
       sign_out: Sair
       not_approved: 'Not Approved'
       confirm: 'Confirm'
-      booked: Reservado
       bought: Vendido
       accepted: Aceita
       booked: Reservado
@@ -158,9 +159,18 @@ pt-BR:
         document3: 'Comprovante de Renda'
     build:
       last_sales: 'Ultimas propostas recebidas'
+      unit: Apto
+      position: Posição
+      dormitory: Dorm
+      garege: Gar
+      box: Box
+      area_privative: 'Área Privativa m2'
+      area_common: 'Área comum m2'
+      area_total: 'Área total m2'
+      value:  Valor total
     dashboard:
-        title1: 'Unidades disponível'
-        link: 'Unidades disponível: %{units}'
+        units: 'Unidades disponível: %{units}'
+        print: 'Imprimir Tabela de Vendas'
     submit:
       next: 'Próximo passo'
   date:

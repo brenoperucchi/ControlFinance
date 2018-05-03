@@ -1,16 +1,16 @@
 class Store < ApplicationRecord
   attr_accessor :terms
+  store :settings, accessors:[:language, :broker_config, :address, :phone, :email]
 
   include SentientStore 
 
   LANGUAGE = {'pt-br': 'pt-BR', en:'en'}
 
-
-  store :settings, accessors:[:language, :broker_config, :address, :phone, :email]
   has_many :users, dependent: :destroy
   has_many :brokers, dependent: :destroy
   has_many :persons, dependent: :destroy
   has_many :builds, dependent: :destroy
+  has_many :units, :through => :builds, :source => :units
 
   accepts_nested_attributes_for :persons, allow_destroy: true
   

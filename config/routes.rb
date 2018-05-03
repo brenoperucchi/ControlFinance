@@ -27,11 +27,12 @@ Rails.application.routes.draw do
       get 'assets', on: :member
     end
 
-    resources :stores, only: [] do
+    resources :stores, only: [:show, :update] do
       resources :builds, only:[:index], shallow:true
     end
 
-    resources :builds do
+    resources :builds, only: [:sales] do
+      get 'sales', on: :collection
       resources :units, only:[:index], shallow:true do
         resources :proposals, except: [:destroy] do
           get 'booking', on: :collection

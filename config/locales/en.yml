@@ -1,9 +1,9 @@
 en:
   breadcrumb:
-    home: Inicio
+    home: Home
     proposal:
-      new: Nova Proposta
-      index: Veja as suas Propostas
+      new: New Proposal
+      index: Views Proposals
   flash:
     actions:
       create:
@@ -26,33 +26,64 @@ en:
     buyer:
       name: Nome do seu cliente (não é obrigatório)
     proposal:
-      name: Nome do seu cliente
-      value: Valor total da proposta
+      name: Customer Name
+      value: Proposal amount
       negociate: "Aqui você deve descrever a negociação.\nExemplo: valor de entrada, ato do cliente, o número de parcelamento e vencimento."
+      accepted_at: 'Accepted At: %{date}'
   views:
+    purchase_step:
+      finish:
+        irs_id: 'Security: %{value}'
+        national_id: 'ID: %{value}'
+        birthdate: 'Birth Date: %{value}'
+        occupation: 'Occupation: %{value}'
+        income: 'Income: %{value}'
+        address: 'Address: %{value}'
+        email: 'E-mail: %{value}'
+      document:
+        finish: Finish Proposal
+        title1: Favor, enviar os documentos abaixo para a empresa.
+        title2: 'Caso deseje você pode também enviar por e-mail: %{email}'
+      buyer:
+        title1: Informar os dados do cliente!
+        title2: Preencher com os dados do clientes corretamente para que possamos fazer o contrato entre a empresa e cliente.
+      proposal:
+        title1: Dear Broker your proposal was accepted!
+        title2: Você deve verificar se os dados da propostas estão corretores ao lado
+      item:  
+        proposal: Proposta
+        buyer: Comprador
+        document: Documentos
+        finish: Sua Proposta!
     header:
       dashboard: Dashboard
       setting: Settings
       brokers: Brokers
     unit:
       index:
-        proposal: "Proposal Order"
+        booked_to_broker: Booked to you
+        unit_available_html:
+          one: 'Only left <strong> %{count} </strong> unit available'
+          other: 'Only left <strong> %{count} </strong> unit available'
+        proposal_create: "Criar proposta"
     session:
       title: "Please type your e-mail for fully access"
       acceptance: "No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials."
     proposal:
       print:
         title1: Contato comercial
-        title2: Sua proposta!
+        title2: Review your proposal!
         title3: Valor da Proposta
       new:
         title1: 'Purchase propsosal of Unit %{unit} do %{build}'
-        broker_list: 'List all your proposals'
+        broker_list: 'All proposals created'
         value_reques: Base value
       pending: pending
       approved: approved
       deadline: Proposal deadline
       negociate: Negociação
+      due_at: 'Due At %{due_at}'
+      accepted_at: 'Accepted At %{date}'
     broker:
       document:
         comment: 'Talk History'
@@ -75,16 +106,22 @@ en:
     system:
       title: Booking Reservation System 
     common:
+      title_admin: Admin
+      title_public: Public
+      closed: Closed
+      refused: Refused
+      broker: Broker
       unit: Unit
       created_at: Created at
-      sign_in: Sign-out
-      sign_out: Sign-in
-      pending: 'pending'
-      approved: 'Approved'
-      not_approved: 'Not Approved'
-      confirm: 'Confirm'
-      booked: Booked
+      sign_in: Sign in
+      sign_out: Sign out
+      not_approved: Not Approved
+      confirm: Confirm
       bought: Bought
+      accepted: Accepted
+      booked: Booked
+      pending: Pending
+      approved: Approved
     document:      
       contract_print: "Print Contract"
       send_files: "Send Files"
@@ -99,6 +136,11 @@ en:
         document3 : 'Document 3'
     build:
       last_sales: 'Last proposals'
+    dashboard:
+        units: 'Units available: %{units}'
+        print: 'Print Sales table'
+    submit:
+      next: 'Next Step'
   date:
     abbr_day_names:
     - Sun
@@ -347,8 +389,11 @@ en:
     formats:
       default: "%a, %d %b %Y %H:%M:%S %z"
       long: "%B %d, %Y %H:%M"
-      short: "%d %b %H:%M"
-      unit: "%dth %b %Y"
+      short: "%b %d %H:%M"
+      short2: "%b/%d/%Y, %H:%M"
+      option1: "%b of %d %Y"
+      option2: "%B of %d %Y"
+      date: "%d/%m/%Y"
     pm: pm
   activemodel:
     errors:
@@ -359,7 +404,11 @@ en:
       proposal: 'Proposals'
     attributes:
       store:
+        name: Business name
         language: Language
+        phone: Phone
+        address: Address 
+        email: Email
       user:
         email: "e-mail"
       broker:

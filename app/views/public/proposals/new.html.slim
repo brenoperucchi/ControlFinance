@@ -89,14 +89,14 @@
             - else
             == render 'form', f: f 
             hr.line-dashed
-            .row
-              .col-lg-12
-                p Comentário da Empresa
-              - @proposal.activities.order('created_at desc').each do |activity|
-                .card.social-card.status.background-condensed data-social="item"
-                  h5
-                    span.hint-text few seconds ago
-                  h2 = activity.comment
+            / .row
+            /   .col-lg-12
+            /     p Comentário da Empresa
+            /   - @proposal.activities.order('created_at desc').each do |activity|
+            /     .card.social-card.status.background-condensed data-social="item"
+            /       h5
+            /         span.hint-text few seconds ago
+            /       h2 = activity.comment
 
             .form-group
               = f.submit nil, :class => 'btn btn-primary'

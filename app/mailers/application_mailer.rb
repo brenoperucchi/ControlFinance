@@ -1,8 +1,8 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'bperucchi@gmail.com'
+  # default from: current_store.email
   
   def dispach(options={})
-    from = options[:from] || 'bperucchi@gmail.com'
+    from = options[:from] 
     to = options[:to]
     subject = options[:subject]
     body = options[:body]

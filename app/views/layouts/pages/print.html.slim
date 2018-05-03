@@ -8,7 +8,8 @@ html
     meta content="yes" name="apple-mobile-web-app-capable" /
     meta content="yes" name="apple-touch-fullscreen" /
     meta content="default" name="apple-mobile-web-app-status-bar-style" /
-    = stylesheet_link_tag    'pages', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'pages', media: 'screen', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'pages_print', media: 'print', 'data-turbolinks-track' => true
     = javascript_include_tag 'pages', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = yield :head
@@ -17,8 +18,8 @@ html
     .page-container
       .page-content-wrapper
         .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
-          = render "layouts/pages/notification"
-          nav.hidden-sm-down.navbar.navbar-default.bg-master-lighter.sm-padding-10.full-width.p-t-0.p-b-0 role="navigation"
+          / = render "layouts/pages/notification"
+          / nav.hidden-sm-down.navbar.navbar-default.bg-master-lighter.sm-padding-10.full-width.p-t-0.p-b-0 role="navigation"
             .container-fluid.full-width
               .navbar-header.text-center
                 button.navbar-toggle.collapsed.btn.btn-link.no-padding data-target="#sub-nav" data-toggle="collapse" type="button" 
@@ -44,10 +45,9 @@ html
                             i.fa.fa-edit
                             '
                             = t('edit', scope: "helpers.links")
-          .bg-white
-            = yield
+          = yield
     = render 'layouts/pages/modal'
     = render 'layouts/pages/footer'
     = javascript_include_tag 'pages/print', 'data-turbolinks-track' => true
-javascript:
-  $(document).ready(function () { window.print(); });
+// javascript:
+//   $(document).ready(function () { window.print(); });

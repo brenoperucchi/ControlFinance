@@ -20,8 +20,12 @@ class MailerMethod::ProposalCreate < MailerMethod::Base
     print_public_proposal_path(@object)
   end
 
+  def store
+    @object.builder.store
+  end
+
   def attributes
-    {method_name: name, to: @object.broker.user.email, subject: subject, body: render, token: token, url: url, send_at: Date.today, userable:@object.broker}
+    {method_name: name, to: @object.broker.user.email, subject: subject, body: render, token: token, url: url, send_at: Date.today, userable:@object.broker, store: store}
   end
 
 end

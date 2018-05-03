@@ -20,8 +20,12 @@ class MailerMethod::ProposalAccepted < MailerMethod::Base
     public_purchase_steps_path(@object, :proposal) 
   end
 
+  def store
+    @object.unit.store
+  end
+
   def attributes
-    {method_name: name, to: @object.broker.user.email, subject: subject, body: render, token: token, url: url, send_at: Date.today, userable:@object.broker}
+    {method_name: name, to: @object.broker.user.email, subject: subject, body: render, token: token, url: url, send_at: Date.today, userable:@object.broker, store: store}
   end
 
 end
