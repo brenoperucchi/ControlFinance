@@ -21,7 +21,7 @@ class MailerMethod::ProposalAccepted < MailerMethod::Base
   end
 
   def store
-    @object.unit.store
+    @object.builder.store
   end
 
   def attributes

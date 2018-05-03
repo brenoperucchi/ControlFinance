@@ -1,8 +1,8 @@
 class Admin::Proposal < Proposal
   include PublicActivity::Common
-  attr_accessor :validated, :status
+  attr_accessor :validated, :states
 
-  validate :validate_state, if: Proc.new {|obj| obj.validated.nil? and not obj.status.nil?}
+  validate :validate_state, if: Proc.new {|obj| obj.validated.nil? and not obj.states.nil?}
   before_save :state_update
 
   private
@@ -16,13 +16,13 @@ class Admin::Proposal < Proposal
   end
 
   def validate_state
-    return true if STATUS[self.state.to_sym] == STATUS[self.status.to_sym]
+    return true if STATUS[self.state.to_sym] == self.states.to_sym
     self.validated = false
     # self.class.public_activity_off
-    if send(STATUS[status.to_sym])
+    if send(STATUS[states.to_sym])
       true
     else
-      errors.add(:status, :invalid)
+      errors.add(:states, :invalid)
     end
     # self.class.public_activity_on
   end

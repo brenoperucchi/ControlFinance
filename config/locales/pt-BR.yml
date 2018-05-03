@@ -25,7 +25,7 @@ pt-BR:
     broker:
       address: Endereço da Imobiliária ou Corretor
     store: 
-      broker_config: 'Permitir corretor ainda não aprovado crie propostas?'
+      broker_config: 'Permitir corretor não aprovado crie propostas'
     buyer:
       name: Nome do seu cliente (não é obrigatório)
     proposal:

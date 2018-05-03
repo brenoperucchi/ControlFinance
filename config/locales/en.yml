@@ -22,7 +22,7 @@ en:
   accept: 'yes'
   placeholder:
     store: 
-      broker_config: 'Allow Broker pending to make the proposals?'
+      broker_config: 'Allow Broker pending to make the proposals'
     buyer:
       name: Nome do seu cliente (não é obrigatório)
     proposal:

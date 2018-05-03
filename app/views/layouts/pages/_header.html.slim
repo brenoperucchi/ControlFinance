@@ -11,7 +11,7 @@ css:
 
 
 .header.p-r-0.bg-primary
-  .header-inner.header-md-height
+  .header-inner
     a.btn-link.toggle-sidebar.hidden-lg-up.pg.pg-menu.text-white data-toggle="horizontal-menu" href="#" 
     div
     .d-flex.align-items-center
@@ -35,7 +35,7 @@ css:
   .bg-white
     - if current_user.try(:userable).try(:admin?)
       .container
-        .menu-bar.header-sm-height data-hide-extra-li="4" data-pages-init="horizontal-menu" 
+        .menu-bar.header-sm-height data-hide-extra-li="3" data-pages-init="horizontal-menu" 
           a.btn-link.toggle-sidebar.hidden-lg-up.pg.pg-close data-toggle="horizontal-menu" href="#" 
           ul.fs-15
             li

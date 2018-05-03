@@ -112,7 +112,7 @@ class Admin::ProposalsController < Admin::BaseController
     # end
 
     def proposal_params
-      params.require(:admin_proposal).permit(:unit_id, :status, :name, :negociate, :value, :comment, :due_at, :brokerage, 
+      params.require(:admin_proposal).permit(:unit_id, :states, :name, :negociate, :value, :comment, :due_at, :brokerage, 
                             documents_attributes:[:id, :name, :approved_at, :_destroy],
                             broker_attributes:[:id, :name, user_attributes:[:id, :email]])
 
