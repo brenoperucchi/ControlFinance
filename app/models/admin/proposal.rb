@@ -16,7 +16,7 @@ class Admin::Proposal < Proposal
   end
 
   def validate_state
-    return true if STATUS[self.state.to_sym] == self.states.to_sym
+    return true if STATUS[self.state.to_sym] == self.states
     self.validated = false
     # self.class.public_activity_off
     if send(STATUS[states.to_sym])

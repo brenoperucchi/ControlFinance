@@ -7,7 +7,7 @@
     = f.input :due_at, :as => :string, input_html: { class: 'datepicker', value: localize(f.object.due_at, format: '%d/%m/%Y')}, placeholder: model_class.human_attribute_name(:due_at)
     = f.input :brokerage, placeholder: model_class.human_attribute_name(:brokerage)
   .col-md-6.col-lg-6.col-sm-6
-    = f.input :status, as: :select, collection:model_class::STATUS.map{|key,value|[I18n.t(key, scope:'views.common').upcase, key]}, selected: f.object.state, placeholder: model_class.human_attribute_name(:status)
+    = f.input :states, as: :select, collection:model_class::STATUS.map{|key,value|[I18n.t(key, scope:'views.common').upcase, key]}, selected: f.object.state, placeholder: model_class.human_attribute_name(:status)
     = f.input :value, placeholder: model_class.human_attribute_name(:value)
     = f.input :negociate, placeholder: model_class.human_attribute_name(:negociate)
 .row 

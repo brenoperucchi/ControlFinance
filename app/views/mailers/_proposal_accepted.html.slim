@@ -11,7 +11,7 @@ html xmlns="http://www.w3.org/1999/xhtml"
           tbody
             tr
               td style=("background:#00c0c8; padding:20px; color:#fff; text-align:center;") 
-                h2= I18n.t(:title, scope:'helpers.mailer.accepted')
+                h2= I18n.t(:title, scope:'helpers.mailer.accepted').upcase
         div style=("padding: 40px; background: #fff;") 
           table border="0" cellpadding="0" cellspacing="0" style=("width: 100%;") 
             tbody
@@ -20,4 +20,4 @@ html xmlns="http://www.w3.org/1999/xhtml"
                   center
                     = link_to redirect_mailer_url(token), style:"display: inline-block; padding: 11px 30px; margin: 20px 0px 30px; font-size: 15px; color: #fff; background: #fb9678;   text-decoration:none;" do
                         = I18n.t(:link, scope:'helpers.mailer.accepted').upcase
-                    h3= I18n.t(:message, scope:'helpers.mailer.accepted', date: object.due_at)
+                    h3= I18n.t(:message, scope:'helpers.mailer.accepted', date: I18n.l(object.due_at, format: :long))
