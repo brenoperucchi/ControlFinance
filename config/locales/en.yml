@@ -112,7 +112,7 @@ en:
             irs_id: 'Document of Broker/Real Estate'
             contract: 'Contract of autorization to sales'
           text:
-            irs_id: 'You should sent a document of Broker's ID and Real Estate'
+            irs_id: "You should sent a document of Broker's ID and Real Estate"
             contract: 'Contract of autorization to sales'
       document:
         comment: 'Talk History'
