@@ -4,7 +4,12 @@ en:
     proposal:
       new: New Proposal
       index: Views Proposals
+      edit: Edit Proposals
   flash:
+    custom:
+      email_sent:
+        notice: 'Email sent'
+        alert: 'Email not sent'
     actions:
       create:
         notice: "%{resource_name} was successfully created."
@@ -21,6 +26,8 @@ en:
   not_accept: 'no'
   accept: 'yes'
   placeholder:
+    broker:
+      address: Address of broker or real estate
     store: 
       broker_config: 'Allow Broker pending to make the proposals'
     buyer:
@@ -31,6 +38,15 @@ en:
       negociate: "Aqui você deve descrever a negociação.\nExemplo: valor de entrada, ato do cliente, o número de parcelamento e vencimento."
       accepted_at: 'Accepted At: %{date}'
   views:
+    admin:
+      proposal:
+        notify_all: Notify all
+      build: 
+        proposals: Proposals
+        images: Images
+        scope:
+          proposals: Active Proposals
+          proposals_expired: Expire Proposals
     purchase_step:
       finish:
         irs_id: 'Security: %{value}'
@@ -59,6 +75,7 @@ en:
       dashboard: Dashboard
       setting: Settings
       brokers: Brokers
+      finish: Your Proposal!
     unit:
       index:
         booked_to_broker: Booked to you
@@ -71,32 +88,43 @@ en:
       acceptance: "No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials."
     proposal:
       print:
-        title1: Contato comercial
+        irs_id: 'ID: %{value}'
+        company_irs_id: 'Security ID: %{value}'
+        address: 'Address: %{value}'
+        email: 'Email: %{value}'
+        title1: Business Contact 
         title2: Review your proposal!
-        title3: Valor da Proposta
+        title3: Proposal amount
       new:
         title1: 'Purchase propsosal of Unit %{unit} do %{build}'
         broker_list: 'All proposals created'
         value_reques: Base value
-      pending: pending
-      approved: approved
       deadline: Proposal deadline
       negociate: Negociação
       due_at: 'Due At %{due_at}'
       accepted_at: 'Accepted At %{date}'
+      all_proposal: 'Click to see your propsosals'
     broker:
+      revise:
+        table_sales: Sales tables
+        document:
+          attribute:
+            irs_id: 'Document of Broker/Real Estate'
+            contract: 'Contract of autorization to sales'
+          text:
+            irs_id: 'You should sent a document of Broker's ID and Real Estate'
+            contract: 'Contract of autorization to sales'
       document:
         comment: 'Talk History'
       new:
+        broker_create: "Finish Sign in"
         title1: Broker make your register here!
         title2: 'Is requested that the correspondent fill in his data and accept the terms of requirements.'
         title3: 'Company Contacts:'
         title4: 'Telephone and WhatsApp for contact: 48 99126-8808'
         title5: 'Primavera 320 Street,Conj 602, Pagani, Palhoça/SC'
-        title6: 'Zipcode 88132-100'
       revise_title1: 'There is little left for you become a broker of Elo Ventures and to start selling our products.'
       revise_title2: 'Your account is still are pending. See bellow how to solve your case.'
-      back_builds: "Price List"
       contract_print: "Print contract"
       send_files: "Send Files"
       assets: 'Files'
@@ -136,6 +164,15 @@ en:
         document3 : 'Document 3'
     build:
       last_sales: 'Last proposals'
+      unit: Apt
+      position: Position
+      dormitory: Dorm
+      garege: Gar
+      box: Box
+      area_privative: 'Área Private m2'
+      area_common: 'Área common m2'
+      area_total: 'Área total m2'
+      value:  Total amount
     dashboard:
         units: 'Units available: %{units}'
         print: 'Print Sales table'
@@ -288,8 +325,7 @@ en:
         other: "%{count} errors prohibited this %{model} from being saved"
   helpers:
     proposal:
-      update:
-        state_change: 'State change from %{from} to %{to}'
+      state_change: 'State change from %{from} to %{to}'
     mailer:
       price_list:
         title: 'Price List of Build: %{build}'
@@ -403,16 +439,58 @@ en:
       unit: Unit
       proposal: 'Proposals'
     attributes:
+      mailer:
+        to: Para
+        subject: Assunto
+        body: Corpo do E-mail
+      unit:
+        name: Imóvel
+        size: Área (m2)
+        brokerage: Comissão do Corretor
+        state: Situação
+        value: Valor
+        garage: Vaga
+        deadline: Prazo limite
+        address: Endereço
+        registry: Mátricula
+        incorporation: Incorporação
+      build:
+        name: Nome
+        address: Endereço
+        registry: Mátricula
+        incorporation: Incorporação
+        state: Situação
+        garage: Vaga
+        size: Área (m2)
+        value: Valor 
+        created_at: Criado em
+        updated_at: Atualizado em
       store:
         name: Business name
         language: Language
         phone: Phone
         address: Address 
         email: Email
+      proposal:
+        unit:  Unit
+        build: Build
+        state: Situation
+        negociate: Negociation
+        value: Value
+        due_at: Deadline
+        unit_value: Tables Sales
+        value: Value amount
+        state: Situation
+        created_at: Created at
+        updated_at: Updated at
       user:
         email: "e-mail"
       broker:
         name: 'Name'
+        address: Address
+        state: Situation
+        phone: Phone
+        irs_id: Broker ID
         option1: 'Correspondent banking will be indicated by the construction company.'
         option2: 'The broker will be responsible to request all documents to complete the bank financing.'
         option3: 'The broker will be responsible to request all documents from the client to complete the bank financing.'

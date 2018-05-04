@@ -1,7 +1,7 @@
-class MailersController < ApplicationController
+class Admin::MailersController < ApplicationController
   before_action :set_mailer, only:[:new, :create]
   respond_to :html, :xml, :json
-  layout 'elite'
+  layout 'pages'
 
   def new
     @mailer = @object.mailers.new(@method.attributes)
@@ -25,10 +25,11 @@ class MailersController < ApplicationController
       # @mailer.update_attributes(@method.attributes.merge(mailer_params))
       @mailer.update_attributes(@method.attributes.merge(to:params[:mailer][:to], subject:params[:mailer][:subject], body:params[:mailer][:body], token:params[:mailer][:token]))
       delivery = ApplicationMailer.dispach(@mailer.header).deliver
-      flash[:notice] = "Email Sent!"
-      respond_with(@mailer, location: new_mailer_path(@object.class.name, @mailer.mailable, @method.name))
+      flash[:notice] = t :notice, scope: 'flash.custom.email_sent'
+      respond_with @mailer, location: admin_builds_path
     else
-      render @method.name
+      flash[:alert] = t :alert, scope: 'flash.custom.email_sent'
+      redirect_to new_admin_mailer_path(@object.class.name, @mailer.mailable, @method.name)
     end
   end
 

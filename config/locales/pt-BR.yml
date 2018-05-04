@@ -6,6 +6,10 @@ pt-BR:
       index: Veja as suas Propostas
       edit: Editar propostas
   flash:
+    custom:
+      email_sent:
+        notice: 'E-mail enviado'
+        alert: 'E-mail não enviado'
     actions:
       create:
         notice: 'Informação criada com sucesso'
@@ -32,6 +36,7 @@ pt-BR:
       name: Nome do seu cliente
       value: Valor total da proposta
       negociate: "Aqui você deve descrever a negociação.\nExemplo: valor de entrada, ato do cliente, o número de parcelamento e vencimento."
+      accepted_at: 'Aceito em %{date}'
   views:
     admin:
       proposal:
@@ -320,7 +325,7 @@ pt-BR:
         other: 'Não foi possível gravar %{model}: %{count} erros'
   helpers:
     proposal:
-      state_change: 'State change from %{from} to %{to}'
+      state_change: 'Estado mudou de %{from} para %{to}'
     mailer:
       price_list:
         title: 'Price List of Build: %{build}'
@@ -328,27 +333,27 @@ pt-BR:
         subject: 'Price List of Build: %{build}'
         message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
       expired:
-        title: Booked Expired
-        link: Verify
-        subject: Unit %{unit} expired Today
-        message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
+        title: Reserva expirou
+        link: Faça um novo pedido de tempo
+        subject: Reserva da unidade %{unit} expirou hoje
+        message: Sua reserva expirou, caso queira você pode refazer o pedido de reserva por mais uma vez.
       accepted:
-        title: Proposal accepted
-        link: Complete with purchase
-        subject: Proposal accepted to %{unit} of %{build}
-        message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
+        title: Proposta Aceita
+        link: Clique aqui para finalizar a proposta 
+        subject: Proposta Aceita %{unit} Obra %{build}
+        message: 'O próximo passo será preencher os dados do seu cliente conosco. A validade desta proposta é até %{date}'
       create:
-        meta_title: "Proposal create to Unit %{unit}"
-        title: 'Unit %{unit} of %{build} was created a proposal' 
-        link: Analyze your proposal
-        subject: 'Proposal created to Unit %{unit} of %{build}'
+        meta_title: "Proposta criada para unidade %{unit}"
+        title1: 'Proposta da unidade %{unit} da obra %{build} criada' 
+        link: Veja a sua proposta
+        subject: 'Proposta criada para unidade %{unit} da obra %{build}'
         message: 'Vencimento para o dia: %{due_at}'
-      proposal:
-        title: 'Bid Proposal Unit'
-        subject: Reserve unit %{unit}
-        link_message: 'BOOK NOW'
-        message1: 'Lorem ipsum Labore anim laboris anim do proident sed aute reprehenderit et commodo tempor est pariatur anim minim ut fugiat.'
-        message2: 'Lorem ipsum'
+      request:
+        meta_title: "Proposta criada para unidade %{unit}"
+        title: 'Faça a sua proposta'
+        subject: Reserva de unidade %{unit}
+        link_message: 'Clique para realizar a proposta'
+        message1: Faça a sua proposta conosco
         unsubscribe: 'unsubscribe'
     titles:
       edit: Editar %{model}
@@ -368,6 +373,7 @@ pt-BR:
       print:  Imprimir
       destroy: Remover
       new: Novo
+      sendmail: Envio do E-mail
   number:
     currency:
       format:
@@ -458,7 +464,12 @@ pt-BR:
       proposal: 
         one: 'Proposta'
         other: Propostas
+      mailer: Envio de E-mail
     attributes:
+      mailer:
+        to: Para
+        subject: Assunto
+        body: Corpo do E-mail
       unit:
         name: Imóvel
         size: Área (m2)
@@ -485,6 +496,7 @@ pt-BR:
         language: Idioma
         address: Endereço que será divulgado
         phone: Telefone que será divulgado
+        email: E-mail que será divulgado
       buyer:
         name: Nome
         irs_id: Número do CPF

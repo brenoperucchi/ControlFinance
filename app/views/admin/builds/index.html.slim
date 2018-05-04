@@ -48,15 +48,15 @@
                       = t(:edit, scope: "helpers.links")
                     / = link_to t('Proposals', scope: "helpers.navigate"), admin_build_unit_proposals_path(build, unit)
                     '
-                    = link_to new_mailer_path(:unit, unit, :proposal_request), class: 'btn btn-default ' do
-                      i.pg.pg-mail
+                    = link_to new_admin_mailer_path(:unit, unit, :proposal_request), class: 'btn btn-default ' do
+                      i.fa.fa-inbox
                       '
                       = t(:email, scope: "helpers.links")
                     '     
                     = link_to admin_build_unit_path(build, unit), class: 'text-danger hidden-xs.hidden-sm', data: { confirm: 'Are you sure?' }, method: :delete do
-                      i.fa.fa-trash
-                      '
                       = t('destroy', scope: "helpers.links")
+                      / i.fa.fa-trash
+                      / '
       .p-l-25.p-b-25
         .pull-left
         / = link_to new_mailer_path(:build, build, :price_list), :class => 'pull-right btn btn-danger  hidden-xs.hidden-sm'

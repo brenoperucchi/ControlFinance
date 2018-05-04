@@ -23,7 +23,7 @@
 h3.box-title.m-b-0
   = model_class.model_name.human
 
-= simple_form_for @mailer, url: mailers_path(@mailer.mailable.class.name, @mailer.mailable, @method.name) do |f|
+= simple_form_for @mailer, url: admin_mailers_path(@mailer.mailable.class.name, @mailer.mailable, @method.name) do |f|
   .col-lg-12
     .white-box
       .row

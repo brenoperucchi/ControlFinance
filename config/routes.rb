@@ -44,7 +44,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :mailers, only: [:create, :new], path: 'mailable_type/:mailable_type/mailable_id/:mailable_id/method/:method'
   get 'token/:token', to: 'mailers#redirect', as: 'redirect_mailer'
   get 'mailer/:method', to: 'mailers#show', as: 'mailer'
 
@@ -74,5 +73,6 @@ Rails.application.routes.draw do
         end
       end
     end
+    resources :mailers, only: [:create, :new], path: '/:mailable_type/:mailable_id/:method'
   end
 end

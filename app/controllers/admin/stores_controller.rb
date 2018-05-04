@@ -4,17 +4,14 @@ class Admin::StoresController < Admin::BaseController
   respond_to :js, :html, :json
 
   def edit
+    respond_with @store
   end
 
   def update
-    respond_to do |format|
-      if @store.update(admin_store_params)
-        format.html { redirect_to edit_admin_store_path, notice: 'store was successfully updated.' }
-        format.json { render :show, status: :ok, location: [:admin, @store] }
-      else
-        format.html { render :edit }
-        format.json { render json: @store.errors, status: :unprocessable_entity }
-      end
+    if @store.update(admin_store_params)
+      respond_with @store, location: edit_admin_store_path
+    else
+      respond_with @store
     end
   end
 

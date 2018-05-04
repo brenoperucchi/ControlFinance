@@ -3,8 +3,8 @@ class Mailer < ApplicationRecord
   store :parameters, accessors:[:from, :to, :subject, :body, :mailers]
 
   belongs_to :mailable, polymorphic: true
-  belongs_to :userable, polymorphic: true, optional:true
-  belongs_to :store
+  belongs_to :userable, polymorphic: true, optional: true
+  belongs_to :store, optional: true
 
   validates_presence_of :to, :subject
 

@@ -18,6 +18,6 @@ html xmlns="http://www.w3.org/1999/xhtml"
               tr
                 td colspan="2" 
                   center
-                    = link_to redirect_mailer_url(123), style:"display: inline-block; padding: 11px 30px; margin: 20px 0px 30px; font-size: 15px; color: #fff; background: #fb9678; border-radius: 60px; text-decoration:none;" do
+                    = link_to redirect_mailer_url(123), style:"display: inline-block; padding: 11px 30px; margin: 20px 0px 30px; font-size: 15px; color: #fff; background: #fb9678; text-decoration:none;" do
                         = I18n.t(:link, scope:'helpers.mailer.expired').upcase
                     h3= I18n.t(:message, scope:'helpers.mailer.expired')
