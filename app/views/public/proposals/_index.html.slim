@@ -23,7 +23,7 @@
             td=l proposal.created_at, format: :short2
             td
 
-              = link_to print_public_proposal_path(proposal), class: 'btn' do
+              = link_to invoice_public_proposal_path(proposal), class: 'btn' do
                 i.fa.fa-print
                 '
                 = t('print', scope: "helpers.links")

@@ -17,7 +17,7 @@ class MailerMethod::ProposalCreate < MailerMethod::Base
   end
 
   def url
-    print_public_proposal_path(@object)
+    invoice_public_proposal_path(@object)
   end
 
   def store

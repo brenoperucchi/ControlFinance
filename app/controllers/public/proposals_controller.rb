@@ -2,15 +2,15 @@ class Public::ProposalsController < Public::BaseController
   layout 'pages'
   # skip_before_action :authenticate_user!, only:[:create, :update, :destroy, :expired]
   before_action :broker_set, except: [:comment, :expired]
-  before_action :proposal_set, only: [:show, :edit, :update, :destroy, :comment, :print]
+  before_action :proposal_set, only: [:show, :edit, :update, :destroy, :comment, :invoice]
   before_action :init_of_params, only: [:index, :new, :create, :booking]
-  before_action :init_of_proposal, only: [:edit, :update, :comment, :redirect_if_proposal_bought, :print, :destroy]
+  before_action :init_of_proposal, only: [:edit, :update, :comment, :redirect_if_proposal_bought, :invoice, :destroy]
   before_action :init_activities, only: [:document, :edit, :update]
-  before_action :redirect_if_proposal_bought, except: [:comment, :expired, :print]
-  before_action :redirect_if_broker_config_set, except: [:comment, :expired, :print]
+  before_action :redirect_if_proposal_bought, except: [:comment, :expired, :invoice]
+  before_action :redirect_if_broker_config_set, except: [:comment, :expired, :invoice]
   respond_to :html, :json, :js
 
-  def print
+  def invoice
     respond_with @proposal, layout: 'pages/print'
   end
 
@@ -50,7 +50,7 @@ class Public::ProposalsController < Public::BaseController
     # sign_in @proposal.broker.user if @proposal.try(:broker).try(:user).try(:persisted?)
     if not @proposal.unit.bought?
       if @proposal.save
-        respond_with @proposal, location: print_public_proposal_path(@proposal)
+        respond_with @proposal, location: invoice_public_proposal_path(@proposal)
       else
         respond_with @proposal
       end

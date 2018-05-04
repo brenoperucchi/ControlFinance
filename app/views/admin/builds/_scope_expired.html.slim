@@ -36,7 +36,7 @@
                   td= proposal.broker.user.email
                   td=localize proposal.due_at, format: :short
                   td= proposal.value
-                  td.text-uppercase= editable proposal, :status, url: admin_proposal_path(proposal), type: 'select', class: 'editable', source: model_class::STATUS.map{|key,value|{value:key, text: I18n.t(key, scope:'views.common')}}, value: proposal.state
+                  td.text-uppercase= editable proposal, :states, url: admin_proposal_path(proposal), type: 'select', class: 'editable', source: model_class::STATUS.map{|key,value|{value:key, text: I18n.t(key, scope:'views.common').upcase}}, value: proposal.state
                   td= proposal.negociate
                   td= proposal.value
                   td=localize proposal.updated_at, format: :short

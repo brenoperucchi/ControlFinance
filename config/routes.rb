@@ -38,7 +38,7 @@ Rails.application.routes.draw do
           get 'booking', on: :collection
           get 'expired', on: :member
           patch 'comment', on: :member
-          get 'print', on: :member
+          get 'invoice', on: :member
         end
       end
     end
