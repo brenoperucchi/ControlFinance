@@ -44,8 +44,8 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'token/:token', to: 'mailers#redirect', as: 'redirect_mailer'
-  get 'mailer/:method', to: 'mailers#show', as: 'mailer'
+  get 'token/:token', to: 'admin/mailers#redirect', as: 'redirect_mailer'
+  get 'mailer/:method', to: 'admin/mailers#show', as: 'mailer'
 
 
   namespace :admin do
