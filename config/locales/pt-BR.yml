@@ -82,7 +82,7 @@ pt-BR:
         unit_available_html:
           one: 'Existe <strong> %{count} </strong> unidade disponível'
           other: 'Existe <strong> %{count} </strong> unidades disponíveis'
-        proposal_create: "Criar proposta"
+        proposal_create: "Proposta ou Reserva"
     session:
       title: "Favor digitar o seu e-mail para ter acesso completo."
       acceptance: "Nenhuma parte deste site ou qualquer conteúdo pode ser reproduzido, copiado, modificado ou adaptado, sem o consentimento prévio por escrito do autor, salvo indicação em contrário para materiais autônomos."

@@ -11,7 +11,7 @@ html xmlns="http://www.w3.org/1999/xhtml"
           tbody
             tr
               td style=("background:#00c0c8; padding:20px; color:#fff; text-align:center;")
-                = I18n.t(:title1, scope:'helpers.mailer.create', unit: object.unit.name, build: object.unit.builder.name)
+                = I18n.t(:title1, scope:'helpers.mailer.create', unit: object.unit.name, build: object.unit.builder.name).upcase
         div style=("padding: 40px; background: #fff;") 
           table border="0" cellpadding="0" cellspacing="0" style=("width: 100%;") 
             tbody
