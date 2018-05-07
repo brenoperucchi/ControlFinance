@@ -287,6 +287,7 @@ pt-BR:
       year: Ano
   errors: &errors
     custom:
+        proposal_user_not_allowed: 'Usuário não permitido para essa proposta'
         proposal_accepted: 'Unidade vendida'
         proposal_restricted: "Proposta reservada ou restrita"
     format: "%{attribute} %{message}"

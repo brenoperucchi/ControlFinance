@@ -1,12 +1,13 @@
 class Public::PurchaseStepsController < Public::BaseController
   include Wicked::Wizard
-  skip_before_action :authenticate_user!, only:[:show]
-  steps :proposal, :buyer, :document, :finish, :finish2, :contract, :print
-
   layout 'pages'
 
-  before_action :set_parent, only: [:show, :update, :finish]
+  skip_before_action :authenticate_user!, only:[:show]
+  before_action :set_parent, only: [:show, :update, :finish, :restrict_proposal]
+  before_action :restrict_proposal, only:[:show]
   respond_to :html, :json
+  
+  steps :proposal, :buyer, :document, :finish, :finish2, :contract, :print
 
   def show 
     @activities = @proposal.activities.order('created_at desc')
@@ -49,6 +50,10 @@ class Public::PurchaseStepsController < Public::BaseController
   end  
 
   private
+
+  def restrict_proposal
+    redirect_to(public_dashboards_path, alert: t(:proposal_user_not_allowed, scope:'errors.custom')) if @proposal.broker != current_user.try(:userable) 
+  end
    
    def set_parent
     @name_space = :public

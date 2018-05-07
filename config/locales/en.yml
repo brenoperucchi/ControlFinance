@@ -280,6 +280,7 @@ en:
       year: Year
   errors: &errors
     custom:
+        proposal_user_not_allowed: 'This user not allowed to this Proposal'
         proposal_accepted: 'Unit already Accepted'
         proposal_restricted: "Proposal with restriction"
     format: "%{attribute} %{message}"
