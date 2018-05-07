@@ -42,32 +42,31 @@ css:
               i.pg-power
               '
               b.hidden-xs= t(:sign_in, scope: [:helpers, :common])
-  .bg-white
-    - if current_user.try(:userable).try(:admin?)
-      .container
-        .menu-bar.header-sm-height data-hide-extra-li="3" data-pages-init="horizontal-menu" 
-          a.btn-link.toggle-sidebar.hidden-lg-up.pg.pg-close data-toggle="horizontal-menu" href="#" 
-          ul.fs-15
-            li
-              = link_to t(:dashboard, scope: 'views.header'), admin_dashboards_path
-            li
-              = link_to t(:setting, scope: 'views.header'), edit_admin_store_path
-            li
-              = link_to t(:brokers, scope: 'views.header'), admin_brokers_path
-            li
-              = link_to t(:builds, scope: 'views.header'), admin_builds_path
-            / li
-            /   a href="javascript:;" 
-            /     span.title Calendar
-            /     span.arrow
-            /   ul
-            /     li
-            /       a href="calendar.html"  Basic
-            /     li
-            /       a href="calendar_lang.html"  Languages
-            /     li
-            /       a href="calendar_month.html"  Month
-            /     li
-            /       a href="calendar_lazy.html"  Lazy load
-            /     li
-            /       a href="http://pages.revox.io/dashboard/2.1.0/doc/#calendar" target="_blank"  Documentation
+  - if current_user.try(:userable).try(:admin?)
+    .container
+      .menu-bar.header-sm-height data-hide-extra-li="3" data-pages-init="horizontal-menu" 
+        a.btn-link.toggle-sidebar.hidden-lg-up.pg.pg-close data-toggle="horizontal-menu" href="#" 
+        ul.fs-15
+          li
+            = link_to t(:dashboard, scope: 'views.header'), admin_dashboards_path
+          li
+            = link_to t(:setting, scope: 'views.header'), edit_admin_store_path
+          li
+            = link_to t(:brokers, scope: 'views.header'), admin_brokers_path
+          li
+            = link_to t(:builds, scope: 'views.header'), admin_builds_path
+          / li
+          /   a href="javascript:;" 
+          /     span.title Calendar
+          /     span.arrow
+          /   ul
+          /     li
+          /       a href="calendar.html"  Basic
+          /     li
+          /       a href="calendar_lang.html"  Languages
+          /     li
+          /       a href="calendar_month.html"  Month
+          /     li
+          /       a href="calendar_lazy.html"  Lazy load
+          /     li
+          /       a href="http://pages.revox.io/dashboard/2.1.0/doc/#calendar" target="_blank"  Documentation

@@ -16,6 +16,15 @@ class FileUploader < CarrierWave::Uploader::Base
   version :fill50, :if => :is_picture? do
     process :resize_to_fill => [50, 50]
   end
+  version :fill200, :if => :is_picture? do
+    process :resize_to_fill => [200, 200]
+  end
+  version :fill400, :if => :is_picture? do
+    process :resize_to_fill => [400, 400]
+  end
+  version :fit200, :if => :is_picture? do
+    process :resize_to_fit => [200, 200]
+  end
   version :fit400, :if => :is_picture? do
     process :resize_to_fit => [400, 400]
   end

@@ -29,5 +29,5 @@
 //= require pages/skycons.js
 //= require pages/bootstrap-datepicker.js
 //= require pages/pages.min.js
-//= require pages/dashboard.js
+//= require pages/admin/dashboard_pages.js
 //= require pages/scripts.js

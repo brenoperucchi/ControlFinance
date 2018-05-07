@@ -37,5 +37,5 @@
 //= require pages/gallery.js
 //= require pages/skycons.js
 //= require pages/pages.min.js
-//= require pages/dashboard.js
+//= require pages/units_pages.js
 //= require pages/scripts.js

@@ -6,8 +6,9 @@ html
       - if user_signed_in?  
         = render 'layouts/pages/header'
       .page-content-wrapper
-        .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0.m-t-10
-          = render "layouts/pages/notification"
-          = yield
+        .content.sm-gutter
+          .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0.m-t-10
+            = render "layouts/pages/notification"
+            = yield
       = render 'layouts/pages/modal'
       = render 'layouts/pages/footer'

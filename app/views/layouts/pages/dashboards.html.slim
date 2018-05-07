@@ -1,0 +1,10 @@
+head
+  = render 'layouts/pages/html_head'
+  body.fixed-header.dashboard
+    .page-container
+      - if user_signed_in?  
+        = render 'layouts/pages/header'
+      = yield 
+    .footer
+      = javascript_include_tag "pages/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.js"]
+      = yield :footer
