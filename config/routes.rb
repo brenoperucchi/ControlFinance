@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'events/index'
+  # get 'events/index'
 
-  mount ActionCable.server => '/cable'
+  # mount ActionCable.server => '/cable'
 
   root to: "public/dashboards#index"
 

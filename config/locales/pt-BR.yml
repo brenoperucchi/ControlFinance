@@ -47,6 +47,13 @@ pt-BR:
         scope:
           proposals: Propostas ativas
           proposals_expired: Propostas Expiradas
+    dashboards:
+        widget4:
+          title1: Quantidade Propostal recebidas
+          title2: Total de propostas Recebidas
+        widget11:
+          title1: Propostal Vencidas
+          title2: Valor total
     purchase_step:
       finish:
         irs_id: 'CPF: %{value}'
@@ -82,7 +89,7 @@ pt-BR:
         unit_available_html:
           one: 'Existe <strong> %{count} </strong> unidade disponível'
           other: 'Existe <strong> %{count} </strong> unidades disponíveis'
-        proposal_create: "Proposta ou Reserva"
+        proposal_create: "Criar proposta"
     session:
       title: "Favor digitar o seu e-mail para ter acesso completo."
       acceptance: "Nenhuma parte deste site ou qualquer conteúdo pode ser reproduzido, copiado, modificado ou adaptado, sem o consentimento prévio por escrito do autor, salvo indicação em contrário para materiais autônomos."

@@ -11,6 +11,7 @@ class Store < ApplicationRecord
   has_many :persons, dependent: :destroy
   has_many :builds, dependent: :destroy
   has_many :units, :through => :builds, :source => :units
+  has_many :proposals, :through => :builds, :source => :proposals
 
   accepts_nested_attributes_for :persons, allow_destroy: true
   

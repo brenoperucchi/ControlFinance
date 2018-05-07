@@ -109,7 +109,7 @@
 
         // //Get from JSON data and build
 
-        d3.json('/min_sales_chart.json', function(data) {
+        d3.json('/json/min_sales_chart.json', function(data) {
 
             // Widget-15
             nv.addGraph(function() {
@@ -270,12 +270,12 @@
         // });
 
         // // tiles
-        // $(".widget-3 .metro").liveTile();
-        // $(".widget-7 .metro").liveTile();
+        $(".widget-3 .metro").liveTile();
+        $(".widget-7 .metro").liveTile();
 
 
-        // //NVD3 Charts
-        // d3.json('http://revox.io/json/charts.json', function(data) {
+        //NVD3 Charts
+        d3.json('/json/charts.json', function(data) {
 
         //     // line chart
         //     (function() {
@@ -365,50 +365,50 @@
         //         });
         //     })();
 
-        //     // line chart2
-        //     (function() {
-        //         nv.addGraph(function() {
-        //             var chart = nv.models.lineChart()
-        //                 .x(function(d) {
-        //                     return d[0]
-        //                 })
-        //                 .y(function(d) {
-        //                     return d[1] / 100
-        //                 })
-        //                 .color([
-        //                     $.Pages.getColor('success')
-        //                 ])
-        //                 .forceY([0, 2])
-        //                 .useInteractiveGuideline(true)
+            // line chart2
+            (function() {
+                nv.addGraph(function() {
+                    var chart = nv.models.lineChart()
+                        .x(function(d) {
+                            return d[0]
+                        })
+                        .y(function(d) {
+                            return d[1] / 100
+                        })
+                        .color([
+                            $.Pages.getColor('success')
+                        ])
+                        .forceY([0, 2])
+                        .useInteractiveGuideline(true)
 
-        //             .margin({
-        //                     top: 60,
-        //                     right: -10,
-        //                     bottom: -10,
-        //                     left: -10
-        //                 })
-        //                 .showLegend(false);
-
-
-        //             d3.select('.widget-4-chart svg')
-        //                 .datum(data.nvd3.productRevenue)
-        //                 .transition().duration(500)
-        //                 .call(chart);
+                    .margin({
+                            top: 60,
+                            right: -10,
+                            bottom: -10,
+                            left: -10
+                        })
+                        .showLegend(false);
 
 
-        //             nv.utils.windowResize(function() {
+                    d3.select('.widget-4-chart svg')
+                        .datum(data.nvd3.productRevenue)
+                        .transition().duration(500)
+                        .call(chart);
 
-        //                 chart.update();
 
-        //             });
+                    nv.utils.windowResize(function() {
 
-        //             $('.widget-4-chart').data('chart', chart);
+                        chart.update();
 
-        //             return chart;
-        //         }, function() {
+                    });
 
-        //         });
-        //     })();
+                    $('.widget-4-chart').data('chart', chart);
+
+                    return chart;
+                }, function() {
+
+                });
+            })();
 
         //     // Widget 15
 
@@ -624,7 +624,7 @@
 
         //     })();
 
-        // });
+        });
 
 
         // // Init portlets

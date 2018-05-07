@@ -17,14 +17,24 @@ css:
     .d-flex.align-items-center
       /! START User Info
       - if user_signed_in?
-        .dropdown.pull-right.b-r 
-          button.profile-dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
-            span.text-master.text-white= "Seja Bem Vindo Corretor(a) #{current_user.userable.name}" 
-          .dropdown-menu.dropdown-menu-right.profile-dropdown role="menu" 
-            = link_to destroy_user_session_path, class: 'clearfix bg-master-lighter dropdown-item header-icon', method: :delete do 
-              span.pull-left= t(:sign_out, scope: [:helpers, :links])
-              span.pull-right
-                i.pg-power
+        - unless current_user.userable.admin?
+          .dropdown.pull-right.b-r 
+            button.profile-dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
+              span.text-master.text-white= "Seja Bem Vindo Corretor(a) #{current_user.userable.name}" 
+            .dropdown-menu.dropdown-menu-right.profile-dropdown role="menu" 
+              = link_to destroy_user_session_path, class: 'clearfix bg-master-lighter dropdown-item header-icon', method: :delete do 
+                span.pull-left= t(:sign_out, scope: [:helpers, :links])
+                span.pull-right
+                  i.pg-power
+        - else
+          .dropdown.pull-right.b-r 
+            button.profile-dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
+              span.text-master.text-white= "Administrador #{current_user.userable.name}" 
+            .dropdown-menu.dropdown-menu-right.profile-dropdown role="menu" 
+              = link_to admin_destroy_session_path, class: 'clearfix bg-master-lighter dropdown-item header-icon', method: :delete do 
+                span.pull-left= t(:sign_out, scope: [:helpers, :links])
+                span.pull-right
+                  i.pg-power
       - else 
         .pull-left.p-r-10.fs-14.font-heading.hidden-md-down.m-l-20.text-white
           = link_to [:new, namespace, :session] do 

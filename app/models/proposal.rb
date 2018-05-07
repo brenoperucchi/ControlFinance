@@ -13,7 +13,9 @@ class Proposal < ApplicationRecord
   scope :not_refuse, ->{ where.not(state: 'refuse') }
   scope :bought,   ->{ where(state: ['accepted', 'closed']) }
   scope :accepted,   ->{ where(state: 'accepted') }
-  scope :expired,    ->{ where(state:'booked').where("proposals.due_at < ?", Date.today) }
+  scope :booked,   ->{ where(state: [ 'booked', 'accepted']) }
+  # scope :expired,    ->{ where(state:'booked').where("proposals.due_at < ?", Date.today) }
+  scope :expired,    ->{ where.not(:due_at => nil).where("proposals.due_at < ?", Date.today) }
 
   tracked :only =>[:update], 
           :owner      =>  proc {|controller, model| User.current.userable},
