@@ -5,18 +5,18 @@
     }
 
 - model_class = Build
-.inner
-  .row
-    .col-lg-6.col-sm-6
-      ol.breadcrumb
-        li.breadcrumb-item.active
-          = t(:home, scope: 'breadcrumb')
-    .col-lg-6.col-sm-6.text-right
-      ol.breadcrumb
-        = link_to sales_public_builds_path, :class => 'btn-cons' do
-          i.fa.fa-print
-          '
-          strong= t :print, scope: "views.dashboard"
+
+.row
+  .col-lg-6.col-sm-6
+    ol.breadcrumb
+      li.breadcrumb-item.active
+        = t(:home, scope: 'breadcrumb')
+  .col-lg-6.col-sm-6.text-right
+    ol.breadcrumb
+      = link_to sales_public_builds_path, :class => 'btn-cons' do
+        i.fa.fa-print
+        '
+        strong= t :print, scope: "views.dashboard"
 
 .sm-padding-10
   .row
@@ -40,5 +40,5 @@
                 background-size: cover;
                 max-height:270px"]
           .padding-5.text-center
-            = link_to t(:units, scope: 'views.dashboard', units: build.units.pending.count),public_build_units_path(build), class: 'btn btn btn-block m-t-10 all-caps text-lilac'
+            = link_to t(:units, scope: 'views.dashboard', units: build.units.pending.count),public_build_units_path(build), class: 'btn btn-complete btn-block m-t-10 all-caps'
             .clearfix

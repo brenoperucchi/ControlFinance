@@ -1,13 +1,24 @@
 - model_class = Build
 
-.row.bg-title
-  .col-lg-3.col-md-4.col-sm-4.col-xs-12
-    h4.page-title= t(:builds, scope:'views.header')
-  .col-lg-9.col-sm-8.col-md-8.col-xs-12
-    = link_to new_admin_build_path, :class => 'btn pull-right ', remote:true do
-      i.fa.fa-plus
-      '
-      = t('new', scope: "helpers.links")
+.row.p-l-15.p-r-15
+  .col-lg-4.col-md-4.col-sm-4.col-xs-12
+    ol.breadcrumb
+      li.breadcrumb-item
+        = t(:home, scope: 'breadcrumb')
+      li.breadcrumb-item.active
+        = t(:builds, scope:'views.header')
+  .col-lg-8.col-sm-8.col-md-8.col-xs-12
+    ol.breadcrumb.pull-right.p-t-0
+      li.inline
+        = link_to sales_public_builds_path, :class => 'btn btn-cons' do
+          i.fa.fa-print
+          '
+          = t :print, scope: "views.dashboard"
+      li.inline
+        = link_to new_admin_build_path, :class => 'btn btn-cons', remote:true do
+          i.fa.fa-plus
+          '
+          = t('newa', scope: "helpers.submit", model: model_class.model_name.human)
 - @builds.each do |build|
   .col-lg-12.col-md-12
     .card.card-default
@@ -21,18 +32,17 @@
                 = t('edit', scope: "helpers.links")
             span.pull-left
               h3.no-margin.overflow-ellipsis= build.name
-
       .card-block
         .table.responsive
           table.table.table-condensed
             thead
               tr
                 th.w-10= model_class.human_attribute_name(:name)
-                th.w-5= model_class.human_attribute_name(:garage)
-                th.w-10= model_class.human_attribute_name(:state)
+                th.w-10= model_class.human_attribute_name(:garage)
+                th.w-15= model_class.human_attribute_name(:state)
                 th= model_class.human_attribute_name(:size)
                 th= model_class.human_attribute_name(:value)
-                th=t 'actions', :scope => "helpers.links"
+                th.w-40=t 'actions', :scope => "helpers.links"
             tbody
               - build.units.each do |unit|
                 tr
@@ -42,20 +52,31 @@
                   td= number_with_precision unit.size
                   td= number_to_currency unit.value
                   td
-                    = link_to edit_admin_build_unit_path(build, unit), :class => 'btn btn-default', remote:true do
-                      i.fa.fa-trash
+                    = link_to t(:proposals, scope: "views.admin.build"), admin_build_unit_proposals_path(build, unit), class: 'btn btn-xs btn-default hidden-lg-up hidden-xlg-up'
+                    '
+                    = link_to t(:proposals, scope: "views.admin.build"), admin_build_unit_proposals_path(build, unit), class: 'btn btn-default hidden-xs-down hidden-sm-down hidden-md-down visible-md-down'
+                    '
+                    = link_to edit_admin_build_unit_path(build, unit), :class => 'btn btn-default hidden-xs-down hidden-sm-down hidden-md-down visible-md-down', remote:true do
+                      i.fa.fa-edit
                       '
                       = t(:edit, scope: "helpers.links")
-                    / = link_to t('Proposals', scope: "helpers.navigate"), admin_build_unit_proposals_path(build, unit)
                     '
-                    = link_to new_admin_mailer_path(:unit, unit, :proposal_request), class: 'btn btn-default ' do
+                    = link_to edit_admin_build_unit_path(build, unit), :class => 'hidden-lg-up hidden-xlg-up', remote:true do
+                      i.fa.fa-edit
+                    '
+                    = link_to new_admin_mailer_path(:unit, unit, :proposal_request), class: 'btn btn-default hidden-xs-down hidden-sm-down hidden-md-down visible-md-down' do
                       i.fa.fa-inbox
                       '
                       = t(:email, scope: "helpers.links")
                     '     
-                    = link_to admin_build_unit_path(build, unit), class: 'text-danger hidden-xs.hidden-sm', data: { confirm: 'Are you sure?' }, method: :delete do
+                    = link_to new_admin_mailer_path(:unit, unit, :proposal_request), class: 'hidden-lg-up hidden-xlg-up' do
+                      i.fa.fa-inbox
+                    '     
+                    = link_to admin_build_unit_path(build, unit), class: 'text-danger hidden-xs-down hidden-sm-down hidden-md-down visible-md-down', data: { confirm: 'Are you sure?' }, method: :delete do
                       = t('destroy', scope: "helpers.links")
                       / i.fa.fa-trash
+                    = link_to admin_build_unit_path(build, unit), class: 'text-danger hidden-lg-up hidden-xlg-up', data: { confirm: 'Are you sure?' }, method: :delete do
+                      i.fa.fa-trash
                       / '
       .p-l-25.p-b-25
         .pull-left
@@ -64,14 +85,14 @@
         /   '
         /   i.fa.fa-envelope
         / '
-        = link_to new_admin_build_unit_path(build), :class => 'btn btn-default  hidden-xs.hidden-sm', remote:true do
+        = link_to new_admin_build_unit_path(build), :class => 'btn btn-default', remote:true do
           i.fa.fa-plus
           '
           = t :new, scope: 'helpers.submit', :model => Unit.model_name.human.titleize
         '
         = link_to scope_admin_build_path(build, scope: :proposals), :class => 'btn btn-default  hidden-xs.hidden-sm' do
 
-          = t('proposals', scope: "views.admin.build")
+          = t(:all_proposals, scope: "views.admin.build")
         '
         = link_to assets_admin_build_path(build), :class => 'btn btn-default ', remote: true do
           i.fa.fa-image

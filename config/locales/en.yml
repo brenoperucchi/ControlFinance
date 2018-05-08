@@ -43,6 +43,7 @@ en:
         notify_all: Notify all
       build: 
         proposals: Proposals
+        all_proposals: All Proposals
         images: Images
         scope:
           proposals: Active Proposals

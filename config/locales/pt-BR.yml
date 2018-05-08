@@ -41,8 +41,9 @@ pt-BR:
     admin:
       proposal:
         notify_all: Notificar todos
-      build: 
-        proposals: Todas as Propostas
+      build:
+        proposals: Propostas 
+        all_proposals: Todas as Propostas
         images: Imagens
         scope:
           proposals: Propostas ativas
@@ -219,6 +220,7 @@ pt-BR:
     formats:
       default: "%d/%m/%Y"
       long: "%d de %B de %Y"
+      long2: "%d %b de %Y"
       short: "%d de %B"
       short2: "%B %Y"
     month_names:
@@ -370,7 +372,8 @@ pt-BR:
       prompt: Por favor selecione
     submit:
       create: Criar %{model}
-      new: Nova %{model}
+      newa: Nova %{model}
+      new: Novo %{model}
       edit: Editar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
