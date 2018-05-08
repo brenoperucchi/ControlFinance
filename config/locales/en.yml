@@ -5,6 +5,8 @@ en:
       new: New Proposal
       index: Views Proposals
       edit: Edit Proposals
+      unit: 'Unit %{model}'
+      proposals: Proposals
   flash:
     custom:
       email_sent:

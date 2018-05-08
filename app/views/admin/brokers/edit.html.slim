@@ -59,7 +59,7 @@
                   - @broker.proposals.order('created_at desc').each do |proposal|
                     tr
                       td.fs-12.b-l.b-dashed.b-grey.text-center
-                        span.font-montserrat.fs-18= proposal.unit.name
+                        span.font-montserrat.fs-18= proposal.try(:unit).try(:name)
                       td.text-center.b-l.b-dashed.b-grey
                         =t proposal.state, scope:'views.proposal'
                       td.text-right.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey

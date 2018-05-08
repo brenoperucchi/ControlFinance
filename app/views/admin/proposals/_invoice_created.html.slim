@@ -1,0 +1,94 @@
+- model_class = Proposal
+
+.card.card-default.m-t-10
+  .card-block
+    .invoice.p-t-20.p-l-50.p-r-50.p-b-20
+      div
+        .pull-left.large-text
+          address.m-t-10
+            h5.semi-bold.m-t-0= current_store.name
+            strong
+              = current_store.phone
+        .pull-right.sm-m-t-20
+          h2.font-montserrat.all-caps.hint-text= t_view(:title2, model_class, :print)
+          h4.semi-bold= t :due_at, scope:'views.proposal', due_at: I18n.l(@proposal.due_at, format: :long)
+        .clearfix
+      br/
+      br/
+      .col-12
+        .row
+          .col-lg-9.col-sm-height.sm-no-padding.large-text
+            h5.semi-bold.m-t-0= @proposal.broker.name
+            address
+              = t(:irs_id, scope: 'views.proposal.print', value: @proposal.broker.irs_id)
+              br/
+              = t(:company_irs_id, scope: 'views.proposal.print', value: @proposal.broker.company_irs_id)
+              br/
+              = t(:address, scope: 'views.proposal.print', value: @proposal.broker.address)
+              br/
+              = t(:email, scope: 'views.proposal.print', value: @proposal.broker.user.email)
+
+
+          .col-lg-3.sm-no-padding.sm-p-b-20.d-flex.align-items-end.justify-content-between
+            div
+              .font-montserrat.bold.all-caps Número :
+              .font-montserrat.bold.all-caps Data :
+              .clearfix
+            .text-right
+              div
+                | #
+                = @proposal.id
+              div= localize @proposal.created_at, format: :option2
+              .clearfix
+      .table-responsive.table-invoice
+        table.table.m-t-20
+          thead
+            tr
+              th
+              th
+          tbody
+            tr
+              td
+                address.large-text
+                  = @proposal.builder.name
+                  '
+                  | - Unidade:
+                  ' 
+                  = @proposal.unit.name
+                  br
+                  | Corretor
+                  '
+                  = @proposal.broker.name 
+                  '
+                  |- E-mail: 
+                  '
+                  = @proposal.broker.user.email
+                  br
+                  | Incorporação
+                  '
+                  = @proposal.unit.incorporation 
+                  '
+                  |- Mátricula
+                  '
+                  = @proposal.unit.registry
+                  br
+                  | Endereço
+                  '
+                  = @proposal.builder.address
+              td.text-right.bold
+                p.text-black.large-text.text-right = I18n.t :negociate, scope:'views.proposal'
+                p.large-text.text-right= @proposal.negociate
+      br/
+      br/
+      .p-l-15.p-r-15
+        .row.b-a.b-grey
+          .col-md-2.p-l-15.sm-p-t-15.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
+            h5.font-montserrat.all-caps.small.no-margin.hint-text.bold Corretagem
+            h3.no-margin 5%
+          .col-md-6.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
+            h5.font-montserrat.all-caps.small.no-margin.hint-text.bold R$
+            h3.no-margin = number_with_precision @proposal.value.to_f * (@proposal.brokerage.to_f/100)
+          .col-md-4.text-right.bg-master-darker.col-sm-height.padding-15.d-flex.flex-column.justify-content-center.align-items-end
+            h5.font-montserrat.all-caps.small.no-margin.hint-text.text-white.bold= t_view(:title3, model_class, :print)
+            h1.no-margin.text-white= number_to_currency @proposal.value
+      hr/

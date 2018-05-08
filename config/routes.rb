@@ -68,6 +68,7 @@ Rails.application.routes.draw do
       resources :units, except: [:index] do
         resources :proposals, shallow: true do 
           patch 'comment', on: :member
+          get 'invoice/:invoice', on: :member, action: 'invoice', as:'invoice'
           get 'document', on: :member
           get 'act/:act/document_id/:document_id', action: 'action', on: :member, as:'action'
         end

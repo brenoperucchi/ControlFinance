@@ -1,12 +1,17 @@
 class Admin::ProposalsController < Admin::BaseController
-  before_action :set_proposal, only: [:update, :edit, :comment, :email, :document, :action]
+  before_action :set_proposal, only: [:update, :edit, :comment, :invoice, :email, :document, :action]
   before_action :belongs_to_params, only: [:index, :new, :create]
-  before_action :belongs_to_persited, only: [:edit, :update, :comment]
+  before_action :belongs_to_persited, only: [:edit, :update, :comment, :invoice]
   # before_action :collection, only: [:create, :update]
-  before_action :set_activities, only: [:document, :comment, :edit]
+  before_action :set_activities, only: [:document, :comment, :invoice, :edit]
   respond_to :html, :xml, :json, :js
 
   # /Custom Action
+
+
+  def invoice
+    respond_with @proposal, layout: 'pages/admin/print'
+  end
 
   def comment
     if @proposal.update(proposal_params)

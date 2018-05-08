@@ -23,6 +23,19 @@
               i.fa.fa-edit
               '
               = t('edit', scope: "helpers.links")
+            '
+            - if proposal.accepted?
+              = link_to invoice_admin_proposal_path(proposal, invoice: :accepted), class: 'btn' do 
+                i.fa.fa-print
+                '
+                = t('print', scope: "helpers.links")  
+            - else
+              = link_to invoice_admin_proposal_path(proposal, invoice: :created), class: 'btn' do 
+                i.fa.fa-print
+                '
+                = t('print', scope: "helpers.links")
+            
+            '
             - if proposal.accepted? or proposal.closed?
               '
               = link_to t('Document', scope: "helpers.links"), document_admin_proposal_path(proposal)

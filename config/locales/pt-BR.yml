@@ -5,6 +5,8 @@ pt-BR:
       new: Nova Proposta
       index: Veja as suas Propostas
       edit: Editar propostas
+      unit: 'Unidade %{model}'
+      proposals: Propostas 
   flash:
     custom:
       email_sent:

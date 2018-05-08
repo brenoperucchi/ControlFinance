@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    meta content="text/html;charset=UTF-8" http-equiv="content-type" /
+    meta charset="utf-8" /
+    title ConstruWeb
+    meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no" name="viewport" /
+    meta content="yes" name="apple-mobile-web-app-capable" /
+    meta content="yes" name="apple-touch-fullscreen" /
+    meta content="default" name="apple-mobile-web-app-status-bar-style" /
+    = stylesheet_link_tag    'pages', media: 'screen', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'pages_print', media: 'print', 'data-turbolinks-track' => true
+    = javascript_include_tag 'pages', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+    = yield :head
+    = stylesheet_link_tag    'pages/print', media: 'all', 'data-turbolinks-track' => true
+  body.fixed-header.menu-pin
+    .page-container
+      .page-content-wrapper
+        .container-fluid.container-fixed-lg.sm-p-l-0.sm-p-r-0
+          = render "layouts/pages/notification"
+          nav.hidden-sm-down.navbar.navbar-default.bg-master-lighter.sm-padding-10.full-width.p-t-0.p-b-0 role="navigation"
+            .container-fluid.full-width
+              .navbar-header.text-center
+                button.navbar-toggle.collapsed.btn.btn-link.no-padding data-target="#sub-nav" data-toggle="collapse" type="button" 
+                  i.pg.pg-more.v-align-middle
+              #sub-nav.collapse.navbar-collapse
+                .row
+                  .col-sm-4
+                    ul.navbar-nav.d-flex.flex-row
+                      li.nav-item
+                        a data-placement="bottom" data-toggle="tooltip" href="javascript:print()" title="" 
+                          i.fa.fa-print
+                          '
+                          = t('print', scope: "helpers.links")
+                      li.nav-item
+                        = link_to back_url, :class => ''
+                          i.fa.fa-sign-out
+
+                          '
+                          = t('back', scope: "helpers.links")
+          = yield
+    = render 'layouts/pages/modal'
+    = render 'layouts/pages/footer'
+    = javascript_include_tag 'pages/print', 'data-turbolinks-track' => true
+javascript:
+  $(document).ready(function () { window.print(); });

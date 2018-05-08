@@ -1,10 +1,19 @@
+.row.p-l-15.p-r-15
+  .col-lg-4.col-md-4.col-sm-4.col-xs-12
+    ol.breadcrumb
+      li.breadcrumb-item.active
+        = link_to '#' do
+          '
+          = t(:home, scope: 'breadcrumb')
+
+
 .page-container
   /! START PAGE CONTENT WRAPPER
   .page-content-wrapper
     /! START PAGE CONTENT
     .content.sm-gutter
       /! START CONTAINER FLUID
-      .container-fluid.padding-25.sm-padding-10
+      .container-fluid.p-l-25.p-r-25.sm-padding-10
         /! START ROW
         .row
           .col-lg-12

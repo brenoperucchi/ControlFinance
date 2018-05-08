@@ -1,17 +1,39 @@
 - model_class = Proposal
 
+.row.p-l-15.p-r-15
+  .col-lg-4.col-md-4.col-sm-4.col-xs-12
+    ol.breadcrumb
+      li.breadcrumb-item
+        = link_to admin_dashboards_path do
+          '
+          = t(:home, scope: 'breadcrumb')
+      li.breadcrumb-item
+        = link_to admin_builds_path(@build) do
+          '
+          = @build.name
+      li.breadcrumb-item
+        = link_to admin_builds_path(@build) do
+          '
+          = t :unit, scope: 'breadcrumb.proposal', model: @unit.name
+      li.breadcrumb-item.active
+        = t :proposals, scope:'breadcrumb.proposal'
+
+
 .card.card-default
   .card-header
-    h3.no-margin.overflow-ellipsis= model_class.model_name.human
+    span.pull-left
+      h4.no-margin.overflow-ellipsis= model_class.model_name.human
+    span.pull-right
+      = link_to new_admin_build_unit_proposal_path(@build, @unit), :class => 'btn btn-info pull-right'
+        i.fa.fa-plus
+        '
+        = t('new', scope: "helpers.links")
+
   .card-block
       == render "index", proposal:@proposal, model_class:model_class, unit:@unit, collection:@collection
       hr
       .div
-        = link_to new_admin_build_unit_proposal_path(@build, @unit), :class => 'btn btn-info pull-right'
-          i.fa.fa-plus
-          '
-          = t('new', scope: "helpers.links")
-        = link_to admin_builds_path, :class => 'btn', :class => 'btn pull-left' do
+        = link_to admin_builds_path, class: 'btn pull-left' do
           i.fa.fa-mail-forward
           '
           =t('back', scope: "helpers.links")
