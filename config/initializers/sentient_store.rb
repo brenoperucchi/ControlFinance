@@ -1,7 +1,20 @@
+module SentientStoreController
+  def self.included(base)
+    base.class_eval do
+      helper_method :current_store
+    end
+  end
+  def current_store
+    store = Store.all.detect{|s| s.url == request.subdomain}
+    store ||= Store.last
+  end
+end
+
 module SentientStore
   
   def self.included(base)
-    base.class_eval {
+    base.class_eval do
+
       def self.current
         Thread.current[:store]
       end
@@ -19,6 +32,6 @@ module SentientStore
       def current?
         !Thread.current[:store].nil? && self.id == Thread.current[:store].id
       end
-    }
+    end
   end
 end

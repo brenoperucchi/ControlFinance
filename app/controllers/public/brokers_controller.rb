@@ -25,6 +25,8 @@ class Public::BrokersController < Public::BaseController
 
   def create
     @broker = Broker.new(public_broker_params)
+    @broker.department = 'user'
+    @broker.person_type = 'person'
     if @broker.save
       respond_with @broker, location: revise_public_broker_path(@broker), layout:'layouts/pages/broker'
     else

@@ -1,4 +1,5 @@
 class Public::SessionsController < Devise::SessionsController
+  include SentientStoreController
 
   skip_before_action :require_no_authentication, only:[:create]
 
@@ -24,9 +25,9 @@ class Public::SessionsController < Devise::SessionsController
   def create
     email = params[:user][:email]
     @resource = resource_class.new(sign_in_params)
-    @resource.validate_off = true
+    # @resource.validate_off = true
     # referer = stored_location_for(resource) || request.referer || root_path
-    user = User.find_by_email(email)
+    user = User.where(email: email , store: current_store).take
     if not @resource.valid?
       render :new
     elsif user.nil?

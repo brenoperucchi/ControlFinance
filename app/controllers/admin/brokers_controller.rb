@@ -24,6 +24,8 @@ class Admin::BrokersController < Admin::BaseController
 
   def create
     @broker = current_store.brokers.new(admin_broker_params)
+    @broker.department = 'user'
+    @broker.person_type = 'person'
     @broker.validate_off = true
     respond_to do |format|
       if @broker.save

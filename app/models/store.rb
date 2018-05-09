@@ -1,6 +1,6 @@
 class Store < ApplicationRecord
   attr_accessor :terms
-  store :settings, accessors:[:language, :broker_config, :address, :phone, :email]
+  store :settings, accessors:[:language, :broker_config, :address, :phone, :email, :url]
 
   include SentientStore 
 

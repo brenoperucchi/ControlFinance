@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   validates_format_of      :email, with: Devise::email_regexp, allow_blank: true 
   validates_presence_of    :email#, :on => :create
-  validates_uniqueness_of  :email, on: :create, scope: [:store_id], unless: -> {validate_off}
+  validates_uniqueness_of  :email, on: :create, scope: [:store_id]#, unless: -> {validate_off}
   # validates :password, :email, presence: true, on: :create, unless: Proc.new {|x| !x.uid.blank?}
   # validates_confirmation_of :password
   # validates_length_of       :password, :within => 4..8, :allow_blank => false

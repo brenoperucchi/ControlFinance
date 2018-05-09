@@ -5,9 +5,9 @@
 (1..2).each do |i|
   store = Store.create(name: "store #{i}", language:'pt-BR')
   person = store.persons.create(name: "Person #{i}", department:'admin', person_type:'person', active:1)
-  person.create_user(email: "admin#{i}@test.com", password: 123123)
+  person.create_user(email: "admin#{i}@test.com", password: 123123, store: store)
   @broker = store.brokers.create(name: "Broker #{i}", department:'user', person_type:'person', active:1, option1: '1', option2: '1', option3: '1', option4: '1', option5: '1', option6: '1', address: 'Address', phone: 'Phone' , company_irs_id: 'company_irs_id', irs_id: "IRS ID #{i}")
-  @broker.create_user(email: "test#{i}@test.com", password: 123123)
+  @broker.create_user(email: "test#{i}@test.com", password: 123123, store: store)
   @broker.user.make_current
   @broker.approve
 end

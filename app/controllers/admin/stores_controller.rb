@@ -15,13 +15,12 @@ class Admin::StoresController < Admin::BaseController
     end
   end
 
-
   private
     def set_admin_store
       @store = current_store
     end
 
     def admin_store_params
-      params.require(:store).permit(:broker_config, :language, :address, :phone, :email, :name)
+      params.require(:store).permit(:broker_config, :language, :address, :phone, :email, :name, :url)
     end
 end

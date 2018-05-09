@@ -1,5 +1,6 @@
 class Public::BaseController < ApplicationController
   include PublicActivity::StoreController
+  include SentientStoreController
 
   layout 'elite'
   protect_from_forgery with: :null_session
@@ -29,11 +30,4 @@ class Public::BaseController < ApplicationController
     end
   end
 
-  def current_store
-    ## TODO MODIFY AFTER BETA TEST
-    ## this should have baseline with subdomain in http
-    param = params[:store_id] || 1
-    param = current_user.userable.store.id if user_signed_in?
-    Store.current = Store.find_by_id(param)
-  end
 end
