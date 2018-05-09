@@ -84,11 +84,11 @@ javascript:
       mode: 'inline',
       showbuttons: false,
       error: function(response, newValue) { 
-        var error_msgs = []
+        var string = ''
         $.each(response.responseJSON.errors, function(key, value){ 
-          error_msgs.push(key+' '+value)
+          string = string + '<li>'+ value +'</li>'
         })
-        return error_msgs.join("; ");
+        $('.editable-error-block').html("<ul class='no-style'>" + string + "</ul>")
       }
     })
   })

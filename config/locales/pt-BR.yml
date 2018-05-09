@@ -151,7 +151,7 @@ pt-BR:
       broker: Corretor
       unit: Unidade
       created_at: Criado em
-      sign_in: Login
+      sign_in: Entrar
       sign_out: Sair
       not_approved: 'Not Approved'
       confirm: 'Confirm'
@@ -290,9 +290,14 @@ pt-BR:
       second: Segundo
       year: Ano
   errors: &errors
+    models:
+      admin/proposal:
+        attributes:
+          state:
+            invalid_transition: Situação não válida
     custom:
         proposal_user_not_allowed: 'Usuário não permitido para essa proposta'
-        proposal_accepted: 'Unidade vendida'
+        proposal_accepted: 'Unidade já vendida'
         proposal_restricted: "Proposta reservada ou restrita"
     format: "%{attribute} %{message}"
     messages:
@@ -463,7 +468,13 @@ pt-BR:
     errors:
       <<: *errors
   activerecord:
+    admin/proposal:
+      attributes:
+        state: Situação
     models:
+      admin/proposal:
+        one: Proposta
+        other: Propostas
       build: 
         one: Obra
         other: Obras
@@ -479,6 +490,8 @@ pt-BR:
         other: Propostas
       mailer: Envio de E-mail
     attributes:
+      admin/proposal:
+        state: Situação
       mailer:
         to: Para
         subject: Assunto
@@ -531,7 +544,8 @@ pt-BR:
         created_at: Criado em
         updated_at: Atualizado em
       user:
-        email: "e-mail"
+        email: "E-Mail"
+        password: "Senha"
       broker:
         name: 'Nome'
         address: Endereço

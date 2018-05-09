@@ -11,9 +11,9 @@ class Proposal < ApplicationRecord
   after_create :mailer_created
 
   scope :not_refuse, ->{ where.not(state: 'refuse') }
-  scope :bought,   ->{ where(state: ['accepted', 'closed']) }
+  scope :bought,     ->{ where(state: ['accepted', 'closed']) }
   scope :accepted,   ->{ where(state: 'accepted') }
-  scope :booked,   ->{ where(state: [ 'booked', 'accepted']) }
+  scope :booked,     ->{ where(state: [ 'booked', 'accepted']) }
   # scope :expired,    ->{ where(state:'booked').where("proposals.due_at < ?", Date.today) }
   scope :expired,    ->{ where.not(:due_at => nil).where("proposals.due_at < ?", Date.today) }
 
@@ -27,11 +27,11 @@ class Proposal < ApplicationRecord
                    :update => proc {|model, controller| !model.comment.blank? }
                  }
 
-  has_many :activitys,   class_name: 'Activity',   as: :recipentable
-  has_many :mailers,   class_name: 'Mailer',   as: :mailable
-  has_many :buyers,    class_name: 'Buyer',    dependent: :nullify 
-  has_many :assets,    class_name: "Asset",    as: :assetable, dependent: :destroy
-  has_many :documents, class_name: "Document", as: :documentable, dependent: :destroy
+  has_many :activitys,   class_name: 'Activity',   as: :recipentable, dependent: :destroy
+  has_many :mailers,     class_name: 'Mailer',     as: :mailable, dependent: :destroy
+  has_many :buyers,      class_name: 'Buyer',      dependent: :destroy 
+  has_many :assets,      class_name: "Asset",      as: :assetable, dependent: :destroy
+  has_many :documents,   class_name: "Document",   as: :documentable, dependent: :destroy
   belongs_to :unit, optional: true
   belongs_to :broker, optional: true
   has_one :builder, through: :unit, source: :builder
@@ -50,9 +50,9 @@ class Proposal < ApplicationRecord
     after_transition any  => [:booked, :accepted],     do: :update_states
     after_transition any  => :closed,                  do: :update_states
     after_transition [:booked, :accepted, :closed] => :pending, do: :update_to_pending
-    before_transition :pending => :booked,             do: :restrict_booked?
+    before_transition [:pending, :refused] => :booked,          do: :restrict_accepted_booked?
     before_transition any - :booked => :closed,        do: :restrict_closed?
-    before_transition any - :booked => :accepted,      do: :restrict_accepted?
+    before_transition any - :booked => :accepted,      do: :restrict_accepted_booked?
 
     event :pending do
       transition [:refused, :booked, :accepted, :closed] => :pending
@@ -63,30 +63,21 @@ class Proposal < ApplicationRecord
     end
 
     event :book do
-      transition [:pending] => :booked
+      transition [:refused, :pending] => :booked
     end
 
     event :accept do 
-      transition [:pending, :booked, :closed] => :accepted
+      transition [:refused, :booked, :pending, :closed] => :accepted
     end
 
     event :close do
-      transition [:booked, :accepted] => :closed
+      transition [:refused, :booked, :pending, :accepted] => :closed
     end
 
-    state :pending do
-      def restrict_booked?(state)
+    state all do
+      def restrict_accepted_booked?(state)
         if unit.booked? or unit.bought?
-          self.errors.add(:state, I18n.t(:proposal_accepted, scope:'errors.custom'))
-          return false 
-        end        
-      end
-    end
-
-    state all - [:booked, :accepted] do
-      def restrict_accepted?(state)
-        if unit.booked? or unit.bought?
-          self.errors.add(:state, I18n.t(:proposal_accepted, scope:'errors.custom'))
+          self.errors.add(:states, I18n.t(:proposal_accepted, scope:'errors.custom'))
           return false
         end
       end
@@ -95,7 +86,7 @@ class Proposal < ApplicationRecord
     state all - [:booked, :closed] do
       def restrict_closed?(state)
         if unit.bought?
-          self.errors.add(:state, I18n.t(:proposal_accepted, scope:'errors.custom'))
+          self.errors.add(:states, I18n.t(:proposal_accepted, scope:'errors.custom'))
           return false 
         end
       end

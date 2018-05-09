@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   root to: "public/dashboards#index"
 
+  devise_scope :user do
+    get '/admin/',   to: 'admin/sessions#new'
+  end
+
   devise_for :users, controllers:{
     sessions: "public/sessions",
   }
@@ -50,6 +54,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     devise_scope :user do
+      get '/admin/',   to: 'sessions#new'
       get 'login',   to: 'sessions#new',    as: 'new_session'
       post 'login',  to: 'sessions#create', as: 'session'
       delete 'logout',  to: 'sessions#destroy', as: 'destroy_session'

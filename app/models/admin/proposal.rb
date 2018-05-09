@@ -16,15 +16,12 @@ class Admin::Proposal < Proposal
   end
 
   def validate_state
-    return true if STATUS[self.state.to_sym] == self.states.to_sym
+    return true if self.state.to_sym == self.states.to_sym
     self.validated = false
     # self.class.public_activity_off
     if send(STATUS[states.to_sym])
       true
-    else
-      errors.add(:states, :invalid)
     end
     # self.class.public_activity_on
   end
-
 end

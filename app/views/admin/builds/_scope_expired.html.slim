@@ -59,26 +59,15 @@
         = t :notify_all, scope: 'views.admin.proposal'
 javascript:
   $(function(){
-    $('.editable_button').editable({
-      mode: 'popup',
-      showbuttons: true,
-      error: function(response, newValue) { 
-        var error_msgs = []
-        $.each(response.responseJSON, function(key, value){ 
-          error_msgs.push(key+' '+value)
-        })
-        return error_msgs.join("; ");
-      }
-    })
     $('.editable').editable({
       mode: 'inline',
       showbuttons: false,
       error: function(response, newValue) { 
-        var error_msgs = []
+        var string = ''
         $.each(response.responseJSON.errors, function(key, value){ 
-          error_msgs.push(key+' '+value)
+          string = string + '<li>'+ value +'</li>'
         })
-        return error_msgs.join("; ");
+        $('.editable-error-block').html("<ul class='no-style'>" + string + "</ul>")
       }
     })
   })

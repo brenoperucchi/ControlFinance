@@ -14,6 +14,7 @@ html
     = csrf_meta_tags
     = yield :head
   body.fixed-header.menu-pin
-    = yield
-= javascript_include_tag "pages/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.js"]
-= yield :footer
+    .page-container
+      = yield
+      = render "layouts/pages/notification"
+      = render 'layouts/pages/footer'

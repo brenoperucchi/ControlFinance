@@ -50,6 +50,13 @@ en:
         scope:
           proposals: Active Proposals
           proposals_expired: Expire Proposals
+    dashboards:
+        widget4:
+          title1: Proposal received
+          title2: Proposal amount received
+        widget11:
+          title1: Proposals expire
+          title2: Amount
     purchase_step:
       finish:
         irs_id: 'Security: %{value}'
@@ -282,6 +289,11 @@ en:
       second: Seconds
       year: Year
   errors: &errors
+    models:
+      admin/proposal:
+        attributes:
+          state:
+            invalid_transition: State invalid
     custom:
         proposal_user_not_allowed: 'This user not allowed to this Proposal'
         proposal_accepted: 'Unit already Accepted'
