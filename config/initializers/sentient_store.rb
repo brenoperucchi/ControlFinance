@@ -1,29 +1,29 @@
-module RestrictStore
+# module RestrictStore
 
-  def self.included(base)
-    base.send :extend, ClassMethods
-    base.class_eval do
-      before_action :restrict_store_filter
+#   def self.included(base)
+#     base.send :extend, ClassMethods
+#     base.class_eval do
+#       before_action :restrict_store_filter
 
-      def restrict_store_filter
-        if current_store |= instance_variable_get("@#{self.class.store_restrict.to_s}").store
-          redirect_to public_dashboards_path, alert: "Store not allowed"
-        end
-      end
-    end
-  end
+#       def restrict_store_filter
+#         if current_store |= instance_variable_get("@#{self.class.store_restrict.to_s}").store
+#           redirect_to public_dashboards_path, alert: "Store not allowed"
+#         end
+#       end
+#     end
+#   end
 
-  module ClassMethods
+#   module ClassMethods
 
-    def restrict_store(method_name)
-      @object_store = method_name.to_s
-    end
+#     def restrict_store(method_name)
+#       @object_store = method_name.to_s
+#     end
 
-    def store_restrict
-      @object_store
-    end
-  end
-end
+#     def store_restrict
+#       @object_store
+#     end
+#   end
+# end
 
 
 module SentientStoreController
