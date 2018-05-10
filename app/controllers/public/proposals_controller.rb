@@ -55,7 +55,7 @@ class Public::ProposalsController < Public::BaseController
         respond_with @proposal
       end
     else
-      redirect_if_restriction
+      redirect_if_proposal_bought
     end
   end
 
@@ -108,15 +108,18 @@ class Public::ProposalsController < Public::BaseController
     end
 
     def redirect_if_proposal_bought
-      return true unless @unit.proposal_bought.present?
-      proposal = @unit.proposal_bought
-      if current_user.try(:userable).is_a?(Broker) and proposal.broker == @broker
-        if proposal.try(:accepted?)
-          redirect_to public_purchase_steps_path(proposal)
-        elsif proposal.try(:closed?)
-          redirect_to finish_public_purchase_steps_path(proposal)
+      if @unit.proposal_bought.present?
+        proposal = @unit.proposal_bought
+        if current_user.try(:userable).is_a?(Broker) and proposal.broker == @broker
+          if proposal.try(:accepted?)
+            redirect_to public_purchase_steps_path(proposal)
+          elsif proposal.try(:closed?)
+            redirect_to finish_public_purchase_steps_path(proposal)
+          end
+        else
+          redirect_to public_build_units_path(@unit.builder), alert: t(:proposal_restricted, scope:'errors.custom')
         end
-      else
+      elsif @unit.bought?
         redirect_to public_build_units_path(@unit.builder), alert: t(:proposal_restricted, scope:'errors.custom')
       end
     end
