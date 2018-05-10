@@ -1,6 +1,6 @@
 class Public::UnitsController < Public::BaseController
-  before_action :set_build, only: [:index, :edit, :new, :create, :purchase]
-  layout 'pages'
+  before_action :set_build, only: :index
+  before_action :check_store
   respond_to :html, :js, :json
   # include RestrictStore
   # restrict_store :build
@@ -14,8 +14,12 @@ class Public::UnitsController < Public::BaseController
 
   private
 
+  def check_store
+    redirect_to(public_dashboards_path, alert: 'Unit not allowed') if @build.nil?
+  end
+
   def set_build
-    @build = current_store.builds.find(params[:build_id])
+    @build = current_store.builds.find_by_id(params[:build_id])
   end
 
 end

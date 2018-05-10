@@ -1,6 +1,4 @@
 class Public::BrokersController < Public::BaseController
-  layout 'pages'
-
   skip_before_action :authenticate_user!, only:[:new, :create, :update, :revise]
   before_action :set_public_broker, only: [:contract, :revise, :update, :assets]
   respond_to :html, :json, :js

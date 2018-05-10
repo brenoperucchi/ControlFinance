@@ -6,7 +6,7 @@
       .modal-header.p-b-10
           button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
           h4.modal-title
-            =t 'new', scope: 'helpers.titles', :model => model_class.model_name.human.titleize
+            =t 'newa', scope: 'helpers.submit', :model => model_class.model_name.human.titleize
       .modal-body
         == render 'form', f:f
       .modal-footer

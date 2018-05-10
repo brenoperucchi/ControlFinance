@@ -1,4 +1,5 @@
-   class Unit < ApplicationRecord
+class Unit < ApplicationRecord
+  STATES = {pending: 'pending', booked:'book', bought:'buy'}
 
   store :information, accessors:[:name, :garage, :deadline, :registry, :incorporation]
 

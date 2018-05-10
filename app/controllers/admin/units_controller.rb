@@ -1,5 +1,5 @@
 class Admin::UnitsController < ApplicationController
-  before_action :set_build, only: [:index, :edit, :new, :create, :purchase]
+  before_action :set_build, only: [:index, :edit, :update, :new, :create, :purchase]
   before_action :set_unit, only: [:show, :edit, :update, :destroy, :purchase]
   respond_to :html, :json, :js
 
@@ -85,6 +85,6 @@ class Admin::UnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_unit_params
-      params.require(:unit).permit(:name, :value, :size, :build_id, :garage, :brokerage, :deadline, :registry, :incorporation)
+      params.require(:unit).permit(:name, :value, :size, :build_id, :garage, :brokerage, :deadline, :registry, :incorporation, :state)
     end
 end

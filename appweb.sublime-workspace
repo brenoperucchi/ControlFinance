@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"Prpos",
+				"Propostas"
+			],
+			[
+				"obje",
+				"object_store"
+			],
+			[
+				"prpo",
+				"proposal"
+			],
+			[
+				"respon",
+				"respond_with"
+			],
+			[
+				"props",
+				"proposta"
+			],
+			[
+				"btn-",
+				"btn-danger"
+			],
+			[
+				"hm",
+				"hmt\thas_many (through)"
+			],
+			[
 				"crea",
 				"created_at"
 			],
@@ -14,10 +42,6 @@
 			[
 				"validate",
 				"validate_off"
-			],
-			[
-				"props",
-				"propostas"
 			],
 			[
 				"item",
@@ -34,10 +58,6 @@
 			[
 				"text",
 				"large-text"
-			],
-			[
-				"hm",
-				"hm\thas_many"
 			],
 			[
 				"ac",
@@ -224,10 +244,6 @@
 				"within"
 			],
 			[
-				"prpo",
-				"proposal_broker"
-			],
-			[
 				"public",
 				"public_builds_path"
 			],
@@ -326,10 +342,6 @@
 			[
 				"have",
 				"have_text"
-			],
-			[
-				"btn-",
-				"btn-primary"
 			],
 			[
 				"params",
@@ -502,18 +514,6 @@
 			[
 				"other",
 				"other_supplier"
-			],
-			[
-				"exp",
-				"expeq\texpect(obj).to eq(value)"
-			],
-			[
-				"Ledger",
-				"LedgerLinesSupplier"
-			],
-			[
-				"ex",
-				"exp\texpect(subject).to something"
 			]
 		]
 	},
@@ -527,29 +527,33 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 149.0,
-		"last_filter": "dupli",
+		"height": 392.0,
+		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"new file",
+				"File: New File Relative to Current View"
+			],
+			[
+				"logg",
+				"Snippet: logger.debug"
+			],
+			[
+				"dul",
+				"File: Duplicate"
+			],
+			[
+				"dup",
+				"File: Duplicate"
+			],
 			[
 				"dupli",
 				"File: Duplicate"
 			],
 			[
-				"conver",
-				"HTML2Slim: Convert clipboard content"
-			],
-			[
-				"delete",
-				"File: Delete"
-			],
-			[
-				"duplo",
-				"AngularJS: Toggle - Disable Built-in Element Completions"
-			],
-			[
-				"new file",
-				"File: New File Relative to Current View"
+				"dupl",
+				"File: Duplicate"
 			],
 			[
 				"rename",
@@ -560,12 +564,36 @@
 				"File: Duplicate"
 			],
 			[
-				"new",
-				"File: New File Relative to Current View"
+				"slim",
+				"Set Syntax: Ruby Slim"
 			],
 			[
-				"dupl",
-				"File: Duplicate"
+				"conver",
+				"HTML2Slim: Convert clipboard content"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"dee",
+				"File: Delete"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"duplo",
+				"AngularJS: Toggle - Disable Built-in Element Completions"
+			],
+			[
+				"new",
+				"File: New File Relative to Current View"
 			],
 			[
 				"valida",
@@ -584,10 +612,6 @@
 				"Set Syntax: Ruby on Rails"
 			],
 			[
-				"slim",
-				"HTML2Slim: Convert clipboard content"
-			],
-			[
 				"new ",
 				"File: New File Relative to Current View"
 			],
@@ -598,10 +622,6 @@
 			[
 				"newfile",
 				"File: New File Relative to Current View"
-			],
-			[
-				"dele",
-				"File: Delete"
 			],
 			[
 				"duplicate",
@@ -618,10 +638,6 @@
 			[
 				"renam",
 				"File: Rename"
-			],
-			[
-				"move",
-				"File: Move"
 			],
 			[
 				"new cu",
@@ -678,10 +694,6 @@
 			[
 				"lorem",
 				"LoremIpsum: (200) stick shake"
-			],
-			[
-				"dup",
-				"File: Duplicate"
 			],
 			[
 				"new cur",
@@ -1030,18 +1042,6 @@
 			[
 				"paclage",
 				"Package Control: Install Package"
-			],
-			[
-				"set hm",
-				"Set Syntax: HTML (Rails)"
-			],
-			[
-				"xml",
-				"Set Syntax: XML"
-			],
-			[
-				"respo",
-				"Snippet: assert_response"
 			]
 		],
 		"width": 484.0
@@ -1070,158 +1070,181 @@
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/admin",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/public",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/admin",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/public",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/site",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/test"
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps"
 	],
 	"file_history":
 	[
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/locales/pt-BR.yml",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/brokers/_form.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/base_controller.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/proposals_controller.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/_scope_proposals.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/admin/proposals.scss",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/admin/builds.scss",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/admin/proposals.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/admin/builds.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/_index.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/_form.html.slim",
-		"/Users/brenoperucchi/Downloads/02 - Developer/pages-3.0.0/demo/html/condensed/index.html",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/index.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/edit.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/builds_controller.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/initializers/assets.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/edit.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/index.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/new.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/brokers/edit.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/brokers/index.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/_scope_expired.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/_form.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/test/controllers/admin/builds_controller_test.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/index.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/_index.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/new.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/custom.scss",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/_new.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/units/_edit.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/new.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/units/_new.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/units/new.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/units/edit.js.erb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/index.json.jbuilder",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/units/_form.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/_header.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/_booking.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/units/new.js.erb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/brokers/revise.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/new.js.erb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/assets.js.erb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/public/brokers.scss",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/elite/admin/builds.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/stylesheets/pages/pages.css",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/_html_head.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/javascripts/pages/charts.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/units_controller.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/units/index.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/public/units.scss",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/public/units.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/Gemfile",
-		"/Users/brenoperucchi/Downloads/02 - Developer/pages-3.0.0/demo/html/condensed/charts.html",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/application.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/public/min_sales_chart.json",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/javascripts/pages/dashboard.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/_finish.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/print.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/print.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/_footer.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/print.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/default.scss",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/stylesheets/pages/font-awesome.min.css",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/public/dashboards.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/units_controller.rb",
-		"/Users/brenoperucchi/Downloads/02 - Developer/pages-3.0.0/demo/html/condensed/assets/js/dashboard-map.json",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/dashboards/index.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages.css",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/public/dashboards.scss",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/unit.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/buyer.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/document.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/proposal.html.slim",
-		"//Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/print.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/brokers/contract.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/finish.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/store.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/edit.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/sessions_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/initializers/sentient_store.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/proposal.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/build.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/purchase_steps_controller.rb",
-		"/Users/brenoperucchi/Downloads/02 - Developer/pages-3.0.0/demo/html/condensed/invoice.html",
-		"/Users/brenoperucchi/Downloads/02 - Developer/pages-3.0.0/demo/html/condensed/form_elements.html",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/locales/en.yml",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/_form_buyer.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/routes.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/buyer.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/_form.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/spec/factories/buyers.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/public/purchase_steps.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/public/purchase_steps.scss",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/proposals_controller.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/elite/public/purchase_steps.scss",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/application_controller.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/contract.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/public/assets/pages/public/brokers-359d65679d7c4b1b6c19814686410b23cafd146a30118ebc69e29f750da04323.css",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/_documents.html.slim",
-		"/Users/brenoperucchi/Downloads/02 - Developer/pages-3.0.0/demo/html/condensed/form_wizard.html",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/print.scss",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/proposal_create.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/public/assets/application-466538b883cc07dc05904e07c2aee662d83a9828fd0e0a8f5cff30c8b6691a14.css",
-		"/Users/brenoperucchi/Downloads/02 - Developer/pages-3.0.0/demo/html/casual/form_elements.html",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/proposal_accepted.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/stores_controller.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/_contract.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/base.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/environments/production.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/deploy/production.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/stylesheets/pages/font-awesome.css",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/_form_disable.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps/_form_uploader.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/document.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/db/seeds.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/initializers/simple_form_bootstrap.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/javascripts/pages/form_wizard.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/brokers_controller.rb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/locales/simple_form.en.yml",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/locales/simple_form.pt-BR.yml",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/public/brokers.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/elite/public/purchase_steps.js",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/sessions/new.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/user.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/brokers/edit.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/_scope_proposals.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/edit.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/_scope_partial.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/units_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/_form.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/unit.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/admin/proposal.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/proposals_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/_index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/new.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/_scope_expired.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/activity.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/empty.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/sessions_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages.html.slim",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/sessions/new.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/locales/pt-BR.yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/locales/en.yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/buyer.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/routes.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/social.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/Gemfile",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/_footer.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/locales/devise.pt-BR.yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/environments/development.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/base_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/store.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/builds_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/builds_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/stores_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/stores/edit.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/sessions_controller.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/brokers/new.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/broker.html.slim"
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/brokers_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/user.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/broker.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/brokers_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/brokers/_form.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/db/seeds.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/dashboards/index.html.slim",
+		"//Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/brokers/edit.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/dashboards/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/custom.scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/_invoice_accepted.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/admin/print.html.slim",
+		"/Users/brenoperucchi/Downloads/02 - Developer/pages-3.0.0/demo/html/condensed/index.html",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/invoice.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals/_invoice_created.html.slim",
+		"//Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/base_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/proposal_accepted.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/stylesheets/pages/bootstrap.min.css",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/_header.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/uploaders/file_uploader.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/dashboards.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/dashboards_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/javascripts/pages/units_pages.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/public/units.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/public/dashboards.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/admin/dashboards.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/javascripts/pages/dashboard_pages.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/javascripts/pages/admin/dashboard_pages.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/initializers/assets.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/admin/dashboards.scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/public/dashboards.scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/purchase_steps_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/_html_head.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/dashboards_controller.rb",
+		"/Users/brenoperucchi/Downloads/02 - Developer/pages-3.0.0/demo/html/condensed/social.html",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/proposal_accepted[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/proposal_create.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/proposal_create[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/proposals_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public/proposals_controller[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/stores_controller[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/proposal_request.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer_method/proposal_request[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/proposals_controller[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/new.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/_form.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/admin/base_controller.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/javascripts/pages/dashboard.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/default.scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/admin/stores.js",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor/assets/stylesheets/pages/pages.css",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/_scope_proposals.html[Conflict].slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/_scope_expired.html[Conflict].slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/expired.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals/expired.html[Conflict].slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/builds/sales.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/builds/sales.html[Conflict].slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/units/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/units/index.html[Conflict].slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/stores/edit.html[Conflict].slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds/index.html[Conflict].slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/mailers/application_mailer.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/mailers/application_mailer[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/admin/proposal[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/stylesheets/pages/custom[Conflict].scss",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/locales/pt-BR[Conflict].yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/initializers/assets[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/mailer[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/routes[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/store[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/unit[Conflict].rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/locales/en[Conflict].yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/mailers/_proposal_create.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/mailers/_proposal_expired.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/mailers/_proposal_request.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/asset.rb",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/mailers/proposal_request.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/mailers/_proposal_accepted.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/units/index.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/database.yml",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages/print.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/brokers/new.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/common/chat.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/application.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/mailers (1)/proposal_request.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/mailers/price_list.html.slim",
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/mailers (1)/price_list.html.slim"
 	],
 	"find":
 	{
-		"height": 46.0
+		"height": 47.0
 	},
 	"find_in_files":
 	{
-		"height": 122.0,
+		"height": 125.0,
 		"where_history":
 		[
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/, *.rb",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/, *.slim",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/, *.rb",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/, *.slim",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public, *.slim",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public, *.rb",
@@ -1326,29 +1349,6 @@
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *css",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *css",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.css",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.scss",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.js",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *css",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb"
 		]
 	},
@@ -1357,134 +1357,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			":status",
-			" hidden-xs.hidden-sm waves-effect waves-light",
-			"btn-rounded btn-outline",
-			"ti-trash.inline",
-			":title => t('show', :scope => 'helpers.links')",
-			"created_at",
-			":status",
-			":statis",
-			":state",
-			"i18n",
-			"i18n.",
-			".state",
-			"state",
-			"view.",
-			".scope",
-			"scope",
-			"model_class",
-			":create",
+			"i.fa.fa-mail-forward",
+			"back",
+			"validate_state",
+			"restrict_closed",
+			"=|",
+			"|=",
+			"restrict_accepted_booked",
+			"restrict_closed",
+			"$('.editable').editable({",
+			"restrict_accepted",
+			"        if unit.booked? or unit.bought?",
+			"        if unit.booked? or unit.bought?\n          self.errors.add(:states, I18n.t(:proposal_accepted, scope:'errors.custom'))\n          return false \n",
+			"      def restrict_booked?(state)\n        if unit.booked? or unit.bought?\n          self.errors.add(:states, I18n.t(:proposal_accepted, scope:'errors.custom'))\n          return false \n        end        \n      end\n",
+			"      def restrict_booked?(state)\n        if unit.booked? or unit.bought?\n          self.errors.add(:states, I18n.t(:proposal_accepted, scope:'errors.custom'))\n          return false \n        end        \n",
+			"unidade",
+			"ven",
+			"restrict_accepted",
+			"restrict_accepted?",
+			"update_states",
+			"update_to_pending",
+			"update_states",
+			"update_to_pending",
+			"refuse",
+			"proposal_accepted",
+			",",
+			"no-style",
+			"errors",
+			"INVALID_TRANSITION",
+			"INVALID_TRANSITION\nINVALID_TRANSITION",
+			"INVALID_TRANSITION",
+			"object_store",
+			"restrict_store_filter",
+			"config.action_dispatch.tld_length",
+			"public_dashboards_path",
+			"validate_off",
+			"SentientStore",
+			"current_store",
+			"Store.current",
+			"||=",
+			"def current_store",
+			"ol.breadcrumb",
+			":print",
 			"action",
-			"helpers",
-			"Propostas",
-			":title => t('show', :scope => 'helpers.links')",
-			"focus",
-			"btn-outline",
-			"waves-effect waves-light",
-			"hidden-xs.hidden-sm",
-			"idden-xs.hidden-sm",
-			"btn-info",
-			"btn-rounded",
-			"widget 16",
-			"widget",
-			"Widget",
-			"widget-16",
-			".json",
-			"loader",
-			"images/",
-			"assets/img/",
-			"img/",
-			"img/profiles",
-			"succeed",
-			"widget-14",
-			"widget-8",
-			"svg",
-			"widget-8-chart",
-			".widget-8-chart",
-			"widget-8",
-			".json",
-			"widget-8-chart",
-			"weekly",
-			"-6",
-			"rickshaw-realtime",
-			"sparkline",
-			"graph",
-			"12",
-			"light sm",
-			"control",
-			"rickshaw",
-			"stack",
-			"unit.address",
-			":address",
-			"#rootwizard.m-t-50",
-			"title",
-			"title1",
-			"buyers.first",
-			"purchase_step.finish",
+			":comment",
 			"purchase_step",
-			"breadcrum",
-			"dashboards_path",
-			"dashboard_path",
-			"dashboard",
-			"state",
-			"due_at:",
-			"builder",
-			"accepted",
-			"builder",
-			"unit",
-			"proposal",
-			".state",
-			"build",
-			".state",
-			"state",
-			"Reservado",
-			"proposal",
-			".state",
-			"value",
-			"input_html:",
-			".state",
-			"title1",
-			"t_view",
-			"base_salary",
-			":base_salary",
-			"base_salary",
-			"income",
-			"base_salary",
-			"income",
-			"->",
-			"validate",
-			"datepicker",
-			"datepicker3",
-			"bg-white",
-			"hidden",
+			"purchase_Step",
 			"print",
-			"javascript:print()",
-			"contract_print",
-			"contrato",
-			"Proposta",
-			"finalizar",
-			".hidden-md-down",
-			"hidden-md-down",
-			"hidde",
-			"hidden",
-			"print",
-			"Imprimir Contrato",
-			" li\n",
-			" li",
-			"li",
-			".inline",
-			"inline",
-			"pull-right",
-			"btn-cons",
-			"breadcr",
-			"public_build",
-			"bread",
-			"breadc",
-			"text-primary",
-			"text-blue",
-			"mailer_created",
-			"set_defaults"
+			"print_",
+			"propostas",
+			"proposal",
+			"unidade",
+			"btn btn-cons",
+			"proposals",
+			"visible",
+			"hidden-md",
+			"hidden-",
+			"proposals",
+			"proposta",
+			"proposal",
+			"propostas",
+			"proposals",
+			".human",
+			"-text.small",
+			"text.small",
+			"format: ",
+			"chart.upda",
+			"200",
+			"widgeGGt-18",
+			"js",
+			"= succeed",
+			"assets/img/",
+			"feed",
+			"assets/img/",
+			"feed",
+			"step",
+			"assets/img/",
+			"feed",
+			"assets/img/",
+			"feed",
+			"custom",
+			"redirect_to ",
+			"set_parent",
+			"or_",
+			"propostas",
+			"scope",
+			"scope_",
+			"scope",
+			"widget 1",
+			"widget-1",
+			"web",
+			"widget 1",
+			"feather",
+			"dashboards",
+			"\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\" />",
+			"\" rel=\"stylesheet\" type=\"text/css\" media=\"screen\">",
+			"/jquery-scrollbar/",
+			"\" rel=\"stylesheet\" type=\"text/css\" />",
+			"<link href=\"assets/plugins/",
+			"/models/",
+			"<script src=\"assets/js/",
+			"\"></script>",
+			"\" type=\"text/javascript\"></script>",
+			"/rickshaw/",
+			"/mapplic/js/",
+			"/src/",
+			"/nvd3/",
+			"/tether/js/",
+			"/jquery-ui/",
+			"/jquery/",
+			"/pace/",
+			"<script src=\"assets/plugins/",
+			".json",
+			"//= require ",
+			"\" type=\"text/javascript\"></script>",
+			"<script src=\"assets/plugins/nvd3/",
+			"pages_hero.jpg",
+			"/images/pages/dashboard/pages_hero.jpg",
+			"/assets/img/",
+			"assets",
+			"/assets",
+			"assets/img",
+			"assets/img/",
+			"assets/img/social",
+			"mg/social-post-image.png",
+			"pages_hero",
+			"= succeed",
+			"succeed",
+			" | "
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -1492,6 +1492,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			" ",
 			"fa.fa-trash",
 			"pages_form_default",
 			"link_to t('back', scope: \"helpers.links\")",
@@ -1609,7 +1610,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 34.0
+		"height": 35.0
 	},
 	"input":
 	{
@@ -1635,7 +1636,7 @@
 		"cols":
 		[
 			0.0,
-			0.528756735801,
+			0.47275511778,
 			1.0
 		],
 		"rows":
@@ -1665,7 +1666,7 @@
 	"project": "appweb.sublime-project",
 	"replace":
 	{
-		"height": 64.0
+		"height": 66.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1675,516 +1676,516 @@
 		"selected_items":
 		[
 			[
-				"brokerform",
-				"app/views/admin/brokers/_form.html.slim"
-			],
-			[
-				"buildcss",
-				"app/assets/stylesheets/pages/admin/builds.scss"
-			],
-			[
-				"asset",
-				"config/initializers/assets.rb"
-			],
-			[
-				"buildjs",
-				"app/assets/javascripts/pages/admin/builds.js"
-			],
-			[
-				"buildedit",
-				"app/views/admin/builds/edit.html.slim"
-			],
-			[
-				"basecontro",
-				"app/controllers/admin/base_controller.rb"
-			],
-			[
-				"propsalcontor",
-				"app/controllers/admin/proposals_controller.rb"
-			],
-			[
-				"propsaledit",
+				"proposal edit",
 				"app/views/admin/proposals/edit.html.slim"
 			],
 			[
-				"",
+				"scope",
 				"app/views/admin/builds/_scope_proposals.html.slim"
 			],
 			[
-				"brokeedit",
-				"app/views/admin/brokers/edit.html.slim"
+				"admin proposal index",
+				"app/views/admin/proposals/_index.html.slim"
 			],
 			[
-				"buildcontro",
-				"app/controllers/admin/builds_controller.rb"
+				"proposal contro",
+				"app/controllers/admin/proposals_controller.rb"
 			],
 			[
-				"customcss",
-				"app/assets/stylesheets/pages/custom.scss"
+				"admin proposal",
+				"app/models/admin/proposal.rb"
 			],
 			[
-				"proposalindex",
-				"app/views/public/proposals/index.html.slim"
-			],
-			[
-				"buildindex",
-				"app/views/admin/builds/index.html.slim"
-			],
-			[
-				"scopeex",
-				"app/views/admin/builds/_scope_expired.html.slim"
-			],
-			[
-				"_new",
-				"app/views/admin/builds/_new.html.slim"
-			],
-			[
-				"unitnew",
-				"app/views/admin/units/_new.html.slim"
-			],
-			[
-				"unitform",
-				"app/views/admin/units/_form.html.slim"
-			],
-			[
-				"new.js.rb",
-				"app/views/admin/units/new.js.erb"
-			],
-			[
-				"brokercss",
-				"app/assets/stylesheets/pages/public/brokers.scss"
-			],
-			[
-				"revise",
-				"app/views/public/brokers/revise.html.slim"
-			],
-			[
-				"custom",
-				"app/assets/stylesheets/pages/custom.scss"
-			],
-			[
-				"pageshad",
-				"app/views/layouts/pages/_header.html.slim"
-			],
-			[
-				"pagshea",
-				"app/views/layouts/pages/_html_head.html.slim"
-			],
-			[
-				"pages.css",
-				"vendor/assets/stylesheets/pages/pages.css"
-			],
-			[
-				"pt",
-				"config/locales/pt-BR.yml"
-			],
-			[
-				"pageshead",
-				"app/views/layouts/pages/_header.html.slim"
-			],
-			[
-				"brokeindex",
-				"app/views/admin/brokers/index.html.slim"
-			],
-			[
-				"print",
-				"app/views/layouts/pages/print.html.slim"
-			],
-			[
-				"pagesprint",
-				"app/views/layouts/pages/print.html.slim"
-			],
-			[
-				"pages.js",
-				"app/assets/javascripts/pages.js"
-			],
-			[
-				"pagedefualt",
-				"app/assets/stylesheets/pages/default.scss"
-			],
-			[
-				"print.js",
-				"app/assets/javascripts/pages/print.js"
-			],
-			[
-				"prin",
-				"app/views/public/proposals/print.html.slim"
-			],
-			[
-				"finish",
-				"app/views/public/purchase_steps/_finish.html.slim"
-			],
-			[
-				"font",
-				"vendor/assets/stylesheets/pages/font-awesome.min.css"
-			],
-			[
-				"gem",
-				"Gemfile"
-			],
-			[
-				"aplication.rb",
-				"config/application.rb"
-			],
-			[
-				"pagesfooter",
-				"app/views/layouts/pages/_footer.html.slim"
-			],
-			[
-				"head",
-				"app/views/layouts/pages/_html_head.html.slim"
-			],
-			[
-				"unitcontro",
-				"app/controllers/public/units_controller.rb"
-			],
-			[
-				"unitscss",
-				"app/assets/stylesheets/pages/public/units.scss"
-			],
-			[
-				"dashboard.js",
-				"vendor/assets/javascripts/pages/dashboard.js"
-			],
-			[
-				"dashboard",
-				"app/assets/javascripts/pages/public/dashboards.js"
-			],
-			[
-				"units.js",
-				"app/assets/javascripts/pages/public/units.js"
-			],
-			[
-				"unitindex",
-				"app/views/public/units/index.html.slim"
-			],
-			[
-				"dashobaindex",
-				"app/views/public/dashboards/index.html.slim"
-			],
-			[
-				"pages",
-				"app/assets/stylesheets/pages.css"
-			],
-			[
-				"units.css",
-				"app/assets/stylesheets/pages/public/units.scss"
-			],
-			[
-				"unitjs",
-				"app/assets/javascripts/pages/public/units.js"
-			],
-			[
-				"application.rb",
-				"config/application.rb"
-			],
-			[
-				"chart",
-				"vendor/assets/javascripts/pages/charts.js"
-			],
-			[
-				"dashboardjs",
-				"app/assets/javascripts/pages/public/dashboards.js"
-			],
-			[
-				"dashboardindex",
-				"app/views/public/dashboards/index.html.slim"
-			],
-			[
-				"dashbordindex",
-				"app/views/public/dashboards/index.html.slim"
-			],
-			[
-				"unticontro",
-				"app/controllers/admin/units_controller.rb"
-			],
-			[
-				"unit",
-				"app/models/unit.rb"
-			],
-			[
-				"store.rb",
-				"app/models/store.rb"
-			],
-			[
-				"proposa",
-				"app/models/proposal.rb"
-			],
-			[
-				"route",
-				"config/routes.rb"
-			],
-			[
-				"buildform",
-				"app/views/admin/builds/_form.html.slim"
-			],
-			[
-				"buldcontro",
-				"app/controllers/admin/builds_controller.rb"
-			],
-			[
-				"buid",
-				"app/models/build.rb"
-			],
-			[
-				"buyer.rb",
-				"app/models/buyer.rb"
-			],
-			[
-				"buyer",
-				"app/models/buyer.rb"
+				"activi",
+				"app/models/activity.rb"
 			],
 			[
 				"proposal",
 				"app/models/proposal.rb"
 			],
 			[
-				"purchassetep",
-				"app/assets/stylesheets/pages/public/purchase_steps.scss"
-			],
-			[
-				"pirchasestep",
-				"app/assets/stylesheets/elite/public/purchase_steps.scss"
-			],
-			[
-				"purchas",
-				"app/assets/javascripts/pages/public/purchase_steps.js"
-			],
-			[
-				"proposalcontr",
-				"app/controllers/public/proposals_controller.rb"
-			],
-			[
-				"appli",
+				"appl",
 				"app/controllers/application_controller.rb"
 			],
 			[
-				"defa",
-				"app/assets/stylesheets/pages/default.scss"
+				"unti.rb",
+				"app/models/unit.rb"
 			],
 			[
-				"documenthtml",
-				"app/views/public/purchase_steps/document.html.slim"
+				"proposa rb",
+				"app/models/proposal.rb"
 			],
 			[
-				"odcument",
-				"app/views/admin/proposals/_documents.html.slim"
+				"en",
+				"config/locales/en.yml"
 			],
 			[
-				"step",
-				"app/controllers/public/purchase_steps_controller.rb"
+				"buyer",
+				"app/models/buyer.rb"
 			],
 			[
-				"proposalnew",
-				"app/views/public/proposals/new.html.slim"
-			],
-			[
-				"print.",
-				"app/assets/stylesheets/pages/print.scss"
-			],
-			[
-				"proposalcontro",
-				"app/controllers/public/proposals_controller.rb"
+				"proosal",
+				"app/models/proposal.rb"
 			],
 			[
 				"unit.rb",
 				"app/models/unit.rb"
 			],
 			[
-				"en.",
-				"config/locales/en.yml"
+				"prposaol form",
+				"app/views/admin/proposals/_form.html.slim"
 			],
 			[
-				"proposal.rb",
+				"proposal rb",
 				"app/models/proposal.rb"
 			],
 			[
-				"accep",
-				"app/models/mailer_method/proposal_accepted.rb"
-			],
-			[
-				"production.rb",
-				"config/environments/production.rb"
-			],
-			[
-				"base.rb",
-				"app/models/mailer_method/base.rb"
-			],
-			[
-				"storecontro",
-				"app/controllers/admin/stores_controller.rb"
-			],
-			[
-				"fontaswcss",
-				"vendor/assets/stylesheets/pages/font-awesome.css"
-			],
-			[
-				"fontcss",
-				"vendor/assets/stylesheets/pages/font-awesome.min.css"
-			],
-			[
-				"proposalhtml",
-				"app/views/public/purchase_steps/proposal.html.slim"
-			],
-			[
-				"purchsestep",
-				"app/controllers/public/purchase_steps_controller.rb"
-			],
-			[
-				"document",
-				"app/views/public/purchase_steps/document.html.slim"
-			],
-			[
-				"seed",
-				"db/seeds.rb"
-			],
-			[
-				"purchastep",
-				"app/assets/javascripts/pages/public/purchase_steps.js"
-			],
-			[
-				"simpleform",
-				"config/initializers/simple_form_bootstrap.rb"
-			],
-			[
-				"purchasestep",
-				"app/assets/javascripts/pages/public/purchase_steps.js"
-			],
-			[
-				"from",
-				"vendor/assets/javascripts/pages/form_wizard.js"
-			],
-			[
-				"purchasejs",
-				"app/assets/javascripts/elite/public/purchase_steps.js"
-			],
-			[
-				"purchasstepcontro",
-				"app/controllers/public/purchase_steps_controller.rb"
-			],
-			[
-				"purchasstepprops",
-				"app/views/public/purchase_steps/proposal.html.slim"
-			],
-			[
-				"brokerindex",
-				"app/views/admin/brokers/index.html.slim"
-			],
-			[
-				"propsal_index",
-				"app/views/public/proposals/_index.html.slim"
-			],
-			[
-				"propsalindex",
+				"proposal index",
 				"app/views/admin/proposals/_index.html.slim"
 			],
 			[
-				"index",
-				"app/views/admin/brokers/index.html.slim"
+				"gemf",
+				"Gemfile"
 			],
 			[
-				"proosa",
-				"app/models/proposal.rb"
+				"admin proposa",
+				"app/models/admin/proposal.rb"
 			],
 			[
-				"sessionnew",
-				"app/views/public/sessions/new.html.slim"
+				"pages footer",
+				"app/views/layouts/pages/_footer.html.slim"
+			],
+			[
+				"pages hmtl",
+				"app/views/layouts/pages.html.slim"
+			],
+			[
+				"pages empty",
+				"app/views/layouts/pages/empty.html.slim"
+			],
+			[
+				"session contr",
+				"app/controllers/admin/sessions_controller.rb"
+			],
+			[
+				"pt-br",
+				"config/locales/pt-BR.yml"
+			],
+			[
+				"devise",
+				"config/locales/devise.pt-BR.yml"
+			],
+			[
+				"session new",
+				"app/views/admin/sessions/new.html.slim"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"deve",
+				"config/environments/development.rb"
+			],
+			[
+				"store.rb",
+				"app/models/store.rb"
+			],
+			[
+				"unit contor",
+				"app/controllers/public/units_controller.rb"
+			],
+			[
+				"build contro",
+				"app/controllers/public/builds_controller.rb"
+			],
+			[
+				"develop",
+				"config/environments/development.rb"
+			],
+			[
+				"senti",
+				"config/initializers/sentient_store.rb"
+			],
+			[
+				"base contro",
+				"app/controllers/public/base_controller.rb"
+			],
+			[
+				"unit contro",
+				"app/controllers/public/units_controller.rb"
 			],
 			[
 				"user.rb",
 				"app/models/user.rb"
 			],
 			[
-				"sessioncontro",
+				"borker r.b",
+				"app/models/broker.rb"
+			],
+			[
+				"broker contro",
+				"app/controllers/admin/brokers_controller.rb"
+			],
+			[
+				"broker new",
+				"app/views/public/brokers/new.html.slim"
+			],
+			[
+				"broker form",
+				"app/views/admin/brokers/_form.html.slim"
+			],
+			[
+				"appli",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"user",
+				"app/models/user.rb"
+			],
+			[
+				"sent",
+				"config/initializers/sentient_store.rb"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"seed",
+				"db/seeds.rb"
+			],
+			[
+				"session",
 				"app/controllers/public/sessions_controller.rb"
 			],
 			[
-				"proposacont",
-				"app/controllers/public/proposals_controller.rb"
+				"store edit",
+				"app/views/admin/stores/edit.html.slim"
 			],
 			[
-				"proposal.",
-				"app/models/proposal.rb"
+				"store contro",
+				"app/controllers/admin/stores_controller.rb"
 			],
 			[
-				"pagebroker",
-				"app/views/layouts/pages/broker.html.slim"
+				"dashboard index",
+				"app/views/admin/dashboards/index.html.slim"
 			],
 			[
-				"contrac",
-				"app/views/public/brokers/contract.html.slim"
+				"propsol contro",
+				"app/controllers/admin/proposals_controller.rb"
 			],
 			[
-				"lightcss",
-				"vendor/assets/stylesheets/pages/light.min.css"
+				"",
+				"app/views/admin/builds/index.html.slim"
 			],
 			[
-				"pages.min",
-				"vendor/assets/javascripts/pages/pages.min.js"
+				"bootstrap.min.css",
+				"vendor/assets/stylesheets/pages/bootstrap.min.css"
 			],
 			[
-				"defaul",
-				"app/assets/stylesheets/pages/default.scss"
+				"build index",
+				"app/views/admin/builds/index.html.slim"
 			],
 			[
-				"layoutbroker",
-				"app/views/layouts/pages/broker.html.slim"
-			],
-			[
-				"brokercontro",
-				"app/controllers/public/brokers_controller.rb"
-			],
-			[
-				"pagesbroker",
-				"app/views/layouts/pages/broker.html.slim"
-			],
-			[
-				"contract",
-				"app/views/public/brokers/_contract.html.slim"
-			],
-			[
-				"untiindex",
-				"app/views/public/units/index.html.slim"
-			],
-			[
-				"defau",
-				"app/assets/stylesheets/pages/default.scss"
-			],
-			[
-				"pagedef",
-				"app/assets/stylesheets/pages/default.scss"
-			],
-			[
-				"page.s",
-				"app/assets/stylesheets/pages.css"
-			],
-			[
-				"pagedefaut",
-				"app/assets/stylesheets/pages/default.scss"
-			],
-			[
-				"pagedefault",
-				"app/assets/stylesheets/pages/default.scss"
-			],
-			[
-				"cusotm",
+				"custom css",
 				"app/assets/stylesheets/pages/custom.scss"
 			],
 			[
-				"page.css",
-				"app/assets/stylesheets/pages.css"
+				"pt",
+				"config/locales/pt-BR.yml"
+			],
+			[
+				"custom",
+				"app/assets/stylesheets/pages/custom.scss"
+			],
+			[
+				"hae",
+				"app/views/layouts/pages/_header.html.slim"
+			],
+			[
+				"dashboard pages",
+				"vendor/assets/javascripts/pages/dashboard_pages.js"
+			],
+			[
+				"admin dashboard js",
+				"app/assets/javascripts/pages/admin/dashboards.js"
+			],
+			[
+				"page dashboard js",
+				"app/assets/javascripts/pages/public/dashboards.js"
+			],
+			[
+				"unit js",
+				"app/assets/javascripts/pages/public/units.js"
+			],
+			[
+				"dashboard js",
+				"vendor/assets/javascripts/pages/dashboard.js"
+			],
+			[
+				"file up",
+				"app/uploaders/file_uploader.rb"
+			],
+			[
+				"fi",
+				"app/uploaders/file_uploader.rb"
+			],
+			[
+				"pages ",
+				"app/views/layouts/pages.html.slim"
 			],
 			[
 				"header",
 				"app/views/layouts/pages/_header.html.slim"
 			],
 			[
-				"ow",
-				"vendor/assets/stylesheets/pages/owl.carousel.css"
+				"dashboard css",
+				"app/assets/stylesheets/pages/admin/dashboards.scss"
 			],
 			[
-				"galler",
-				"vendor/assets/javascripts/pages/gallery.js"
+				"dahsboard contro",
+				"app/controllers/public/dashboards_controller.rb"
+			],
+			[
+				"dashnb",
+				"app/controllers/admin/dashboards_controller.rb"
+			],
+			[
+				"head htm",
+				"app/views/layouts/pages/_html_head.html.slim"
+			],
+			[
+				"pages html",
+				"app/views/layouts/pages.html.slim"
+			],
+			[
+				"dashboards contro",
+				"app/controllers/admin/dashboards_controller.rb"
+			],
+			[
+				"pages.js",
+				"app/assets/javascripts/pages.js"
+			],
+			[
+				"dashboards js",
+				"app/assets/javascripts/pages/public/dashboards.js"
+			],
+			[
+				"pagesdashbaordjs",
+				"app/assets/javascripts/pages/public/dashboards.js"
+			],
+			[
+				"purchasestep",
+				"app/controllers/public/purchase_steps_controller.rb"
+			],
+			[
+				"proposalrb",
+				"app/models/proposal.rb"
+			],
+			[
+				"buildcontro",
+				"app/controllers/public/builds_controller.rb"
+			],
+			[
+				"maileracc",
+				"app/models/mailer_method/proposal_accepted.rb"
+			],
+			[
+				"proposalcre",
+				"app/models/mailer_method/proposal_create.rb"
+			],
+			[
+				"controlerpropos",
+				"app/controllers/public/proposals_controller.rb"
+			],
+			[
+				"storecontroller",
+				"app/controllers/admin/stores_controller.rb"
+			],
+			[
+				"proposalrequest",
+				"app/models/mailer_method/proposal_request.rb"
+			],
+			[
+				"proosalconflic",
+				"app/controllers/admin/proposals_controller[Conflict].rb"
+			],
+			[
+				"proposalcontro",
+				"app/controllers/admin/proposals_controller.rb"
+			],
+			[
+				"proposalform",
+				"app/views/public/proposals/_form.html.slim"
+			],
+			[
+				"proposalnew",
+				"app/views/public/proposals/new.html.slim"
+			],
+			[
+				"store",
+				"app/models/store.rb"
+			],
+			[
+				"dashboardjs",
+				"vendor/assets/javascripts/pages/dashboard.js"
+			],
+			[
+				"sessioncontro",
+				"app/controllers/admin/sessions_controller.rb"
+			],
+			[
+				"head",
+				"app/views/layouts/pages/_header.html.slim"
+			],
+			[
+				"basecontro",
+				"app/controllers/admin/base_controller.rb"
+			],
+			[
+				"asset",
+				"config/initializers/assets.rb"
+			],
+			[
+				"htmlhead",
+				"app/views/layouts/pages/_html_head.html.slim"
+			],
+			[
+				"layoutpages",
+				"app/views/layouts/pages.html.slim"
+			],
+			[
+				"dashboardcontro",
+				"app/controllers/admin/dashboards_controller.rb"
+			],
+			[
+				"default",
+				"app/assets/stylesheets/pages/default.scss"
+			],
+			[
+				"dashboard.js",
+				"vendor/assets/javascripts/pages/dashboard.js"
+			],
+			[
+				"assets",
+				"config/initializers/assets.rb"
+			],
+			[
+				"dashboardindex",
+				"app/views/admin/dashboards/index.html.slim"
+			],
+			[
+				"scpe",
+				"app/views/admin/builds/_scope_expired.html[Conflict].slim"
+			],
+			[
+				"expir",
+				"app/views/public/proposals/expired.html.slim"
+			],
+			[
+				"conflic",
+				"app/views/public/proposals/expired.html[Conflict].slim"
+			],
+			[
+				"sales",
+				"app/views/public/builds/sales.html.slim"
+			],
+			[
+				"unitindex",
+				"app/views/admin/units/index.html.slim"
+			],
+			[
+				"storeedit",
+				"app/views/admin/stores/edit.html.slim"
+			],
+			[
+				"buildindex",
+				"app/views/admin/builds/index.html.slim"
+			],
+			[
+				"mailer.rb",
+				"app/mailers/application_mailer.rb"
+			],
+			[
+				"adminpropsa.rb",
+				"app/models/admin/proposal.rb"
+			],
+			[
+				"ptbr",
+				"config/locales/pt-BR.yml"
+			],
+			[
+				"conflict",
+				"config/locales/pt-BR[Conflict].yml"
+			],
+			[
+				"conlic",
+				"app/models/mailer[Conflict].rb"
+			],
+			[
+				"unit",
+				"app/models/unit.rb"
+			],
+			[
+				"porposalrequest",
+				"app/views/admin/mailers/proposal_request.html.slim"
+			],
+			[
+				"pricelist",
+				"app/views/admin/mailers (1)/price_list.html.slim"
+			],
+			[
+				"mailerform",
+				"app/views/admin/mailers/_form.html.slim"
+			],
+			[
+				"(1)",
+				"app/views/admin/mailers (1)/_form.html.slim"
+			],
+			[
+				"data",
+				"config/database.yml"
+			],
+			[
+				"gemfi",
+				"Gemfile"
+			],
+			[
+				"contro",
+				"app/controllers/admin/brokers_controller.rb"
+			],
+			[
+				"adminpropsalindex",
+				"app/views/admin/proposals/_index.html.slim"
+			],
+			[
+				"adminproposal",
+				"app/models/admin/proposal.rb"
+			],
+			[
+				"mailercontro",
+				"app/controllers/admin/mailers_controller.rb"
+			],
+			[
+				"mailer",
+				"app/controllers/admin/mailers_controller.rb"
+			],
+			[
+				"mailers.rb",
+				"spec/factories/mailers.rb"
+			],
+			[
+				"summern",
+				"vendor/assets/stylesheets/pages/summernote-lite.css"
+			],
+			[
+				"summernote",
+				"vendor/assets/javascripts/pages/summernote-lite.js"
+			],
+			[
+				"pages",
+				"vendor/assets/stylesheets/pages/pages.css"
 			]
 		],
 		"width": 0.0
@@ -2223,7 +2224,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 273.0,
+	"side_bar_width": 296.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
