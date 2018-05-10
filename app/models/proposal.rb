@@ -85,7 +85,7 @@ class Proposal < ApplicationRecord
 
     state all - [:booked, :closed] do
       def restrict_closed?(state)
-        if unit.bought?
+        if (unit.booked? or unit.bought?) and (unit.proposal_bought.id != self.id)
           self.errors.add(:states, I18n.t(:proposal_accepted, scope:'errors.custom'))
           return false 
         end
