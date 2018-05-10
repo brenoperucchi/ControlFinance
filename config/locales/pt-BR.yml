@@ -297,8 +297,10 @@ pt-BR:
             invalid_transition: Situação não válida
     custom:
         proposal_user_not_allowed: 'Usuário não permitido para essa proposta'
-        proposal_accepted: 'Unidade já vendida'
+        proposal_already_accepted: 'Unidade já vendida'
         proposal_restricted: "Proposta reservada ou restrita"
+        proposal_should_be_accepted: Antes deverá ser aceita
+        proposal_should_be_pending: Antes deverá ser pendente
     format: "%{attribute} %{message}"
     messages:
       accepted: deve ser aceito

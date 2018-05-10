@@ -50,9 +50,9 @@ class Proposal < ApplicationRecord
     after_transition any  => [:booked, :accepted],     do: :update_states
     after_transition any  => :closed,                  do: :update_states
     after_transition [:booked, :accepted, :closed] => :pending, do: :update_to_pending
-    before_transition [:pending, :refused] => :booked,          do: :restrict_accepted_booked?
-    before_transition any - :booked => :closed,        do: :restrict_closed?
+    before_transition [:accepted, :closed, :pending, :refused] => :booked,          do: :restrict_accepted_booked?
     before_transition any - :booked => :accepted,      do: :restrict_accepted_booked?
+    before_transition any           => :closed,        do: :restrict_closed?
 
     event :pending do
       transition [:refused, :booked, :accepted, :closed] => :pending
@@ -63,7 +63,7 @@ class Proposal < ApplicationRecord
     end
 
     event :book do
-      transition [:refused, :pending] => :booked
+      transition [:accepted, :closed, :refused, :pending] => :booked
     end
 
     event :accept do 
@@ -76,17 +76,26 @@ class Proposal < ApplicationRecord
 
     state all do
       def restrict_accepted_booked?(state)
-        if unit.booked? or unit.bought?
-          self.errors.add(:states, I18n.t(:proposal_accepted, scope:'errors.custom'))
+        if state.from == "closed" and (state.to == "accepted" or state.to == "booked")
+          self.errors.add(:states, I18n.t(:proposal_should_be_pending, scope:'errors.custom'))
+          return false 
+        elsif state.from == "accepted" and state.to == "booked"
+          self.errors.add(:states, I18n.t(:proposal_should_be_pending, scope:'errors.custom'))
+          return false 
+        elsif unit.booked? or unit.bought?
+          self.errors.add(:states, I18n.t(:proposal_already_accepted, scope:'errors.custom'))
           return false
         end
       end
     end
 
-    state all - [:booked, :closed] do
+    state all - [:closed] do
       def restrict_closed?(state)
-        if (unit.booked? or unit.bought?) and (unit.proposal_bought.id != self.id)
-          self.errors.add(:states, I18n.t(:proposal_accepted, scope:'errors.custom'))
+        if (unit.booked? or unit.bought?) and (unit.proposal_bought.try(:id) != self.id)
+          self.errors.add(:states, I18n.t(:proposal_already_accepted, scope:'errors.custom'))
+          return false 
+        elsif not self.accepted?
+          self.errors.add(:states, I18n.t(:proposal_should_be_accepted, scope:'errors.custom'))
           return false 
         end
       end
@@ -105,9 +114,6 @@ class Proposal < ApplicationRecord
       def update_booked_at(state)
         self.update_column(:booked_at, DateTime.now)
       end
-    end
-
-    state :booked do
       def update_states(state)
         # unit.book
       end

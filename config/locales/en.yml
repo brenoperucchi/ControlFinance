@@ -295,9 +295,12 @@ en:
           state:
             invalid_transition: State invalid
     custom:
-        proposal_user_not_allowed: 'This user not allowed to this Proposal'
-        proposal_accepted: 'Unit already Accepted'
-        proposal_restricted: "Proposal with restriction"
+      proposal_user_not_allowed: 'This user not allowed to this Proposal'
+      proposal_already_accepted: 'Unit already Accepted'
+      proposal_restricted: "Proposta reservada ou restrita"
+      proposal_restricted: "Proposal with restriction"
+      proposal_should_be_accepted: Should be Accepted
+      proposal_should_be_pending: Shoubd be pending
     format: "%{attribute} %{message}"
     messages:
       accepted: must be accepted
