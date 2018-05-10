@@ -3,7 +3,7 @@ class Admin::Proposal < Proposal
   attr_accessor :validated, :states
 
   validate :validate_state, if: Proc.new {|obj| obj.validated.nil? and not obj.states.nil?}
-  before_save :state_update
+  # before_save :state_update
 
   private
   
@@ -21,6 +21,8 @@ class Admin::Proposal < Proposal
     # self.class.public_activity_off
     if send(STATUS[states.to_sym])
       true
+    else
+      return false
     end
     # self.class.public_activity_on
   end

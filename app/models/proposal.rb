@@ -27,7 +27,7 @@ class Proposal < ApplicationRecord
                    :update => proc {|model, controller| !model.comment.blank? }
                  }
 
-  has_many :activitys,   class_name: 'Activity',   as: :recipentable, dependent: :destroy
+  has_many :activitys,   class_name: 'Activity',   as: :trackable, dependent: :destroy
   has_many :mailers,     class_name: 'Mailer',     as: :mailable, dependent: :destroy
   has_many :buyers,      class_name: 'Buyer',      dependent: :destroy 
   has_many :assets,      class_name: "Asset",      as: :assetable, dependent: :destroy

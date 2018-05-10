@@ -1,0 +1,63 @@
+- model_class = Proposal
+#home.tab-pane.active role="tabpanel"
+  .table
+    table.table
+      thead
+        tr
+          th= model_class.human_attribute_name(:id)
+          th= model_class.human_attribute_name(:unit)
+          th= model_class.human_attribute_name(:email)
+          th= model_class.human_attribute_name(:due_at)
+          th= model_class.human_attribute_name(:state)
+          th= model_class.human_attribute_name(:negociate)
+          th= model_class.human_attribute_name(:value)
+          th= model_class.human_attribute_name(:updated_at)
+          th=t 'actions', :scope => "helpers.menu"
+      tbody
+        - @collection.each do |proposal|
+          tr
+            td= proposal.id
+            td= proposal.unit.name
+            td= proposal.broker.user.email
+            td=localize proposal.due_at, format: :short
+            td.text-uppercase= editable proposal, :states, url: admin_proposal_path(proposal), type: 'select', class: 'editable', source: model_class::STATUS.map{|key,value|{value:key, text: I18n.t(key, scope:'views.common').upcase}}, value: proposal.state
+            td= proposal.negociate
+            td= number_to_currency proposal.value
+            td=localize proposal.updated_at, format: :short
+            td
+              = link_to edit_admin_proposal_path(proposal), class: 'btn btn-default' do
+                i.fa.fa-edit
+                '
+                = t('edit', scope: "helpers.links")
+              '
+              - if proposal.accepted? or proposal.closed?
+                = link_to document_admin_proposal_path(proposal), class: 'btn' do
+                  i.fa.fa-archive
+                  '
+                  = t('Document', scope: "helpers.links")
+
+.clearfix
+.form-group.p-l-25.p-t-25.p-r-25
+  = link_to admin_builds_path, :class => 'btn' do
+    i.fa.fa-mail-reply
+    '
+    = t('back', scope: "helpers.links")
+  - if params[:scope] == 'expired'
+    = link_to deliver_mail_admin_build_path(@build, :expired), :class => 'pull-right btn btn-danger btn-outline hidden-xs.hidden-sm waves-effect waves-light'
+      i.fa.fa-envelope
+      '
+      = t :notify_all, scope: 'views.admin.proposal'
+javascript:
+  $(function(){
+    $('.editable').editable({
+      mode: 'inline',
+      showbuttons: false,
+      error: function(response, newValue) { 
+        var string = ''
+        $.each(response.responseJSON.errors, function(key, value){ 
+          string = string + '<li>'+ value +'</li>'
+        })
+        $('.editable-error-block').html("<ul class='no-style'>" + string + "</ul>")
+      }
+    })
+  })
