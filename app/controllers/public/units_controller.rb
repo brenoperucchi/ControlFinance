@@ -4,7 +4,7 @@ class Public::UnitsController < Public::BaseController
   respond_to :html, :js, :json
   # include RestrictStore
   # restrict_store :build
-  # skip_before_action :authenticate_user!, only:[:index]
+  skip_before_action :authenticate_user!, only:[:index]
 
   def index
     @proposals = @build.proposals

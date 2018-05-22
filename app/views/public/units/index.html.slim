@@ -49,7 +49,7 @@
               - @units.each do |unit|
                 tr
                   td.text-right.b-r.b-dashed.b-grey.w-15= unit.name
-                  - if unit.try(:proposal_bought).try(:current_broker?, (current_user.userable))
+                  - if unit.try(:proposal_bought).try(:current_broker?, (current_user.try(:userable)))
                     td.b-r.b-dashed.b-grey.font-montserrat.all-caps.fs-12.w-25= t(:booked_to_broker, scope:'views.unit.index').upcase
                   - else
                     td.b-r.b-dashed.b-grey.font-montserrat.all-caps.fs-12.w-25= t(unit.state, scope:'views.common').upcase

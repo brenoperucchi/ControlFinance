@@ -35,6 +35,7 @@ Rails.application.config.assets.precompile += %w( pages/print.js )
 Rails.application.config.assets.precompile += %w( pages/social.js )
 
 Rails.application.config.assets.precompile += %w( pages/public/builds.js )
+Rails.application.config.assets.precompile += %w( pages/public/proposals.js )
 Rails.application.config.assets.precompile += %w( pages/public/dashboards.js )
 Rails.application.config.assets.precompile += %w( pages/public/units.js )
 Rails.application.config.assets.precompile += %w( pages/public/brokers.js )

@@ -69,6 +69,7 @@ Rails.application.routes.draw do
       get 'assets', on: :member
       get 'scope/:scope', to: 'builds#scope', on: :member, as: 'scope'
       get 'deliver_mail/:method', to: 'builds#deliver_mail', on: :member, as: 'deliver_mail'
+      get 'mail_send', on: :member
 
       resources :units, except: [:index] do
         resources :proposals, shallow: true do 

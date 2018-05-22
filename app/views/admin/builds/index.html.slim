@@ -12,6 +12,11 @@
   .col-lg-6.col-sm-6.col-md-6.col-xs-12
     ol.breadcrumb.pull-right.p-t-0
       li.inline
+        = link_to mail_send_admin_build_path, :class => 'btn btn-cons' do
+          i.fa.fa-print
+          '
+          = t :print, scope: "views.dashboard"        
+      li.inline
         = link_to sales_public_builds_path, :class => 'btn btn-cons' do
           i.fa.fa-print
           '

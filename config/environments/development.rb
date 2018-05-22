@@ -56,5 +56,6 @@ Rails.application.configure do
   # config.action_controller.default_url_options = { host: ENV['HTTP_HOST'] || 'teste2' }
   config.action_mailer.default_url_options = { :host => 'localhost', port: 3000 }
   config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
+  config.action_dispatch.tld_length = 0
 
 end

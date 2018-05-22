@@ -4,6 +4,10 @@ class Admin::BuildsController < Admin::BaseController
   respond_to :js, :html, :json
 
 
+  def mail_send
+    
+  end
+
   def deliver_mail
     params_method = params[:method]
     case params_method
