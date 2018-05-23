@@ -1,8 +1,8 @@
 class Store < ApplicationRecord
   attr_accessor :terms
-  store :settings, accessors:[:language, :broker_config, :address, :phone, :email, :url]
+  store :settings, accessors:[:language, :broker_config, :address, :phone, :email]
 
-  include SentientStore 
+  include SentientStore
 
   LANGUAGE = {'pt-br': 'pt-BR', en:'en'}
 
@@ -16,6 +16,7 @@ class Store < ApplicationRecord
   accepts_nested_attributes_for :persons, allow_destroy: true
   
   validates_acceptance_of :terms, accept: "1", if: :validate_terms
+  validates_uniqueness_of :url
 
   def validate_terms
     return true if self.terms.blank?

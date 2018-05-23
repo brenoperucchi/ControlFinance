@@ -6,10 +6,16 @@ class ApplicationController < ActionController::Base
 
   include PublicActivity::StoreController
   include SentientController
+  include SentientStoreController
 
   before_action :configure_permitted_parameters, if: :devise_controller?
   helper_method :current_admin?, :current_store, :back_url
+  before_action :check_store
   before_action :set_locale
+
+  def check_store
+    render html: helpers.tag.span('Store Not Found') if current_store.nil?
+  end
 
   def back_url
    if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]

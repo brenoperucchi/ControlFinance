@@ -1,17 +1,16 @@
 class Admin::BaseController < ApplicationController
-
   layout 'pages'
-  
-  protect_from_forgery
 
+  protect_from_forgery
   before_action :authenticate_admin!
+  helper_method :current_store
   
   def authenticate_admin!
     if not(user_signed_in?)
       redirect_to(admin_new_session_path)
     elsif not current_user.userable.admin?
       sign_out current_user
-      redirect_to admin_new_session_path, notice: "User not Admin"
+      redirect_to admin_new_session_path, notice: "Need to be Admin"
     end
   end
 
@@ -21,6 +20,5 @@ class Admin::BaseController < ApplicationController
     # session[:store_id] ||= user_id || nil
     Store.current = Store.find_by_id(session[:store_id])
   end
-
 
 end

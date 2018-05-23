@@ -33,8 +33,7 @@ module SentientStoreController
     end
   end
   def current_store
-    store = Store.all.detect{|s| s.url == request.subdomain.split('.').first}
-    store ||= Store.last
+    Store.where(url: request.subdomain.split('.').first).take
   end
 end
 
