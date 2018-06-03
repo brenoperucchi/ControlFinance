@@ -1,20 +1,28 @@
 - model_class = Proposal
 
+.row.p-l-15.p-r-15
+  .col-lg-6.col-md-6.col-sm-6.col-xs-12
+    ol.breadcrumb
+      li.breadcrumb-item
+        = link_to admin_dashboards_path do
+          '
+          = t(:home, scope: 'breadcrumb')
+      li.breadcrumb-item
+        = link_to admin_builds_path(@build) do
+          '
+          = @build.name
+      li.breadcrumb-item.active
+        = t :proposals, scope:'breadcrumb.proposal'
 .card.widget-12.no-border.widget-loader-circle.no-margin
   .card-description
-    ul.nav.nav-tabs role="tablist" 
-      / li[class="#{helper_current_li(true, :all)}", role="presentation"]
-      /   = link_to scope_admin_build_path(@build), input_html:{ 'aria-controls' => "home", 'aria-expanded'=> "true", data:{toggle:"tab", role: "tab"} } do
-      /     span.visible-xs
-      /       i.ti-home
-      /     span.hidden-xs Proposals
-      li.active[role="presentation"]
-        = link_to scope_admin_build_path(@build, scope: :proposals), input_html:{ 'aria-controls' => "home", 'aria-expanded'=> "true", data:{toggle:"tab", role: "tab"} } do
+    ul.nav.nav-tabs.nav-tabs-simple data-init-reponsive-tabs="dropdownfx" role="tablist"
+      li.nav-item
+        = link_to scope_admin_build_path(@build, scope: :proposals), input_html:{ 'aria-controls' => "home", 'aria-expanded'=> "true", data:{toggle:"tab", role: "tab"}}, class: 'active' do
           span.visible-xs
             i.ti-home
           span.hidden-xs= t :proposals, scope:'views.admin.build.scope'
-      li[role="presentation"]
-        = link_to scope_admin_build_path(@build, scope: :expired), input_html:{ 'aria-controls' => "home", 'aria-expanded'=> "true", data:{toggle:"tab", role: "tab"} } do
+      li.nav-item
+        = link_to scope_admin_build_path(@build, scope: :expired), input_html:{ 'aria-controls' => "home", 'aria-expanded'=> "true", data:{toggle:"tab", role: "tab"}} do
           span.visible-xs
             i.ti-user
           span.hidden-xs= t :proposals_expired, scope:'views.admin.build.scope'

@@ -5,6 +5,7 @@ class Admin::BrokersController < Admin::BaseController
 
   def index
     @brokers = current_store.try(:brokers) || broker.all
+    respond_with @brokers
   end
 
   def show

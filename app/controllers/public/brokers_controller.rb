@@ -5,7 +5,7 @@ class Public::BrokersController < Public::BaseController
 
   def assets
     @resource = @broker
-    respond_with(@broker)
+    respond_with @broker
   end
 
   def contract

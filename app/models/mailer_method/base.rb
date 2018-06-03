@@ -9,8 +9,7 @@ class MailerMethod::Base
   end
 
   def render
-    options = Rails.configuration.action_mailer.default_url_options
-    view = ApplicationController.renderer.new(http_host: "#{options[:host]}:#{options[:port]}")
+    view = ApplicationController.renderer.new(http_host: self.host)
     view.extend ApplicationHelper
     view.class_eval do       
       include Rails.application.routes.url_helpers
@@ -19,12 +18,11 @@ class MailerMethod::Base
       def default_url_options
         # Rails.configuration.action_mailer.default_url_options[:host]
       end
-
       def protect_against_forgery?
         false
       end
     end
-    view.render partial: "mailers/#{name.to_s}", locals: { object: @object, token:token, host: HOST, port: PORT }, layout:false
+    view.render partial: "mailers/#{name.to_s}", locals: { object: @object, token:token, host: self.host }, layout:false
   end
 
   def token
@@ -38,9 +36,13 @@ class MailerMethod::Base
       self.custom_procedures if self.respond_to?(:custom_procedures)
       return true
     else
-      return false
-    end
-    
+      return mailer.errors
+    end    
+  end
+
+  def host
+    options = Rails.configuration.action_mailer.default_url_options
+    "#{store.url}.#{options[:host]}:#{options[:port]}"
   end
 
   private

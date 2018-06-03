@@ -1,30 +1,29 @@
 class Admin::BuildsController < Admin::BaseController
   layout 'pages'
-  before_action :set_admin_build, only: [:show, :edit, :update, :destroy, :scope, :assets, :deliver_mail]
+  before_action :set_admin_build, only: [:show, :edit, :update, :destroy, :scope, :assets, :notify_proposal, :notify]
   respond_to :js, :html, :json
 
-
-  def mail_send
-    
-  end
-
-  def deliver_mail
+  def notify_proposal
     params_method = params[:method]
     case params_method
     when 'expired'
-      @build.proposals.expired.each do |proposal|
-        mailer_method = "MailerMethod::Proposal#{params_method.classify}".constantize.new(proposal)
-        mailer_method.deliver_mail
+      respond_to do |format|
+        format.html do           
+          @build.proposals.expired.each do |proposal|
+            mailer_method = "MailerMethod::Proposal#{params_method.classify}".constantize.new(proposal)
+            mailer_method.deliver_mail
+          end
+          redirect_to scope_admin_build_path(@build, scope: params_method.to_sym), notice: 'Emails was successfully delivery.' 
+        end
       end
-    end
-    respond_to do |format|
-      format.html { redirect_to scope_admin_build_path(@build, scope: params_method.to_sym), notice: 'Emails was successfully delivery.' }
-      # format.json { render :show, status: :ok, location: @build }
+    when 'price_list'
+      MailerMethod::PriceList.new(@build).deliver_mail
+      redirect_to admin_builds_path, notice: 'Emails was successfully delivery.' 
     end
   end
 
   def assets
-    respond_with(@build)
+    respond_with @build
   end
 
   def index

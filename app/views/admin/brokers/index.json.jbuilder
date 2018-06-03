@@ -1,0 +1,1 @@
+json.array! @brokers, partial: 'index', as: :broker

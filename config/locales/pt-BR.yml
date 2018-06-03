@@ -7,6 +7,8 @@ pt-BR:
       edit: Editar propostas
       unit: 'Unidade %{model}'
       proposals: Propostas 
+      proposals_expired: Propostas Expiradas
+      proposals_active: Propostas Ativas
   flash:
     custom:
       email_sent:
@@ -44,6 +46,7 @@ pt-BR:
       proposal:
         notify_all: Notificar todos
       build:
+        mail_price_list: Envio Tabela Vendas
         proposals: Propostas 
         all_proposals: Todas as Propostas
         images: Imagens

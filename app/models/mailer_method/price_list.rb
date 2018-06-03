@@ -17,11 +17,15 @@ class MailerMethod::PriceList < MailerMethod::Base
   end
 
   def url
-    public_builds_path
+    public_dashboards_path
+  end
+
+  def store
+    @object.store
   end
 
   def attributes
-    {method_name: name, subject: subject, body: render, token: token, url: url, send_at: Date.today}
+    {method_name: name, to: @object.store.email, subject: subject, body: render, token: token, url: url, send_at: Date.today, store: store}
   end
 
 end

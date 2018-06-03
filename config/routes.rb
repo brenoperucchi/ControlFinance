@@ -51,7 +51,6 @@ Rails.application.routes.draw do
   get 'token/:token', to: 'admin/mailers#redirect', as: 'redirect_mailer'
   get 'mailer/:method', to: 'admin/mailers#show', as: 'mailer'
 
-
   namespace :admin do
     devise_scope :user do
       get '/admin/',   to: 'sessions#new'
@@ -68,8 +67,7 @@ Rails.application.routes.draw do
     resources :builds do 
       get 'assets', on: :member
       get 'scope/:scope', to: 'builds#scope', on: :member, as: 'scope'
-      get 'deliver_mail/:method', to: 'builds#deliver_mail', on: :member, as: 'deliver_mail'
-      get 'mail_send', on: :member
+      get 'notify_proposal/:method', to: 'builds#notify_proposal', on: :member, as: 'notify_proposal'
 
       resources :units, except: [:index] do
         resources :proposals, shallow: true do 
@@ -80,6 +78,8 @@ Rails.application.routes.draw do
         end
       end
     end
-    resources :mailers, only: [:create, :new], path: '/:mailable_type/:mailable_id/:method'
+    resources :mailers, only: [:create, :new], path: '/:mailable_type/:mailable_id/:method' do
+      get 'notify', on: :collection
+    end
   end
 end

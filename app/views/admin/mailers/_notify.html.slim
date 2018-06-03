@@ -1,0 +1,43 @@
+- model_class = Mailer
+.row
+  .col-lg-12
+    = simple_form_for @mailer, url: admin_mailers_path(@mailer.mailable.class.name, @mailer.mailable, @method.name) do |f|
+      .modal-header.p-b-10
+          button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
+          h4.modal-title
+            =t 'newa', scope: 'helpers.submit', :model => model_class.model_name.human.titleize
+      .modal-body
+        = f.input :to, as: :select, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm', id:'select2',  multiple:true}
+      .modal-footer
+        .col-sm-12.col-xs-12
+          = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn pull-left'  
+          '
+          = f.submit nil, :class => 'btn btn-primary pull-right'
+
+javascript:
+  $(document).ready(function(){
+    $('#select2').select2({
+      dropdownParent: $("#modalSlideUp"),
+      minimumInputLength: 1,
+      width:'100%',
+      ajax: {
+        url: "/admin/brokers",
+        dataType: "json",
+        type: "GET",
+        data: function (term, page) {
+          return {
+            query: term
+          };
+        },
+        processResults: function (data, page) {
+          return {
+            results: data
+          }
+        }
+      },
+      // initSelection : function (element, callback) {
+      //   var data = {id: element.data('id'), text: element.data('text')};
+      //   callback(data);
+      // }
+    })
+  })

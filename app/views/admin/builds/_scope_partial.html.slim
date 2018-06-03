@@ -42,11 +42,7 @@
     i.fa.fa-mail-reply
     '
     = t('back', scope: "helpers.links")
-  - if params[:scope] == 'expired'
-    = link_to deliver_mail_admin_build_path(@build, :expired), :class => 'pull-right btn btn-danger btn-outline hidden-xs.hidden-sm waves-effect waves-light'
-      i.fa.fa-envelope
-      '
-      = t :notify_all, scope: 'views.admin.proposal'
+    
 javascript:
   $(function(){
     $('.editable').editable({

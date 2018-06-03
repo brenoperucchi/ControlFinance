@@ -7,6 +7,8 @@ en:
       edit: Edit Proposals
       unit: 'Unit %{model}'
       proposals: Proposals
+      proposals_expired: Proposals Expired
+      proposals_active: Proposals Active
   flash:
     custom:
       email_sent:
@@ -44,6 +46,7 @@ en:
       proposal:
         notify_all: Notify all
       build: 
+        mail_price_list: Mail Price List
         proposals: Proposals
         all_proposals: All Proposals
         images: Images

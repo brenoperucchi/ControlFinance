@@ -1,5 +1,4 @@
 - model_class = Proposal
-
 .row.p-l-15.p-r-15
   .col-lg-12.col-md-12.col-sm-12.col-xs-12
     ol.breadcrumb
@@ -17,8 +16,6 @@
           = t :unit, scope: 'breadcrumb.proposal', model: @unit.name
       li.breadcrumb-item.active
         = t :proposals, scope:'breadcrumb.proposal'
-
-
 .card.card-default
   .card-header
     span.pull-left
@@ -28,7 +25,6 @@
         i.fa.fa-plus
         '
         = t('new', scope: "helpers.links")
-
   .card-block
       == render "index", proposal:@proposal, model_class:model_class, unit:@unit, collection:@collection
       hr

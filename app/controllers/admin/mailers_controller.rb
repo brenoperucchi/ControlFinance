@@ -1,7 +1,14 @@
 class Admin::MailersController < ApplicationController
-  before_action :set_mailer, only:[:new, :create]
-  respond_to :html, :xml, :json
+  skip_before_action :check_store, only:[:redirect]
+  before_action :set_mailer, only:[:new, :create, :notify]
+  respond_to :html, :xml, :json, :js
   layout 'pages'
+
+  def notify
+    @mailer = @object.mailers.new(method_name: params[:method])
+    respond_with @mailer
+  end
+
 
   def new
     @mailer = @object.mailers.new(@method.attributes)
