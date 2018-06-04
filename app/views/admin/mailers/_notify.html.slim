@@ -1,13 +1,23 @@
+css:
+  .select2-results__option[aria-selected="true"] {
+    display: none;
+  }
 - model_class = Mailer
 .row
   .col-lg-12
-    = simple_form_for @mailer, url: admin_mailers_path(@mailer.mailable.class.name, @mailer.mailable, @method.name) do |f|
+    = simple_form_for @mailer, url: admin_mailers_path(@mailer.mailable.class.name, @mailer.mailable, @method.name), remote:true do |f|
       .modal-header.p-b-10
           button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
           h4.modal-title
             =t 'newa', scope: 'helpers.submit', :model => model_class.model_name.human.titleize
       .modal-body
         = f.input :to, as: :select, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm', id:'select2',  multiple:true}
+        = f.input :register_user, wrapper: :append do
+          .checkbox.check-success
+            = f.check_box :register_user, {id: 'choice1'}
+            label for="choice1"
+              = t_holder(:register_user, Mailer)
+
       .modal-footer
         .col-sm-12.col-xs-12
           = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn pull-left'  
@@ -17,6 +27,22 @@
 javascript:
   $(document).ready(function(){
     $('#select2').select2({
+      tags: true,
+      createTag: function (params) {
+        return {
+          id: params.term,
+          text: params.term,
+          newOption: true
+        }
+      },
+      templateResult: function (data) {
+        var $result = $("<span></span>");
+        $result.text(data.text);
+        if (data.newOption) {
+          $result.append(" <em>(#{I18n.t(:here, scope:'helpers.links')})</em>");
+        }
+        return $result;
+      },
       dropdownParent: $("#modalSlideUp"),
       minimumInputLength: 1,
       width:'100%',

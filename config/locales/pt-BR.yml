@@ -30,6 +30,8 @@ pt-BR:
   not_accept: 'não'
   accept: 'sim'
   placeholder:
+    mailer:
+      register_user: Cadastrar Como Corretor Novo Registro?
     broker:
       address: Endereço da Imobiliária ou Corretor
     store: 
@@ -397,6 +399,7 @@ pt-BR:
       destroy: Remover
       new: Novo
       sendmail: Envio do E-mail
+      here: Novo Registro Clique Aqui
   number:
     currency:
       format:

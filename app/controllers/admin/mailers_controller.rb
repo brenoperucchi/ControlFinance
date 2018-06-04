@@ -27,16 +27,25 @@ class Admin::MailersController < ApplicationController
   end
 
   def create
-    @mailer = @object.mailers.new(mailer_params)
-    if @mailer.save
-      # @mailer.update_attributes(@method.attributes.merge(mailer_params))
-      @mailer.update_attributes(@method.attributes.merge(to:params[:mailer][:to], subject:params[:mailer][:subject], body:params[:mailer][:body], token:params[:mailer][:token]))
-      delivery = ApplicationMailer.dispach(@mailer.header).deliver
-      flash[:notice] = t :notice, scope: 'flash.custom.email_sent'
-      respond_with @mailer, location: admin_builds_path
+    case params[:method]
+    when 'price_list'
+      @mailer = @object.mailers.new(mailer_params)
+      @mailer.store = current_store
+      @mailer.create_broker if mailer_params[:register_user]
+      redirect_to notify_admin_mailers_path(params[:mailable_type], @object, :price_list)
     else
-      flash[:alert] = t :alert, scope: 'flash.custom.email_sent'
-      redirect_to new_admin_mailer_path(@object.class.name, @mailer.mailable, @method.name)
+      @mailer = @object.mailers.new(mailer_params)
+      @mailer.store = current_store
+      if @mailer.save
+        # @mailer.update_attributes(@method.attributes.merge(mailer_params))
+        @mailer.update_attributes(@method.attributes.merge(to:params[:mailer][:to], subject:params[:mailer][:subject], body:params[:mailer][:body], token:params[:mailer][:token]))
+        delivery = ApplicationMailer.dispach(@mailer.header).deliver
+        flash[:notice] = t :notice, scope: 'flash.custom.email_sent'
+        respond_with @mailer, location: admin_builds_path
+      else
+        flash[:alert] = t :alert, scope: 'flash.custom.email_sent'
+        redirect_to new_admin_mailer_path(@object.class.name, @mailer.mailable, @method.name)
+      end
     end
   end
 
@@ -52,13 +61,13 @@ class Admin::MailersController < ApplicationController
     def set_mailer
       klass = params[:mailable_type]
       param_method = params[:method]
-      @object = klass.classify.constantize.find(params[:mailable_id])
+      @object = current_store.send(klass.pluralize.downcase).find(params[:mailable_id])
       @method = "MailerMethod::#{param_method.classify}".constantize.new(@object)
       
     end
 
     def mailer_params
-      params.require(:mailer).permit(:to, :subject, :body, :token, :mailers)
+      params.require(:mailer).permit(:subject, :body, :token, :mailers, :register_user, to:[])
     end
 
 end

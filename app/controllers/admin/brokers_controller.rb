@@ -4,7 +4,11 @@ class Admin::BrokersController < Admin::BaseController
   respond_to :js, :html, :json
 
   def index
-    @brokers = current_store.try(:brokers) || broker.all
+    if params[:query][:term]
+      @brokers = current_store.brokers.search_by(params[:query][:term])
+    else
+      @brokers = current_store.try(:brokers) || broker.all
+    end
     respond_with @brokers
   end
 

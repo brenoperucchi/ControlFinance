@@ -30,8 +30,8 @@ class Broker < ApplicationRecord
 
   validates :option1, :option2, :option3, :option4, :option5, :option6, acceptance: { accept: "1" }, on: :create, unless: -> {self.validate_off}
   validates_presence_of :option1, :option2, :option3, :option4, :option5, :option6, on: :create, unless: -> {self.validate_off}
-  validates_presence_of :name, :irs_id
-  validates_uniqueness_of :irs_id, scope:[:store_id]
+  validates_presence_of :name, :irs_id, unless: -> {self.validate_off}
+  validates_uniqueness_of :irs_id, scope:[:store_id], unless: -> {self.validate_off}
 
   accepts_nested_attributes_for :user
 
@@ -56,6 +56,10 @@ class Broker < ApplicationRecord
         self.update_column(:approved_at, nil)
       end
     end
+  end
+
+  def self.search_by(search)
+    users.where("users.email LIKE :search", search: "%#{search}%") 
   end
   
   def proposal_accepted?

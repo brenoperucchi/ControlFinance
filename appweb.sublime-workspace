@@ -1064,26 +1064,11 @@
 	},
 	"expanded_folders":
 	[
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/assets/javascripts/pages/admin",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/public",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/builds",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/proposals",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/pages",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/proposals",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/public/purchase_steps"
+		"/Users/brenoperucchi/appweb"
 	],
 	"file_history":
 	[
+		"/Users/brenoperucchi/appweb/appweb.sublime-project",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/config/initializers/sentient_store.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/models/proposal.rb",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/controllers/application_controller.rb",
@@ -1210,12 +1195,11 @@
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/common/chat.html.slim",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/layouts/application.html.slim",
 		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/mailers (1)/proposal_request.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/mailers/price_list.html.slim",
-		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/mailers (1)/price_list.html.slim"
+		"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/app/views/admin/mailers/price_list.html.slim"
 	],
 	"find":
 	{
-		"height": 47.0
+		"height": 33.0
 	},
 	"find_in_files":
 	{
@@ -1610,7 +1594,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 35.0
+		"height": 33.0
 	},
 	"input":
 	{
@@ -1666,7 +1650,7 @@
 	"project": "appweb.sublime-project",
 	"replace":
 	{
-		"height": 66.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -2216,7 +2200,7 @@
 		],
 		"width": 620.0
 	},
-	"selected_group": 1,
+	"selected_group": 0,
 	"settings":
 	{
 	},
