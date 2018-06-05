@@ -11,7 +11,7 @@ css:
           h4.modal-title
             =t 'newa', scope: 'helpers.submit', :model => model_class.model_name.human.titleize
       .modal-body
-        = f.input :to, as: :select, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm', id:'select2',  multiple:true}
+        = f.input :to, as: :select, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm', id:'select2',  multiple:true}, collection: []
         = f.input :register_user, wrapper: :append do
           .checkbox.check-success
             = f.check_box :register_user, {id: 'choice1'}
@@ -47,35 +47,7 @@ javascript:
           newOption: true
         }
       },
-      templateResult: function (data) {
-        var $result = $("<span></span>");
-        $result.text(data.text);
-        if (data.newOption) {
-          $result.append(" <em>(#{I18n.t(:here, scope:'helpers.links')})</em>");
-        }
-        return $result;
-      },
       dropdownParent: $("#modalSlideUp"),
-      minimumInputLength: 1,
       width:'100%',
-      ajax: {
-        url: "/admin/brokers",
-        dataType: "json",
-        type: "GET",
-        data: function (term, page) {
-          return {
-            query: term
-          };
-        },
-        processResults: function (data, page) {
-          return {
-            results: data
-          }
-        }
-      },
-      // initSelection : function (element, callback) {
-      //   var data = {id: element.data('id'), text: element.data('text')};
-      //   callback(data);
-      // }
     })
   })
