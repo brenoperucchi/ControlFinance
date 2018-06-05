@@ -18,9 +18,10 @@ class Mailer < ApplicationRecord
 
   def create_broker
     self.brokers = self.to.each do |email|
+      return email.empty?
       conditional = ActiveRecord::Type::Boolean.new.cast(self.register_user)
       user = store.users.where(email: email).take
-      if conditional and not email.empty? and not user
+      if conditional and user.nil?
         broker = store.brokers.create(name: email, department:'user', person_type:'person', active:1, option1: '1', option2: '1', option3: '1', option4: '1', option5: '1', option6: '1', address: 'Address', phone: 'Phone' , company_irs_id: 'company_irs_id', irs_id: "IRS ID #{store.brokers.last.id + 1}", user_attributes:{email: email, password: '123123', store: store})
         return broker
       else

@@ -17,8 +17,12 @@ css:
             = f.check_box :register_user, {id: 'choice1'}
             label for="choice1"
               = t_holder(:register_user, Mailer)
-        hr
+        br
         = f.input :brokers, as: :select, collection: current_store.brokers, label_method: :name, value_method: :id, input_html:{id: 'multiSelect', multiple:true}, prompt:nil, selected: false
+        span
+          a#select-all href="#"  select all
+          a#deselect-all href="#"  deselect all
+
 
       .modal-footer
         .col-sm-12.col-xs-12
