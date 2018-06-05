@@ -5,7 +5,7 @@ css:
 - model_class = Mailer
 .row
   .col-lg-12
-    = simple_form_for @mailer, url: admin_mailers_path(@mailer.mailable.class.name, @mailer.mailable, @method.name), remote:true do |f|
+    = simple_form_for @mailer, url: admin_mailers_path(@mailer.mailable.class.name, @mailer.mailable, @method.name) do |f|
       .modal-header.p-b-10
           button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
           h4.modal-title
@@ -17,6 +17,8 @@ css:
             = f.check_box :register_user, {id: 'choice1'}
             label for="choice1"
               = t_holder(:register_user, Mailer)
+        hr
+        = f.input :brokers, as: :select, collection: current_store.brokers, label_method: :name, value_method: :id, input_html:{id: 'multiSelect', multiple:true}, prompt:nil, selected: false
 
       .modal-footer
         .col-sm-12.col-xs-12
@@ -25,7 +27,17 @@ css:
           = f.submit nil, :class => 'btn btn-primary pull-right'
 
 javascript:
+
   $(document).ready(function(){
+    $('#multiSelect').multiSelect();
+    $('#select-all').click(function(){
+      $('#multiSelect').multiSelect('select_all');
+      return false;
+    });
+    $('#deselect-all').click(function(){
+      $('#multiSelect').multiSelect('deselect_all');
+      return false;
+    });
     $('#select2').select2({
       tags: true,
       createTag: function (params) {

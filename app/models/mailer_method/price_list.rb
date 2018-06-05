@@ -25,7 +25,7 @@ class MailerMethod::PriceList < MailerMethod::Base
   end
 
   def attributes
-    {method_name: name, to: @object.store.email, subject: subject, body: render, token: token, url: url, send_at: Date.today, store: store}
+    {method_name: name, to: @object.store.email, subject: subject, body: render, token: token, url: url, send_at: Date.today, userable:@object.broker, store: store}
   end
 
 end

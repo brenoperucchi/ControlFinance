@@ -1,9 +1,6 @@
 class MailerMethod::Base
   include Rails.application.routes.url_helpers
 
-  HOST = ActionMailer::Base.default_url_options[:host]
-  PORT = ActionMailer::Base.default_url_options[:port]
-
   def initialize(obj = nil)
     @object = obj || object
   end

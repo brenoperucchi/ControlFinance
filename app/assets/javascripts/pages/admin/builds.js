@@ -18,4 +18,5 @@
 //= require pages/scripts.js
 //= require pages/dropzone.min.js
 //= require editable/bootstrap-editable
+//= require elite/jquery.multi-select.js
 //= require editable/rails
