@@ -28,13 +28,13 @@ class MailerMethod::Base
 
   def deliver_mail
     mailer = @object.mailers.new(self.attributes)
-    if mailer.save
-      ApplicationMailer.dispach(mailer.header).deliver
-      self.custom_procedures if self.respond_to?(:custom_procedures)
-      return true
-    else
-      return mailer.errors
-    end    
+    # if mailer.valid?
+    ApplicationMailer.dispach(mailer.header).deliver
+
+      # return true
+    # else
+      # return mailer.errors
+    # end    
   end
 
   def host

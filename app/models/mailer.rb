@@ -16,7 +16,7 @@ class Mailer < ApplicationRecord
   end
 
   def create_broker
-    self.brokers = self.to.each do |email|
+    self.brokers = self.to.split.each do |email|
       return email.empty?
       conditional = ActiveRecord::Type::Boolean.new.cast(self.register_user)
       user = store.users.where(email: email).take
@@ -35,7 +35,8 @@ class Mailer < ApplicationRecord
   end
 
   def delivery
-    klass = "MailerMethod::#{self.method.classify}".constantize.new()
+    self.klass_method.custom_procedures if self.klass_method.respond_to?(:custom_procedures)
+    self.klass_method.deliver_mail
   end
 
 end

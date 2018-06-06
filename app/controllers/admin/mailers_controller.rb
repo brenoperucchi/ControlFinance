@@ -36,7 +36,7 @@ class Admin::MailersController < ApplicationController
         @mailer.create_broker if mailer_params[:register_user]
         @mailer.delivery
       end
-      redirect_to notify_admin_mailers_path(params[:mailable_type], @object, :price_list)
+      # redirect_to notify_admin_mailers_path(params[:mailable_type], @object, :price_list)
     else
       # @mailer = @object.mailers.new(mailer_params)
       # @mailer.store = current_store
@@ -66,7 +66,7 @@ class Admin::MailersController < ApplicationController
       mailable_type = params[:mailable_type]
       param_method = params[:method]
       @object = current_store.send(mailable_type.pluralize.downcase).find(params[:mailable_id])
-      # @method = "MailerMethod::#{param_method.classify}".constantize.new(@object)
+      @method = "MailerMethod::#{param_method.classify}".constantize.new(@object)
       
     end
 
