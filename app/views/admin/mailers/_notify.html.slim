@@ -11,7 +11,7 @@ css:
           h4.modal-title
             =t 'newa', scope: 'helpers.submit', :model => model_class.model_name.human.titleize
       .modal-body
-        = f.input :to, as: :select, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm', id:'select2',  multiple:true}, collection: []
+        = f.input :to, as: :string, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm', id:'select2',  multiple:true}
         = f.input :register_user, wrapper: :append do
           .checkbox.check-success
             = f.check_box :register_user, {id: 'choice1'}
@@ -19,9 +19,11 @@ css:
               = t_holder(:register_user, Mailer)
         br
         = f.input :brokers, as: :select, collection: current_store.brokers, label_method: :name, value_method: :id, input_html:{id: 'multiSelect', multiple:true}, prompt:nil, selected: false
-        span
-          a#select-all href="#"  select all
-          a#deselect-all href="#"  deselect all
+        .row
+          .col-md-6
+            a.m-l-5#select-all href="#"= t(:select_all, scope:'views.common')
+          .col-md-6
+            a#deselect-all href="#"= t(:deselect_all, scope:'views.common')
 
 
       .modal-footer
@@ -42,16 +44,18 @@ javascript:
       $('#multiSelect').multiSelect('deselect_all');
       return false;
     });
-    $('#select2').select2({
-      tags: true,
-      createTag: function (params) {
-        return {
-          id: params.term,
-          text: params.term,
-          newOption: true
-        }
-      },
-      dropdownParent: $("#modalSlideUp"),
-      width:'100%',
-    })
+    $('#select2').tagsinput({
+    });
+    // $('#select2').select2({
+    //   tags: true,
+    //   createTag: function (params) {
+    //     return {
+    //       id: params.term,
+    //       text: params.term,
+    //       newOption: true
+    //     }
+    //   },
+    //   dropdownParent: $("#modalSlideUp"),
+    //   width:'100%',
+    // })
   })

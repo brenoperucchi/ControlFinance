@@ -4,6 +4,7 @@
 //= require pages/jquery-ui.min.js
 //= require pages/tether.min.js
 //= require pages/bootstrap.min.js
+//= require pages/bootstrap-tagsinput.min.js
 //= require pages/jquery-easy.js
 //= require pages/jquery.unveil.min.js
 //= require pages/jquery.ioslist.min.js

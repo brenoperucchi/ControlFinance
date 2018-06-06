@@ -1,16 +1,15 @@
 class Mailer < ApplicationRecord
-
+  attr_accessor :register_user, :method, :brokers, :klass_method
   store :parameters, accessors:[:from, :to, :subject, :body, :mailers]
-
-  attr_accessor :register_user, :method, :brokers
 
   belongs_to :mailable, polymorphic: true
   belongs_to :userable, polymorphic: true, optional: true
   belongs_to :store, optional: true
 
   validates_presence_of :to, :subject
-
   validates_uniqueness_of :token, :on => :create, :message => "Reload Page"
+
+  before_validation :method_prepare
 
   def header
     {to: self.to, subject: self.subject, body: self.body, from: (self.from || store.email)}
@@ -30,8 +29,12 @@ class Mailer < ApplicationRecord
     end 
   end
 
+  def method_prepare
+    self.klass_method = "MailerMethod::#{self.method.classify}".constantize.new(self.mailable)
+    self.attributes = (klass_method.attributes)
+  end
+
   def delivery
-    sdsds
     klass = "MailerMethod::#{self.method.classify}".constantize.new()
   end
 

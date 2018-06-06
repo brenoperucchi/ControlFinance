@@ -165,6 +165,8 @@ pt-BR:
       booked: Reservado
       pending: Pendente
       approved: Aprovado
+      select_all: Selecionar Todos
+      deselect_all: Remover Todos
     document:
       contract: "Minuta do Contrato"
       send_files: "Enviar Arquivos"

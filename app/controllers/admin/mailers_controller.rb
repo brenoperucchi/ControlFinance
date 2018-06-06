@@ -30,6 +30,7 @@ class Admin::MailersController < ApplicationController
     case params[:method]
     when 'price_list'
       @mailer = @object.mailers.new(mailer_params)
+      @mailer.method = params[:method]
       if @mailer.save
         @mailer.store = current_store
         @mailer.create_broker if mailer_params[:register_user]
@@ -62,15 +63,15 @@ class Admin::MailersController < ApplicationController
   private
 
     def set_mailer
-      klass = params[:mailable_type]
+      mailable_type = params[:mailable_type]
       param_method = params[:method]
-      @object = current_store.send(klass.pluralize.downcase).find(params[:mailable_id])
-      @method = "MailerMethod::#{param_method.classify}".constantize.new(@object)
+      @object = current_store.send(mailable_type.pluralize.downcase).find(params[:mailable_id])
+      # @method = "MailerMethod::#{param_method.classify}".constantize.new(@object)
       
     end
 
     def mailer_params
-      params.require(:mailer).permit(:subject, :body, :token, :mailers, :register_user, to:[])
+      params.require(:mailer).permit(:subject, :body, :token, :mailers, :register_user, brokers:[], to:[])
     end
 
 end
