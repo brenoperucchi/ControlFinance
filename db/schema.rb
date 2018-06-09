@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180523010757) do
+ActiveRecord::Schema.define(version: 20180609064753) do
 
   create_table "activities", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
@@ -97,11 +97,20 @@ ActiveRecord::Schema.define(version: 20180523010757) do
     t.index ["proposal_id"], name: "index_documents_on_proposal_id"
   end
 
+  create_table "mailer_senders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "to"
+    t.string "token"
+    t.text "information"
+    t.bigint "mailer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["mailer_id"], name: "index_mailer_senders_on_mailer_id"
+  end
+
   create_table "mailers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "method_name"
     t.text "parameters"
     t.string "url"
-    t.string "token"
     t.integer "store_id"
     t.string "userable_type"
     t.integer "userable_id"

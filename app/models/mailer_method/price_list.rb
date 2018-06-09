@@ -25,19 +25,18 @@ class MailerMethod::PriceList < MailerMethod::Base
   end
 
   def attributes
-    {method_name: name, subject: subject, body: render, token: token, url: url, send_at: Date.today, store: store}
+    {method_name: name, subject: subject, body: render, url: url, send_at: Date.today, store: store}
   end
 
   def deliver_mail
-    mailer = @object.mailers.new(self.attributes)
-    
-    ApplicationMailer.dispach(mailer.header).deliver
-
+    self.mailer.senders.each do  |sender|
+      ApplicationMailer.dispach(mailer.header.merge(to: sender.to)).deliver
+      sender.update_attribute(:updated_at, DateTime.now)
+    end
     # return true
     # else
     # return mailer.errors
     # end    
   end
-
 
 end

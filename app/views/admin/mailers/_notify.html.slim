@@ -3,9 +3,10 @@ css:
     display: none;
   }
 - model_class = Mailer
-.row
+.row.bg-white
   .col-lg-12
     = simple_form_for @mailer, url: admin_mailers_path(@mailer.mailable.class.name, @mailer.mailable, @method.name) do |f|
+      = f.input :store_id, as: :hidden, input_html:{value: current_store.id}
       .modal-header.p-b-10
           button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
           h4.modal-title
@@ -18,7 +19,7 @@ css:
             label for="choice1"
               = t_holder(:register_user, Mailer)
         br
-        = f.input :brokers, as: :select, collection: current_store.brokers, label_method: :name, value_method: :id, input_html:{id: 'multiSelect', multiple:true}, prompt:nil, selected: false
+        = f.input :brokers, as: :select, collection: current_store.brokers, label_method: :name, value_method: :id, input_html:{id: 'multiSelect', multiple:true},include_blank: false, include_hidden: false
         .row
           .col-md-6
             a.m-l-5#select-all href="#"= t(:select_all, scope:'views.common')
@@ -45,6 +46,7 @@ javascript:
       return false;
     });
     $('#select2').tagsinput({
+      confirmKeys: [13, 32, 44, 188]
     });
     // $('#select2').select2({
     //   tags: true,

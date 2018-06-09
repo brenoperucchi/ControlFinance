@@ -1,6 +1,8 @@
 class MailerMethod::Base
   include Rails.application.routes.url_helpers
 
+  attr_accessor :mailer
+
   def initialize(obj = nil)
     @object = obj || object
   end
@@ -23,14 +25,13 @@ class MailerMethod::Base
   end
 
   def token
-    @token ||= generate_token
+    @token = generate_token
   end
 
   def deliver_mail
     mailer = @object.mailers.new(self.attributes)
-    # if mailer.valid?
+    mailer.method = self.name.to_s.classify
     ApplicationMailer.dispach(mailer.header).deliver
-
       # return true
     # else
       # return mailer.errors
@@ -46,7 +47,7 @@ class MailerMethod::Base
     def generate_token
       @token = loop do
         random_token = SecureRandom.urlsafe_base64(nil, false)
-        break random_token unless Mailer.exists?(token: random_token)
+        break random_token unless MailerSender.exists?(token: random_token)
       end
     end
 

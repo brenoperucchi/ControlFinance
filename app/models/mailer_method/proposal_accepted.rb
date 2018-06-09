@@ -25,7 +25,7 @@ class MailerMethod::ProposalAccepted < MailerMethod::Base
   end
 
   def attributes
-    {method_name: name, to: @object.broker.user.email, subject: subject, body: render, token: token, url: url, send_at: Date.today, userable:@object.broker, store: store}
+    {method_name: name, to: @object.broker.user.email, subject: subject, body: render, url: url, send_at: Date.today, userable:@object.broker, store: store}
   end
 
 end

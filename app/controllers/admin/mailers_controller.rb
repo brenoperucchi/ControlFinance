@@ -29,14 +29,14 @@ class Admin::MailersController < ApplicationController
   def create
     case params[:method]
     when 'price_list'
-      @mailer = @object.mailers.new(mailer_params)
+      @mailer = @object.mailers.new(mailer_params.merge(userable:current_user))
       @mailer.method = params[:method]
       if @mailer.save
-        @mailer.store = current_store
-        @mailer.create_broker if mailer_params[:register_user]
         @mailer.delivery
+        redirect_to admin_builds_path, notice: t(:notice, scope: 'flash.custom.email_sent')
+      else
+        render template: 'admin/mailers/_notify.html.slim'
       end
-      # redirect_to notify_admin_mailers_path(params[:mailable_type], @object, :price_list)
     else
       # @mailer = @object.mailers.new(mailer_params)
       # @mailer.store = current_store
@@ -54,7 +54,7 @@ class Admin::MailersController < ApplicationController
   end
 
   def redirect
-    @mailer = Mailer.find_by_token(params[:token])
+    @mailer = MailerSender.find_by_token(params[:token]).mailer
     @method = "MailerMethod::#{@mailer.method_name.classify}".constantize.new(@mailer.mailable)
     sign_in @mailer.userable.user if @method.signed_in?
     redirect_to @mailer.url
@@ -71,7 +71,7 @@ class Admin::MailersController < ApplicationController
     end
 
     def mailer_params
-      params.require(:mailer).permit(:subject, :body, :token, :mailers, :register_user, brokers:[], to:[])
+      params.require(:mailer).permit(:subject, :body, :mailers, :register_user, :store_id, brokers:[], to:[])
     end
 
 end
