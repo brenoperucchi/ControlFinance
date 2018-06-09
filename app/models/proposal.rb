@@ -121,8 +121,8 @@ class Proposal < ApplicationRecord
     
     state :accepted do
       def update_states(state)
+        self.update_columns(accepted_at: DateTime.now, due_at: (Date.today + 5.day))
         MailerMethod::ProposalAccepted.new(self).deliver_mail
-        self.update_columns(accepted_at: DateTime.now)
         unit.book
       end
     end
