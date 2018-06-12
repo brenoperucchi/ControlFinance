@@ -17,7 +17,7 @@ class Admin::BaseController < ApplicationController
   def current_store
     user_id = current_user.try(:userable).try(:id)
     session[:store_id] = user_id || nil if session[:store_id] != user_id 
-    # session[:store_id] ||= user_id || nil
+    session[:store_id] ||= Store.where(url: request.subdomain.split('.').first).take
     Store.current = Store.find_by_id(session[:store_id])
   end
 

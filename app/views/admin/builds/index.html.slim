@@ -87,7 +87,7 @@
                       / '
       .p-l-25.p-b-25.p-r-25
         / = link_to notify_proposal_admin_build_path(build, :price_list), :class => 'btn pull-right btn-danger'
-        = link_to notify_admin_mailers_path('Build', build, :price_list), :class => 'btn pull-right btn-danger', remote: true
+        = link_to notify_admin_mailers_path('Build', build, :price_list), :class => 'btn pull-right btn-danger', remote: false
           i.fa.fa-envelope
           '
           = t(:mail_price_list, scope: "views.admin.build")

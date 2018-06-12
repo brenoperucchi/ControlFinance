@@ -5,21 +5,25 @@ css:
 - model_class = Mailer
 .row.bg-white
   .col-lg-12
-    = simple_form_for @mailer, url: admin_mailers_path(@mailer.mailable.class.name, @mailer.mailable, @method.name) do |f|
+    = simple_form_for @mailer, url: admin_mailers_path(@object.class.name, @object, @mailer.method) do |f|
+      / = hidden_field_tag '[mailer][store_id]', current_store.id
+      / = hidden_field_tag '[mailer][method]', :price_list
       = f.input :store_id, as: :hidden, input_html:{value: current_store.id}
+      = f.input :method, as: :hidden, input_html:{value: :price_list}
       .modal-header.p-b-10
           button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
           h4.modal-title
             =t 'newa', scope: 'helpers.submit', :model => model_class.model_name.human.titleize
       .modal-body
-        = f.input :to, as: :string, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm', id:'select2',  multiple:true}
-        = f.input :register_user, wrapper: :append do
-          .checkbox.check-success
-            = f.check_box :register_user, {id: 'choice1'}
-            label for="choice1"
-              = t_holder(:register_user, Mailer)
-        br
-        = f.input :brokers, as: :select, collection: current_store.brokers, label_method: :name, value_method: :id, input_html:{id: 'multiSelect', multiple:true},include_blank: false, include_hidden: false
+        = f.simple_fields_for :mailer_method, f.object.mailer_method do |ff|
+          = ff.input :to, as: :string, placeholder: model_class.human_attribute_name(:to), input_html: { class: 'input-sm', id:'select2',  multiple:true}
+          = ff.input :register_user, wrapper: :append do
+            .checkbox.check-success
+              = ff.check_box :register_user, {id: 'choice1'}
+              label for="choice1"
+                = t_holder(:register_user, Mailer)
+          br
+          = ff.input :brokers, as: :select, collection: current_store.brokers, label_method: :name, value_method: :id, input_html:{id: 'multiSelect', multiple:true},include_blank: false, include_hidden: false
         .row
           .col-md-6
             a.m-l-5#select-all href="#"= t(:select_all, scope:'views.common')
