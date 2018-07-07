@@ -6,6 +6,7 @@ class Admin::MailersController < ApplicationController
 
   def notify
     @mailer = @object.mailers.new(method: params[:method])
+    @mailer.mailer_method = MailerMethod::PriceList.new
     respond_with @mailer
   end
 
@@ -30,6 +31,7 @@ class Admin::MailersController < ApplicationController
     case params[:method]
     when 'price_list'
       @mailer = @object.mailers.new(mailer_params.merge(userable:current_user))
+      binding.pry
       if @mailer.prepare(method_params) and @mailer.save
         @mailer.delivery
         redirect_to admin_builds_path, notice: t(:notice, scope: 'flash.custom.email_sent')

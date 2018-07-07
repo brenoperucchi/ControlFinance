@@ -1,7 +1,7 @@
-class MailerMethod::PriceList
-  include ActiveModel::Model
+class Mailer::PriceList 
+  # include ActiveModel::Model
+  # extend MailerMethod::Base
 
-  # store :parameters, accessors:[:from, :subject, :body, :mailers, :to]
   attr_accessor :to, :brokers, :register_user, :subject
 
   # validates_presence_of :to, allow_blank: false
