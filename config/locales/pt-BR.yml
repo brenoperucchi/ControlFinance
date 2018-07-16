@@ -31,7 +31,7 @@ pt-BR:
   accept: 'sim'
   placeholder:
     mailer:
-      register_user: Cadastrar Como Corretor Novo Registro?
+      register_broker: Cadastrar Como Corretor Novo Registro?
     broker:
       address: Endereço da Imobiliária ou Corretor
     store: 

@@ -1,55 +1,31 @@
-class MailerMethod::PriceList
-  include ActiveModel::Model
+class MailerMethod::PriceList <  MailerMethod::Base
 
-  # store :parameters, accessors:[:from, :subject, :body, :mailers, :to]
-  attr_accessor :to, :brokers, :register_user, :subject
+  def name
+    :price_list
+  end
 
-  # validates_presence_of :to, allow_blank: false
+  def object
+    @object 
+  end
 
-  # def initialize(args = {})
-  #   self.to = args[:to]
-  #   self.subject = args[:subject]
-  #   self.brokers = args[:brokers]
-  #   self.register_user = args[:register_user]
-  # end
+  def signed_in?
+    false
+  end
 
-  # def name
-  #   :price_list
-  # end
+  def subject
+    I18n.t(:subject, scope:'helpers.mailer.price_list', build: @object.name)
+  end
 
-  # def object
-  #   @object ||= Build.first
-  # end
+  def url
+    public_dashboards_path
+  end
 
-  # def signed_in?
-  #   false
-  # end
+  def store
+    @object.store
+  end
 
-  # def subject
-  #   I18n.t(:subject, scope:'helpers.mailer.price_list', build: @object.name)
-  # end
-
-  # def url
-  #   public_dashboards_path
-  # end
-
-  # def store
-  #   @object.store
-  # end
-
-  # def attributes
-  #   {method_name: name, subject: subject, body: render, url: url, send_at: Date.today, store: store}
-  # end
-
-  # def deliver_mail
-  #   self.mailer.senders.each do  |sender|
-  #     ApplicationMailer.dispach(mailer.header.merge(to: sender.to)).deliver
-  #     sender.update_attribute(:updated_at, DateTime.now)
-  #   end
-  #   # return true
-  #   # else
-  #   # return mailer.errors
-  #   # end    
-  # end
+  def attributes
+    {subject: subject, body: body, url: url, token: token, url: url, signed_in?: signed_in?}
+  end
 
 end

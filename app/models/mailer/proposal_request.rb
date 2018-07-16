@@ -1,4 +1,4 @@
-class Mailer::PriceList < Mailer
+class Mailer::ProposalRequest < Mailer
   store :parameters, accessors:[:to, :from, :subject, :body, :register_broker, :url, :signed_in?, :token]
 
   attr_accessor :brokers, :delivery_emails
@@ -6,30 +6,29 @@ class Mailer::PriceList < Mailer
   validates_presence_of :to, allow_blank: false
 
   def name
-    :price_list
+    :proposal_request
   end
 
   def prepare
     provider_class = "MailerMethod::#{name.to_s.classify}".constantize
-    self.create_broker
-    email_list.flatten.each do |email|
-      self.mailer_method = provider_class.new(mailable)
-      senders.new(self.mailer_method.attributes.merge(to: email))
-    end
+    self.mailer_method = provider_class.new(mailable)
+    self.body = provider_class.new(mailable).render
+    self.subject = provider_class.new(mailable).subject
+    senders.new(self.mailer_method.attributes)
   end
 
   def deliver_mail
-    senders.each do  |sender|
-      ApplicationMailer.dispach(sender.header.merge(from: (self.from || store.email))).deliver
+    senders.each do |sender|
+      ApplicationMailer.dispach(sender.header.merge(to: self.to, from: (self.from || store.email))).deliver
       sender.update_attribute(:updated_at, DateTime.now)
     end
   end
 
   def create_broker
     if ActiveRecord::Type::Boolean.new.cast(self.register_broker)
-      to.first.split(",").each do |email|
+      to.split(",").each do |email|
         broker = store.brokers.new(name: email, department:'user', person_type:'person', active:1, option1: '1', option2: '1', option3: '1', option4: '1', option5: '1', option6: '1', address: 'Address', phone: 'Phone' , company_irs_id: 'company_irs_id', irs_id: "IRS ID #{store.brokers.last.id + 1}", user_attributes:{email: email, password: '123123', store: store})
-        broker.save
+        return false
       end
     end
   end
@@ -38,7 +37,7 @@ class Mailer::PriceList < Mailer
 
   def email_list
     emails = (store.brokers.where(id:self.brokers).map{|b| b.user.email}) 
-    emails << self.to.first.split(",") unless self.to.nil?
+    emails << self.to.first.split(",")
     emails.uniq.delete_if(&:blank?).flatten
   end
 

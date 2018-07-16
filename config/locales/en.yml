@@ -31,7 +31,7 @@ en:
   accept: 'yes'
   placeholder:
     mailer:
-      register_user: Create Register as Broker?
+      register_broker: Create Register as Broker?
     broker:
       address: Address of broker or real estate
     store: 

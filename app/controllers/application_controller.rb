@@ -33,6 +33,13 @@ class ApplicationController < ActionController::Base
     current_user.try(:userable).try(:admin?)
   end
 
+  def redirect_mailer
+    @sender = MailerSender.find_by_token(params[:token])
+    sign_in @sender.userable.user if @sender.signed_in?
+    redirect_to @sender.url
+  end
+
+
   protected
   
   def configure_permitted_parameters

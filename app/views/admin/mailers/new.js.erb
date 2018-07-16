@@ -1,4 +1,4 @@
-$('.modal-content').html("<%= escape_javascript(render 'notify') %>");
+$('.modal-content').html("<%= escape_javascript(render @param_method) %>");
 $('#modalSlideUp').modal('show');
 $('#select2').tagsinput({
   confirmKeys: [13, 32, 44, 188]

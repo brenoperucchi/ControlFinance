@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180613045924) do
+ActiveRecord::Schema.define(version: 20180716024521) do
 
   create_table "activities", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
@@ -104,13 +104,13 @@ ActiveRecord::Schema.define(version: 20180613045924) do
     t.bigint "mailer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "send_at"
     t.index ["mailer_id"], name: "index_mailer_senders_on_mailer_id"
   end
 
   create_table "mailers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "method_name"
+    t.string "type"
     t.text "parameters"
-    t.string "url"
     t.integer "store_id"
     t.string "userable_type"
     t.integer "userable_id"
@@ -119,8 +119,6 @@ ActiveRecord::Schema.define(version: 20180613045924) do
     t.datetime "send_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "mailer_method"
-    t.string "type"
     t.index ["mailable_type", "mailable_id"], name: "index_mailers_on_mailable_type_and_mailable_id"
     t.index ["store_id"], name: "index_mailers_on_store_id"
     t.index ["userable_type", "userable_id"], name: "index_mailers_on_userable_type_and_userable_id"

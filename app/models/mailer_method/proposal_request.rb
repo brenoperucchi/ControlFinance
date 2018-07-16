@@ -5,7 +5,7 @@
   end
 
   def object
-    @object ||= Unit.first
+    @object
   end
 
 
@@ -18,7 +18,7 @@
   end
 
   def url
-    new_public_unit_proposal_path(@object)
+    public_build_units_path(@object)
   end
 
   def store
@@ -26,7 +26,7 @@
   end
 
   def attributes
-    {method_name: name, subject: subject, body: render, token: token, url: url, send_at: Date.today, userable:@object.broker, userable:@object.broker, store: store}
+    {subject: subject, body: render, token: token, url: url, signed_in?: signed_in?}
   end
 
 end
