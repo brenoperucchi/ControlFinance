@@ -1212,13 +1212,15 @@
 	],
 	"find":
 	{
-		"height": 47.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
 		"height": 125.0,
 		"where_history":
 		[
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *",
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.js",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
@@ -1344,9 +1346,7 @@
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *",
 			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.slim",
-			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/vendor, *.slim"
+			"/Users/brenoperucchi/Google-Drive/03-Apps/appweb/, *.rb"
 		]
 	},
 	"find_state":
@@ -1354,6 +1354,7 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"binding.pry",
 			"tagsinput",
 			"redirect_",
 			"public_build_units_path",
@@ -1480,8 +1481,7 @@
 			"default_url_options",
 			"deliver_mail_",
 			"deliver_mail_path",
-			"SentientStoreController",
-			"redirect_if_proposal_bought"
+			"SentientStoreController"
 		],
 		"highlight": true,
 		"in_selection": false,

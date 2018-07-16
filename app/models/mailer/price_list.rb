@@ -21,7 +21,7 @@ class Mailer::PriceList < Mailer
   def deliver_mail
     senders.each do  |sender|
       ApplicationMailer.dispach(sender.header.merge(from: (self.from || store.email))).deliver
-      sender.update_attribute(:updated_at, DateTime.now)
+      sender.update_attribute(:send_at, DateTime.now)
     end
   end
 
