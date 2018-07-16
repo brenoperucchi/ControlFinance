@@ -34,7 +34,6 @@ class Admin::MailersController < Admin::BaseController
       flash[:notice] = t :notice, scope: 'flash.custom.email_sent'
       redirect_to new_admin_mailer_path(@object.class.name, @object, @mailer.name)
     else
-      asaså
       render template: "admin/mailers/#{@param_method.downcase}.html.slim"
     end
   end
@@ -51,9 +50,9 @@ class Admin::MailersController < Admin::BaseController
     def mailer_params
       case params[:method]
       when 'price_list'
-        params.require("mailer_#{params[:method]}".to_sym).permit(:method, :subject, :body, :register_user, :store_id, :register_broker, brokers:[], to:[])
+        params.require(:mailer_price_list).permit(:method, :subject, :body, :register_user, :store_id, :register_broker, brokers:[], to:[])
       when 'proposal_request'
-        params.require(:mailer_proposal_request).permit(:method, :subject, :body, :store_id, :register_broker, :to)
+        params.require(:mailer_proposal_request).permit(:method, :subject, :body, :store_id, :register_broker, :to, :token)
       else
         params.require(:mailer).permit(:method, :subject, :body, :store_id, :register_broker, to:[])
       end

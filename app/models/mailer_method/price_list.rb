@@ -1,5 +1,8 @@
 class MailerMethod::PriceList <  MailerMethod::Base
 
+  attr_writer :subject, :token
+  attr_accessor :to
+
   def name
     :price_list
   end
@@ -13,7 +16,7 @@ class MailerMethod::PriceList <  MailerMethod::Base
   end
 
   def subject
-    I18n.t(:subject, scope:'helpers.mailer.price_list', build: @object.name)
+    @subject.blank? ? I18n.t(:subject, scope:'helpers.mailer.price_list', build: @object.name) : @subject
   end
 
   def url
@@ -25,7 +28,7 @@ class MailerMethod::PriceList <  MailerMethod::Base
   end
 
   def attributes
-    {subject: subject, body: body, url: url, token: token, url: url, signed_in?: signed_in?}
+    {to: to, subject: subject, body: body, url: url, token: token, url: url, signed_in?: signed_in?}
   end
 
 end

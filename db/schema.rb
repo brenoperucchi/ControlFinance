@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180716024521) do
+ActiveRecord::Schema.define(version: 20180716141835) do
 
   create_table "activities", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
@@ -116,7 +116,6 @@ ActiveRecord::Schema.define(version: 20180716024521) do
     t.integer "userable_id"
     t.string "mailable_type"
     t.integer "mailable_id"
-    t.datetime "send_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["mailable_type", "mailable_id"], name: "index_mailers_on_mailable_type_and_mailable_id"

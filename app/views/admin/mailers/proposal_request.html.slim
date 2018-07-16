@@ -1,3 +1,24 @@
+- model_class = Mailer
+.card.card-default
+  .card-header
+    h3.box-title.m-b-0= model_class.model_name.human
+  .card-block
+    .row
+      .col-sm-12.col-xs-12
+        = simple_form_for @mailer, url: admin_mailers_path(@mailer.mailable.class.name, @mailer.mailable, @mailer.name) do |f|
+          = f.input :token, as: :hidden
+          = f.input :to, as: :string
+          = f.input :subject, as: :string
+          = f.input :body, as: :text, input_html:{class: 'summernote'}
+          .form-group
+            .col-sm-offset-0.col-sm-9
+              = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'
+              '
+              = f.submit :class => 'btn btn-primary' do
+                i.fa.fa-inbox
+                '
+                = t('sendmail', scope: "helpers.links")
+
 - content_for :footer do 
   javascript:
     $(document).ready(function(){
@@ -8,22 +29,3 @@
         focus: false
       });
     })
-
-- model_class = Mailer
-
-.card.card-default
-  .card-header
-    h3.box-title.m-b-0= model_class.model_name.human
-  .card-block
-    .row
-      .col-sm-12.col-xs-12
-        = simple_form_for @mailer, url: admin_mailers_path(@mailer.mailable.class.name, @mailer.mailable, @mailer.name) do |f|
-          == render 'form', f: f, model_class: model_class
-          .form-group
-            .col-sm-offset-0.col-sm-9
-              = link_to t('back', scope: "helpers.links"), admin_builds_path, :class => 'btn'
-              '
-              = f.submit :class => 'btn btn-primary' do
-                i.fa.fa-inbox
-                '
-                = t('sendmail', scope: "helpers.links")

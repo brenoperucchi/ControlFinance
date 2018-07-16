@@ -18,6 +18,7 @@ css:
             = f.check_box :register_broker, {id: 'choice1'}
             label for="choice1"
               = t_holder(:register_broker, Mailer)
+        = f.input :subject, as: :string, placeholder: model_class.human_attribute_name(:subject), input_html: { class: 'input-sm'}
         br
         = f.input :brokers, as: :select, collection: current_store.brokers, label_method: :name, value_method: :id, include_blank: false, include_hidden: false, input_html:{id: 'multiSelect', multiple:true, include_hidden: false, include_blank: false}
         .row

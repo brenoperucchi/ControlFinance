@@ -11,15 +11,16 @@ class Mailer::ProposalRequest < Mailer
 
   def prepare
     provider_class = "MailerMethod::#{name.to_s.classify}".constantize
-    self.mailer_method = provider_class.new(mailable)
-    self.body = provider_class.new(mailable).render
-    self.subject = provider_class.new(mailable).subject
+    self.mailer_method = provider_class.new(object: mailable, to: to, subject: subject, body: body, token: token)
+    self.token = self.mailer_method.token
+    self.subject = self.mailer_method.subject
+    self.body = self.mailer_method.body || self.mailer_method.render
     senders.new(self.mailer_method.attributes)
   end
 
   def deliver_mail
     senders.each do |sender|
-      ApplicationMailer.dispach(sender.header.merge(to: self.to, from: (self.from || store.email))).deliver
+      ApplicationMailer.dispach(sender.header.merge(from: (self.from || store.email))).deliver
       sender.update_attribute(:send_at, DateTime.now)
     end
   end

@@ -16,11 +16,11 @@ center
             tbody
               tr style="height:10px;" 
                 td height="10" style="height:10px;font-size:0px;line-height:0px;"  &nbsp;
-              tr
-                td style="text-align:center;font-style:normal;font-variant-caps:normal;font-weight:normal;font-size:11px;line-height:normal;font-family:Helvetica, sans-serif;" 
-                  span.disclaimer-message style="color:rgb(0, 0, 0);" 
-                    | Is this email not displaying properly?
-                    a data-dm-link-id="1" href="https://ethreemail.com/preview-placeholder.html?section=web" style="color:inherit;"  View online
+              / tr
+              /   td style="text-align:center;font-style:normal;font-variant-caps:normal;font-weight:normal;font-size:11px;line-height:normal;font-family:Helvetica, sans-serif;" 
+              /     span.disclaimer-message style="color:rgb(0, 0, 0);" 
+              /       | Is this email not displaying properly?
+              /       a data-dm-link-id="1" href="https://ethreemail.com/preview-placeholder.html?section=web" style="color:inherit;"  View online
               tr style="height:10px;" 
                 td height="10" style="height:10px;font-size:0px;line-height:0px;"  &nbsp;
           table.container cellpadding="0" cellspacing="0" style="width:642px;background-color:rgb(255, 255, 255);" 
@@ -90,7 +90,7 @@ center
                                                         td height="20" style=("height:20px; font-size:0px; line-height: 0px")   
                                               tr
                                                 td align="center" contenteditable="true" 
-                                                  img.main-image alt="" border="0" height="529" src="#{image_url(object.image, host:'127.0.0.1:3000')}" width="396" /
+                                                  img.main-image alt="" border="0" height="529" src="#{image_url(object.image, host: host)}" width="396" /
                                       tr
                                         td align="center" 
                                           table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-horizontal-spacing:0px;border-vertical-spacing:0px;" width="100%" 

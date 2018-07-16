@@ -11,11 +11,16 @@ class Mailer::PriceList < Mailer
 
   def prepare
     provider_class = "MailerMethod::#{name.to_s.classify}".constantize
+    self.mailer_method = provider_class.new(object: mailable, subject: subject)
+    self.subject = self.mailer_method.subject
     self.create_broker
     email_list.flatten.each do |email|
-      self.mailer_method = provider_class.new(mailable)
-      senders.new(self.mailer_method.attributes.merge(to: email))
+      self.mailer_method.to = email
+      self.mailer_method.token = self.mailer_method.generate_token
+      self.mailer_method.body = self.mailer_method.render
+      senders.new(self.mailer_method.attributes)
     end
+
   end
 
   def deliver_mail

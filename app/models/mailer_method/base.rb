@@ -1,16 +1,13 @@
 class MailerMethod::Base
   include Rails.application.routes.url_helpers
+  attr_accessor :token, :body
 
-  def initialize(obj = nil)
-    @object = obj# || objec
-  end
-
-  def body
-    @body ||= render
-  end
-
-  def token
-    @token ||= generate_token
+  def initialize(attr = {})
+    @to = attr[:to]
+    @object = attr[:object]
+    @subject = attr[:subject]
+    @body = attr[:body]
+    @token = attr[:token] 
   end
 
   def render
@@ -35,7 +32,7 @@ class MailerMethod::Base
     "#{store.url}.#{options[:host]}:#{options[:port]}"
   end
 
-  private
+  # private
     def generate_token
       @token = loop do
         random_token = SecureRandom.urlsafe_base64(nil, false)
