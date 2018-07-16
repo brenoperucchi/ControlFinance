@@ -91,5 +91,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   ##CUSTOM
-  config.action_mailer.default_url_options = { :host => 'app.imentore.com.br', port: 80 }
+  config.action_mailer.default_url_options = { :host => 'imentore.com.br', port: 80 }
 end

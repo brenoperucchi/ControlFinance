@@ -354,10 +354,9 @@ pt-BR:
       state_change: 'Estado mudou de %{from} para %{to}'
     mailer:
       price_list:
-        title: 'Price List of Build: %{build}'
-        link: More Info
-        subject: 'Price List of Build: %{build}'
-        message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
+        title: 'Lista de Preço da obra: %{build}'
+        link: Para mais informações
+        subject: 'Lista de Preço da obra: %{build}'
       expired:
         title: Reserva expirou
         link: Faça um novo pedido de tempo

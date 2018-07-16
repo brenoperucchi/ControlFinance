@@ -357,7 +357,6 @@ en:
         title: 'Price List of Build: %{build}'
         link: More Info
         subject: 'Price List of Build: %{build}'
-        message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
       expired:
         title: Booked Expired
         link: Verify
