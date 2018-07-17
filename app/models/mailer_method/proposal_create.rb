@@ -12,6 +12,14 @@ class MailerMethod::ProposalCreate < MailerMethod::Base
     true
   end
 
+  def body
+    @body = @body.blank? ? self.render : @body
+  end
+
+  def token
+    @token = @token.blank? ? generate_token : @token
+  end
+
   def subject
     I18n.t(:subject, scope:'helpers.mailer.create', unit: @object.unit.name, build: @object.unit.builder.name)
   end
@@ -25,7 +33,7 @@ class MailerMethod::ProposalCreate < MailerMethod::Base
   end
 
   def attributes
-    {method_name: name, to: @object.broker.user.email, subject: subject, body: render, url: url, send_at: Date.today, userable:@object.broker, store: store}
+    {to: @object.broker.user.email, subject: subject, body: body, url: url, send_at: Date.today}
   end
 
 end

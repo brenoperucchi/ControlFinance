@@ -182,7 +182,9 @@ class Proposal < ApplicationRecord
 
   private
     def mailer_created
-      MailerMethod::ProposalCreate.new(self).deliver_mail
+      mailer = self.mailers.new(store: builder.store, userable: self.broker, type: "Mailer::ProposalCreate")
+      mailer.prepare
+      mailer.delivery
     end
 
     def create_documents

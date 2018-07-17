@@ -23,13 +23,6 @@ class Mailer::PriceList < Mailer
 
   end
 
-  def deliver_mail
-    senders.each do  |sender|
-      ApplicationMailer.dispach(sender.header.merge(from: (self.from || store.email))).deliver
-      sender.update_attribute(:send_at, DateTime.now)
-    end
-  end
-
   def create_broker
     if ActiveRecord::Type::Boolean.new.cast(self.register_broker)
       to.first.split(",").each do |email|

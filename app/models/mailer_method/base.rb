@@ -1,6 +1,6 @@
 class MailerMethod::Base
   include Rails.application.routes.url_helpers
-  attr_accessor :token, :body
+  attr_accessor :to, :body, :subject, :token
 
   def initialize(attr = {})
     @to = attr[:to]

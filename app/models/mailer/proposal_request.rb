@@ -18,12 +18,12 @@ class Mailer::ProposalRequest < Mailer
     senders.new(self.mailer_method.attributes)
   end
 
-  def deliver_mail
-    senders.each do |sender|
-      ApplicationMailer.dispach(sender.header.merge(from: (self.from || store.email))).deliver
-      sender.update_attribute(:send_at, DateTime.now)
-    end
-  end
+  # def deliver_mail
+  #   senders.each do |sender|
+  #     ApplicationMailer.dispach(sender.header.merge(from: (self.from || store.email))).deliver
+  #     sender.update_attribute(:send_at, DateTime.now)
+  #   end
+  # end
 
   def create_broker
     if ActiveRecord::Type::Boolean.new.cast(self.register_broker)
@@ -34,12 +34,12 @@ class Mailer::ProposalRequest < Mailer
     end
   end
 
-  private
+  # private
 
-  def email_list
-    emails = (store.brokers.where(id:self.brokers).map{|b| b.user.email}) 
-    emails << self.to.first.split(",")
-    emails.uniq.delete_if(&:blank?).flatten
-  end
+  # def email_list
+  #   emails = (store.brokers.where(id:self.brokers).map{|b| b.user.email}) 
+  #   emails << self.to.first.split(",")
+  #   emails.uniq.delete_if(&:blank?).flatten
+  # end
 
 end
