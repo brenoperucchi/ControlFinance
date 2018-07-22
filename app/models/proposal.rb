@@ -122,7 +122,8 @@ class Proposal < ApplicationRecord
     state :accepted do
       def update_states(state)
         self.update_columns(accepted_at: DateTime.now, due_at: (Date.today + 5.day))
-        MailerMethod::ProposalAccepted.new(self).deliver_mail
+        mailer_proposal_accepted_delivery
+
         unit.book
       end
     end
@@ -132,6 +133,12 @@ class Proposal < ApplicationRecord
         unit.buy
       end
     end
+  end
+
+  def mailer_proposal_accepted_delivery
+    mailer = self.mailers.new(store: builder.store, userable: self.broker, type: "Mailer::ProposalAccepted")
+    mailer.prepare
+    mailer.delivery
   end
 
   def restricted?

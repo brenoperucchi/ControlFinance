@@ -1,8 +1,5 @@
 class MailerMethod::PriceList <  MailerMethod::Base
 
-  attr_writer :subject, :token
-  attr_accessor :to
-
   def name
     :price_list
   end

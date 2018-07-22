@@ -5,19 +5,11 @@ class MailerMethod::ProposalCreate < MailerMethod::Base
   end
 
   def object
-    @object ||= ::Proposal.first
+    @object
   end
 
   def signed_in?
     true
-  end
-
-  def body
-    @body = @body.blank? ? self.render : @body
-  end
-
-  def token
-    @token = @token.blank? ? generate_token : @token
   end
 
   def subject
@@ -33,7 +25,7 @@ class MailerMethod::ProposalCreate < MailerMethod::Base
   end
 
   def attributes
-    {to: @object.broker.user.email, subject: subject, body: body, url: url, send_at: Date.today}
+    {to: @object.broker.user.email, subject: subject, body: body, url: url, send_at: Date.today, token: token}
   end
 
 end

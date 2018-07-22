@@ -5,7 +5,7 @@ class MailerMethod::ProposalExpired < MailerMethod::Base
   end
 
   def object
-    @object ||= ::Proposal.first
+    @object
   end
 
   def signed_in?
@@ -25,11 +25,11 @@ class MailerMethod::ProposalExpired < MailerMethod::Base
   end
 
   def attributes
-    {method_name: name, to: @object.broker.user.email, subject: subject, body: render, token: token, url: url, send_at: Date.today, userable:@object.broker, store:store}
+    {to: @object.broker.user.email, subject: subject, body: body, token: token, url: url, signed_in?: signed_in?}
   end
 
-  def custom_procedures
-    @object.pending
-  end
+  # def custom_procedures
+  #   @object.pending
+  # end
 
 end

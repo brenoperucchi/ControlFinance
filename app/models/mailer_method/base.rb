@@ -2,12 +2,15 @@ class MailerMethod::Base
   include Rails.application.routes.url_helpers
   attr_accessor :to, :body, :subject, :token
 
-  def initialize(attr = {})
-    @to = attr[:to]
-    @object = attr[:object]
-    @subject = attr[:subject]
-    @body = attr[:body]
-    @token = attr[:token] 
+  def initialize(attrs = {})
+    attrs.each do |key, value| 
+      instance_variable_set("@#{key}", value)
+    end
+    # @to = attr[:to]
+    # @object = attr[:object]
+    # @subject = attr[:subject]
+    # @body = attr[:body]
+    # @token = attr[:token] 
   end
 
   def render
@@ -25,6 +28,14 @@ class MailerMethod::Base
       end
     end
     view.render partial: "mailers/#{name.to_s}", locals: {object: @object, token: token, host: self.host}, layout:false
+  end
+
+  def body
+    @body = @body.blank? ? self.render : @body
+  end
+
+  def token
+    @token = @token.blank? ? generate_token : @token
   end
 
   def host

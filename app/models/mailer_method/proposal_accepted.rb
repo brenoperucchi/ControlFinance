@@ -5,7 +5,7 @@ class MailerMethod::ProposalAccepted < MailerMethod::Base
   end
 
   def object
-    @object ||= ::Proposal.first
+    @object
   end
 
   def signed_in?
@@ -17,7 +17,7 @@ class MailerMethod::ProposalAccepted < MailerMethod::Base
   end
 
   def url
-    public_purchase_steps_path(@object, :proposal) 
+    public_purchase_steps_path(@object) 
   end
 
   def store
@@ -25,7 +25,7 @@ class MailerMethod::ProposalAccepted < MailerMethod::Base
   end
 
   def attributes
-    {method_name: name, to: @object.broker.user.email, subject: subject, body: render, url: url, send_at: Date.today, userable:@object.broker, store: store}
+    {to: @object.broker.user.email, subject: subject, body: body, url: url, send_at: Date.today, token: token}
   end
 
 end

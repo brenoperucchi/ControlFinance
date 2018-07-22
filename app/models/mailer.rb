@@ -1,11 +1,12 @@
 class Mailer < ApplicationRecord
-
-  store :parameters, accessors:[:to, :from, :subject, :body, :mailer_method]
+  
+  store :parameters, accessors:[:to, :from, :subject, :body, :register_broker, :url, :signed_in?, :token]
 
   has_many :senders, class_name: "MailerSender", dependent: :destroy
   belongs_to :mailable, polymorphic: true
   belongs_to :userable, polymorphic: true, optional: true
   belongs_to :store, optional: true
+  belongs_to :owner, optional: true, class_name: 'User'
 
 
   def delivery

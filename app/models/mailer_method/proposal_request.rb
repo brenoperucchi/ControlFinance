@@ -1,18 +1,11 @@
 class MailerMethod::ProposalRequest < MailerMethod::Base
 
-  # attr_writer :subject
-  # attr_accessor :to, :body
-
   def name
     :proposal_request
   end
 
   def object
     @object
-  end
-
-  def token
-    @token = @token.blank? ? generate_token : @token
   end
 
   def signed_in?

@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_mailer
     @sender = MailerSender.find_by_token(params[:token])
-    sign_in @sender.userable.user if @sender.signed_in?
+    sign_in @sender.mailer.userable.user if @sender.mailer.mailer_method.signed_in?
     redirect_to @sender.url
   end
 

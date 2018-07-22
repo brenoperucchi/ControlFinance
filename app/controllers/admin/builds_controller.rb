@@ -10,8 +10,9 @@ class Admin::BuildsController < Admin::BaseController
       respond_to do |format|
         format.html do           
           @build.proposals.expired.each do |proposal|
-            mailer_method = "MailerMethod::Proposal#{params_method.classify}".constantize.new(proposal)
-            mailer_method.deliver_mail
+            mailer = proposal.mailers.new(store: proposal.builder.store, userable: proposal.broker, type: "Mailer::ProposalExpired")
+            mailer.prepare
+            mailer.delivery
           end
           redirect_to scope_admin_build_path(@build, scope: params_method.to_sym), notice: 'Emails was successfully delivery.' 
         end

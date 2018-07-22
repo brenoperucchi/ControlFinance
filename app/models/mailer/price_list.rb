@@ -1,5 +1,6 @@
 class Mailer::PriceList < Mailer
-  store :parameters, accessors:[:to, :from, :subject, :body, :register_broker, :url, :signed_in?, :token]
+
+  serialize :mailer_method, MailerMethod::PriceList
 
   attr_accessor :brokers, :delivery_emails
 
@@ -11,14 +12,14 @@ class Mailer::PriceList < Mailer
 
   def prepare
     provider_class = "MailerMethod::#{name.to_s.classify}".constantize
-    self.mailer_method = provider_class.new(object: mailable, subject: subject)
-    self.subject = self.mailer_method.subject
+    mailer_method = provider_class.new(object: mailable, subject: subject)
+    self.subject = mailer_method.subject
     self.create_broker
     email_list.flatten.each do |email|
-      self.mailer_method.to = email
-      self.mailer_method.token = self.mailer_method.generate_token
-      self.mailer_method.body = self.mailer_method.render
-      senders.new(self.mailer_method.attributes)
+      mailer_method.to = email
+      mailer_method.token = mailer_method.generate_token
+      mailer_method.body = mailer_method.render
+      senders.new(mailer_method.attributes)
     end
 
   end

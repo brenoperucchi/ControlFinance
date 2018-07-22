@@ -1,5 +1,6 @@
 class Mailer::ProposalRequest < Mailer
-  store :parameters, accessors:[:to, :from, :subject, :body, :register_broker, :url, :signed_in?, :token]
+
+  serialize :mailer_method, MailerMethod::ProposalRequest
 
   attr_accessor :brokers, :delivery_emails
 
@@ -11,19 +12,12 @@ class Mailer::ProposalRequest < Mailer
 
   def prepare
     provider_class = "MailerMethod::#{name.to_s.classify}".constantize
-    self.mailer_method = provider_class.new(object: mailable, to: to, subject: subject, body: body, token: token)
-    self.token = self.mailer_method.token
-    self.subject = self.mailer_method.subject
-    self.body = self.mailer_method.body || self.mailer_method.render
-    senders.new(self.mailer_method.attributes)
+    mailer_method = provider_class.new(object: mailable, to: to, subject: subject, body: body, token: token)
+    self.token = mailer_method.token
+    self.subject = mailer_method.subject
+    self.body = mailer_method.body || mailer_method.render
+    senders.new(mailer_method.attributes)
   end
-
-  # def deliver_mail
-  #   senders.each do |sender|
-  #     ApplicationMailer.dispach(sender.header.merge(from: (self.from || store.email))).deliver
-  #     sender.update_attribute(:send_at, DateTime.now)
-  #   end
-  # end
 
   def create_broker
     if ActiveRecord::Type::Boolean.new.cast(self.register_broker)
@@ -34,12 +28,5 @@ class Mailer::ProposalRequest < Mailer
     end
   end
 
-  # private
-
-  # def email_list
-  #   emails = (store.brokers.where(id:self.brokers).map{|b| b.user.email}) 
-  #   emails << self.to.first.split(",")
-  #   emails.uniq.delete_if(&:blank?).flatten
-  # end
 
 end
