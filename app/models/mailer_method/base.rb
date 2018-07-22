@@ -6,11 +6,6 @@ class MailerMethod::Base
     attrs.each do |key, value| 
       instance_variable_set("@#{key}", value)
     end
-    # @to = attr[:to]
-    # @object = attr[:object]
-    # @subject = attr[:subject]
-    # @body = attr[:body]
-    # @token = attr[:token] 
   end
 
   def render

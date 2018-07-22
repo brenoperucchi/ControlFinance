@@ -12,7 +12,7 @@ class Mailer::PriceList < Mailer
 
   def prepare
     provider_class = "MailerMethod::#{name.to_s.classify}".constantize
-    mailer_method = provider_class.new(object: mailable, subject: subject)
+    self.mailer_method = provider_class.new(object: mailable, subject: subject)
     self.subject = mailer_method.subject
     self.create_broker
     email_list.flatten.each do |email|

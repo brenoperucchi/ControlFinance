@@ -8,7 +8,7 @@ class Mailer::ProposalAccepted < Mailer
 
   def prepare
     provider_class = "MailerMethod::#{name.to_s.classify}".constantize
-    mailer_method = provider_class.new(object: mailable)
+    self.mailer_method = provider_class.new(object: mailable)
     self.senders.new(mailer_method.attributes)
   end
 

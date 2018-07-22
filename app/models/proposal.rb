@@ -139,6 +139,8 @@ class Proposal < ApplicationRecord
     mailer = self.mailers.new(store: builder.store, userable: self.broker, type: "Mailer::ProposalAccepted")
     mailer.prepare
     mailer.delivery
+    # binding.pry
+    mailer.save
   end
 
   def restricted?

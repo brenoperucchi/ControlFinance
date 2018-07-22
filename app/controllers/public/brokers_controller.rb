@@ -26,6 +26,7 @@ class Public::BrokersController < Public::BaseController
     @broker.department = 'user'
     @broker.person_type = 'person'
     if @broker.save
+      sign_in @broker.user
       respond_with @broker, location: revise_public_broker_path(@broker), layout:'layouts/pages/broker'
     else
       respond_with @broker, render:{ action: :new, layout:'layouts/pages/broker' }
