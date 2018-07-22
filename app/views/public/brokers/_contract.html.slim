@@ -25,9 +25,8 @@ p
 ol
   -  current_store.builds.active.each do |build|
     li 
-      span = I18n.t(:contract_build_address_active, scope: 'views.document', address:build.address)
+      span = I18n.t(:contract_build_address_active, scope: 'views.document', build: build.name, address:build.address)
 p
-  br/
   span O preço mínimo autorizado para comercialização é aquele vinculado à
   '
   strong "tabela venda mensal"
@@ -36,7 +35,7 @@ p
   '
   strong NEGOCIANTE
   span .
-
+br/
 p
   strong Cláusula Segunda – DA PUBLICIDADE E DAS FERRAMENTAS PARA A REALIZAÇÃO DO OBJETO
 p
