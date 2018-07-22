@@ -1,6 +1,7 @@
 - model_class = Build
 
 = f.input :name
+= f.input :state, as: :select, collection: model_class::STATES
 = f.input :address
 = f.input :registry
 = f.input :incorporation

@@ -168,6 +168,7 @@ pt-BR:
       select_all: Selecionar Todos
       deselect_all: Remover Todos
     document:
+      contract_build_address_active: "Imóvel situado na %{address}"
       contract: "Minuta do Contrato"
       send_files: "Enviar Arquivos"
       pending: pendente

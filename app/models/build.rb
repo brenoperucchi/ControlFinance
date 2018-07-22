@@ -1,8 +1,10 @@
 class Build < ApplicationRecord
 
-  STATES = {pending: 'pending', booked:'book', closed:'close'}
+  STATES = {pending: 'pending', active:'active'}
 
   store :information, accessors:[:address, :registry, :incorporation]
+
+  scope :active, ->{ where(state: 'active') }
   
   has_many :mailers,    class_name: 'Mailer', as: :mailable, dependent: :destroy
   has_many :units,      class_name: "Unit", :foreign_key => "build_id", dependent: :destroy
