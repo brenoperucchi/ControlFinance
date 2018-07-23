@@ -19,7 +19,7 @@ end
   @count +=1
   (1..6).each do |i|
     count = (i % 2 == 0) ? 1 : 2
-    unit = build.units.create({name: "10#{i}", value: "#{i}50000", size: 55, garage:"#{i}", brokerage:5.5})
+    unit = build.units.create({name: "10#{i}", value: "#{i}50000", area_privative: 55, garage:"#{i}", brokerage:5.5, dormitory: "2QT/#{count}S", registry: "1234", incorporation:"4321", position:"MEIO"})
     p = unit.proposals.create(negociate: 'negoaciate', value: "#{i}000", broker:Broker.find(count), due_at: Date.today)
   end
   Proposal::STATUS.each_with_index do |s,i|

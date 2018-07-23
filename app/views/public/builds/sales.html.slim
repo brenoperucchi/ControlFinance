@@ -24,23 +24,24 @@
             th= t :position, scope:'views.build'
             th= t :dormitory, scope:'views.build'
             th= t :garage, scope:'views.build'
-            th= t :box, scope:'views.build'
+            / th= t :box, scope:'views.build'
             th= t :area_privative, scope:'views.build'
-            th= t :area_common, scope:'views.build'
-            th= t :area_total, scope:'views.build'
-            th= t :area_value, scope:'views.build'
+            / th= t :area_common, scope:'views.build'
+            / th= t :area_total, scope:'views.build'
+            / th= t :area_value, scope:'views.build'
+            th= t :value, scope:'views.build'
           tbody
             - build.units.each do |unit|
               tr
                 td.w-15= unit.name
-                td.w-10= unit.name
-                td.w-15= unit.name
-                td.w-15= unit.name
-                td.w-15= unit.name
-                td= unit.name
-                td= unit.name
-                td= unit.name
-                td.w-15= unit.name
+                td.w-10= unit.position
+                td.w-15= unit.dormitory
+                td.w-15= unit.garage
+                / td.w-15= unit.box
+                td= unit.area_privative
+                / td= unit.area_common
+                / td= unit.area_total
+                td.w-15= number_to_currency unit.value
     / .padding-25.mt-auto
     /   p.small.no-margin
     /     a href="#" 

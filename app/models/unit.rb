@@ -1,7 +1,7 @@
 class Unit < ApplicationRecord
   STATES = {pending: 'pending', booked:'book', bought:'buy'}
 
-  store :information, accessors:[:name, :garage, :deadline, :registry, :incorporation]
+  store :information, accessors:[:name, :garage, :deadline, :registry, :incorporation, :position, :dormitory, :box, :area_privative, :area_common, :area_total, :area_value]
 
   attr_reader :unit_value
 

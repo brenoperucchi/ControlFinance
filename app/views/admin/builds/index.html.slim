@@ -56,7 +56,7 @@
                   td= unit.name
                   td= unit.garage
                   td= t(unit.state, scope:'views.common').upcase
-                  td= number_with_precision unit.size
+                  td= number_with_precision unit.area_privative
                   td= number_to_currency unit.value
                   td
                     = link_to t(:proposals, scope: "views.admin.build"), admin_build_unit_proposals_path(build, unit), class: 'btn btn-xs btn-default hidden-lg-up hidden-xlg-up'

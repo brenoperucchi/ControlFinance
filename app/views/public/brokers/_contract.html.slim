@@ -4,10 +4,13 @@ p
       | AUTORIZAÇÃO PARA PRESTAÇÃO DE SERVIÇOS DE INTERMEDIAÇÃO IMOBILIÁRIA SEM EXCLUSIVIDADE.
 p
   strong PERUCCHI - CONSTRUÇÃO E INCORPORAÇÃO LTDA ME
-  | , pessoa jurídica de direito privado, estabelecida à Rua Felipe Schmidt, 1011, Centro – Florianópolis – SC, inscrita no CNPJ sob o nº 19.201.340/0001-09, representada neste ato pelo seu sócio Sr. BRENO CARDOSO PERUCCHI, brasileiro, solteiro, empresário, portador da carteira de identidade nº 3.829.917 – SSP/SC, inscrito sob o CPF nº 007.061.959-06, residente e domiciliado na Rua Felipe Schmidt, 1011, apto 1403, Centro, Florianópolis, SC de ora em diante denominado,
+  | , pessoa jurídica de direito privado, estabelecida à Rua Felipe Schmidt, 1011, Centro – Florianópolis – SC, inscrita no CNPJ sob o nº 19.201.340/0001-09, representada neste ato pelo seu sócio Sr. BRENO CARDOSO PERUCCHI, brasileiro, solteiro, empresário, portador da carteira de identidade nº 3.829.917 – SSP/SC, inscrito sob o CPF nº 007.061.959-06 de ora em diante denominado,
   strong VENDEDOR
-  ' na qualidade de proprietário do imóvel abaixo discriminado, em observância ao disposto no art. 20, inciso III, da Lei 6.530/78, vem, juntamente com o Sr.
-  = @broker.name
+  '
+  ' na qualidade de proprietário do imóvel abaixo discriminado, em observância ao disposto no art. 20, inciso III, da Lei 6.530/78, vem, juntamente com 
+  '
+  strong[style="text-transform:uppercase"]= @broker.name
+  '
   ' , Corretor de Imóveis, CRECI
   = @broker.company_irs_id
   ' e do CPF
@@ -44,6 +47,7 @@ p
   '
   ' como forma de promover o objeto descrito na cláusula primeira desta AUTORIZAÇÃO DE INTERMEDIAÇÃO IMOBILIÁRIA, o direito de, às suas expensas, utilizar-se das ferramentas e técnicas permitidas em lei, entre elas, a colocação de placas, veiculação de anúncios, inclusive com a utilização de fotografias, em classificados de jornais, na internet e demais meios de comunicação, além de promover, com o prévio consentimento do
   strong VENDEDOR,
+  '
   ' visitas ao imóvel para mostrá-lo às pessoas interessadas.
   strong
     | O NEGOCIANTE fica expressamente proibido de divulgar à terceiros os contatos pessoais dos sócios da VENDEDOR.
@@ -84,18 +88,18 @@ p
   '
   ' e serão repassados ao agente imobiliário, mediante apresentação de Nota Fiscal, quando forem identificados os respectivos créditos dos valores correspondentes em conta da empresa respeitando-se o prazo necessário para a efetiva disponibilidade para livre movimentação financeira destes créditos em conta corrente da empresa.
 p
-  ' Cláusula Sexta – DA VIGÊNCIA DA AUTORIZAÇÃO
+  strong Cláusula Sexta – DA VIGÊNCIA DA AUTORIZAÇÃO
 p
   ' A presente AUTORIZAÇÃO DE INTERMEDIAÇÃO IMOBILIÁRIA tem o prazo de 60 dias, contados a partir da data de sua assinatura, podendo ser rescindido sem qualquer ônus e a qualquer momento pelo
   strong VENDEDOR
   '
   ' mediante notificação por e-mail.
 p
-  ' Cláusula Sétima – DA RESCISÃO
+  strong Cláusula Sétima – DA RESCISÃO
 p
   ' O presente contrato será automaticamente rescindido, independente de notificação, caso o NEGOCIANTE venha a divulgar informação não autorizada, que possa, ou não, trazer prejuízo material ou a imagem da VENDEDOR.
 p
-  ' Cláusula Oitava – DISPOSIÇÕES GERAIS
+  strong Cláusula Oitava – DISPOSIÇÕES GERAIS
 p
   ' A eventual tolerância ao descumprimento de qualquer das cláusulas deste instrumento ou o não exercício de qualquer direito nele previsto constituirá mera liberalidade, não implicando em novação ou transação de qualquer espécie.
 p
@@ -104,25 +108,23 @@ p= "Palhoça #{I18n.localize Date.today, format: '%d de %B de %Y'}"
 br/
 br/
 br/
-p ___________________________________________
-p
+p 
+  |___________________________________________
+  br
   | PERUCCHI CONSTRUÇÕES E INCOPORAÇÕES LTDA
   br/
   | 19.201.340/0001-09
-p BRENO CARDOSO PERUCCHI
-p 007.061.959-06
-br/
+  br
 br/
 br/
 p
   | ________________________________________________
-  br/
+  br
   | NEGOCIANTE
-  br/
-  = @broker.name
-  br/
-p
-  | CRECI
+  br
+  span[style="text-transform:uppercase"]= @broker.name
+  br
+  ' CRECI:
   = broker.irs_id
 css:
   body p{
