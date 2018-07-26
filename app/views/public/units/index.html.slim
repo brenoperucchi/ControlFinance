@@ -70,9 +70,14 @@
                   - else
                     td.b-r.b-dashed.b-grey.font-montserrat.all-caps.fs-12.w-25= t(unit.state, scope:'views.common').upcase
                   td.text-center.b-r.b-dashed.b-grey.w-25
-                    span.font-montserrat.fs-18= number_with_precision unit.value
+                    - unless unit.bought?
+                      span.font-montserrat.fs-18= number_with_precision unit.value
+                    - else
+                      span.font-montserrat.all-caps.fs-12= t(:bought, scope:'views.common')
                   td.text-center.text-danger.no-margin.font-montserrat.fs-12.all-caps
-                    = link_to t('proposal_create', scope: "views.unit.index"), new_public_unit_proposal_path(unit), class: 'text-danger'  
+                    - unless unit.bought?
+                      = link_to t('proposal_create', scope: "views.unit.index"), new_public_unit_proposal_path(unit), class: 'text-danger'  
+
 
       .card.card-condensed.align-self-stretch.d-flex.flex-column
         .p-l-25.p-r-25.p-t-25

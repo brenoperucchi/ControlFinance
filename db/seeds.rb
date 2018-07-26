@@ -12,7 +12,7 @@
   @broker.approve
 end
 (1..2).each do |i|
-  build = Store.find(i).builds.create(name: "Build #{@count}")
+  build = Store.find(i).builds.create(name: "Build #{@count}", state:'active')
   asset = build.assets.create
   asset.file = Rails.root.join("public/images/system/build_image_#{i}.jpg").open
   asset.save!

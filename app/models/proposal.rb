@@ -17,15 +17,11 @@ class Proposal < ApplicationRecord
   # scope :expired,    ->{ where(state:'booked').where("proposals.due_at < ?", Date.today) }
   scope :expired,    ->{ where.not(:due_at => nil).where("proposals.due_at < ?", Date.today) }
 
-  tracked :only =>[:update], 
-          :owner      =>  proc {|controller, model| User.current.userable},
+  tracked :owner      =>  proc {|controller, model| User.current.userable},
           :recipient  =>  proc {|controller, model| model.unit},
           :params => {
-                      :comment => proc {|contronller, model| model.comment},
-                     },
-          :on => {
-                   :update => proc {|model, controller| !model.comment.blank? }
-                 }
+          :params => {:comment => proc {|contronller, model| model.comment}}
+# :on => {:update => proc {|model, controller| !model.comment.blank? }}
 
   has_many :activitys,   class_name: 'Activity',   as: :trackable, dependent: :destroy
   has_many :mailers,     class_name: 'Mailer',     as: :mailable, dependent: :destroy

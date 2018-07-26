@@ -12,6 +12,7 @@ class Unit < ApplicationRecord
 
   ## TODO CREATE SOFT DELETE
   has_many :mailers,   class_name: 'Mailer', as: :mailable, dependent: :nullify 
+  has_many :activities,   class_name: 'Activity', as: :recipient, dependent: :nullify 
   has_many :proposals, class_name: "Proposal", foreign_key: "unit_id", dependent: :nullify 
   has_many :admin_proposals, class_name: "Admin::Proposal", foreign_key: "unit_id", dependent: :nullify 
   belongs_to :builder, class_name: 'Build', :foreign_key => "build_id"
@@ -32,6 +33,10 @@ class Unit < ApplicationRecord
     event :pending do
       transition [:bought, :booked] => :pending
     end
+  end
+
+  def activities_broker(broker)
+    activities.where(owner:broker)
   end
 
   def proposal_bought?

@@ -144,7 +144,7 @@ pt-BR:
       send_files: "Enviar Arquivos"
       assets: 'Arquivos'
       pending: Pendente
-      approved: Aceito
+      approved: Aprovado
       new_comment: 'Registre aqui sua dúvida!'
     system:
       title: Booking Reservation System 
@@ -308,7 +308,7 @@ pt-BR:
         proposal_already_accepted: 'Unidade já vendida'
         proposal_restricted: "Proposta reservada ou restrita"
         proposal_should_be_accepted: Antes deverá ser aceita
-        proposal_should_be_pending: Antes deverá ser pendente
+        proposal_should_be_pending: Antes deverá estar disponível
     format: "%{attribute} %{message}"
     messages:
       accepted: deve ser aceito
@@ -517,6 +517,11 @@ pt-BR:
         address: Endereço
         registry: Mátricula
         incorporation: Incorporação
+        area_privative: Área Priv
+        position: Posição
+        dormitory: Dormitório
+        created_at: Criado em
+        updated_at: Atualizado em
       build:
         name: Nome
         address: Endereço

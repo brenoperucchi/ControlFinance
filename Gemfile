@@ -7,13 +7,13 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.1.4'
-gem 'bundler', '1.16.1'
+gem 'bundler', '1.16.2'
 
 # Core'
 gem 'devise'
-gem 'mysql2'
+gem 'mysql2', '< 0.5.0'
 gem 'state_machine', git: 'https://github.com/shopperplus/state_machine.git'
-gem 'public_activity'
+gem 'public_activity', '1.6.1'
 gem 'sentient_user'#, git: 'https://github.com/julioalucero/sentient_user.git'
 gem 'wicked'
 gem 'carrierwave'
@@ -22,6 +22,7 @@ gem 'cocoon', '1.2.8', git: 'https://github.com/brenoperucchi/cocoon.git'
 gem 'x-editable-rails', git: 'https://github.com/brenoperucchi/x-editable-rails.git'
 gem 'unicorn'
 gem "responders"
+gem "delocalize"
 
 
 # Development and Test

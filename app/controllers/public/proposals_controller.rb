@@ -32,6 +32,7 @@ class Public::ProposalsController < Public::BaseController
   end
 
   def new
+    @activities_broker = @unit.activities_broker(@broker).order('created_at desc')
     @proposals = @broker.proposals.where(unit: @unit)
     @proposal = @unit.proposals.new
     @proposal.due_at = Date.today.strftime("%d/%m/%Y")
@@ -153,8 +154,9 @@ class Public::ProposalsController < Public::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proposal_params
+      delocalize_config = { :value => :number }
       params.require(:proposal).permit(:state, :name, :negociate, :value, :comment, :due_at,
                                        broker_attributes:[:id, :name, user_attributes:[:id, :email]],
-                                       buyers_attributes:[:id, :name])
+                                       buyers_attributes:[:id, :name]).delocalize(delocalize_config)
     end
 end

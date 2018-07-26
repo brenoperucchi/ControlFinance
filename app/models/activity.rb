@@ -1,5 +1,8 @@
 class Activity < ApplicationRecord
-  belongs_to :recipentable, polymorphic: true
+
+  serialize :parameters, Hash
+  
+  belongs_to :recipent, polymorphic: true
   belongs_to :trackable, polymorphic: true
-  belongs_to :ownerable, polymorphic: true
+  belongs_to :owner, polymorphic: true
 end
