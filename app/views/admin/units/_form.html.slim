@@ -14,4 +14,4 @@
     = f.input :brokerage, as: :string, placeholder: model_class.human_attribute_name(:brokerage), input_html: { value: number_with_precision(f.object.brokerage)}
     = f.input :registry, placeholder: model_class.human_attribute_name(:registry)
     = f.input :incorporation, placeholder: model_class.human_attribute_name(:incorporation)
-    = f.input :position, placeholder: model_class.human_attribute_name(:position)
+    = f.input :position, as: :string, placeholder: model_class.human_attribute_name(:position)

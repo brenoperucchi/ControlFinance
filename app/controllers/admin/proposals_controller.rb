@@ -99,8 +99,10 @@ class Admin::ProposalsController < Admin::BaseController
     # end
 
     def proposal_params
+      delocalize_config = { :value => :number, brokerage: :number, due_at: :date }
+
       params.require(:admin_proposal).permit(:unit_id, :states, :name, :negociate, :value, :comment, :due_at, :brokerage, :broker_id, 
                             documents_attributes:[:id, :name, :approved_at, :_destroy],
-                            broker_attributes:[:id, :name, user_attributes:[:id, :email]])
+                            broker_attributes:[:id, :name, user_attributes:[:id, :email]]).delocalize(delocalize_config)
     end
 end
