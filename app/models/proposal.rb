@@ -19,7 +19,6 @@ class Proposal < ApplicationRecord
 
   tracked :owner      =>  proc {|controller, model| User.current.userable},
           :recipient  =>  proc {|controller, model| model.unit},
-          :params => {
           :params => {:comment => proc {|contronller, model| model.comment}}
 # :on => {:update => proc {|model, controller| !model.comment.blank? }}
 
