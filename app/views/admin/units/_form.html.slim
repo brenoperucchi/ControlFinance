@@ -4,9 +4,9 @@
 .row
   .col-lg-6.col-md-6.col-sm-6
     = f.input :name, placeholder: model_class.human_attribute_name(:name)
-    = f.input :dormitory, placeholder: model_class.human_attribute_name(:dormitory), input_html: {value: number_with_precision(f.object.dormitory)}
+    = f.input :dormitory, placeholder: model_class.human_attribute_name(:dormitory)
     = f.input :garage, placeholder: model_class.human_attribute_name(:garage)
-    = f.input :area_privative, placeholder: model_class.human_attribute_name(:area_privative)
+    = f.input :area_privative, placeholder: model_class.human_attribute_name(:area_privative), input_html:{value: number_with_precision(f.object.area_privative)}
     / = f.input :deadline, placeholder: model_class.human_attribute_name(:deadline)
     = f.input :state, as: :select, collection: model_class::STATES.map{|key,value|[I18n.t(key, scope:'views.common').upcase, key]}, selected: f.object.state, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm'}
   .col-lg-6.col-md-6.col-sm-6
