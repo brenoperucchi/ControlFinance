@@ -50,20 +50,20 @@ class Admin::ProposalsController < Admin::BaseController
   def create
     @proposal = Admin::Proposal.new(proposal_params)
     if @proposal.save
-      @activities = @proposal.activities.order('created_at desc')
+      # @activities = @proposal.activities.order('created_at desc')
       respond_with @proposal, location: [:edit, @proposal]
     else
-      @activities = @proposal.activities.order('created_at desc')
+      # @activities = @proposal.activities.order('created_at desc')
       respond_with @proposal
     end
   end
 
   def update
     if @proposal.update(proposal_params)
-      @activities = @proposal.activities.order('created_at desc')
+      # @activities = @proposal.activities.order('created_at desc')
       respond_with @proposal, location: [:edit, @proposal]
     else
-      @activities = @proposal.activities.order('created_at desc')
+      # @activities = @proposal.activities.order('created_at desc')
       respond_with @proposal
     end
   end
@@ -76,7 +76,7 @@ class Admin::ProposalsController < Admin::BaseController
   private
 
     def set_activities
-      @activities = @proposal.activities.order('created_at desc')
+      # @activities = @proposal.activities.order('created_at desc')
     end
 
     def set_proposal
@@ -101,7 +101,7 @@ class Admin::ProposalsController < Admin::BaseController
     def proposal_params
       delocalize_config = { :value => :number, brokerage: :number, due_at: :date }
 
-      params.require(:admin_proposal).permit(:unit_id, :states, :name, :negociate, :value, :comment, :due_at, :brokerage, :broker_id, 
+      params.require(:admin_proposal).permit(:unit_id, :states, :name, :negociate, :value, :comment, :due_at, :brokerage, :broker_id, :admin_id,
                             documents_attributes:[:id, :name, :approved_at, :_destroy],
                             broker_attributes:[:id, :name, user_attributes:[:id, :email]]).delocalize(delocalize_config)
     end

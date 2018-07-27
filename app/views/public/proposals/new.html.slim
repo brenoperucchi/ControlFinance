@@ -101,25 +101,26 @@
                 table.table.table-condensed.table-hover
                   thead
                     tr
+                      th
                       th.text-center[style="width:30%!important"]= t :unit, scope:'views.common'
                       th.text-right= t :created_at, scope:'views.common'
-                      / th.text-right= t '.action', scope:'views.common'
                   tbody
                     - @proposals.order('created_at desc')[0..10].each do |proposal|
                       tr
+                        td.text-center.font-montserrat.all-caps.fs-12= proposal.id
                         td.text-center.font-montserrat.all-caps.fs-12= proposal.unit.name
                         / td.text-right.hidden-lg
                           span.hint-text.small dewdrops
                         td.text-right.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
                           span.font-montserrat.fs-18= l proposal.created_at, format: :short2
-        - unless @activities_broker.blank?
+        - unless @notes.blank?
           .col-lg-6
             .timeline-container.left[style="width:80%;margin-left:40px"]
               .p-l-25
                 .pull-left
                   h3.text-success.no-margin= t(:comment, scope: 'views.broker.document')
               section.timeline
-                - @activities_broker.each do |activity|
+                - @notes.each do |note|
                   .timeline-block
                     .timeline-point.success
                       i.pg-map
@@ -127,14 +128,53 @@
                     .timeline-content
                       /! START CARD ELEMENT
                       .card.social-card.share.full-width
-                        .circle data-toggle="tooltip" title="Label" 
-                        .card-header.clearfix
-                          h5= activity.owner.name
-                          h6
-                            span.location.semi-bold
-                              | Broker
-                              '
-                              =t activity.trackable.state, scope:'views.broker'
-                        .card-description
-                          p
-                            = activity.parameters[:comment]
+                        - if note.admin.nil?
+                          .circle data-toggle="tooltip" title="Label" 
+                          .card-header.clearfix
+                            h5
+                              = note.broker.name
+                            h6
+                              span.location.semi-bold.pull-left
+                                | Situação
+                                '
+                                span.bold.
+                                  =t note.action, scope:'views.broker'
+                              span.location.semi-bold.pull-right
+                                = l note.created_at, format: :option3
+                          .card-description
+                            p = note.message
+                            .via 
+                              | Negociação
+                        - else
+                          .circle data-toggle="tooltip" title="Label" 
+                          .card-header.clearfix
+                            h5
+                              = note.admin.name
+                            h6
+                              span.location.semi-bold.pull-left
+                                | Situação
+                                '
+                                span.bold.
+                                  =t note.action, scope:'views.broker'
+                              span.location.semi-bold.pull-right
+                                = l note.created_at, format: :option3
+                          .card-description
+                            span.pull-left
+                              p = note.message
+                              .via 
+                                | Negociação
+                            span.pull-right
+                              p = note.comment
+                              .via 
+                                | Comentário da empresa
+
+css:
+  .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 18px;
+      height: 100%;
+      width: 2px;
+      background: red;
+  }

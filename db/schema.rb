@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180720231751) do
+ActiveRecord::Schema.define(version: 20180726212251) do
 
   create_table "activities", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
@@ -47,13 +47,13 @@ ActiveRecord::Schema.define(version: 20180720231751) do
     t.string "department"
     t.string "person_type"
     t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "irs_id"
     t.string "company"
     t.text "serializes"
     t.string "state"
     t.datetime "approved_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["store_id"], name: "index_brokers_on_store_id"
   end
 
@@ -123,6 +123,21 @@ ActiveRecord::Schema.define(version: 20180720231751) do
     t.index ["mailable_type", "mailable_id"], name: "index_mailers_on_mailable_type_and_mailable_id"
     t.index ["store_id"], name: "index_mailers_on_store_id"
     t.index ["userable_type", "userable_id"], name: "index_mailers_on_userable_type_and_userable_id"
+  end
+
+  create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "information"
+    t.bigint "proposal_id"
+    t.bigint "unit_id"
+    t.bigint "broker_id"
+    t.bigint "admin_id"
+    t.boolean "intern"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admin_id"], name: "index_notes_on_admin_id"
+    t.index ["broker_id"], name: "index_notes_on_broker_id"
+    t.index ["proposal_id"], name: "index_notes_on_proposal_id"
+    t.index ["unit_id"], name: "index_notes_on_unit_id"
   end
 
   create_table "persons", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

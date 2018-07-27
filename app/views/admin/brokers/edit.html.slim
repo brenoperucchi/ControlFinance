@@ -2,7 +2,7 @@
 - model_class_second = Document
 
 .row
-  .col-lg-8
+  .col-lg-12
     = simple_form_for [:admin, @broker], wrapper: :pages_form_default do |f|
       .row
         .col-lg-12.col-xl-12.m-b-10
@@ -71,13 +71,13 @@
             = link_to t('back', scope: "helpers.links"), admin_brokers_path, :class => 'btn pull-left'
             '
             = f.submit nil, :class => 'btn btn-primary pull-right'
-  .col-lg-4
-    .row
-      .col-lg-12
-        = simple_form_for [:admin, @broker], wrapper: :pages_form_default do |f|
-          = f.input :comment, placeholder: model_class.human_attribute_name(:comment), input_html:{class: 'input-lg'}
-    .row
-      = render "timeline", broker:@broker
+  / .col-lg-4
+  /   .row
+  /     .col-lg-12
+  /       = simple_form_for [:admin, @broker], wrapper: :pages_form_default do |f|
+  /         = f.input :comment, placeholder: model_class.human_attribute_name(:comment), input_html:{class: 'input-lg'}
+  /   .row
+  /     = render "timeline", broker:@broker
 javascript:
   $(function(){
     $('.editable').editable({

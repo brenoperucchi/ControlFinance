@@ -1,33 +1,33 @@
-.card.card-default.card-condensed.no-margin.widget-loader-circle.d-flex.flex-column
-  .card-header.top-right
-    .card-controls
-      ul
-        li
-          a.card-refresh.text-black data-toggle="refresh" href="#" 
-            i.card-icon.card-icon-refresh
-  .padding-25
-    .pull-left
-      h2.text-success.no-margin webarch
-      p.no-margin Today's sales
-    h3.pull-right.semi-bold
-      sup
-        small.semi-bold $
-      | 102,967
-    .clearfix
-  .auto-overflow.widget-11-2-table
-    table.table.table-condensed.table-hover
-      tbody
-        - @proposal.activities.order('created_at desc').each do |activity|
-          tr
-            td.font-montserrat.all-caps.fs-12.w-50 Purchase CODE #2345
-            td.text-right.hidden-lg
-              span.hint-text.small dewdrops
-            td.text-right.b-r.b-dashed.b-grey.w-25
-              span.hint-text.small Qty 1
-            td.w-25
-              span.font-montserrat.fs-18 $27
-  .padding-25.mt-auto
-    p.small.no-margin
-      a href="#" 
-        i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
-      span.hint-text Show more details of APPLE . INC
+/ .card.card-default.card-condensed.no-margin.widget-loader-circle.d-flex.flex-column
+/   .card-header.top-right
+/     .card-controls
+/       ul
+/         li
+/           a.card-refresh.text-black data-toggle="refresh" href="#" 
+/             i.card-icon.card-icon-refresh
+/   .padding-25
+/     .pull-left
+/       h2.text-success.no-margin webarch
+/       p.no-margin Today's sales
+/     h3.pull-right.semi-bold
+/       sup
+/         small.semi-bold $
+/       | 102,967
+/     .clearfix
+/   .auto-overflow.widget-11-2-table
+/     table.table.table-condensed.table-hover
+/       tbody
+/         - @proposal.activities.order('created_at desc').each do |activity|
+/           tr
+/             td.font-montserrat.all-caps.fs-12.w-50 Purchase CODE #2345
+/             td.text-right.hidden-lg
+/               span.hint-text.small dewdrops
+/             td.text-right.b-r.b-dashed.b-grey.w-25
+/               span.hint-text.small Qty 1
+/             td.w-25
+/               span.font-montserrat.fs-18 $27
+/   .padding-25.mt-auto
+/     p.small.no-margin
+/       a href="#" 
+/         i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
+/       span.hint-text Show more details of APPLE . INC

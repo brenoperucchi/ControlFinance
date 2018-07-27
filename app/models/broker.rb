@@ -23,6 +23,7 @@ class Broker < ApplicationRecord
   has_many :proposals, class_name: 'Proposal', foreign_key: "broker_id", dependent: :destroy
   has_many :assets,    class_name: "Asset",    as: :assetable, dependent: :destroy
   has_many :documents, class_name: "Document", as: :documentable, dependent: :destroy
+  has_many :notes, :through => :proposals, :source => :notes
 
   scope :users, ->{ joins(:user).where(users:{userable_type: 'Broker'}) }
 
@@ -57,7 +58,7 @@ class Broker < ApplicationRecord
       end
     end
   end
-
+  
   def self.search_by(search)
     users.where("users.email LIKE :search", search: "%#{search}%") 
   end

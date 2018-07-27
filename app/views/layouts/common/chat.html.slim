@@ -66,7 +66,7 @@ html lang="en"
           = yield
         #sidebar-right.col-xs-3
           = yield :sidebar
-          = render "common/activities", proposal:@proposal, activities:@activities 
+          / = render "common/activities", proposal:@proposal, activities:@activities 
 
         / footer.footer.text-center 2016 &copy; Elite Admin brought to you by themedesigner.in
     = javascript_include_tag "elite/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["elite/#{params[:controller]}.js"]

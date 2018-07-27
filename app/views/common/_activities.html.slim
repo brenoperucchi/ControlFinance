@@ -6,24 +6,24 @@
       });
     })
 
-.white-box
-  h3.box-title Chat
-  .chat-box
-    ul.chat-list.slimscroll[style="overflow: hidden;" tabindex="5005"] 
-      - @activities.each do |activity|
-        li[class="#{activity.owner.try(:admin?) ? 'odd' : ''}"]
-          .chat-image
-            / img alt="#{activity.owner.name}" src="" /
-          .chat-body
-            .chat-text
-              h4= activity.owner.name
-              p= activity.parameters[:comment]
-              b 10.00 am
-    .row
-      = simple_form_for @proposal, url:[:comment, @name_space, @proposal] do |f|
-        .col-sm-12
-          .input-group
-            = f.input :comment, label:false, wrapper: :vertical_input_group do
-              = f.text_field :comment, placeholder: "Say something", class: 'form-control inline'
-              span.input-group-btn  
-                = f.submit 'Send', class: 'btn btn-success inline'
+/ .white-box
+/   h3.box-title Chat
+/   .chat-box
+/     ul.chat-list.slimscroll[style="overflow: hidden;" tabindex="5005"] 
+/       - @activities.each do |activity|
+/         li[class="#{activity.owner.try(:admin?) ? 'odd' : ''}"]
+/           .chat-image
+/             / img alt="#{activity.owner.name}" src="" /
+/           .chat-body
+/             .chat-text
+/               h4= activity.owner.name
+/               p= activity.parameters[:comment]
+/               b 10.00 am
+/     .row
+/       = simple_form_for @proposal, url:[:comment, @name_space, @proposal] do |f|
+/         .col-sm-12
+/           .input-group
+/             = f.input :comment, label:false, wrapper: :vertical_input_group do
+/               = f.text_field :comment, placeholder: "Say something", class: 'form-control inline'
+/               span.input-group-btn  
+/                 = f.submit 'Send', class: 'btn btn-success inline'

@@ -32,7 +32,8 @@ class Public::ProposalsController < Public::BaseController
   end
 
   def new
-    @activities_broker = @unit.activities_broker(@broker).order('created_at desc')
+    # @activities_broker = @unit.activities_broker(@broker).order('created_at desc')
+    @notes = @broker.notes.where(unit: @unit).order('created_at desc')
     @proposals = @broker.proposals.where(unit: @unit)
     @proposal = @unit.proposals.new
     @proposal.due_at = Date.today.strftime("%d/%m/%Y")

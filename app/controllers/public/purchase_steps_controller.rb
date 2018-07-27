@@ -10,7 +10,7 @@ class Public::PurchaseStepsController < Public::BaseController
   steps :proposal, :buyer, :document, :finish, :finish2, :contract, :print
 
   def show 
-    @activities = @proposal.activities.order('created_at desc')
+    # @activities = @proposal.activities.order('created_at desc')
     @unit = @proposal.unit
     @assets = @proposal.assets
     case step
@@ -37,7 +37,7 @@ class Public::PurchaseStepsController < Public::BaseController
       if @proposal.update(proposal_params)
         respond_with @proposal, location: wizard_path(:document)
       else
-        @activities = @proposal.activities.order('created_at desc')
+        # @activities = @proposal.activities.order('created_at desc')
         render :buyer
       end
     when :document

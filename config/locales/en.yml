@@ -302,10 +302,10 @@ en:
           state:
             invalid_transition: State invalid
     custom:
-      proposal_user_not_allowed: 'This user not allowed to this Proposal'
-      proposal_already_accepted: 'Unit already Accepted'
-      proposal_restricted: "Proposta reservada ou restrita"
-      proposal_restricted: "Proposal with restriction"
+      proposal_user_not_allowed: 'Not allowed'
+      proposal_already_accepted: 'Accepted'
+      proposal_already_booked: 'Booked'
+      proposal_restricted: "Restriction"
       proposal_should_be_accepted: Should be Accepted
       proposal_should_be_pending: Shoubd be pending
     format: "%{attribute} %{message}"
