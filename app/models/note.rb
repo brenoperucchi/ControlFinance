@@ -1,3 +1,4 @@
+## MENTORIA
 class Note < ApplicationRecord
   store :information, accessors:[:message, :action, :comment]
 

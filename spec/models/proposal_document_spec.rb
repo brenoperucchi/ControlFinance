@@ -1,4 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe ProposalDocument, type: :model do
+RSpec.describe Document, type: :model do
 end

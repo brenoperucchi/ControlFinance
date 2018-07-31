@@ -29,13 +29,13 @@ gem "delocalize"
 group :development, :test do
   # gem 'pg'
   gem 'spring-commands-rspec'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.7.2'
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
   gem 'factory_girl_rails'
   gem "database_cleaner"
-  gem "capybara", "2.7.1"
-  gem 'capybara-webkit', '1.14.0'
+  gem "capybara", "3.4.1"
+  gem 'capybara-webkit', '1.15.0'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'rb-fsevent'

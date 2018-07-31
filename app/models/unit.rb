@@ -44,8 +44,16 @@ class Unit < ApplicationRecord
   end
 
   ## TODO COLOCAR EM TODOS
+  def proposal_booked
+    proposals.try(:booked).try(:last)
+  end
+
   def proposal_bought
     proposals.try(:bought).try(:last)
+  end
+
+  def bought_to_broker?(current_user)
+    try(:proposal_bought).try(:current_broker?, (current_user.try(:userable)))
   end
 
 end

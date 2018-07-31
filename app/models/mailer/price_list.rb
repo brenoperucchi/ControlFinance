@@ -4,7 +4,12 @@ class Mailer::PriceList < Mailer
 
   attr_accessor :brokers, :delivery_emails
 
-  validates_presence_of :to, allow_blank: false
+  validates_presence_of :subject#, allow_blank: false
+  validate :validate_to
+
+  def validate_to
+    errors.add(:to, I18n.t(:blank, scope:'errors.messages', attribute: :to)) if to.detect{|x| x.empty?}
+  end
 
   def name
     :price_list

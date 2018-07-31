@@ -8,6 +8,7 @@ FactoryGirl.define do
     option3 '1'
     option4 '1'
     option5 '1'
+    option6 '1'
 
     trait :default do
       name "Broker 1"

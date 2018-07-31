@@ -1,3 +1,4 @@
+# save_and_open_page
 require 'rails_helper'
 
 RSpec.describe "Admin Brokers" do
@@ -23,10 +24,10 @@ RSpec.describe "Admin Brokers" do
     admin.make_current
     login_as(admin, :scope => :user)
     visit admin_brokers_path
-    click_link('Add')
+    click_link('New')
     expect(page).to have_text('New Broker')
     fill_in('broker_name', with:'broker name')
-    select('refuse', from: 'broker_state')
+    select('PENDING', from: 'broker_state')
     fill_in('broker_user_attributes_email', with:'broker@email.com')
     click_button 'Create Broker'
     expect(page).to have_text('broker was successfully created.')
@@ -39,10 +40,10 @@ RSpec.describe "Admin Brokers" do
     click_link('Edit')
     expect(page).to have_text('Edit')
     fill_in('broker_name', with:'broker change')
-    select('accepted', from: 'broker_state')
+    select('APPROVED', from: 'broker_state')
     fill_in('broker_user_attributes_email', with:'broker@change.com')
     click_button 'Update Broker'
-    expect(page).to have_text('accepted')
+    expect(page).to have_text('APPROVED')
   end
 
   it 'Destroy a Broker' do
@@ -60,7 +61,7 @@ RSpec.describe "Admin Brokers" do
     click_link('Edit')
     expect(page).to have_text('Edit')
     fill_in('broker_name', with:'broker change')
-    select('accept', from: 'broker_state')
+    select('APPROVED', from: 'broker_state')
     fill_in('broker_user_attributes_email', with:'')
     click_button 'Update Broker'
     expect(page).to have_text("can't be blank")
@@ -70,19 +71,19 @@ RSpec.describe "Admin Brokers" do
     admin.make_current
     login_as(admin, :scope => :user)
     visit admin_brokers_path
-    click_link('Add')
+    click_link('New')
     expect(page).to have_text('New Broker')
     fill_in('broker_name', with:'broker name')
-    select('refuse', from: 'broker_state')
+    select('PENDING', from: 'broker_state')
     fill_in('broker_user_attributes_email', with:'broker@email.com')
     click_button 'Create Broker'
     admin.make_current
     login_as(admin, :scope => :user)
     visit admin_brokers_path
-    click_link('Add')
+    click_link('New')
     expect(page).to have_text('New Broker')
     fill_in('broker_name', with:'broker name')
-    select('refuse', from: 'broker_state')
+    select('PENDING', from: 'broker_state')
     fill_in('broker_user_attributes_email', with:'broker@email.com')
     click_button 'Create Broker'
     expect(page).to have_text("has already been taken")

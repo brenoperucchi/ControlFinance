@@ -120,6 +120,7 @@
                 .pull-left
                   h3.text-success.no-margin= t(:comment, scope: 'views.broker.document')
               section.timeline
+                / ## MENTORIA
                 - @notes.each do |note|
                   .timeline-block
                     .timeline-point.success
@@ -143,7 +144,7 @@
                                 = l note.created_at, format: :option3
                           .card-description
                             p = note.message
-                            .via 
+                            .via.all-caps 
                               | Negociação
                         - else
                           .circle data-toggle="tooltip" title="Label" 
@@ -154,19 +155,15 @@
                               span.location.semi-bold.pull-left
                                 | Situação
                                 '
-                                span.bold.
+                                span
                                   =t note.action, scope:'views.broker'
                               span.location.semi-bold.pull-right
                                 = l note.created_at, format: :option3
                           .card-description
-                            span.pull-left
-                              p = note.message
-                              .via 
-                                | Negociação
-                            span.pull-right
-                              p = note.comment
-                              .via 
+                            span
+                              .via.all-caps 
                                 | Comentário da empresa
+                              p = note.comment
 
 css:
   .timeline::before {

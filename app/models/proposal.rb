@@ -24,6 +24,7 @@ class Proposal < ApplicationRecord
   # # :on => {:update => proc {|model, controller| !model.comment.blank? }}
 
   # has_many :activitys,   class_name: 'Activity',   as: :trackable, dependent: :destroy
+  ## MENTORIA
   has_many :notes,       class_name: 'Note',      dependent: :destroy
   has_many :mailers,     class_name: 'Mailer',     as: :mailable, dependent: :destroy
   has_many :buyers,      class_name: 'Buyer',      dependent: :destroy 
@@ -47,7 +48,7 @@ class Proposal < ApplicationRecord
     after_transition any  => :booked,                  do: :update_booked_at
     after_transition any  => [:booked, :accepted],     do: :update_states
     after_transition any  => :closed,                  do: :update_states
-    after_transition [:booked, :accepted, :closed] => :pending, do: :update_to_pending
+    # after_transition [:booked, :accepted, :closed, :refused] => :pending, do: :update_to_pending
     before_transition [:accepted, :closed, :pending, :refused] => :booked,          do: :restrict_accepted_booked?
     before_transition any =>           :accepted,      do: :restrict_accepted_booked?
     before_transition any           => :closed,        do: :restrict_closed?
@@ -80,7 +81,7 @@ class Proposal < ApplicationRecord
         elsif state.from == "accepted" and state.to == "booked"
           self.errors.add(:states, I18n.t(:proposal_should_be_pending, scope:'errors.custom'))
           return false 
-        elsif unit.booked? 
+        elsif unit.booked? and not (unit.proposal_booked.try(:id) == self.id)
           self.errors.add(:states, I18n.t(:proposal_already_booked, scope:'errors.custom'))
           return false
         elsif unit.bought?
@@ -105,8 +106,6 @@ class Proposal < ApplicationRecord
     state :pending, :refused do
       def update_states(state)
         self.update_columns(booked_at: nil, accepted_at: nil)
-      end
-      def update_to_pending(state)
         unit.pending
       end
     end

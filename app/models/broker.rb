@@ -2,20 +2,20 @@ class Broker < ApplicationRecord
   STATES = {pending: 'cancel', approved:'approve'}
 
   include Lib::Personhood
-  include PublicActivity::Model
+  # include PublicActivity::Model
   attr_accessor :comment, :validate_off
 
   store :serializes, accessors:[:option1, :option2, :option3, :option4, :option5, :option6, :address, :phone, :company_irs_id]
   
-  tracked :only =>[:update], 
-          :owner      =>  proc {|controller, model| User.current.userable},
-          :recipient  =>  proc {|controller, model| model.store},
-          :params => {
-                      :comment => proc {|contronller, model| model.comment},
-                     },
-          :on => {
-                   :update => proc {|model, controller| !model.comment.blank? }
-                 }  
+  # tracked :only =>[:update], 
+  #         :owner      =>  proc {|controller, model| User.current.userable},
+  #         :recipient  =>  proc {|controller, model| model.store},
+  #         :params => {
+  #                     :comment => proc {|contronller, model| model.comment},
+  #                    },
+  #         :on => {
+  #                  :update => proc {|model, controller| !model.comment.blank? }
+  #                }  
   after_create :create_documents
 
   belongs_to :store, optional: true
@@ -23,6 +23,8 @@ class Broker < ApplicationRecord
   has_many :proposals, class_name: 'Proposal', foreign_key: "broker_id", dependent: :destroy
   has_many :assets,    class_name: "Asset",    as: :assetable, dependent: :destroy
   has_many :documents, class_name: "Document", as: :documentable, dependent: :destroy
+  
+  ## MENTORIA
   has_many :notes, :through => :proposals, :source => :notes
 
   scope :users, ->{ joins(:user).where(users:{userable_type: 'Broker'}) }

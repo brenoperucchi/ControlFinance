@@ -13,6 +13,7 @@ require 'capybara/rails'
 require 'capybara/rspec'
 Capybara.javascript_driver = :webkit
 Capybara.asset_host = "http://localhost:3000"
+Capybara.exact = false
 # Capybara.register_driver :chrome do |app|
 #   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 # end
@@ -42,6 +43,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 RSpec.configure do |config|
+  config.filter_run :focus => true
   Capybara.reset_sessions!
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods

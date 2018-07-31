@@ -168,7 +168,8 @@ en:
       select_all: Select All
       deselect_all: Deselect All
     document:      
-      contract_print: "Print Contract"
+      contract_build_address_active: "Build %{build}, located at %{address}"
+      contract: "Contract Overview"
       send_files: "Send Files"
       pending: pending
       approved: approved
@@ -229,6 +230,7 @@ en:
     formats:
       default: "%Y-%m-%d"
       long: "%B %d, %Y"
+      long2: "%d %b de %Y"
       short: "%b %d"
       short2: "%B %Y"
     month_names:
@@ -373,12 +375,12 @@ en:
         link: Analyze your proposal
         subject: 'Proposal created to Unit %{unit} of %{build}'
         message: 'Due AT: %{due_at}'
-      proposal:
-        title: 'Bid Proposal Unit'
-        subject: Reserve unit %{unit}
-        link_message: 'BOOK NOW'
-        message1: 'Lorem ipsum Labore anim laboris anim do proident sed aute reprehenderit et commodo tempor est pariatur anim minim ut fugiat.'
-        message2: 'Lorem ipsum'
+      request:
+        meta_title: "Create proposal to unit %{unit}"
+        title: 'Make a proposal'
+        subject: Book the unit %{unit}
+        link_message: 'Make a proposal'
+        message1: Faça a sua proposta conosco
         unsubscribe: 'unsubscribe'
     titles:
       edit: Edit %{model}
@@ -387,10 +389,20 @@ en:
       prompt: Please select
     submit:
       create: Create %{model}
+      newa: New %{model}
+      new: New %{model}
+      edit: Edit %{model}
       submit: Save %{model}
       update: Update %{model}
     links:
+      actions: Action
+      edit: Edit
       back: Back
+      print:  Print
+      destroy: Delete
+      new: new
+      sendmail: Send E-mail
+      here: Novo Registro Clique Aqui
   number:
     currency:
       format:
@@ -454,6 +466,7 @@ en:
       short2: "%b/%d/%Y, %H:%M"
       option1: "%b of %d %Y"
       option2: "%B of %d %Y"
+      option3: "%d %B %Y, %H:%M"
       date: "%d/%m/%Y"
     pm: pm
   activemodel:
@@ -516,6 +529,8 @@ en:
         state: Situation
         phone: Phone
         irs_id: Broker ID
+        company: Real State Name
+        company_irs_id: Real State ID
         option1: 'Correspondent banking will be indicated by the construction company.'
         option2: 'The broker will be responsible to request all documents to complete the bank financing.'
         option3: 'The broker will be responsible to request all documents from the client to complete the bank financing.'

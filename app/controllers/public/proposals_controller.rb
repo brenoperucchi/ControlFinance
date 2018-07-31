@@ -32,7 +32,9 @@ class Public::ProposalsController < Public::BaseController
   end
 
   def new
-    # @activities_broker = @unit.activities_broker(@broker).order('created_at desc')
+    # @activities_broker = @unit.activities_broker(@broker).order('created_at desc')_
+    ## MENTORIA
+    @broker = current_user.userable
     @notes = @broker.notes.where(unit: @unit).order('created_at desc')
     @proposals = @broker.proposals.where(unit: @unit)
     @proposal = @unit.proposals.new

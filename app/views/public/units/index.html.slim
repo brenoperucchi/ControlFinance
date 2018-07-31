@@ -65,7 +65,7 @@
               - @units.each do |unit|
                 tr
                   td.text-right.b-r.b-dashed.b-grey.w-15= unit.name
-                  - if unit.try(:proposal_bought).try(:current_broker?, (current_user.try(:userable)))
+                  - if unit.bought_to_broker?(current_user)
                     td.b-r.b-dashed.b-grey.font-montserrat.all-caps.fs-12.w-25= t(:booked_to_broker, scope:'views.unit.index').upcase
                   - else
                     td.b-r.b-dashed.b-grey.font-montserrat.all-caps.fs-12.w-25= t(unit.state, scope:'views.common').upcase
@@ -75,7 +75,7 @@
                     - else
                       span.font-montserrat.all-caps.fs-12= t(:bought, scope:'views.common')
                   td.text-center.text-danger.no-margin.font-montserrat.fs-12.all-caps
-                    - unless unit.bought?
+                    - unless unit.bought? and not unit.bought_to_broker?(current_user)
                       = link_to t('proposal_create', scope: "views.unit.index"), new_public_unit_proposal_path(unit), class: 'text-danger'  
 
 
