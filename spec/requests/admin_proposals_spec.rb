@@ -1,7 +1,7 @@
 # save_and_open_page
 require 'rails_helper'
 
-RSpec.describe "Admin Proposals"  do
+RSpec.describe "Admin Proposals" do
   let!(:store) { FactoryGirl.create(:store) }
   let!(:person) { FactoryGirl.create(:person, :admin, store: store)}
   let!(:admin) { FactoryGirl.create(:user, :admin, userable: person)}
@@ -16,7 +16,7 @@ RSpec.describe "Admin Proposals"  do
     login_as(admin, :scope => :user)
     visit admin_builds_path
     page.first(:xpath, "//a[@href='/admin/builds/1/units/1/proposals']").click()
-    click_link('New')
+    click_link('new')
     fill_in("admin_proposal_negociate", with: 'Proposal Negociate')    
     fill_in("admin_proposal_value", with: '100')    
     fill_in("admin_proposal_due_at", with: Date.today.strftime("%d/%m/%Y"))    
@@ -51,7 +51,7 @@ RSpec.describe "Admin Proposals"  do
     # save_and_open_page
   end
 
-  it 'Proposal 2 can not change state if unit is booked',  focus: true  do
+  it 'Proposal 2 can not change state if unit is booked' do
     admin.make_current
     proposal.accept
     expect(proposal.state).to match('accepted')
@@ -64,7 +64,7 @@ RSpec.describe "Admin Proposals"  do
     expect(page).to have_css("span#notification-message", text: 'Proposals could not be updated.')
   end
 
-  it 'State can not change if already had closed',  focus: true  do
+  it 'State can not change if already had closed' do
     admin.make_current
     proposal.accept
     expect(proposal.state).to match('accepted')
@@ -108,9 +108,9 @@ RSpec.describe "Admin Proposals"  do
     select('PENDING', :from => 'admin_proposal_states')
     click_button('Update')
     expect(page).to have_select('admin_proposal_states', selected: 'PENDING')
-    save_and_open_page
     expect(page).to have_css("span#notification-message", text: 'Proposals was successfully updated.')
     visit admin_builds_path
   end
+
 
 end

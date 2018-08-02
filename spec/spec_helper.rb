@@ -12,8 +12,13 @@ require "pry"
 require 'capybara/rails'
 require 'capybara/rspec'
 Capybara.javascript_driver = :webkit
-Capybara.asset_host = "http://localhost:3000"
+Capybara.app_host = 'http://eloe.localhost:3000'
+Capybara.asset_host = 'http://eloe.localhost:3000'
+Capybara.always_include_port = true
 Capybara.exact = false
+Capybara.configure do |config|
+  config.default_host = 'http://eloe.localhost:3000'
+end
 # Capybara.register_driver :chrome do |app|
 #   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 # end

@@ -1,8 +1,15 @@
+# save_and_open_page
 require 'rails_helper'
 
-RSpec.describe "PublicBroker" do
+RSpec.describe "PublicBroker", focus: true do
+  let!(:store) { FactoryGirl.create(:store) }
+
   it "Create New Broker" do
-    visit new_public_broker_path
+    # Capybara.asset_host = "http://#{store.url}.localhost:3000"
+    # Capybara.app_host = 'http://eloe.localhost:3000'
+    visit new_public_broker_url(host: 'eloe.localhost:3000')
+    # show_page(store)
+    save_and_open_page
     fill_in("broker_name", with: 'Broker 1')
     fill_in("broker_irs_id", with: 'IrsID')
     fill_in("broker_company", with: 'Company')

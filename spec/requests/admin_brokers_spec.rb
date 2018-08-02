@@ -24,7 +24,7 @@ RSpec.describe "Admin Brokers" do
     admin.make_current
     login_as(admin, :scope => :user)
     visit admin_brokers_path
-    click_link('New')
+    click_link('new')
     expect(page).to have_text('New Broker')
     fill_in('broker_name', with:'broker name')
     select('PENDING', from: 'broker_state')
@@ -71,7 +71,7 @@ RSpec.describe "Admin Brokers" do
     admin.make_current
     login_as(admin, :scope => :user)
     visit admin_brokers_path
-    click_link('New')
+    click_link('new')
     expect(page).to have_text('New Broker')
     fill_in('broker_name', with:'broker name')
     select('PENDING', from: 'broker_state')
@@ -80,7 +80,7 @@ RSpec.describe "Admin Brokers" do
     admin.make_current
     login_as(admin, :scope => :user)
     visit admin_brokers_path
-    click_link('New')
+    click_link('new')
     expect(page).to have_text('New Broker')
     fill_in('broker_name', with:'broker name')
     select('PENDING', from: 'broker_state')

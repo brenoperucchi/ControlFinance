@@ -10,7 +10,6 @@ class Admin::Proposal < Proposal
   ## MENTORIA
   ## Isso aqui ta horrível, mas fui pela logica faça passar e depois refatore 
   def update_notes
-    # binding.pry
     notes.create(unit: unit, broker: broker, message: negociate, action: state, admin_id: admin_id, comment: comment)
   end
   ## notes.create 
