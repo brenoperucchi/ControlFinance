@@ -8,7 +8,7 @@ class Admin::Proposal < Proposal
   before_save   :update_notes
 
   ## MENTORIA
-  ## Isso aqui ta horrível, mas fui pela logica faça passar e depois refatore 
+  ## Isso aqui ta horrível, mas fui pela logica faça passar e depois refactor 
   def update_notes
     notes.create(unit: unit, broker: broker, message: negociate, action: state, admin_id: admin_id, comment: comment)
   end

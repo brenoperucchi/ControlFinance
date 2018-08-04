@@ -93,33 +93,39 @@
               .p-l-25.p-r-25.p-t-25
                 .pull-left
                   h4.text-success.no-margin = t(:last_sales, scope: 'views.build')
-              .p-l-25.p-r-25.p-t-0
-                .pull-right
-                  =link_to t('all_proposal', scope: "views.proposal"),public_unit_proposals_path(@unit), class: 'small hint-text' 
               .clearfix
               .widget-11-2-table.auto-overflow
                 table.table.table-condensed.table-hover
                   thead
                     tr
-                      th
-                      th.text-center[style="width:30%!important"]= t :unit, scope:'views.common'
-                      th.text-right= t :created_at, scope:'views.common'
+                      th.w-10.text-center.hidden-xs.hidden-sm= '#'
+                      th.text-center= t :state, scope:'views.common'
+                      th.text-center= t :created_at, scope:'views.common'
+                      th.w-20.text-center= t :action, scope:'views.common'
                   tbody
                     - @proposals.order('created_at desc')[0..10].each do |proposal|
                       tr
-                        td.text-center.font-montserrat.all-caps.fs-12= proposal.id
-                        td.text-center.font-montserrat.all-caps.fs-12= proposal.unit.name
+                        td.text-center.font-montserrat.all-caps.fs-12.hidden-xs.hidden-sm
+                          = proposal.id
+                        td.text-center.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
+                          = t proposal.state, scope:'views.common'
                         / td.text-right.hidden-lg
                           span.hint-text.small dewdrops
-                        td.text-right.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
-                          span.font-montserrat.fs-18= l proposal.created_at, format: :short2
+                        td.text-center.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
+                          span.font-montserrat.fs-18= l proposal.created_at, format: :short
+                        td.text-center.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
+                          = link_to invoice_public_proposal_path(proposal), class: 'btn-xs' do
+                            i.fa.fa-print
+                            '
+                            = t('print', scope: "helpers.links")
+                        
         - unless @notes.blank?
           .col-lg-6
             .timeline-container.left[style="width:80%;margin-left:40px"]
               .p-l-25
-                .pull-left
+                .pull-left.m-l-30
                   h3.text-success.no-margin= t(:comment, scope: 'views.broker.document')
-              section.timeline
+              section.timeline.m-t-20
                 / ## MENTORIA
                 - @notes.each do |note|
                   .timeline-block
@@ -143,9 +149,9 @@
                               span.location.semi-bold.pull-right
                                 = l note.created_at, format: :option3
                           .card-description
-                            p = note.message
                             .via.all-caps 
                               | Negociação
+                            p = note.message
                         - else
                           .circle data-toggle="tooltip" title="Label" 
                           .card-header.clearfix

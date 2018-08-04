@@ -42,15 +42,6 @@ module SentientStoreController
     @current_store
   end
 
-  # def find_store
-  #   Store.all.each do |store|
-  #     store.url.split(';').each do |url| 
-  #       Store.current = store if request.subdomain.split('.').first.downcase == url.downcase.strip
-  #     end
-  #   end
-  #   return Store.current
-  # end
-
 end
 
 module SentientStore

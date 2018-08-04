@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :broker do
     active true
+    state 'approved'
     person_type 'person'
     department 'broker'
     option1 '1'

@@ -8,7 +8,7 @@ class Public::BaseController < ApplicationController
 
   def current_store
     Store.all.each do |store|
-      store.url.split(';').each do |url| 
+      store.url.split(';').each do |url|
         @current_store = store if request.subdomain.split('.').first.downcase == url.downcase.strip
       end
     end

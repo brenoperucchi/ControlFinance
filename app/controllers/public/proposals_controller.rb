@@ -5,7 +5,7 @@ class Public::ProposalsController < Public::BaseController
   before_action :proposal_set, only: [:show, :edit, :update, :destroy, :comment, :invoice]
   before_action :init_of_params, only: [:index, :new, :create, :booking]
   before_action :init_of_proposal, only: [:edit, :update, :comment, :redirect_if_proposal_bought, :invoice, :destroy]
-  before_action :init_activities, only: [:document, :edit, :update]
+  # before_action :init_activities, only: [:document, :edit, :update]
   before_action :redirect_if_proposal_bought, except: [:comment, :expired, :invoice]
   before_action :redirect_if_broker_config_set, except: [:comment, :expired, :invoice]
   respond_to :html, :json, :js
@@ -132,9 +132,9 @@ class Public::ProposalsController < Public::BaseController
       current_store.proposals
     end
 
-    def init_activities
-      @activities = @proposal.activities.order('created_at desc')
-    end
+    # def init_activities
+    #   @activities = @proposal.activities.order('created_at desc')
+    # end
 
     def broker_set
       @broker = current_user.try(:userable) if current_user.try(:userable).is_a?(Broker)
