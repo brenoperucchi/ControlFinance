@@ -25,7 +25,7 @@ class Broker < ApplicationRecord
   has_many :documents, class_name: "Document", as: :documentable, dependent: :destroy
   
   ## MENTORIA
-  has_many :notes, :through => :proposals, :source => :notes
+  has_many :notes, class_name: "Note", dependent: :nullify 
 
   scope :users,   ->{ joins(:user).where(users:{userable_type: 'Broker'}) }
   scope :pending, ->{ where(state: 'pending') }

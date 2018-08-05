@@ -118,59 +118,8 @@
                             i.fa.fa-print
                             '
                             = t('print', scope: "helpers.links")
-                        
-        - unless @notes.blank?
-          .col-lg-6
-            .timeline-container.left[style="width:80%;margin-left:40px"]
-              .p-l-25
-                .pull-left.m-l-30
-                  h3.text-success.no-margin= t(:comment, scope: 'views.broker.document')
-              section.timeline.m-t-20
-                / ## MENTORIA
-                - @notes.each do |note|
-                  .timeline-block
-                    .timeline-point.success
-                      i.pg-map
-                    /! timeline-point
-                    .timeline-content
-                      /! START CARD ELEMENT
-                      .card.social-card.share.full-width
-                        - if note.admin.nil?
-                          .circle data-toggle="tooltip" title="Label" 
-                          .card-header.clearfix
-                            h5
-                              = note.broker.name
-                            h6
-                              span.location.semi-bold.pull-left
-                                | Situação
-                                '
-                                span.bold.
-                                  =t note.action, scope:'views.broker'
-                              span.location.semi-bold.pull-right
-                                = l note.created_at, format: :option3
-                          .card-description
-                            .via.all-caps 
-                              | Negociação
-                            p = note.message
-                        - else
-                          .circle data-toggle="tooltip" title="Label" 
-                          .card-header.clearfix
-                            h5
-                              = note.admin.name
-                            h6
-                              span.location.semi-bold.pull-left
-                                | Situação
-                                '
-                                span
-                                  =t note.action, scope:'views.broker'
-                              span.location.semi-bold.pull-right
-                                = l note.created_at, format: :option3
-                          .card-description
-                            span
-                              .via.all-caps 
-                                | Comentário da empresa
-                              p = note.comment
-
+        .col-lg-6                
+          = render 'notes', notes: @notes
 css:
   .timeline::before {
       content: '';

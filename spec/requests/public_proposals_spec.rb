@@ -13,6 +13,8 @@ RSpec.describe "PublicProposals" do
   before(:each) do
   end
 
+  ## TODO Create Test to Notes in admin and public
+
   it 'Make Proposal' do
     login_as(broker.user, :scope => :user)
     visit public_dashboards_path
@@ -20,9 +22,9 @@ RSpec.describe "PublicProposals" do
     page.first(:xpath, "//a[@href='/public/units/1/proposals/new']").click()
     fill_in("proposal_negociate", with: 'Proposal Negociate')
     fill_in("proposal_value", with: '100')    
-    click_button 'Create Proposals'
+    click_button 'Create Proposal'
     expect(page).not_to have_css("span#notification-message", text: 'Please review the problems below')
-    expect(page).to have_css("span#notification-message", text: 'Proposals was successfully created.')
+    expect(page).to have_css("span#notification-message", text: 'Proposal was successfully created.')
     
   end
 
@@ -63,8 +65,7 @@ RSpec.describe "PublicProposals" do
     visit public_dashboards_path
     page.first(:xpath, "//a[@href='/public/builds/1/units']").click()
     page.find(:xpath, "//a[@href='/public/units/1/proposals/new']").click
-    click_button 'Create'
-    # save_and_open_page
+    click_button 'Create Proposal'
     expect(page).to have_content("can't be blank")
   end
 

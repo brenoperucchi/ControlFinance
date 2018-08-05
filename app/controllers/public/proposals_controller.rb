@@ -56,7 +56,9 @@ class Public::ProposalsController < Public::BaseController
       if @proposal.save
         respond_with @proposal, location: invoice_public_proposal_path(@proposal)
       else
+        @notes = @broker.notes.where(unit: @unit).order('created_at desc')
         respond_with @proposal
+
       end
     else
       redirect_if_proposal_bought

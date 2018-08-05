@@ -477,35 +477,53 @@ en:
       <<: *errors
   activerecord:
     models:
-      unit: Unit
-      proposal: 'Proposals'
+      note:
+        one: Note
+        other: Notes
+      admin/proposal:
+        one: Proposal
+        other: Proposal
+      build: 
+        one: Buid
+        other: Builds
+      broker: 
+        one: Broker
+        other: Brokers
+      store: Company
+      unit:
+        one: Unit
+        other: Units
+      proposal: 
+        one: Proposal
+        other: Proposals
+      mailer: Send Email
     attributes:
       mailer:
-        to: Para
-        subject: Assunto
-        body: Corpo do E-mail
+        to: To
+        subject: Subject
+        body: E-mail body
       unit:
-        name: Imóvel
-        size: Área (m2)
-        brokerage: Comissão do Corretor
-        state: Situação
-        value: Valor
-        garage: Vaga
-        deadline: Prazo limite
-        address: Endereço
-        registry: Mátricula
-        incorporation: Incorporação
+        name: Property
+        size: Area (m2)
+        brokerage: Broker fee
+        state: Status
+        value: Value
+        garage: Garage
+        deadline: Deadline
+        address: Address
+        registry: Registry
+        incorporation: Incorporation 
       build:
         name: Nome
-        address: Endereço
-        registry: Mátricula
-        incorporation: Incorporação
-        state: Situação
-        garage: Vaga
-        size: Área (m2)
-        value: Valor 
-        created_at: Criado em
-        updated_at: Atualizado em
+        address: Address
+        registry: Registry
+        incorporation: Incorporation 
+        state: Status
+        garage: Garage
+        size: Area (m2)
+        value: Value
+        created_at: Created at
+        updated_at: Updated at
       store:
         name: Business name
         language: Language
@@ -541,5 +559,7 @@ en:
         option5: 'The payment of the brokerage is by paying the actual values in the company account and with the invoice by the broker.'
         option6: 'Only the information below may be disclosed by brokers to your customers.'
         comment: 'comment'
+      note:
+        comment: Add Notes
     errors:
       <<: *errors

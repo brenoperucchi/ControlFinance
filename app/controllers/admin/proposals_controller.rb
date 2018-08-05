@@ -21,6 +21,7 @@ class Admin::ProposalsController < Admin::BaseController
     end
   end
 
+  # TODO Remover essa action. Talvez desnecessária. 
   def action
     action = params[:act]  
     @proposal.documents.find_by_id(params[:document_id]).send(action)
@@ -44,26 +45,27 @@ class Admin::ProposalsController < Admin::BaseController
 
   def edit
     @proposals = Proposal.all
+    @notes = @proposal.broker.notes.where(unit: @proposal.unit).order('created_at desc')
     respond_with @proposal #, layout:'common/chat')
   end
 
   def create
     @proposal = Admin::Proposal.new(proposal_params)
     if @proposal.save
-      # @activities = @proposal.activities.order('created_at desc')
+      @notes = @proposal.broker.notes.where(unit: @proposal.unit).order('created_at desc')
       respond_with @proposal, location: [:edit, @proposal]
     else
-      # @activities = @proposal.activities.order('created_at desc')
+      @notes = @proposal.broker.notes.where(unit: @proposal.unit).order('created_at desc')
       respond_with @proposal
     end
   end
 
   def update
     if @proposal.update(proposal_params)
-      # @activities = @proposal.activities.order('created_at desc')
+      @notes = @proposal.broker.notes.where(unit: @proposal.unit).order('created_at desc')
       respond_with @proposal, location: [:edit, @proposal]
     else
-      # @activities = @proposal.activities.order('created_at desc')
+      @notes = @proposal.broker.notes.where(unit: @proposal.unit).order('created_at desc')
       respond_with @proposal
     end
   end

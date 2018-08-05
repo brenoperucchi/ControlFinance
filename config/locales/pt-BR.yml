@@ -60,11 +60,11 @@ pt-BR:
           title1: Quantidade Propostal recebidas
           title2: Total de propostas Recebidas
         widget_proposal:
-          title1: Propostal Vencidas
+          title1: 5 últimas propostal Vencidas
           title2: Valor total
         widget_broker:
-          title1: Name Broker
-          title2: Valor total
+          title1: 5 últimos corretores pendentes
+          title2: Quantidade
     purchase_step:
       finish:
         irs_id: 'CPF: %{value}'
@@ -487,6 +487,9 @@ pt-BR:
       attributes:
         state: Situação
     models:
+      note:
+        one: Comentário
+        other: Comentários
       admin/proposal:
         one: Proposta
         other: Propostas
@@ -581,5 +584,7 @@ pt-BR:
         option5: 'O pagamento da corretagem é mediante ao pagamento dos valores efetivos na conta da empresa e com a Nota Fiscal pela corretora ou corretor.'
         option6: 'O corretor aceita divulgar somente as informações da empresa abaixo:'
         comment: 'comentário'
+      note:
+        comment: Adicionar comentário
     errors:
       <<: *errors

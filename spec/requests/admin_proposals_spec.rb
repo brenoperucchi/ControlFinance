@@ -23,7 +23,7 @@ RSpec.describe "Admin Proposals" do
     select('Broker 1', :from => 'admin_proposal_broker_id')
     click_button 'Create'
     expect(page).not_to have_css("span#notification-message", text: 'Please review the problems below:')
-    expect(page).to have_css("span#notification-message", text: 'Proposals was successfully created.')
+    expect(page).to have_css("span#notification-message", text: 'Proposal was successfully created.')
 
   end
 
@@ -34,7 +34,7 @@ RSpec.describe "Admin Proposals" do
     page.first(:xpath, "//a[@href='/admin/builds/1/units/1/proposals']").click()
     page.find(:xpath, "//a[@href='/admin/proposals/1/edit']").click
     select('BOOKED', :from => 'admin_proposal_states')
-    click_button('Update')
+    click_button('Update Proposal')
     expect(page).not_to have_select('admin_proposal_states', selected: 'PENDING')
     expect(page).to have_select('admin_proposal_states', selected: 'BOOKED')
   end
@@ -45,9 +45,10 @@ RSpec.describe "Admin Proposals" do
     proposal.book
     expect(proposal.state).to match('booked')
     visit edit_admin_proposal_path(proposal)
-    fill_in("admin_proposal_comment", with: 'comment')    
-    click_button 'Update'
-    expect(page).to have_css("span#notification-message", text: 'Proposals was successfully updated.')
+    fill_in("note_comment", with: 'comment')    
+    click_button 'Create Note'
+    ## TODO 
+    # expect(page).to have_css("span#notification-message", text: 'Proposal was successfully updated.')
     # save_and_open_page
   end
 
@@ -58,10 +59,9 @@ RSpec.describe "Admin Proposals" do
     login_as(admin, :scope => :user)
     visit edit_admin_proposal_path(proposal2)
     select('ACCEPTED', :from => 'admin_proposal_states')
-    click_button('Update')
+    click_button('Update Proposal')
     expect(page).not_to have_select('admin_proposal_states', selected: 'accepted')
-    # save_and_open_page
-    expect(page).to have_css("span#notification-message", text: 'Proposals could not be updated.')
+    expect(page).to have_css("span#notification-message", text: 'Proposal could not be updated.')
   end
 
   it 'State can not change if already had closed' do
@@ -71,7 +71,7 @@ RSpec.describe "Admin Proposals" do
     login_as(admin, :scope => :user)
     visit edit_admin_proposal_path(proposal2)
     select('CLOSED', :from => 'admin_proposal_states')
-    click_button('Update')
+    click_button('Update Proposal')
     expect(page).not_to have_select('admin_proposal_states', selected: 'closed')
     expect(page).not_to have_text('Proposal was successfully updated.')
   end
@@ -90,9 +90,9 @@ RSpec.describe "Admin Proposals" do
     login_as(admin, :scope => :user)
     visit edit_admin_proposal_path(proposal2)
     select('ACCEPTED', :from => 'admin_proposal_states')
-    click_button('Update')
+    click_button('Update Proposal')
     expect(page).to have_select('admin_proposal_states', selected: 'PENDING')
-    expect(page).to have_css("span#notification-message", text: 'Proposals could not be updated.')
+    expect(page).to have_css("span#notification-message", text: 'Proposal could not be updated.')
   end
 
   it 'State closed can change to pending'  do
@@ -106,9 +106,9 @@ RSpec.describe "Admin Proposals" do
     login_as(admin, :scope => :user)
     visit edit_admin_proposal_path(proposal)
     select('PENDING', :from => 'admin_proposal_states')
-    click_button('Update')
+    click_button('Update Proposal')
     expect(page).to have_select('admin_proposal_states', selected: 'PENDING')
-    expect(page).to have_css("span#notification-message", text: 'Proposals was successfully updated.')
+    expect(page).to have_css("span#notification-message", text: 'Proposal was successfully updated.')
     visit admin_builds_path
   end
 

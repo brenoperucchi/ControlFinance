@@ -8,6 +8,7 @@ class Admin::DashboardsController < Admin::BaseController
     @amount_bought = current_store.units.bought.sum(:value)
     @amount_booked = current_store.units.booked.sum(:value)
     @amount_pending = current_store.units.pending.sum(:value)
+    @amount_revenue = 0 
   end
 
   # # GET /dashboards/1

@@ -4,17 +4,12 @@ class Admin::Proposal < Proposal
 
   validate :validate_state, if: Proc.new {|obj| obj.validated.nil? and not obj.states.nil?}
   # before_save :state_update
-  before_update :update_notes
-  before_save   :update_notes
+  after_create   :create_notes
 
   ## MENTORIA
-  ## Isso aqui ta horrível, mas fui pela logica faça passar e depois refactor 
-  def update_notes
-    notes.create(unit: unit, broker: broker, message: negociate, action: state, admin_id: admin_id, comment: comment)
-  end
   ## notes.create 
-  def update_notes
-    notes.new(unit: unit, broker: broker, message: negociate, action: state, admin_id: admin_id, comment: comment)
+  def create_notes
+    notes.create(unit: unit, broker: broker, action: state, admin_id: admin_id, comment: comment)
   end
 
   private

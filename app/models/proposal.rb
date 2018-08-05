@@ -135,9 +135,8 @@ class Proposal < ApplicationRecord
     end
   end
 
-  def update_notes(action=nil)
-    action = action.try(:to) || 'create'
-    notes.create(unit: unit, broker: broker, message: negociate, action: action)
+  def update_notes
+    notes.create(unit: unit, broker: broker, comment: negociate)
   end
 
   def mailer_proposal_accepted_delivery
