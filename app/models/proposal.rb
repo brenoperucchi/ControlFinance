@@ -12,29 +12,29 @@ class Proposal < ApplicationRecord
   after_create :update_notes
 
   scope :not_refuse, ->{ where.not(state: 'refuse') }
+  scope :opened,     ->{ where.not(state: 'closed') }
   scope :bought,     ->{ where(state: ['accepted', 'closed']) }
   scope :accepted,   ->{ where(state: 'accepted') }
+  scope :book,       ->{ where(state: 'booked') }
   scope :booked,     ->{ where(state: [ 'booked', 'accepted']) }
-  # scope :expired,    ->{ where(state:'booked').where("proposals.due_at < ?", Date.today) }
   scope :expired,    ->{ where.not(:due_at => nil).where("proposals.due_at < ?", Date.today) }
 
   #   tracked :owner      =>  proc {|controller, model| User.current.userable},
   #           :recipient  =>  proc {|controller, model| model.unit},
   #           :params => {:comment => proc {|contronller, model| model.comment}}
   # # :on => {:update => proc {|model, controller| !model.comment.blank? }}
-
   # has_many :activitys,   class_name: 'Activity',   as: :trackable, dependent: :destroy
-  ## MENTORIA
-  has_many :notes,       class_name: 'Note',      dependent: :destroy
+
+  ## MENTORIA NOTES
+  has_many :notes,       class_name: 'Note',       dependent: :destroy
   has_many :mailers,     class_name: 'Mailer',     as: :mailable, dependent: :destroy
   has_many :buyers,      class_name: 'Buyer',      dependent: :destroy 
   has_many :assets,      class_name: "Asset",      as: :assetable, dependent: :destroy
   has_many :documents,   class_name: "Document",   as: :documentable, dependent: :destroy
-  belongs_to :unit, optional: true
+  belongs_to :unit,   optional: true
   belongs_to :broker, optional: true
-  has_one :builder, through: :unit, source: :builder
+  has_one    :builder,through: :unit, source: :builder
 
-  # accepts_nested_attributes_for :broker, allow_destroy: true  
   accepts_nested_attributes_for :buyers, allow_destroy: true  
   accepts_nested_attributes_for :documents, allow_destroy: true,reject_if: :all_blank
 

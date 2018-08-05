@@ -35,7 +35,7 @@ class MailerMethod::Base
 
   def host
     options = Rails.configuration.action_mailer.default_url_options
-    "#{store.url}.#{options[:host]}:#{options[:port]}"
+    "#{store.url.split(';').first}.#{options[:host]}:#{options[:port]}"
   end
 
   # private

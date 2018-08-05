@@ -27,7 +27,8 @@ class Broker < ApplicationRecord
   ## MENTORIA
   has_many :notes, :through => :proposals, :source => :notes
 
-  scope :users, ->{ joins(:user).where(users:{userable_type: 'Broker'}) }
+  scope :users,   ->{ joins(:user).where(users:{userable_type: 'Broker'}) }
+  scope :pending, ->{ where(state: 'pending') }
 
   accepts_nested_attributes_for :user, allow_destroy: true  
 

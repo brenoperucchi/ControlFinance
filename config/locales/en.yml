@@ -59,9 +59,12 @@ en:
         widget4:
           title1: Proposal received
           title2: Proposal amount received
-        widget11:
-          title1: Proposals expire
-          title2: Amount
+        widget_proposal:
+          title1: Last 5 Proposals expired
+          title2: Amount to expire
+        widget_broker:
+          title1: Last 5 Brokers pending
+          title2: Amount to expire
     purchase_step:
       finish:
         irs_id: 'Security: %{value}'

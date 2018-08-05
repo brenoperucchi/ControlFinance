@@ -45,7 +45,7 @@ group :development do
 # gem 'awesome_print'
 # gem 'quiet_assets', git: 'https://github.com/fishpercolator/quiet_assets.git'
   gem 'sqlite3'
-  gem 'mailcatcher'
+  gem 'mailcatcher', '0.2.4'
   gem 'better_errors'
   gem 'binding_of_caller'
 #   gem 'meta_request'
