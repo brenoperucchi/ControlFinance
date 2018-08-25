@@ -21,6 +21,7 @@ class Admin::ProposalsController < Admin::BaseController
     end
   end
 
+  # TODO Remover essa action. Talvez desnecessária. 
   def action
     action = params[:act]  
     @proposal.documents.find_by_id(params[:document_id]).send(action)
@@ -44,26 +45,27 @@ class Admin::ProposalsController < Admin::BaseController
 
   def edit
     @proposals = Proposal.all
+    @notes = @proposal.broker.notes.where(unit: @proposal.unit).order('created_at desc')
     respond_with @proposal #, layout:'common/chat')
   end
 
   def create
     @proposal = Admin::Proposal.new(proposal_params)
     if @proposal.save
-      @activities = @proposal.activities.order('created_at desc')
+      @notes = @proposal.broker.notes.where(unit: @proposal.unit).order('created_at desc')
       respond_with @proposal, location: [:edit, @proposal]
     else
-      @activities = @proposal.activities.order('created_at desc')
+      @notes = @proposal.broker.notes.where(unit: @proposal.unit).order('created_at desc')
       respond_with @proposal
     end
   end
 
   def update
     if @proposal.update(proposal_params)
-      @activities = @proposal.activities.order('created_at desc')
+      @notes = @proposal.broker.notes.where(unit: @proposal.unit).order('created_at desc')
       respond_with @proposal, location: [:edit, @proposal]
     else
-      @activities = @proposal.activities.order('created_at desc')
+      @notes = @proposal.broker.notes.where(unit: @proposal.unit).order('created_at desc')
       respond_with @proposal
     end
   end
@@ -76,7 +78,7 @@ class Admin::ProposalsController < Admin::BaseController
   private
 
     def set_activities
-      @activities = @proposal.activities.order('created_at desc')
+      # @activities = @proposal.activities.order('created_at desc')
     end
 
     def set_proposal
@@ -99,8 +101,10 @@ class Admin::ProposalsController < Admin::BaseController
     # end
 
     def proposal_params
-      params.require(:admin_proposal).permit(:unit_id, :states, :name, :negociate, :value, :comment, :due_at, :brokerage, :broker_id, 
+      delocalize_config = { :value => :number, brokerage: :number, due_at: :date }
+
+      params.require(:admin_proposal).permit(:unit_id, :states, :name, :negociate, :value, :comment, :due_at, :brokerage, :broker_id, :admin_id,
                             documents_attributes:[:id, :name, :approved_at, :_destroy],
-                            broker_attributes:[:id, :name, user_attributes:[:id, :email]])
+                            broker_attributes:[:id, :name, user_attributes:[:id, :email]]).delocalize(delocalize_config)
     end
 end

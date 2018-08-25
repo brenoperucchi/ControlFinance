@@ -1,9 +1,21 @@
 class Public::BaseController < ApplicationController
+  include SentientStoreController
   include PublicActivity::StoreController
 
   layout 'pages'
   protect_from_forgery with: :null_session
   before_action :authenticate_user!
+
+  # helper_method :current_store
+  # def current_store
+  #   Store.all.each do |store|
+  #     store.url.split(';').each do |url|
+  #       @current_store = store if request.subdomain.split('.').first.downcase == url.downcase.strip
+  #     end
+  #   end
+  #   @current_store
+  # end
+
   
   def authenticate_user!
     if not(user_signed_in?)

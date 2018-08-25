@@ -38,7 +38,7 @@ css:
             .row
               .col-md-12
                 = f.input :option1, wrapper: :pages_vertical_radio do
-                  .radio.radio-primary
+                  .radio.radio-success
                     = radio_button_tag '[broker]option1', 0, f.object.option1 == "0", id: 'choice1'
                     label for="choice1"
                       = t(:not_accept)
@@ -48,7 +48,7 @@ css:
             .row
               .col-md-12
                 = f.input :option2, wrapper: :pages_vertical_radio do
-                 .radio.radio-primary
+                 .radio.radio-success
                     = radio_button_tag '[broker]option2', 0, f.object.option2 == "0", id: 'choice3'
                     label for="choice3"
                       = t(:not_accept)
@@ -95,7 +95,7 @@ css:
                 = f.input :option6, label: false, wrapper: :append do
                   .form-group.row.m-b-0
                     .col-md-8
-                      label.col-md-10.control-label 
+                      label.col-md-10.control-label
                         strong
                           = t :option6, scope: 'activerecord.attributes.broker'
                     .col-md-4

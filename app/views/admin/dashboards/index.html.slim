@@ -7,82 +7,112 @@
           = t(:home, scope: 'breadcrumb')
 
 
-.page-container
-  /! START PAGE CONTENT WRAPPER
-  .page-content-wrapper
-    /! START PAGE CONTENT
-    .content.sm-gutter
-      /! START CONTAINER FLUID
-      .container-fluid.p-l-25.p-r-25.sm-padding-10
-        /! START ROW
-        .row
-          .col-lg-12
-            .row
-              .col-md-12.col-xlg-7.col-sm-12.m-b-10
-                .ar-2-1
-                  /! START WIDGET widget_graphTile
-                  .widget-4.card.no-border.no-margin.widget-loader-bar
-                    .container-sm-height.full-height.d-flex.flex-column
-                      .card-header
-                        .card-title.text-black.hint-text
-                          span.font-montserrat.fs-11.all-caps
-                            =t(:title1, scope:'views.dashboards.widget4')
-                            '
-                            i.fa.fa-chevron-right
-                        .card-controls
-                          ul
-                            li
-                              a.card-refresh.text-black data-toggle="refresh" href="#" 
-                                i.card-icon.card-icon-refresh
-                      .p-l-20.p-r-20
-                        h5.no-margin.p-b-5.pull-left.hint-text=t(:title2, scope:'views.dashboards.widget4')
-                        p.pull-right.no-margin.bold.hint-text= number_with_precision current_store.proposals.booked.sum(:value)
-                        .clearfix
-                      .widget-4-chart.line-chart.mt-auto data-area-color="success-light" data-line-color="success" data-points="false" data-stroke-width="2" data-y-grid="false" 
-                        svg
-                  /! END WIDGET
-              .col-md-12.col-xlg-5.col-sm-12.m-b-10
-                .widget-11.card.no-border.no-margin.widget-loader-bar.full-height
-                  .card-header
-                    .card-title
-                      =t(:title1, scope:'views.dashboards.widget11')
-                    .card-controls
-                      ul
-                        li
-                          a.card-refresh.text-black data-toggle="refresh" href="#" 
-                            i.card-icon.card-icon-refresh
-                  .p-l-25.p-r-25
-                    .pull-left
-                      h2.text-success.no-margin=t(:title2, scope:'views.dashboards.widget11')
-                    h3.pull-right.semi-bold
-                      sup
-                        small.semi-bold= t(:unit, scope:'number.currency.format')
-                      '
-                      = number_with_precision current_store.proposals.expired.sum(:value)
-                    .clearfix
-                  .widget-11-2.table.auto-overflow
-                    table.table.table-condensed.table-hover
-                      tbody
-                        - current_store.proposals.expired.order('due_at desc')[0..5].each do |proposal| 
-                          tr
-                            td.w-10.font-montserrat.all-caps.fs-12.b-r.b-dashed.b-grey
-                              | #
-                              = proposal.id
-                            / td.w-20.text-right
-                            /   span.hint-text.small
-                            td.w-40.text-center.b-r.b-dashed.b-grey
-                              span.hint= l proposal.due_at, format: :long2
-                              '
-                              | /
-                              '
-                              span.hint= proposal.try(:broker).try(:name)
-                              '
-                              | / 
-                              ' 
-                              span.hint= proposal.try(:builder).try(:name)
-                              '
-                              | / 
-                              '
-                              span.hint= proposal.try(:unit).try(:name)
-                            td.w-15.text-right
-                              span.font-montserrat.fs-18=number_with_precision proposal.value
+.row
+  .col-lg-4.m-b-10
+    /! START WIDGET widget_realtimeWidget
+    .widget-14.card.no-border.no-margin.widget-loader-circle
+      .container-xs-height.full-height
+        .row-xs-height
+          .col-xs-height
+            .card-header
+              .card-title
+                | Informações Financeiras 
+              / .card-controls
+              /   ul
+              /     li
+              /       a.card-refresh.text-black data-toggle="refresh" href="#" 
+              /         i.card-icon.card-icon-refresh
+        .row-xs-height
+          .col-xs-height
+            .p-l-20.p-r-20.p-b-20
+              .row
+                .col-lg-4.col-md-4
+                  h4.text-success.bold.no-margin= number_with_precision @amount_bought
+                  p.small.no-margin Total Vendido
+                .col-lg-4.col-md-4
+                  h5.text-primary.bold.no-margin.p-t-5= number_with_precision @amount_booked
+                  p.small.no-margin Total Reservado
+                .col-lg-4.col-md-4
+                  h5.text-danger.bold.no-margin.p-t-5= number_with_precision @amount_pending
+                  p.small.no-margin Total a Vender
+                .col-lg-3.visible-xlg
+                  .widget-14-chart-legend.bg-transparent.text-black.no-padding.pull-right
+                  .clearfix
+              .row.m-t-20
+                .col-lg-4.col-md-4
+                  h4.text-success.bold.no-margin= number_with_precision @amount_revenue
+                  p.small.no-margin Faturamento 12 meses
+    /! END WIDGET
+
+  .col-lg-4.col-xl-4.m-b-10.col-xlg-4.col-sm-12
+    /! START WIDGET widget_tableWidgetBasic
+    / .card.no-border.card-condensed.no-margin
+    .widget-11-2.card.no-border.card-condensed.no-margin.widget-loader-circle.full-height.d-flex.flex-column
+      / .card-header.top-right
+      /   .card-controls
+      /     ul
+      /       li
+      /         a.card-refresh.text-black data-toggle="refresh" href="#" 
+      /           i.card-icon.card-icon-refresh
+      .padding-25
+        .pull-left
+          p.all-caps.no-margin=t(:title1, scope:'views.dashboards.widget_proposal')
+          / h5.text-success.no-margin=t(:title2, scope:'views.dashboards.widget_proposal')
+        / h4.pull-right.semi-bold
+        /   sup
+        /     small.semi-bold= t(:unit, scope:'number.currency.format')
+        /     '
+        /   small= number_with_precision current_store.proposals.expired.sum(:value)
+        / .clearfix
+      .auto-overflow.widget-11-2-table
+        table.table.table-condensed.table-hover
+          tbody
+            - current_store.proposals.expired.order('due_at desc')[0..5].each do |proposal| 
+              tr
+                td.font-montserrat.all-caps.fs-12.w-10.b-r.b-dashed.b-grey= proposal.id
+                td.text-center.b-r.b-dashed.b-grey
+                  span.hint-text.small
+                    = proposal.try(:broker).try(:name) 
+                    '
+                    | / 
+                    '
+                    = proposal.try(:builder).try(:name)
+                td.text-center.b-r.b-dashed.b-grey.w-20
+                  span.hint-text.small= proposal.try(:unit).try(:name)
+                td.w-30.text-right
+                  = link_to edit_admin_proposal_path(proposal), class: 'text-danger' do
+                    span.font-montserrat.fs-18=number_with_precision proposal.value
+                    p.hint-text.small= l proposal.due_at
+      .padding-25.mt-auto
+        / p.small.no-margin
+        /   a href="#" 
+        /     i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
+          / span.hint-text Show more details of APPLE . INC
+    /! END WIDGET
+  .col-lg-4.col-xl-4.m-b-10.col-xlg-4.col-sm-12
+    /! START WIDGET widget_tableWidgetBasic
+    / .widget-11-2.card.no-border.card-condensed.no-margin.widget-loader-circle.full-height.d-flex.flex-column
+    .card.no-border.card-condensed.no-margin
+      .padding-25
+        .pull-left
+          p.all-caps.no-margin=t(:title1, scope:'views.dashboards.widget_broker')
+        .pull-right.semi-bold
+          .text-danger.text-center.bold = current_store.brokers.pending.count
+          h5.no-margin
+            =t(:title2, scope:'views.dashboards.widget_broker')
+            '
+        .clearfix
+      .auto-overflow.widget-11-2-table
+        table.table.table-condensed.table-hover
+          tbody
+            - current_store.brokers.pending.order('created_at desc')[0..5].each do |broker| 
+              tr
+                td.font-montserrat.all-caps.fs-12.b-r.b-dashed.b-grey
+                  = link_to broker.user.email, edit_admin_broker_path(broker)
+                td.text-center.b-r.b-dashed.b-grey
+                  span.hint-text.small
+                    = link_to broker.try(:name), edit_admin_broker_path(broker) 
+                td.w-30.text-right.text-danger
+                  = link_to edit_admin_broker_path(broker) do
+                    span.hint-text.small= l broker.created_at, format: :short
+      .padding-25.mt-auto

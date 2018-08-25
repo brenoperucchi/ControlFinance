@@ -3,6 +3,10 @@
     .item-header{
       height:98px
     }
+    a.fs-14 {
+        font-size: 14px !important;
+    }
+
 
 - model_class = Build
 
@@ -13,7 +17,7 @@
         = t(:home, scope: 'breadcrumb')
   .col-lg-6.col-sm-6.text-right
     ol.breadcrumb
-      = link_to sales_public_builds_path, :class => 'btn-cons' do
+      = link_to sales_public_builds_path, :class => 'btn-cons fs-14' do
         i.fa.fa-print
         '
         strong= t :print, scope: "views.dashboard"

@@ -29,6 +29,10 @@
         text-align: center!important;
       }
     }
+    a.fs-14 {
+        font-size: 14px !important;
+    }
+
 - model_class = Build
 .inner
   .row
@@ -40,7 +44,7 @@
           = @build.name
     .col-lg-6.col-sm-6.text-right
       ol.breadcrumb
-        = link_to sales_public_builds_path, :class => 'btn-cons' do
+        = link_to sales_public_builds_path, :class => 'btn-cons fs-14' do
           i.fa.fa-print
           '
           strong= t :print, scope: "views.dashboard"
@@ -52,7 +56,7 @@
             / img.image-responsive-height alt="" src="#{image.try(:file).try(:url)}"
             img.img-responsive[alt="user" src="#{image.try(:file).try(:url)}" height="433"]
     .col-lg-8.col-xl-8.m-b-10
-      .card.card-condensed.d-flex.flex-column
+      .card.card-condensed.d-flex.flex-column.no-border.no-margin
         .p-l-25.p-r-25.p-t-25
           .pull-left
             h3.text-success.no-margin= @build.name
@@ -65,34 +69,45 @@
               - @units.each do |unit|
                 tr
                   td.text-right.b-r.b-dashed.b-grey.w-15= unit.name
-                  - if unit.try(:proposal_bought).try(:current_broker?, (current_user.try(:userable)))
+                  - if unit.bought_to_broker?(current_user)
                     td.b-r.b-dashed.b-grey.font-montserrat.all-caps.fs-12.w-25= t(:booked_to_broker, scope:'views.unit.index').upcase
                   - else
                     td.b-r.b-dashed.b-grey.font-montserrat.all-caps.fs-12.w-25= t(unit.state, scope:'views.common').upcase
                   td.text-center.b-r.b-dashed.b-grey.w-25
-                    span.font-montserrat.fs-18= number_with_precision unit.value
+                    - unless unit.bought?
+                      span.font-montserrat.fs-18= number_with_precision unit.value
+                    - else
+                      span.font-montserrat.all-caps.fs-12= t(:bought, scope:'views.common')
                   td.text-center.text-danger.no-margin.font-montserrat.fs-12.all-caps
-                    = link_to t('proposal_create', scope: "views.unit.index"), new_public_unit_proposal_path(unit), class: 'text-danger'  
+                    - unless unit.bought? and not unit.bought_to_broker?(current_user)
+                      = link_to t('proposal_create', scope: "views.unit.index"), new_public_unit_proposal_path(unit), class: 'text-danger'  
+        .padding-10.mt-auto
+          / p.small.no-margin
+          /   a href="#" 
+          /     i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
+          /   span.hint-text Show more details of APPLE . INC
 
-      .card.card-condensed.align-self-stretch.d-flex.flex-column
-        .p-l-25.p-r-25.p-t-25
-          .text-center
-            h4.semi-bold.text-primary.no-margin = t(:last_sales, scope: 'views.build')
-          .clearfix
-        .auto-overflow.widget-11-2-table
-          table.table.table-condensed.table-hover
-            thead
-              tr
-                th= t :created_at, scope:'views.common'
-                th= t :unit, scope:'views.common'
-                th= t :broker, scope:'views.common'
-            tbody
-              - @proposals.order('created_at desc')[0..10].each do |proposal|
-                tr
-                  td
-                    span.font-montserrat.fs-18= l proposal.created_at, format: :date
-                  td.b-l.b-dashed.b-grey.font-montserrat.all-caps.fs-12= proposal.unit.name
-                  td.b-l.b-dashed.b-grey.font-montserrat.all-caps.fs-12= proposal.broker.name
+
+
+      / .card.card-condensed.align-self-stretch.d-flex.flex-column
+      /   .p-l-25.p-r-25.p-t-25
+      /     .text-center
+      /       h4.semi-bold.text-primary.no-margin = t(:last_sales, scope: 'views.build')
+      /     .clearfix
+      /   .auto-overflow.widget-11-2-table
+      /     table.table.table-condensed.table-hover
+      /       thead
+      /         tr
+      /           th= t :created_at, scope:'views.common'
+      /           th= t :unit, scope:'views.common'
+      /           th= t :broker, scope:'views.common'
+      /       tbody
+      /         - @proposals.order('created_at desc')[0..10].each do |proposal|
+      /           tr
+      /             td
+      /               span.font-montserrat.fs-18= l proposal.created_at, format: :date
+      /             td.b-l.b-dashed.b-grey.font-montserrat.all-caps.fs-12= proposal.unit.name
+      /             td.b-l.b-dashed.b-grey.font-montserrat.all-caps.fs-12= proposal.broker.name
     / .col-lg-6.col-xl-6.m-b-10
     /   .card.card-condensed.align-self-stretch.d-flex.flex-column
     /     .widget-16-header.padding-20.d-flex

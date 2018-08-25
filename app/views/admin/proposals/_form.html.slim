@@ -1,14 +1,15 @@
 - model_class = Proposal
 = f.input :unit_id, as: :hidden, input_html:{value:@unit.id}
+= f.input :admin_id, as: :hidden, input_html:{value:current_user.id}
 
 .row
   .col-md-6.col-lg-6.col-sm-6
     = f.input :unit, input_html:{value:@unit.name}, placeholder: model_class.human_attribute_name(:unit), disabled:true
     = f.input :due_at, :as => :string, input_html: { class: 'datepicker', value: localize(f.object.due_at, format: '%d/%m/%Y')}, placeholder: model_class.human_attribute_name(:due_at)
-    = f.input :brokerage, placeholder: model_class.human_attribute_name(:brokerage)
+    = f.input :brokerage, placeholder: model_class.human_attribute_name(:brokerage), input_html:{value: number_with_precision(f.object.brokerage)}
   .col-md-6.col-lg-6.col-sm-6
     = f.input :states, as: :select, collection:model_class::STATUS.map{|key,value|[I18n.t(key, scope:'views.common').upcase, key]}, selected: f.object.state, placeholder: model_class.human_attribute_name(:status)
-    = f.input :value, placeholder: model_class.human_attribute_name(:value)
+    = f.input :value, placeholder: model_class.human_attribute_name(:value), input_html:{value: number_with_precision(f.object.value)}
     = f.input :negociate, placeholder: model_class.human_attribute_name(:negociate)
 .row 
     - if f.object.broker.nil?
@@ -22,5 +23,3 @@
           - broker.object.build_user if broker.object.user.nil?
           = broker.simple_fields_for :user do |user|
             = user.input :email, readonly: true, placeholder: model_class.human_attribute_name(:email)
-.row 
-  = f.input :comment, as: :text

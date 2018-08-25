@@ -25,7 +25,7 @@ class MailerMethod::PriceList <  MailerMethod::Base
   end
 
   def attributes
-    {to: to, subject: subject, body: body, url: url, token: token, url: url, signed_in?: signed_in?}
+    {to: to, subject: subject, body: body, token: token, url: url, signed_in?: signed_in?}
   end
 
 end

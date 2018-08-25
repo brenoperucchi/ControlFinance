@@ -1,24 +1,24 @@
-.timeline-container.left[style="width:80%;margin-left:40px"]
-  .p-l-25
-    .pull-left
-      h3.text-success.no-margin= t(:comment, scope: 'views.broker.document')
-  section.timeline
-    - @broker.activities.order('created_at desc').each do |activity|
-      .timeline-block
-        .timeline-point.success
-          i.pg-map
-        /! timeline-point
-        .timeline-content
-          /! START CARD ELEMENT
-          .card.social-card.share.full-width
-            .circle data-toggle="tooltip" title="Label" 
-            .card-header.clearfix
-              h5= activity.owner.name
-              h6
-                span.location.semi-bold
-                  | Broker
-                  '
-                  =t activity.trackable.state, scope:'views.broker'
-            .card-description
-              p
-                = activity.parameters[:comment]
+/ .timeline-container.left[style="width:80%;margin-left:40px"]
+/   .p-l-25
+/     .pull-left
+/       h3.text-success.no-margin= t(:comment, scope: 'views.broker.document')
+/   section.timeline
+/     - @broker.activities.order('created_at desc').each do |activity|
+/       .timeline-block
+/         .timeline-point.success
+/           i.pg-map
+/         /! timeline-point
+/         .timeline-content
+/           /! START CARD ELEMENT
+/           .card.social-card.share.full-width
+/             .circle data-toggle="tooltip" title="Label" 
+/             .card-header.clearfix
+/               h5= activity.owner.name
+/               h6
+/                 span.location.semi-bold
+/                   | Broker
+/                   '
+/                   =t activity.trackable.state, scope:'views.broker'
+/             .card-description
+/               p
+/                 = activity.parameters[:comment]

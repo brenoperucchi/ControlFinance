@@ -58,4 +58,8 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
   config.action_dispatch.tld_length = 0
 
+  config.active_job.queue_adapter = :sidekiq    
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+
 end

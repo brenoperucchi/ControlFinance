@@ -25,8 +25,8 @@ pt-BR:
         notice: 'Removido com sucesso'
         alert: 'Por favor, revise as informações acima.'
   language:
-    pt-br: Português Brasil
-    en: Inglês Americano
+    pt-br: Português Brazil
+    en: English USA
   not_accept: 'não'
   accept: 'sim'
   placeholder:
@@ -59,9 +59,12 @@ pt-BR:
         widget4:
           title1: Quantidade Propostal recebidas
           title2: Total de propostas Recebidas
-        widget11:
-          title1: Propostal Vencidas
+        widget_proposal:
+          title1: 5 últimas propostal Vencidas
           title2: Valor total
+        widget_broker:
+          title1: 5 últimos corretores pendentes
+          title2: Quantidade
     purchase_step:
       finish:
         irs_id: 'CPF: %{value}'
@@ -144,7 +147,7 @@ pt-BR:
       send_files: "Enviar Arquivos"
       assets: 'Arquivos'
       pending: Pendente
-      approved: Aceito
+      approved: Aprovado
       new_comment: 'Registre aqui sua dúvida!'
     system:
       title: Booking Reservation System 
@@ -168,7 +171,7 @@ pt-BR:
       select_all: Selecionar Todos
       deselect_all: Remover Todos
     document:
-      contract_build_address_active: "Imóvel %{build}, 1situado na %{address}"
+      contract_build_address_active: "Imóvel %{build}, situado na %{address}"
       contract: "Minuta do Contrato"
       send_files: "Enviar Arquivos"
       pending: pendente
@@ -304,11 +307,12 @@ pt-BR:
           state:
             invalid_transition: Situação não válida
     custom:
-        proposal_user_not_allowed: 'Usuário não permitido para essa proposta'
-        proposal_already_accepted: 'Unidade já vendida'
-        proposal_restricted: "Proposta reservada ou restrita"
-        proposal_should_be_accepted: Antes deverá ser aceita
-        proposal_should_be_pending: Antes deverá ser pendente
+        proposal_user_not_allowed: 'Usuário não permitido'
+        proposal_already_accepted: 'Vendida'
+        proposal_already_booked: 'Reservada'
+        proposal_restricted: "Proposta restrita"
+        proposal_should_be_accepted: Deve ser aceita
+        proposal_should_be_pending: Deve estar disponível
     format: "%{attribute} %{message}"
     messages:
       accepted: deve ser aceito
@@ -472,6 +476,7 @@ pt-BR:
       short2: "%d/%b/%Y, %H:%M"
       option1: "%d de %b %Y"
       option2: "%d de %B %Y"
+      option3: "%d %B %Y, %H:%M"
       date: "%d/%m/%Y"
     pm: ''
   activemodel:
@@ -482,6 +487,9 @@ pt-BR:
       attributes:
         state: Situação
     models:
+      note:
+        one: Comentário
+        other: Comentários
       admin/proposal:
         one: Proposta
         other: Propostas
@@ -517,6 +525,11 @@ pt-BR:
         address: Endereço
         registry: Mátricula
         incorporation: Incorporação
+        area_privative: Área Priv
+        position: Posição
+        dormitory: Dormitório
+        created_at: Criado em
+        updated_at: Atualizado em
       build:
         name: Nome
         address: Endereço
@@ -571,5 +584,7 @@ pt-BR:
         option5: 'O pagamento da corretagem é mediante ao pagamento dos valores efetivos na conta da empresa e com a Nota Fiscal pela corretora ou corretor.'
         option6: 'O corretor aceita divulgar somente as informações da empresa abaixo:'
         comment: 'comentário'
+      note:
+        comment: Adicionar comentário
     errors:
       <<: *errors

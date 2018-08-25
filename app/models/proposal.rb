@@ -1,6 +1,6 @@
 class Proposal < ApplicationRecord
-  include PublicActivity::Model
-  attr_accessor :comment, :is_validate
+  # include PublicActivity::Model
+  attr_accessor :comment, :is_validate, :admin_id
   
   store :information, accessors:[:name, :negociate, :value, :brokerage]
 
@@ -9,34 +9,32 @@ class Proposal < ApplicationRecord
   before_create :set_defaults
   after_create :create_documents
   after_create :mailer_created
+  after_create :update_notes
 
   scope :not_refuse, ->{ where.not(state: 'refuse') }
+  scope :opened,     ->{ where.not(state: 'closed') }
   scope :bought,     ->{ where(state: ['accepted', 'closed']) }
   scope :accepted,   ->{ where(state: 'accepted') }
+  scope :book,       ->{ where(state: 'booked') }
   scope :booked,     ->{ where(state: [ 'booked', 'accepted']) }
-  # scope :expired,    ->{ where(state:'booked').where("proposals.due_at < ?", Date.today) }
   scope :expired,    ->{ where.not(:due_at => nil).where("proposals.due_at < ?", Date.today) }
 
-  tracked :only =>[:update], 
-          :owner      =>  proc {|controller, model| User.current.userable},
-          :recipient  =>  proc {|controller, model| model.unit},
-          :params => {
-                      :comment => proc {|contronller, model| model.comment},
-                     },
-          :on => {
-                   :update => proc {|model, controller| !model.comment.blank? }
-                 }
+  #   tracked :owner      =>  proc {|controller, model| User.current.userable},
+  #           :recipient  =>  proc {|controller, model| model.unit},
+  #           :params => {:comment => proc {|contronller, model| model.comment}}
+  # # :on => {:update => proc {|model, controller| !model.comment.blank? }}
+  # has_many :activitys,   class_name: 'Activity',   as: :trackable, dependent: :destroy
 
-  has_many :activitys,   class_name: 'Activity',   as: :trackable, dependent: :destroy
+  ## MENTORIA NOTES
+  has_many :notes,       class_name: 'Note',       dependent: :destroy
   has_many :mailers,     class_name: 'Mailer',     as: :mailable, dependent: :destroy
   has_many :buyers,      class_name: 'Buyer',      dependent: :destroy 
   has_many :assets,      class_name: "Asset",      as: :assetable, dependent: :destroy
   has_many :documents,   class_name: "Document",   as: :documentable, dependent: :destroy
-  belongs_to :unit, optional: true
+  belongs_to :unit,   optional: true
   belongs_to :broker, optional: true
-  has_one :builder, through: :unit, source: :builder
+  has_one    :builder,through: :unit, source: :builder
 
-  # accepts_nested_attributes_for :broker, allow_destroy: true  
   accepts_nested_attributes_for :buyers, allow_destroy: true  
   accepts_nested_attributes_for :documents, allow_destroy: true,reject_if: :all_blank
 
@@ -45,13 +43,14 @@ class Proposal < ApplicationRecord
   validates_numericality_of :value
 
   state_machine initial: :pending do    
+    after_transition any  => any,                      do: :update_notes
     after_transition any  => [:pending, :refused],     do: :update_states
     after_transition any  => :booked,                  do: :update_booked_at
     after_transition any  => [:booked, :accepted],     do: :update_states
     after_transition any  => :closed,                  do: :update_states
-    after_transition [:booked, :accepted, :closed] => :pending, do: :update_to_pending
+    # after_transition [:booked, :accepted, :closed, :refused] => :pending, do: :update_to_pending
     before_transition [:accepted, :closed, :pending, :refused] => :booked,          do: :restrict_accepted_booked?
-    before_transition any - :booked => :accepted,      do: :restrict_accepted_booked?
+    before_transition any =>           :accepted,      do: :restrict_accepted_booked?
     before_transition any           => :closed,        do: :restrict_closed?
 
     event :pending do
@@ -82,7 +81,10 @@ class Proposal < ApplicationRecord
         elsif state.from == "accepted" and state.to == "booked"
           self.errors.add(:states, I18n.t(:proposal_should_be_pending, scope:'errors.custom'))
           return false 
-        elsif unit.booked? or unit.bought?
+        elsif unit.booked? and not (unit.proposal_booked.try(:id) == self.id)
+          self.errors.add(:states, I18n.t(:proposal_already_booked, scope:'errors.custom'))
+          return false
+        elsif unit.bought?
           self.errors.add(:states, I18n.t(:proposal_already_accepted, scope:'errors.custom'))
           return false
         end
@@ -104,8 +106,6 @@ class Proposal < ApplicationRecord
     state :pending, :refused do
       def update_states(state)
         self.update_columns(booked_at: nil, accepted_at: nil)
-      end
-      def update_to_pending(state)
         unit.pending
       end
     end
@@ -115,7 +115,7 @@ class Proposal < ApplicationRecord
         self.update_column(:booked_at, DateTime.now)
       end
       def update_states(state)
-        # unit.book
+        unit.book
       end
     end
     
@@ -135,11 +135,14 @@ class Proposal < ApplicationRecord
     end
   end
 
+  def update_notes
+    notes.create(unit: unit, broker: broker, comment: negociate)
+  end
+
   def mailer_proposal_accepted_delivery
     mailer = self.mailers.new(store: builder.store, userable: self.broker, type: "Mailer::ProposalAccepted")
     mailer.prepare
     mailer.delivery
-    # binding.pry
     mailer.save
   end
 

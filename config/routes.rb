@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
   # get 'events/index'
   # mount ActionCable.server => '/cable'
 
@@ -37,6 +39,7 @@ Rails.application.routes.draw do
     resources :builds, only: [:sales] do
       get 'sales', on: :collection
       resources :units, only:[:index], shallow:true do
+        resources :notes, only: :create, path: 'broker/:broker_id'
         resources :proposals, except: [:destroy] do
           get 'booking', on: :collection
           get 'expired', on: :member
@@ -74,6 +77,7 @@ Rails.application.routes.draw do
           get 'invoice/:invoice', on: :member, action: 'invoice', as:'invoice'
           get 'document', on: :member
           get 'act/:act/document_id/:document_id', action: 'action', on: :member, as:'action'
+          resources :notes, shallow: true, only: :create
         end
       end
     end

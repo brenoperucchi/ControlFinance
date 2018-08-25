@@ -59,9 +59,12 @@ en:
         widget4:
           title1: Proposal received
           title2: Proposal amount received
-        widget11:
-          title1: Proposals expire
-          title2: Amount
+        widget_proposal:
+          title1: Last 5 Proposals expired
+          title2: Amount to expire
+        widget_broker:
+          title1: Last 5 Brokers pending
+          title2: Amount to expire
     purchase_step:
       finish:
         irs_id: 'Security: %{value}'
@@ -168,7 +171,8 @@ en:
       select_all: Select All
       deselect_all: Deselect All
     document:      
-      contract_print: "Print Contract"
+      contract_build_address_active: "Build %{build}, located at %{address}"
+      contract: "Contract Overview"
       send_files: "Send Files"
       pending: pending
       approved: approved
@@ -229,6 +233,7 @@ en:
     formats:
       default: "%Y-%m-%d"
       long: "%B %d, %Y"
+      long2: "%d %b de %Y"
       short: "%b %d"
       short2: "%B %Y"
     month_names:
@@ -302,10 +307,10 @@ en:
           state:
             invalid_transition: State invalid
     custom:
-      proposal_user_not_allowed: 'This user not allowed to this Proposal'
-      proposal_already_accepted: 'Unit already Accepted'
-      proposal_restricted: "Proposta reservada ou restrita"
-      proposal_restricted: "Proposal with restriction"
+      proposal_user_not_allowed: 'Not allowed'
+      proposal_already_accepted: 'Accepted'
+      proposal_already_booked: 'Booked'
+      proposal_restricted: "Restriction"
       proposal_should_be_accepted: Should be Accepted
       proposal_should_be_pending: Shoubd be pending
     format: "%{attribute} %{message}"
@@ -373,12 +378,12 @@ en:
         link: Analyze your proposal
         subject: 'Proposal created to Unit %{unit} of %{build}'
         message: 'Due AT: %{due_at}'
-      proposal:
-        title: 'Bid Proposal Unit'
-        subject: Reserve unit %{unit}
-        link_message: 'BOOK NOW'
-        message1: 'Lorem ipsum Labore anim laboris anim do proident sed aute reprehenderit et commodo tempor est pariatur anim minim ut fugiat.'
-        message2: 'Lorem ipsum'
+      request:
+        meta_title: "Create proposal to unit %{unit}"
+        title: 'Make a proposal'
+        subject: Book the unit %{unit}
+        link_message: 'Make a proposal'
+        message1: Faça a sua proposta conosco
         unsubscribe: 'unsubscribe'
     titles:
       edit: Edit %{model}
@@ -387,10 +392,20 @@ en:
       prompt: Please select
     submit:
       create: Create %{model}
+      newa: New %{model}
+      new: New %{model}
+      edit: Edit %{model}
       submit: Save %{model}
       update: Update %{model}
     links:
+      actions: Action
+      edit: Edit
       back: Back
+      print:  Print
+      destroy: Delete
+      new: new
+      sendmail: Send E-mail
+      here: Novo Registro Clique Aqui
   number:
     currency:
       format:
@@ -454,6 +469,7 @@ en:
       short2: "%b/%d/%Y, %H:%M"
       option1: "%b of %d %Y"
       option2: "%B of %d %Y"
+      option3: "%d %B %Y, %H:%M"
       date: "%d/%m/%Y"
     pm: pm
   activemodel:
@@ -461,35 +477,53 @@ en:
       <<: *errors
   activerecord:
     models:
-      unit: Unit
-      proposal: 'Proposals'
+      note:
+        one: Note
+        other: Notes
+      admin/proposal:
+        one: Proposal
+        other: Proposal
+      build: 
+        one: Buid
+        other: Builds
+      broker: 
+        one: Broker
+        other: Brokers
+      store: Company
+      unit:
+        one: Unit
+        other: Units
+      proposal: 
+        one: Proposal
+        other: Proposals
+      mailer: Send Email
     attributes:
       mailer:
-        to: Para
-        subject: Assunto
-        body: Corpo do E-mail
+        to: To
+        subject: Subject
+        body: E-mail body
       unit:
-        name: Imóvel
-        size: Área (m2)
-        brokerage: Comissão do Corretor
-        state: Situação
-        value: Valor
-        garage: Vaga
-        deadline: Prazo limite
-        address: Endereço
-        registry: Mátricula
-        incorporation: Incorporação
+        name: Property
+        size: Area (m2)
+        brokerage: Broker fee
+        state: Status
+        value: Value
+        garage: Garage
+        deadline: Deadline
+        address: Address
+        registry: Registry
+        incorporation: Incorporation 
       build:
         name: Nome
-        address: Endereço
-        registry: Mátricula
-        incorporation: Incorporação
-        state: Situação
-        garage: Vaga
-        size: Área (m2)
-        value: Valor 
-        created_at: Criado em
-        updated_at: Atualizado em
+        address: Address
+        registry: Registry
+        incorporation: Incorporation 
+        state: Status
+        garage: Garage
+        size: Area (m2)
+        value: Value
+        created_at: Created at
+        updated_at: Updated at
       store:
         name: Business name
         language: Language
@@ -516,6 +550,8 @@ en:
         state: Situation
         phone: Phone
         irs_id: Broker ID
+        company: Real State Name
+        company_irs_id: Real State ID
         option1: 'Correspondent banking will be indicated by the construction company.'
         option2: 'The broker will be responsible to request all documents to complete the bank financing.'
         option3: 'The broker will be responsible to request all documents from the client to complete the bank financing.'
@@ -523,5 +559,7 @@ en:
         option5: 'The payment of the brokerage is by paying the actual values in the company account and with the invoice by the broker.'
         option6: 'Only the information below may be disclosed by brokers to your customers.'
         comment: 'comment'
+      note:
+        comment: Add Notes
     errors:
       <<: *errors

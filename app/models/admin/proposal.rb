@@ -4,6 +4,13 @@ class Admin::Proposal < Proposal
 
   validate :validate_state, if: Proc.new {|obj| obj.validated.nil? and not obj.states.nil?}
   # before_save :state_update
+  after_create   :create_notes
+
+  ## MENTORIA
+  ## notes.create 
+  def create_notes
+    notes.create(unit: unit, broker: broker, action: state, admin_id: admin_id, comment: comment)
+  end
 
   private
   

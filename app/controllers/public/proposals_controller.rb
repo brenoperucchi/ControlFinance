@@ -5,7 +5,7 @@ class Public::ProposalsController < Public::BaseController
   before_action :proposal_set, only: [:show, :edit, :update, :destroy, :comment, :invoice]
   before_action :init_of_params, only: [:index, :new, :create, :booking]
   before_action :init_of_proposal, only: [:edit, :update, :comment, :redirect_if_proposal_bought, :invoice, :destroy]
-  before_action :init_activities, only: [:document, :edit, :update]
+  # before_action :init_activities, only: [:document, :edit, :update]
   before_action :redirect_if_proposal_bought, except: [:comment, :expired, :invoice]
   before_action :redirect_if_broker_config_set, except: [:comment, :expired, :invoice]
   respond_to :html, :json, :js
@@ -32,6 +32,10 @@ class Public::ProposalsController < Public::BaseController
   end
 
   def new
+    # @activities_broker = @unit.activities_broker(@broker).order('created_at desc')_
+    ## MENTORIA
+    @broker = current_user.userable
+    @notes = @broker.notes.where(unit: @unit).order('created_at desc')
     @proposals = @broker.proposals.where(unit: @unit)
     @proposal = @unit.proposals.new
     @proposal.due_at = Date.today.strftime("%d/%m/%Y")
@@ -52,7 +56,9 @@ class Public::ProposalsController < Public::BaseController
       if @proposal.save
         respond_with @proposal, location: invoice_public_proposal_path(@proposal)
       else
+        @notes = @broker.notes.where(unit: @unit).order('created_at desc')
         respond_with @proposal
+
       end
     else
       redirect_if_proposal_bought
@@ -128,9 +134,9 @@ class Public::ProposalsController < Public::BaseController
       current_store.proposals
     end
 
-    def init_activities
-      @activities = @proposal.activities.order('created_at desc')
-    end
+    # def init_activities
+    #   @activities = @proposal.activities.order('created_at desc')
+    # end
 
     def broker_set
       @broker = current_user.try(:userable) if current_user.try(:userable).is_a?(Broker)
@@ -153,8 +159,9 @@ class Public::ProposalsController < Public::BaseController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proposal_params
+      delocalize_config = { :value => :number }
       params.require(:proposal).permit(:state, :name, :negociate, :value, :comment, :due_at,
                                        broker_attributes:[:id, :name, user_attributes:[:id, :email]],
-                                       buyers_attributes:[:id, :name])
+                                       buyers_attributes:[:id, :name]).delocalize(delocalize_config)
     end
 end

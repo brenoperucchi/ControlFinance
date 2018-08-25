@@ -24,7 +24,7 @@
             - @brokers.each do |broker|
               tr
                 td.fs-15= broker.name
-                td.fs-15= t(broker.state, scope:'views.common').upcase
+                td.fs-15= t(broker.state, scope:'views.broker').upcase
                 td.fs-15= broker.user.try(:email)
                 td
                   = link_to edit_admin_broker_path(broker), :class => 'btn btn-info btn-outline btn-sm waves-effect waves-light' do

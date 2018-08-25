@@ -4,7 +4,7 @@ class Admin::BrokersController < Admin::BaseController
   respond_to :js, :html, :json
 
   def index
-    @brokers = current_store.try(:brokers) || broker.all
+    @brokers = current_store.try(:brokers).order('created_at desc')
     respond_with @brokers
   end
 

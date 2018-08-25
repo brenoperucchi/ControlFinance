@@ -32,9 +32,16 @@ module SentientStoreController
       helper_method :current_store
     end
   end
+
   def current_store
-    Store.where(url: request.subdomain.split('.').first).take
+    Store.all.each do |store|
+      store.url.split(';').each do |url| 
+        @current_store = store if request.subdomain.split('.').first.try(:downcase) == url.downcase.strip
+      end
+    end
+    @current_store
   end
+
 end
 
 module SentientStore

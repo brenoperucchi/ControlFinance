@@ -1,6 +1,7 @@
 FactoryGirl.define do
   factory :broker do
     active true
+    state 'approved'
     person_type 'person'
     department 'broker'
     option1 '1'
@@ -8,6 +9,7 @@ FactoryGirl.define do
     option3 '1'
     option4 '1'
     option5 '1'
+    option6 '1'
 
     trait :default do
       name "Broker 1"

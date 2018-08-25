@@ -11,7 +11,7 @@
     .col-lg-6.col-md-6.col-sm-6
       = buyer.input :name, as: :string, placeholder: t_holder(:name, Buyer)
     .col-lg-6.col-md-6.col-sm-6
-      = f.input :value, placeholder: t_holder(:value, model_class), hint: t(:unit, scope:'number.currency.format'), wrapper: :pages_form_attach
+      = f.input :value, placeholder: t_holder(:value, model_class), hint: t(:unit, scope:'number.currency.format'), wrapper: :pages_form_attach, input_html:{value: number_with_precision(f.object.value)}
   
 hr.line-dashed
 .row

@@ -12,7 +12,13 @@ require "pry"
 require 'capybara/rails'
 require 'capybara/rspec'
 Capybara.javascript_driver = :webkit
-Capybara.asset_host = "http://localhost:3000"
+# Capybara.app_host = 'http://eloe.localhost:3000'
+Capybara.asset_host = 'http://eloe.localhost:3000'
+Capybara.always_include_port = true
+Capybara.exact = false
+Capybara.configure do |config|
+  config.default_host = 'http://eloe.localhost:3000'
+end
 # Capybara.register_driver :chrome do |app|
 #   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 # end
@@ -42,6 +48,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
 RSpec.configure do |config|
+  # config.filter_run :focus => true
   Capybara.reset_sessions!
   config.include Capybara::DSL
   config.include FactoryGirl::Syntax::Methods
