@@ -11,7 +11,7 @@ class Public::ProposalsController < Public::BaseController
   respond_to :html, :json, :js
 
   def invoice
-    respond_with @proposal, layout: 'pages/print'
+    respond_with @proposal, layout: 'pages/invoice'
   end
 
   def booking

@@ -8,12 +8,22 @@ html
     meta content="yes" name="apple-mobile-web-app-capable" /
     meta content="yes" name="apple-touch-fullscreen" /
     meta content="default" name="apple-mobile-web-app-status-bar-style" /
-    = stylesheet_link_tag    'pages', media: 'screen', 'data-turbolinks-track' => true
-    = stylesheet_link_tag    'pages_print', media: 'print', 'data-turbolinks-track' => true
+    / = stylesheet_link_tag    'pages', media: 'screen', 'data-turbolinks-track' => true
+    / = stylesheet_link_tag    'pages_print', media: 'print', 'data-turbolinks-track' => true
+    = stylesheet_link_tag "pages/pace-theme-flash.css", media: 'all'
+    = stylesheet_link_tag "pages/bootstrap.min.css", media: 'all'
+    = stylesheet_link_tag "pages/font-awesome.css", media: 'all'
+    = stylesheet_link_tag "pages/jquery.scrollbar.css", media: 'screen'
+    = stylesheet_link_tag "pages/select2.min.css", media: 'screen'
+    = stylesheet_link_tag "pages/switchery.min.css", media: 'screen'
+    = stylesheet_link_tag "pages/pages-icons.css", media: 'all' 
+    = stylesheet_link_tag "pages/pages.css", :class => "main-stylesheet", media: 'all'
+    
+
     = javascript_include_tag 'pages', 'data-turbolinks-track' => true
     = csrf_meta_tags
     = yield :head
-    = stylesheet_link_tag    'pages/print', media: 'all', 'data-turbolinks-track' => true
+    / = stylesheet_link_tag    'pages/print', media: 'all', 'data-turbolinks-track' => true
   body.fixed-header.menu-pin
     .page-container
       .page-content-wrapper

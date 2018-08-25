@@ -82,13 +82,14 @@
       br/
       .p-l-15.p-r-15
         .row.b-a.b-grey
-          .col-md-2.p-l-15.sm-p-t-15.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
+          .col-sm-6.col-md-6.p-l-15.sm-p-t-15.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
             h5.font-montserrat.all-caps.small.no-margin.hint-text.bold Corretagem
             h3.no-margin 5%
-          .col-md-6.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
+          .col-sm-6.col-md-6.clearfix.sm-p-b-15.d-flex.flex-column.justify-content-center
             h5.font-montserrat.all-caps.small.no-margin.hint-text.bold R$
             h3.no-margin = number_with_precision @proposal.value.to_f * (@proposal.brokerage.to_f/100)
-          .col-md-4.text-right.bg-master-darker.col-sm-height.padding-15.d-flex.flex-column.justify-content-center.align-items-end
+        .row.b-a.b-grey
+          .col-md-12.text-right.bg-master-darker.col-sm-height.padding-15.d-flex.flex-column.justify-content-center.align-items-end
             h5.font-montserrat.all-caps.small.no-margin.hint-text.text-white.bold= t_view(:title3, model_class, :print)
             h1.no-margin.text-white= number_to_currency @proposal.value
       hr/

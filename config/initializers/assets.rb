@@ -11,6 +11,10 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
+Rails.application.config.assets.precompile += %w( pages/pace-theme-flash.css pages/bootstrap.min.css pages/font-awesome.css pages/jquery.scrollbar.css pages/select2.min.css pages/switchery.min.css pages/pages-icons.css pages/pages.css)
+
+Rails.application.config.assets.precompile += %w( pages/pace.min.js pages/jquery-1.11.1.min.js pages/modernizr.custom.js pages/jquery-ui.min.js pages/tether.min.js pages/bootstrap.min.js pages/jquery-easy.js pages/jquery.unveil.min.js pages/jquery.ioslist.min.js pages/jquery.actual.min.js pages/jquery.scrollbar.min.js pages/select2.full.min.js pages/classie.js pages/switchery.min.js pages/pages.min.js pages/scripts.js)
+
 Rails.application.config.assets.precompile += %w( pages.css )
 Rails.application.config.assets.precompile += %w( pages_print.css )
 Rails.application.config.assets.precompile += %w( social.css )
