@@ -1,4 +1,7 @@
 class Unit < ApplicationRecord
+  include I18n::Alchemy
+  localize :value, using: :number
+
   STATES = {pending: 'pending', booked:'book', bought:'buy'}
 
   store :information, accessors:[:name, :garage, :deadline, :registry, :incorporation, :position, :dormitory, :box, :area_privative, :area_common, :area_total, :area_value]

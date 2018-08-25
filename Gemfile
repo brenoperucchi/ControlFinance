@@ -22,6 +22,9 @@ gem 'cocoon', '1.2.8', git: 'https://github.com/brenoperucchi/cocoon.git'
 gem 'x-editable-rails', git: 'https://github.com/brenoperucchi/x-editable-rails.git'
 gem 'unicorn'
 gem "responders"
+gem 'i18n_alchemy'
+# gem "delocalize"
+
 
 
 # Development and Test
