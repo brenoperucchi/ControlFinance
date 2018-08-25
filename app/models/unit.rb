@@ -1,6 +1,4 @@
 class Unit < ApplicationRecord
-  include I18n::Alchemy
-  localize :value, using: :number
 
   STATES = {pending: 'pending', booked:'book', bought:'buy'}
 
