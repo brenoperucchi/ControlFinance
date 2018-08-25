@@ -36,7 +36,7 @@ module SentientStoreController
   def current_store
     Store.all.each do |store|
       store.url.split(';').each do |url| 
-        @current_store = store if request.subdomain.split('.').first.downcase == url.downcase.strip
+        @current_store = store if request.subdomain.split('.').first.try(:downcase) == url.downcase.strip
       end
     end
     @current_store
