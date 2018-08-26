@@ -9,6 +9,8 @@ require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
 require 'capistrano3/unicorn'
+require 'capistrano/sidekiq'
+require 'capistrano/sidekiq/monit' #to require monit tasks # Only for capistrano3
 
 # Load the SCM plugin appropriate to your project:
 #

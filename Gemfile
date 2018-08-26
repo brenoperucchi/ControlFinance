@@ -33,7 +33,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.7.2'
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
-  gem 'factory_girl_rails'
+  gem "factory_bot_rails"
   gem "database_cleaner"
   gem "capybara", "3.4.1"
   gem 'capybara-webkit', '1.15.0'
@@ -44,6 +44,8 @@ group :development, :test do
   gem 'pry-nav'
   gem 'pry-stack_explorer'
   gem 'byebug', platform: :mri
+  gem 'rubocop'
+  gem 'rubocop-rspec'
   # gem 'byebug', '9.0.5'
 
 end
@@ -60,6 +62,8 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
+  gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
+  
 end
 
 # Stylesheet
