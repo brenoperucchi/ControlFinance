@@ -2,8 +2,8 @@
 require 'rails_helper'
 
 RSpec.describe "PublicBroker"  do
-  let!(:store) { FactoryGirl.create(:store) }
-  let(:broker) { FactoryGirl.create(:broker, :default, store: store)}
+  let!(:store) { FactoryBot.create(:store) }
+  let(:broker) { FactoryBot.create(:broker, :default, store: store)}
 
   it "Create New Broker" do
     visit new_public_broker_url(host: 'eloe.localhost:3000')

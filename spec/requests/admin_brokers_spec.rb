@@ -2,14 +2,14 @@
 require 'rails_helper'
 
 RSpec.describe "Admin Brokers" do
-  let!(:store) { FactoryGirl.create(:store) }
-  let!(:person) { FactoryGirl.create(:person, :admin, store: store)}
-  let!(:admin) { FactoryGirl.create(:user, :admin, userable: person, store: store)}
-  let!(:build) { FactoryGirl.create(:build, store: store)}
-  let!(:unit) { FactoryGirl.create(:unit, builder:build)}
-  let!(:broker) { FactoryGirl.create(:broker, :default, store:store)}
-  let!(:proposal) { FactoryGirl.create(:proposal, unit: unit, broker: broker)}
-  let!(:proposal2) { FactoryGirl.create(:proposal, unit: unit, broker: FactoryGirl.create(:broker, :second))}
+  let!(:store) { FactoryBot.create(:store) }
+  let!(:person) { FactoryBot.create(:person, :admin, store: store)}
+  let!(:admin) { FactoryBot.create(:user, :admin, userable: person, store: store)}
+  let!(:build) { FactoryBot.create(:build, store: store)}
+  let!(:unit) { FactoryBot.create(:unit, builder:build)}
+  let!(:broker) { FactoryBot.create(:broker, :default, store:store)}
+  let!(:proposal) { FactoryBot.create(:proposal, unit: unit, broker: broker)}
+  let!(:proposal2) { FactoryBot.create(:proposal, unit: unit, broker: FactoryBot.create(:broker, :second))}
 
 
   it 'Access Admin Brokers' do

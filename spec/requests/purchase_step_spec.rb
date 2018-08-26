@@ -2,12 +2,12 @@
 require 'rails_helper'
 
 RSpec.describe "PublicProposals" do
-  let!(:store) {FactoryGirl.create(:store) }
-  let!(:broker) {FactoryGirl.create(:broker, :default, store: store)}
-  let!(:build) {FactoryGirl.create(:build, store: store)}
-  let!(:unit) { FactoryGirl.create(:unit, builder:build)}
-  let!(:proposal) { FactoryGirl.create(:proposal, unit: unit, broker: broker)}
-  let!(:buyer) { FactoryGirl.create(:buyer, proposal: proposal)}
+  let!(:store) {FactoryBot.create(:store) }
+  let!(:broker) {FactoryBot.create(:broker, :default, store: store)}
+  let!(:build) {FactoryBot.create(:build, store: store)}
+  let!(:unit) { FactoryBot.create(:unit, builder:build)}
+  let!(:proposal) { FactoryBot.create(:proposal, unit: unit, broker: broker)}
+  let!(:buyer) { FactoryBot.create(:buyer, proposal: proposal)}
 
   it 'Accepted Redirect to PurchaseStep Proposal' do
     broker.user.make_current

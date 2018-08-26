@@ -2,13 +2,13 @@
 require 'rails_helper'
 
 RSpec.describe "PublicProposals" do
-  let!(:store) {FactoryGirl.create(:store) }
-  let!(:broker) {FactoryGirl.create(:broker, :default, store: store)}
-  let!(:broker2) {FactoryGirl.create(:broker, :second, store: store)}
-  let!(:build) {FactoryGirl.create(:build, store: store)}
-  let!(:unit) {FactoryGirl.create(:unit, builder:build)}
-  let!(:proposal) {FactoryGirl.create(:proposal, unit: unit, broker: broker)}
-  let!(:proposal2) {FactoryGirl.create(:proposal, unit: unit, broker: broker2)}
+  let!(:store) {FactoryBot.create(:store) }
+  let!(:broker) {FactoryBot.create(:broker, :default, store: store)}
+  let!(:broker2) {FactoryBot.create(:broker, :second, store: store)}
+  let!(:build) {FactoryBot.create(:build, store: store)}
+  let!(:unit) {FactoryBot.create(:unit, builder:build)}
+  let!(:proposal) {FactoryBot.create(:proposal, unit: unit, broker: broker)}
+  let!(:proposal2) {FactoryBot.create(:proposal, unit: unit, broker: broker2)}
 
   before(:each) do
   end

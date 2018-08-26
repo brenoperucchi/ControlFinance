@@ -1,7 +1,7 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :note do
-    paramenters "MyText"
-    intern false
-    proposal nil
+    paramenters { "MyText" }
+    intern { false }
+    proposal { nil }
   end
 end

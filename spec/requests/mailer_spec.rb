@@ -2,18 +2,20 @@
 require 'rails_helper'
 
 RSpec.describe "Mailer" do
-  let!(:store) { FactoryGirl.create(:store) }
-  let!(:admin) { FactoryGirl.create(:user, :admin, store: store, userable: FactoryGirl.create(:person, :admin))}
-  let!(:build) { FactoryGirl.create(:build, store: store)}
-  let!(:unit) { FactoryGirl.create(:unit, builder:build)}
-  let!(:proposal) { FactoryGirl.create(:proposal, unit: unit, broker: FactoryGirl.create(:broker, :default))}
+  let!(:store) { FactoryBot.create(:store) }
+  let!(:admin) { FactoryBot.create(:user, :admin, store: store, userable: FactoryBot.create(:person, :admin))}
+  let!(:build) { FactoryBot.create(:build, store: store)}
+  let!(:unit) { FactoryBot.create(:unit, builder:build)}
+  let!(:proposal) { FactoryBot.create(:proposal, unit: unit, broker: FactoryBot.create(:broker, :default))}
   let!(:mailer) { proposal.mailers.new(store: proposal.builder.store, userable: proposal.broker, type: "Mailer::ProposalExpired") }
   # let!(:mail) { ApplicationMailer.dispach(mailer.header) }
 
   it 'ProposalExpired can deliver mail' do
     proposal.book
     mailer.prepare
-    expect{ mailer.delivery }.to change { ActionMailer::Base.deliveries.count }.by(1)
+
+    expect{ mailer.delivery }.to change( MailerWorker.jobs, :size ).by(1)
+    # expect{ mailer.delivery }.to change { ActionMailer::Base.deliveries.count }.by(1)
   end
 
   it 'Send a Price List'  do
