@@ -1,7 +1,5 @@
 class Mailer::ProposalAccepted < Mailer
 
-  has_many :senders, class_name: "MailerSender", dependent: :destroy, as: :mailerable
-
   serialize :mailer_method, MailerMethod::ProposalAccepted
 
   def name
@@ -10,7 +8,7 @@ class Mailer::ProposalAccepted < Mailer
 
   def prepare
     provider_class = "MailerMethod::#{name.to_s.classify}".constantize
-    self.mailer_method = provider_class.new(object: mailable)
+    mailer_method = provider_class.new(object: mailable)
     self.senders.new(mailer_method.attributes)
   end
 

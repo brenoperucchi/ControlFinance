@@ -1,7 +1,5 @@
 class Mailer::PriceList < Mailer
 
-  has_many :senders, class_name: "MailerSender", dependent: :destroy, as: :mailerable
-
   serialize :mailer_method, MailerMethod::PriceList
 
   attr_accessor :brokers, :delivery_emails
@@ -19,7 +17,7 @@ class Mailer::PriceList < Mailer
 
   def prepare
     provider_class = "MailerMethod::#{name.to_s.classify}".constantize
-    self.mailer_method = provider_class.new(object: mailable, subject: subject)
+    mailer_method = provider_class.new(object: mailable, subject: subject)
     self.subject = mailer_method.subject
     self.create_broker
     email_list.flatten.each do |email|

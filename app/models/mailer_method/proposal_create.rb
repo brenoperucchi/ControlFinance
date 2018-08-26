@@ -8,7 +8,7 @@ class MailerMethod::ProposalCreate < MailerMethod::Base
     @object
   end
 
-  def signed_in?
+  def sign_in?
     true
   end
 
@@ -25,7 +25,7 @@ class MailerMethod::ProposalCreate < MailerMethod::Base
   end
 
   def attributes
-    {to: @object.broker.user.email, subject: subject, body: body, url: url, send_at: Date.today, token: token}
+    {to: @object.broker.user.email, subject: subject, body: body, url: url, send_at: Date.today, token: token, sign_in?: sign_in?}
   end
 
 end

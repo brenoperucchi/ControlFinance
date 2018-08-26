@@ -8,7 +8,7 @@ class MailerMethod::ProposalExpired < MailerMethod::Base
     @object
   end
 
-  def signed_in?
+  def sign_in?
     true
   end
 
@@ -25,7 +25,7 @@ class MailerMethod::ProposalExpired < MailerMethod::Base
   end
 
   def attributes
-    {to: @object.broker.user.email, subject: subject, body: body, token: token, url: url, signed_in?: signed_in?}
+    {to: @object.broker.user.email, subject: subject, body: body, token: token, url: url, sign_in?: sign_in?}
   end
 
   # def custom_procedures

@@ -1,8 +1,6 @@
 class Mailer::ProposalRequest < Mailer
 
   serialize :mailer_method, MailerMethod::ProposalRequest
-  
-  has_many :senders, class_name: "MailerSender", dependent: :destroy, as: :mailerable
 
   attr_accessor :brokers, :delivery_emails
 

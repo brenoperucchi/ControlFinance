@@ -8,7 +8,7 @@ class MailerMethod::ProposalRequest < MailerMethod::Base
     @object
   end
 
-  def signed_in?
+  def sign_in?
     false
   end
 
@@ -25,7 +25,7 @@ class MailerMethod::ProposalRequest < MailerMethod::Base
   end
 
   def attributes
-    {to: to, subject: subject, body: body, token: token, url: url, signed_in?: signed_in?}
+    {to: to, subject: subject, body: body, token: token, url: url, sign_in?: sign_in?}
   end
 
 end
