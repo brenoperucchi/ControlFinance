@@ -1,5 +1,7 @@
+require 'sidekiq/web'
+require 'sidekiq-scheduler/web'
+
 Rails.application.routes.draw do
-  require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
   # get 'events/index'
   # mount ActionCable.server => '/cable'

@@ -24,7 +24,7 @@ gem 'unicorn'
 gem "responders"
 gem "delocalize"
 gem 'sidekiq'
-
+gem 'sidekiq-scheduler'
 
 # Development and Test
 group :development, :test do
@@ -63,7 +63,7 @@ group :development do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
-  
+
 end
 
 # Stylesheet

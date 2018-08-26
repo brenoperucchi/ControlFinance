@@ -1,0 +1,7 @@
+ProposalExpiredToRefuseWorker:
+  cron: '* 1 * * * *'
+  class: ProposalExpiredToRefuseWorker
+  queue: default
+  args: contributors
+  description: 'This job resets the weekly leaderboard for contributions'
+  include_metadata: true

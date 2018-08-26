@@ -17,7 +17,12 @@ class Proposal < ApplicationRecord
   scope :accepted,   ->{ where(state: 'accepted') }
   scope :book,       ->{ where(state: 'booked') }
   scope :booked,     ->{ where(state: [ 'booked', 'accepted']) }
-  scope :expired,    ->{ where.not(:due_at => nil).where("proposals.due_at < ?", Date.today) }
+  scope :expired,    ->{ where(state: 'refused').where.not(:due_at => nil).where("proposals.due_at < ?", Date.today) }
+
+
+  scope :expire_today, ->{ where.not(state: ['accepted','closed','refused']).where(due_at: Date.today.all_day)}
+  scope :expire_day3,  ->{ where.not(state: ['accepted','closed','refused']).where(due_at: (Date.today + 1..Date.today + 4))}
+  scope :expire_to_refuse,    ->{ where.not(state: ['accepted','closed','refused']).where('due_at < ?', Date.today) }
 
   #   tracked :owner      =>  proc {|controller, model| User.current.userable},
   #           :recipient  =>  proc {|controller, model| model.unit},

@@ -23,6 +23,7 @@ set :ssh_options, {
 set :rails_env, :production
 set :conditionally_migrate, true   
 set :sidekiq_config, -> { File.join(shared_path, 'config', 'sidekiq.yml') }
+set :pty,  false
 
 
 # server-based syntax

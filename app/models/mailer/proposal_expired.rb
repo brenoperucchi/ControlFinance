@@ -8,7 +8,7 @@ class Mailer::ProposalExpired < Mailer
 
   def prepare
     provider_class = "MailerMethod::#{name.to_s.classify}".constantize
-    self.mailer_method = provider_class.new(object: mailable)
+    mailer_method = provider_class.new(object: mailable)
     self.senders.new(mailer_method.attributes)
   end
 

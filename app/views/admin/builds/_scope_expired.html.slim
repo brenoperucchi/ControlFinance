@@ -13,13 +13,13 @@
           = @build.name
       li.breadcrumb-item.active
         = t :proposals, scope:'breadcrumb.proposal'
-  .col-lg-6.col-sm-6.col-md-6.col-xs-12
-    ol.breadcrumb.pull-right.p-t-0
-      li.inline
-        = link_to notify_proposal_admin_build_path(@build, :expired), :class => 'btn btn-cons'
-          i.fa.fa-envelope
-          '
-          = t :notify_all, scope: 'views.admin.proposal'
+  / .col-lg-6.col-sm-6.col-md-6.col-xs-12
+  /   ol.breadcrumb.pull-right.p-t-0
+  /     li.inline
+  /       = link_to notify_proposal_admin_build_path(@build, :expired), :class => 'btn btn-cons'
+  /         i.fa.fa-envelope
+  /         '
+  /         = t :notify_all, scope: 'views.admin.proposal'
 
 .card.widget-12.no-border.widget-loader-circle.no-margin
   .card-description
