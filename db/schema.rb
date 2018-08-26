@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180726212251) do
+ActiveRecord::Schema.define(version: 20180825171300) do
 
-  create_table "activities", force: :cascade do |t|
+  create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
     t.integer "trackable_id"
     t.string "owner_type"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
   end
 
-  create_table "assets", force: :cascade do |t|
+  create_table "assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "file"
     t.string "assetable_type"
     t.integer "assetable_id"
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.index ["assetable_type", "assetable_id"], name: "index_assets_on_assetable_type_and_assetable_id"
   end
 
-  create_table "brokers", force: :cascade do |t|
+  create_table "brokers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "store_id"
     t.string "department"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.index ["store_id"], name: "index_brokers_on_store_id"
   end
 
-  create_table "builds", force: :cascade do |t|
+  create_table "builds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "state"
     t.integer "store_id"
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.index ["store_id"], name: "index_builds_on_store_id"
   end
 
-  create_table "buyers", force: :cascade do |t|
+  create_table "buyers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "information"
     t.integer "store_id"
     t.integer "proposal_id"
@@ -78,12 +78,12 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.index ["store_id"], name: "index_buyers_on_store_id"
   end
 
-  create_table "dashboards", force: :cascade do |t|
+  create_table "dashboards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "documents", force: :cascade do |t|
+  create_table "documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "state"
     t.datetime "approved_at"
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.index ["proposal_id"], name: "index_documents_on_proposal_id"
   end
 
-  create_table "mailer_senders", force: :cascade do |t|
+  create_table "mailer_senders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "to"
     t.string "token"
     t.text "information"
@@ -105,10 +105,13 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "send_at"
+    t.string "mailerable_type"
+    t.bigint "mailerable_id"
     t.index ["mailer_id"], name: "index_mailer_senders_on_mailer_id"
+    t.index ["mailerable_type", "mailerable_id"], name: "index_mailer_senders_on_mailerable_type_and_mailerable_id"
   end
 
-  create_table "mailers", force: :cascade do |t|
+  create_table "mailers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "parameters"
     t.integer "store_id"
     t.string "userable_type"
@@ -125,7 +128,7 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.index ["userable_type", "userable_id"], name: "index_mailers_on_userable_type_and_userable_id"
   end
 
-  create_table "notes", force: :cascade do |t|
+  create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "information"
     t.integer "proposal_id"
     t.integer "unit_id"
@@ -140,7 +143,7 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.index ["unit_id"], name: "index_notes_on_unit_id"
   end
 
-  create_table "persons", force: :cascade do |t|
+  create_table "persons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "store_id"
     t.string "irs_id"
@@ -152,7 +155,7 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.index ["store_id"], name: "index_persons_on_store_id"
   end
 
-  create_table "proposals", force: :cascade do |t|
+  create_table "proposals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "state"
     t.text "information"
     t.integer "unit_id"
@@ -166,7 +169,7 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.index ["unit_id"], name: "index_proposals_on_unit_id"
   end
 
-  create_table "stores", force: :cascade do |t|
+  create_table "stores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "settings"
     t.datetime "disabled_at"
@@ -176,7 +179,7 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.string "url"
   end
 
-  create_table "units", force: :cascade do |t|
+  create_table "units", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "information"
     t.decimal "value", precision: 10, scale: 2
     t.decimal "size", precision: 10, scale: 2
@@ -188,7 +191,7 @@ ActiveRecord::Schema.define(version: 20180726212251) do
     t.index ["build_id"], name: "index_units_on_build_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

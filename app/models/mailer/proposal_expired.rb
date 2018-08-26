@@ -1,6 +1,8 @@
 class Mailer::ProposalExpired < Mailer
 
   serialize :mailer_method, MailerMethod::ProposalExpired
+  
+  has_many :senders, class_name: "MailerSender", dependent: :destroy, as: :mailerable
 
   def name
     :proposal_expired

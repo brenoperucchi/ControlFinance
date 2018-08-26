@@ -1,5 +1,7 @@
 class Mailer::ProposalAccepted < Mailer
 
+  has_many :senders, class_name: "MailerSender", dependent: :destroy, as: :mailerable
+
   serialize :mailer_method, MailerMethod::ProposalAccepted
 
   def name

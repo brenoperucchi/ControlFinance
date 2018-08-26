@@ -2,8 +2,7 @@ class Mailer < ApplicationRecord
   
   store :parameters, accessors:[:to, :from, :subject, :body, :register_broker, :url, :signed_in?, :token]
 
-  has_many :senders, class_name: "MailerSender", dependent: :destroy
-  belongs_to :mailable, polymorphic: true
+  belongs_to :mailable, polymorphic: true, optional: true
   belongs_to :userable, polymorphic: true, optional: true
   belongs_to :store, optional: true
   belongs_to :owner, optional: true, class_name: 'User'
@@ -17,7 +16,8 @@ class Mailer < ApplicationRecord
 
   def deliver_mail
     senders.each do  |sender|
-      MailerWorker.perform_async(sender.header.merge(from: (self.from || store.email)))
+      sender.from = self.from || store.email
+      MailerWorker.perform_async(sender.header)
       sender.update_attribute(:send_at, DateTime.now)
     end
   end

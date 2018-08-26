@@ -1,5 +1,7 @@
 class Mailer::PriceList < Mailer
 
+  has_many :senders, class_name: "MailerSender", dependent: :destroy, as: :mailerable
+
   serialize :mailer_method, MailerMethod::PriceList
 
   attr_accessor :brokers, :delivery_emails
