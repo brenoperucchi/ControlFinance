@@ -367,6 +367,11 @@ en:
         link: Verify
         subject: Unit %{unit} expired Today
         message: Lorem ipsum In culpa sed consectetur labore fugiat in dolor in eu amet laboris mollit dolor aute.
+      expire_today:
+        title: Booking closes today
+        link: Update your proposal
+        subject: Booking of unit %{unit} closes today
+        message: Your reservation closes today. Update It
       accepted:
         title: Proposal accepted
         link: Complete with purchase

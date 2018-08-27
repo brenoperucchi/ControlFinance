@@ -15,7 +15,7 @@ class Mailer < ApplicationRecord
   end
 
   def deliver_mail
-    senders.each do  |sender|
+    senders.each do |sender|
       sender.from = self.from || store.email
       MailerWorker.perform_async(sender.header)
       sender.update_attribute(:send_at, DateTime.now)

@@ -23,6 +23,11 @@ class Proposal < ApplicationRecord
   scope :expire_today, ->{ where.not(state: ['accepted','closed','refused']).where(due_at: Date.today.all_day)}
   scope :expire_day3,  ->{ where.not(state: ['accepted','closed','refused']).where(due_at: (Date.today + 1..Date.today + 4))}
   scope :expire_to_refuse,    ->{ where.not(state: ['accepted','closed','refused']).where('due_at < ?', Date.today) }
+  scope :expire_to,    ->{ where.not(state: ['accepted','closed','refused']).where('due_at > ?', Date.today) }
+  ## TODO 
+  # CREATE NEW SPEC TEST
+
+
 
   #   tracked :owner      =>  proc {|controller, model| User.current.userable},
   #           :recipient  =>  proc {|controller, model| model.unit},

@@ -13,7 +13,7 @@ class Mailer::ProposalExpired < Mailer
   end
 
   def delivery
-    mailable.pending
+    mailable.pending # proposal pending
     super
   end
 

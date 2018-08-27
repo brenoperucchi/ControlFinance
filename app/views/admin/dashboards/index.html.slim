@@ -35,15 +35,79 @@
                 .col-lg-4.col-md-4
                   h5.text-danger.bold.no-margin.p-t-5= number_with_precision @amount_pending
                   p.small.no-margin Total a Vender
-                .col-lg-3.visible-xlg
-                  .widget-14-chart-legend.bg-transparent.text-black.no-padding.pull-right
-                  .clearfix
               .row.m-t-20
                 .col-lg-4.col-md-4
                   h4.text-success.bold.no-margin= number_with_precision @amount_revenue
                   p.small.no-margin Faturamento 12 meses
     /! END WIDGET
-
+  .col-lg-4.m-b-10
+    /! START WIDGET widget_realtimeWidget
+    .widget-14.card.no-border.no-margin.widget-loader-circle
+      .container-xs-height.full-height
+        .row-xs-height
+          .col-xs-height
+            .card-header
+              .card-title
+                | Informações das Propostas 
+              / .card-controls
+              /   ul
+              /     li
+              /       a.card-refresh.text-black data-toggle="refresh" href="#" 
+              /         i.card-icon.card-icon-refresh
+        .row-xs-height
+          .col-xs-height
+            .p-l-20.p-r-20.p-b-20
+              .row
+                .col-lg-4.col-md-4
+                  h5.text-danger.bold.no-margin.p-t-5= current_store.proposals.expire_to.count
+                  p.small.no-margin A Vencer
+                .col-lg-4.col-md-4
+                  h4.text-success.bold.no-margin= current_store.proposals.expire_today.count
+                  p.small.no-margin Vencimento hoje
+                .col-lg-4.col-md-4
+                  h5.text-primary.bold.no-margin.p-t-5= current_store.proposals.expire_day3.count
+                  p.small.no-margin Vencimento 3 dias
+                / .col-lg-3.visible-xlg
+                /   .widget-14-chart-legend.bg-transparent.text-black.no-padding.pull-right
+                /   .clearfix
+              .row.m-t-20
+                .col-lg-4.col-md-4
+                  h4.text-success.bold.no-margin= current_store.proposals.accepted.count
+                  p.small.no-margin Aceitas
+                .col-lg-4.col-md-4
+                  h4.text-success.bold.no-margin= current_store.proposals.book.count
+                  p.small.no-margin Reservadas
+                .col-lg-4.col-md-4
+                  h5.text-danger.bold.no-margin.p-t-5= current_store.proposals.expired.count
+                  p.small.no-margin Recusadas/Expiradas 
+    /! END WIDGET
+  .col-lg-4.col-xl-4.m-b-10.col-xlg-4.col-sm-12
+    /! START WIDGET widget_tableWidgetBasic
+    / .widget-11-2.card.no-border.card-condensed.no-margin.widget-loader-circle.full-height.d-flex.flex-column
+    .card.no-border.card-condensed.no-margin
+      .padding-25
+        .pull-left
+          p.all-caps.no-margin=t(:title1, scope:'views.dashboards.widget_broker')
+        .pull-right.semi-bold
+          .text-danger.text-center.bold = current_store.brokers.pending.count
+          h5.no-margin
+            =t(:title2, scope:'views.dashboards.widget_broker')
+            '
+        .clearfix
+      .auto-overflow.widget-11-2-table
+        table.table.table-condensed.table-hover
+          tbody
+            - current_store.brokers.pending.order('created_at desc')[0..5].each do |broker| 
+              tr
+                td.w-30.font-montserrat.all-caps.fs-12.b-r.b-dashed.b-grey
+                  = link_to broker.try(:name), edit_admin_broker_path(broker) 
+                td.text-center.b-r.b-dashed.b-grey
+                  span.hint-text.small
+                    = link_to broker.user.email, edit_admin_broker_path(broker)
+                td.w-20.text-right.text-danger
+                  = link_to edit_admin_broker_path(broker) do
+                    span.hint-text.small= l broker.created_at, format: :date
+      .padding-25.mt-auto
   .col-lg-4.col-xl-4.m-b-10.col-xlg-4.col-sm-12
     /! START WIDGET widget_tableWidgetBasic
     / .card.no-border.card-condensed.no-margin
@@ -67,9 +131,9 @@
       .auto-overflow.widget-11-2-table
         table.table.table-condensed.table-hover
           tbody
-            - current_store.proposals.expired.order('due_at desc')[0..5].each do |proposal| 
+            - current_store.proposals.expire_to.order('due_at desc')[0..5].each do |proposal| 
               tr
-                td.font-montserrat.all-caps.fs-12.w-10.b-r.b-dashed.b-grey= proposal.id
+                td.w-15.font-montserrat.all-caps.fs-12.w-10.b-r.b-dashed.b-grey= proposal.id
                 td.text-center.b-r.b-dashed.b-grey
                   span.hint-text.small
                     = proposal.try(:broker).try(:name) 
@@ -77,42 +141,15 @@
                     | / 
                     '
                     = proposal.try(:builder).try(:name)
-                td.text-center.b-r.b-dashed.b-grey.w-20
+                td.w-15.text-center.b-r.b-dashed.b-grey.w-20
                   span.hint-text.small= proposal.try(:unit).try(:name)
                 td.w-30.text-right
                   = link_to edit_admin_proposal_path(proposal), class: 'text-danger' do
                     span.font-montserrat.fs-18=number_with_precision proposal.value
                     p.hint-text.small= l proposal.due_at
       .padding-25.mt-auto
-        / p.small.no-margin
-        /   a href="#" 
-        /     i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
-          / span.hint-text Show more details of APPLE . INC
-    /! END WIDGET
-  .col-lg-4.col-xl-4.m-b-10.col-xlg-4.col-sm-12
-    /! START WIDGET widget_tableWidgetBasic
-    / .widget-11-2.card.no-border.card-condensed.no-margin.widget-loader-circle.full-height.d-flex.flex-column
-    .card.no-border.card-condensed.no-margin
-      .padding-25
-        .pull-left
-          p.all-caps.no-margin=t(:title1, scope:'views.dashboards.widget_broker')
-        .pull-right.semi-bold
-          .text-danger.text-center.bold = current_store.brokers.pending.count
-          h5.no-margin
-            =t(:title2, scope:'views.dashboards.widget_broker')
-            '
-        .clearfix
-      .auto-overflow.widget-11-2-table
-        table.table.table-condensed.table-hover
-          tbody
-            - current_store.brokers.pending.order('created_at desc')[0..5].each do |broker| 
-              tr
-                td.font-montserrat.all-caps.fs-12.b-r.b-dashed.b-grey
-                  = link_to broker.user.email, edit_admin_broker_path(broker)
-                td.text-center.b-r.b-dashed.b-grey
-                  span.hint-text.small
-                    = link_to broker.try(:name), edit_admin_broker_path(broker) 
-                td.w-30.text-right.text-danger
-                  = link_to edit_admin_broker_path(broker) do
-                    span.hint-text.small= l broker.created_at, format: :short
-      .padding-25.mt-auto
+    /     p.small.no-margin
+    /       a href="#" 
+    /         i.fa.fs-16.fa-arrow-circle-o-down.text-success.m-r-10
+    /       span.hint-text Show more details of APPLE . INC
+    / /! END WIDGET

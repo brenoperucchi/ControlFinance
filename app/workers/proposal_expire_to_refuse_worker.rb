@@ -1,9 +1,9 @@
 require 'sidekiq-scheduler'
 
-class ProposalExpiredToRefuseWorker
+class ProposalExpireToRefuseWorker
   include Sidekiq::Worker
 
-  def perform(header={}, metadata)
+  def perform()
     Store.all.each do |store|
       store.builds.each do |build|
         build.proposals.expire_to_refuse.each do |proposal|

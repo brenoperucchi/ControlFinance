@@ -367,6 +367,11 @@ pt-BR:
         link: Faça um novo pedido de tempo
         subject: Reserva da unidade %{unit} expirou hoje
         message: Sua reserva expirou, caso queira você pode refazer o pedido de reserva por mais uma vez.
+      expire_today:
+        title: Reserva encerra hoje 
+        link: Atualize a sua proposta
+        subject: Reserva da unidade %{unit} encerra hoje
+        message: Sua reserva encerra-se hoje. Atualize a proposta.
       accepted:
         title: Proposta Aceita
         link: Clique aqui para finalizar a proposta 

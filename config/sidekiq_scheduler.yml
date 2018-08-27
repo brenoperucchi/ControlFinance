@@ -1,7 +1,14 @@
-ProposalExpiredToRefuseWorker:
+ProposalExpireToRefuseWorker:
   cron: '* 1 * * * *'
-  class: ProposalExpiredToRefuseWorker
+  class: ProposalExpireToRefuseWorker
   queue: default
-  args: contributors
+  # args: contributors
   description: 'This job resets the weekly leaderboard for contributions'
-  include_metadata: true
+  # include_metadata: true
+ProposalExpireTodayWorker:
+  cron: '* 1 * * * *'
+  class: ProposalExpireTodayWorker
+  queue: default
+  # args: contributors
+  description: 'This job resets the weekly leaderboard for contributions'
+  # include_metadata: true
