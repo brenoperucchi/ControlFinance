@@ -4,31 +4,31 @@
     table.table
       thead
         tr
-          th= model_class.human_attribute_name(:id)
-          th= model_class.human_attribute_name(:unit)
-          th= model_class.human_attribute_name(:email)
-          th= model_class.human_attribute_name(:due_at)
-          th= model_class.human_attribute_name(:state)
-          th= model_class.human_attribute_name(:negociate)
-          th= model_class.human_attribute_name(:value)
-          th= model_class.human_attribute_name(:updated_at)
-          th=t 'actions', :scope => "helpers.menu"
+          / th= model_class.human_attribute_name(:id)
+          th.text-center= model_class.human_attribute_name(:unit)
+          th.text-center= model_class.human_attribute_name(:email)
+          th.text-center= model_class.human_attribute_name(:state)
+          / th.text-center= model_class.human_attribute_name(:negociate)
+          th.text-right= model_class.human_attribute_name(:value)
+          th.text-center= model_class.human_attribute_name(:due_at)
+          th.text-center= model_class.human_attribute_name(:updated_at)
+          th.text-center=t 'actions', :scope => "helpers.menu"
       tbody
         - @collection.each do |proposal|
           tr
-            td= proposal.id
-            td= proposal.unit.name
-            td= proposal.broker.user.email
-            td=localize proposal.due_at, format: :short
+            / td.text-center= proposal.id
+            td.text-center= proposal.unit.name
+            td.text-center= proposal.broker.user.email
             td.text-uppercase= editable proposal, :states, url: admin_proposal_path(proposal), type: 'select', class: 'editable', source: model_class::STATUS.map{|key,value|{value:key, text: I18n.t(key, scope:'views.common').upcase}}, value: proposal.state
-            td= proposal.negociate
-            td= number_to_currency proposal.value
-            td=localize proposal.updated_at, format: :short
-            td
+            / td.text-center= proposal.negociate
+            td.text-right= number_with_precision proposal.value
+            td.text-center=localize proposal.due_at, format: :default
+            td.text-center=localize proposal.updated_at, format: :date
+            td.text-center
               = link_to edit_admin_proposal_path(proposal), class: 'btn btn-default' do
                 i.fa.fa-edit
-                '
-                = t('edit', scope: "helpers.links")
+                / '
+                / = t('edit', scope: "helpers.links")
               '
               - if proposal.accepted? or proposal.closed?
                 = link_to document_admin_proposal_path(proposal), class: 'btn' do

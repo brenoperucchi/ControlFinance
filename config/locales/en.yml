@@ -372,6 +372,11 @@ en:
         link: Update your proposal
         subject: Booking of unit %{unit} closes today
         message: Your reservation closes today. Update It
+      expire_day3:
+        title: Booking ends in 3 days
+        link: Update your proposal
+        subject: Booking of unit %{unit} closes in 3 days
+        message: Update Proposal
       accepted:
         title: Proposal accepted
         link: Complete with purchase

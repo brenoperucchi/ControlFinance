@@ -371,7 +371,12 @@ pt-BR:
         title: Reserva encerra hoje 
         link: Atualize a sua proposta
         subject: Reserva da unidade %{unit} encerra hoje
-        message: Sua reserva encerra-se hoje. Atualize a proposta.
+        message: Atualize a proposta.
+      expire_day3:
+        title: Reserva finalizará em 3 dias 
+        link: Atualize a sua proposta
+        subject: Reserva da unidade %{unit} encerrará em 3 dias.
+        message: Atualize a proposta.
       accepted:
         title: Proposta Aceita
         link: Clique aqui para finalizar a proposta 
@@ -483,6 +488,7 @@ pt-BR:
       option2: "%d de %B %Y"
       option3: "%d %B %Y, %H:%M"
       date: "%d/%m/%Y"
+      date_time: "%d/%m/%Y, %H:%M"
     pm: ''
   activemodel:
     errors:

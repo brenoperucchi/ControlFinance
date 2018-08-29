@@ -20,10 +20,10 @@ class Proposal < ApplicationRecord
   scope :expired,    ->{ where(state: 'refused').where.not(:due_at => nil).where("proposals.due_at < ?", Date.today) }
 
 
-  scope :expire_today, ->{ where.not(state: ['accepted','closed','refused']).where(due_at: Date.today.all_day)}
-  scope :expire_day3,  ->{ where.not(state: ['accepted','closed','refused']).where(due_at: (Date.today + 1..Date.today + 4))}
-  scope :expire_to_refuse,    ->{ where.not(state: ['accepted','closed','refused']).where('due_at < ?', Date.today) }
-  scope :expire_to,    ->{ where.not(state: ['accepted','closed','refused']).where('due_at > ?', Date.today) }
+  scope :expire_today, ->{ where(state:'booked').where.not(state: ['accepted','closed','refused']).where(due_at: Date.today.all_day)}
+  scope :expire_day3,  ->{ where(state:'booked').where.not(state: ['accepted','closed','refused']).where(due_at: Date.today + 1..Date.today + 4).where(due_at: Date.today + 4)}
+  scope :expire_to_refuse,    ->{ where(state:'booked').where.not(state: ['accepted','closed','refused']).where('due_at < ?', Date.today) }
+  scope :expire_to,    ->{ where(state:'booked').where.not(state: ['accepted','closed','refused']).where('due_at > ?', Date.today) }
   ## TODO 
   # CREATE NEW SPEC TEST
 
