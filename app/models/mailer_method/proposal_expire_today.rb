@@ -13,7 +13,7 @@ class MailerMethod::ProposalExpireToday < MailerMethod::Base
   end
 
   def subject
-    @subject.blank? ? I18n.t(:subject, scope:'helpers.mailer.request', unit: @object.name) : @subject
+    @subject.blank? ? I18n.t(:subject, scope:'helpers.mailer.expire_today', unit: @object.unit.name) : @subject
   end
 
   def url

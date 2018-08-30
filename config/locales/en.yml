@@ -395,6 +395,13 @@ en:
         link_message: 'Make a proposal'
         message1: Faça a sua proposta conosco
         unsubscribe: 'unsubscribe'
+      note_created:
+        meta_title: "Note created for unit %{unit}"
+        title: 'Comment'
+        subject: Comment of unit %{unit}
+        link_message: 'Verify your proposal'
+        message1: 
+        unsubscribe: 'unsubscribe'
     titles:
       edit: Edit %{model}
       new: New %{model}

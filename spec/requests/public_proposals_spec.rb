@@ -7,8 +7,8 @@ RSpec.describe "PublicProposals" do
   let!(:broker2) {FactoryBot.create(:broker, :second, store: store)}
   let!(:build) {FactoryBot.create(:build, store: store)}
   let!(:unit) {FactoryBot.create(:unit, builder:build)}
-  let!(:proposal) {FactoryBot.create(:proposal, unit: unit, broker: broker)}
-  let!(:proposal2) {FactoryBot.create(:proposal, unit: unit, broker: broker2)}
+  let(:proposal) {FactoryBot.create(:proposal, unit: unit, broker: broker)}
+  # let!(:proposal2) {FactoryBot.create(:proposal, unit: unit, broker: broker2)}
 
   before(:each) do
   end
@@ -25,8 +25,13 @@ RSpec.describe "PublicProposals" do
     click_button 'Create Proposal'
     expect(page).not_to have_css("span#notification-message", text: 'Please review the problems below')
     expect(page).to have_css("span#notification-message", text: 'Proposal was successfully created.')
-    
+    expect(store.proposals.count).to be == 1
   end
+
+  it 'Proposal Create should have 2 notes'  do
+    expect(proposal.notes.count).to be == 1 # One Note for Proposal 1 and One for Proposal 2
+  end
+
 
   it 'User must have sign in' do
     # broker.user.make_current
@@ -35,12 +40,12 @@ RSpec.describe "PublicProposals" do
     page.first(:xpath, "//a[@href='/public/builds/1/units']").click()
     page.first(:xpath, "//a[@href='/public/units/1/proposals/new']").click()
     expect(current_path).to match(new_user_session_path)
-    # save_and_open_page
   end
 
   it 'Broker can print old Proposals' do
     login_as(broker.user, :scope => :user)
     visit public_dashboards_path
+    proposal
     page.first(:xpath, "//a[@href='/public/builds/1/units']").click()
     page.find(:xpath, "//a[@href='/public/units/1/proposals/new']").click
     click_link "Histórico"

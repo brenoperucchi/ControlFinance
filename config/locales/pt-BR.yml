@@ -394,7 +394,14 @@ pt-BR:
         subject: Reserva de unidade %{unit}
         link_message: 'Clique para realizar a proposta'
         message1: Faça a sua proposta conosco
-        unsubscribe: 'unsubscribe'
+        unsubscribe: 'Remover da lista'
+      note_created:
+        meta_title: "Comentário na proposta para unidade %{unit}"
+        title: 'Comentário'
+        subject: Comentário %{unit}
+        link_message: 'Verique a proposta'
+        message1: 
+        unsubscribe: 'Remover da lista'
     titles:
       edit: Editar %{model}
       new: Novo %{model}

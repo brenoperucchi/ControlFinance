@@ -47,9 +47,14 @@ RSpec.describe "Admin Proposals" do
     visit edit_admin_proposal_path(proposal)
     fill_in("note_comment", with: 'comment')    
     click_button 'Create Note'
+    expect(proposal.notes.count).to be == 3 # One Proposal 1 + One Proposal 2 + One for new comment
+    # save_and_open_page
     ## TODO 
     # expect(page).to have_css("span#notification-message", text: 'Proposal was successfully updated.')
-    # save_and_open_page
+  end
+
+  it 'Proposal Create should have 1 note'  do
+    expect(proposal.notes.count).to be == 1 
   end
 
   it 'Proposal 2 can not change state if unit is booked' do
