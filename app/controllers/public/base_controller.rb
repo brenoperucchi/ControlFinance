@@ -2,7 +2,7 @@ class Public::BaseController < ApplicationController
   include SentientStoreController
   include PublicActivity::StoreController
 
-  layout 'pages'
+  layout 'shards'
   protect_from_forgery with: :null_session
   before_action :authenticate_user!
 

@@ -1,3 +1,4 @@
+- model_class = Build
 - content_for :footer do
   css:
     .item-header{
@@ -8,41 +9,61 @@
     }
 
 
-- model_class = Build
 
+.page-header.row.no-gutters.py-4
+  .col-12.col-sm-4.text-center.text-sm-left.mb-0
+    / span.text-uppercase.page-subtitle= t(:home, scope: 'breadcrumb')
+    h3.page-title= t(:home, scope: 'breadcrumb')
+
+
+/ .row
+/   .col-lg-6.col-sm-6
+/     ol.breadcrumb
+/       li.breadcrumb-item.active
+/         = t(:home, scope: 'breadcrumb')
+/   .col-lg-6.col-sm-6.text-right
+/     ol.breadcrumb
+/       = link_to sales_public_builds_path, :class => 'btn-cons fs-14' do
+/         i.fa.fa-print
+/         '
+/         strong= t :print, scope: "views.dashboards"
 .row
-  .col-lg-6.col-sm-6
-    ol.breadcrumb
-      li.breadcrumb-item.active
-        = t(:home, scope: 'breadcrumb')
-  .col-lg-6.col-sm-6.text-right
-    ol.breadcrumb
-      = link_to sales_public_builds_path, :class => 'btn-cons fs-14' do
-        i.fa.fa-print
-        '
-        strong= t :print, scope: "views.dashboard"
-
-.sm-padding-10
-  .row
+  .col-lg-4.col-md-6.col-sm-12.mb-4
     - @builds.active.each do |build|
-      .col-lg-4
-        .widget-18.card
-          .padding-15
-            .item-header.clearfix
-              .inline.m-l-10
-                h4.font-montserrat.no-margin
-                  strong= build.name
-                p.no-margin.hint-text
-                  span.location.semi-bold
-                    i.fa.fa-map-marker
-                    '
-                    = build.address
-          .relative.p-l-5.p-r-5
-            = link_to public_build_units_path(build) do
-              .widget-18-post.bg-black.no-overflow[style="background: url(#{build.image('fit400')}); 
-                background-position: center center;
-                background-size: cover;
-                max-height:270px"]
-          .padding-5.text-center
-            = link_to t(:units, scope: 'views.dashboard', units: build.units.pending.count),public_build_units_path(build), class: 'btn btn-complete btn-block m-t-10 all-caps'
-            .clearfix
+      .card.card-small.card-post.card-post--1
+        = link_to public_build_units_path(build) do
+          .card-post__image style=("background-image: url(#{build.image('fill400')});") 
+          = link_to t(:available, scope: 'views.dashboards'),public_build_units_path(build), class: 'card-post__category badge badge-pill badge-info'
+        .card-body
+          h5.card-title
+            / a.text-fiord-blue href="#"  Conduct at an replied removal an amongst
+            = link_to t(:units, scope: 'views.dashboards', units: build.units.pending.count),public_build_units_path(build), class: 'text-fiord-blue'
+          p.card-text.d-inline-block.mb-3= build.address
+          span.text-muted= t(:update_at, scope:'views.dashboards', date: l(build.updated_at, format: :option2))
+
+
+
+/ .sm-padding-10
+/   .row
+/     - @builds.active.each do |build|
+/       .col-lg-4
+/         .widget-18.card
+/           .padding-15
+/             .item-header.clearfix
+/               .inline.m-l-10
+/                 h4.font-montserrat.no-margin
+/                   strong= build.name
+/                 p.no-margin.hint-text
+/                   span.location.semi-bold
+/                     i.fa.fa-map-marker
+/                     '
+/                     = build.address
+/           .relative.p-l-5.p-r-5
+/             = link_to public_build_units_path(build) do
+/               .widget-18-post.bg-black.no-overflow[style="background: url(#{build.image('fit400')}); 
+/                 background-position: center center;
+/                 background-size: cover;
+/                 max-height:270px"]
+/           .padding-5.text-center
+/             = link_to t(:units, scope: 'views.dashboards', units: build.units.pending.count),public_build_units_path(build), class: 'btn btn-complete btn-block m-t-10 all-caps'
+/             .clearfix

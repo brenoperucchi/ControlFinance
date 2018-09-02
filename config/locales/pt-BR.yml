@@ -56,15 +56,19 @@ pt-BR:
           proposals: Propostas ativas
           proposals_expired: Propostas Expiradas
     dashboards:
-        widget4:
-          title1: Quantidade Propostal recebidas
-          title2: Total de propostas Recebidas
-        widget_proposal:
-          title1: 5 últimas propostal Vencidas
-          title2: Valor total
-        widget_broker:
-          title1: 5 últimos corretores pendentes
-          title2: Quantidade
+      units: 'Unidades disponível: %{units}'
+      print: 'Imprimir Tabela de Vendas'
+      available: Disponível
+      update_at: 'Atualizado %{date}'
+      widget4:
+        title1: Quantidade Propostal recebidas
+        title2: Total de propostas Recebidas
+      widget_proposal:
+        title1: 5 últimas propostal Vencidas
+        title2: Valor total
+      widget_broker:
+        title1: 5 últimos corretores pendentes
+        title2: Quantidade
     purchase_step:
       finish:
         irs_id: 'CPF: %{value}'
@@ -194,9 +198,6 @@ pt-BR:
       area_common: 'Área comum m2'
       area_total: 'Área total m2'
       value:  Valor total
-    dashboard:
-        units: 'Unidades disponível: %{units}'
-        print: 'Imprimir Tabela de Vendas'
     submit:
       next: 'Próximo passo'
   date:
@@ -491,8 +492,8 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d/%b/%y, %H:%M"
       short2: "%d/%b/%Y, %H:%M"
-      option1: "%d de %b %Y"
-      option2: "%d de %B %Y"
+      option1: "%d %b %Y"
+      option2: "%d %B %Y"
       option3: "%d %B %Y, %H:%M"
       date: "%d/%m/%Y"
       date_time: "%d/%m/%Y, %H:%M"

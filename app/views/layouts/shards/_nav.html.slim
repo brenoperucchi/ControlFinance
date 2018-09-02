@@ -1,0 +1,431 @@
+.container-fluid.px-0
+  - flash.each do |key, value|
+    div[class="alert alert-warning alert-dismissible fade show m-0 #{flash_helper(key)}" role="#{flash_helper(key)}"]
+      = value
+      button.close aria-label="Close" data-dismiss="alert" type="button" 
+        span aria-hidden="true"  &times;
+        span.sr-only X
+
+.main-navbar.bg-white
+  .container.p-0
+    /! Main Navbar
+    nav.navbar.align-items-stretch.navbar-light.flex-md-nowrap.p-0
+      a.navbar-brand href="#" style="line-height: 25px;" 
+        .d-table.m-auto
+          img#main-logo.d-inline-block.align-top.mr-1.ml-3 alt="Shards Dashboard" src="/images/shards/shards-dashboards-logo.svg" style="max-width: 25px;" /
+          span.d-none.d-md-inline.ml-1 GestorObra
+      / form.main-navbar__search.w-100.d-none.d-md-flex.d-lg-flex action="#" 
+      /   .input-group.input-group-seamless.ml-3
+      /     .input-group-prepend
+      /       .input-group-text
+      /         i.fas.fa-search
+      /     input.navbar-search.form-control aria-label="Search" placeholder="Search for something..." type="text" /
+      ul.navbar-nav.border-left.flex-row.border-right.ml-auto
+        - if user_signed_in?
+          li.nav-item.border-right.dropdown.notifications
+          a#dropdownMenuLink.nav-link.nav-link-icon.text-center aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+            .nav-link-icon__wrapper
+              i.material-icons &#xE7F4;
+              span.badge.badge-pill.badge-danger 2
+          .dropdown-menu.dropdown-menu-small aria-labelledby="dropdownMenuLink" 
+            a.dropdown-item href="#" 
+              .notification__icon-wrapper
+                .notification__icon
+                  i.material-icons &#xE6E1;
+              .notification__content
+                span.notification__category Analytics
+                p
+                  | Your website’s active users count increased by
+                  span.text-success.text-semibold 28%
+                  | in the last week. Great job!
+            a.dropdown-item href="#" 
+              .notification__icon-wrapper
+                .notification__icon
+                  i.material-icons &#xE8D1;
+              .notification__content
+                span.notification__category Sales
+                p
+                  | Last week your store’s sales count decreased by.
+                  span.text-danger.text-semibold 5.52%
+                  | It could have been worse!
+            a.dropdown-item.notification__all.text-center href="#"  View all Notifications
+        li.nav-item.dropdown
+          - if user_signed_in?
+            a.nav-link.dropdown-toggle.text-nowrap.px-3 aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+              img.user-avatar.rounded-circle.mr-2 alt="User Avatar" src="/images/shards/avatars/0.jpg" /
+              span.d-none.d-md-inline-block= current_user.userable.name
+            .dropdown-menu.dropdown-menu-small
+              a.dropdown-item href="user-profile.html" 
+                i.material-icons &#xE7FD;
+                | Profile
+              a.dropdown-item href="edit-user-profile.html" 
+                i.material-icons &#xE8B8;
+                | Edit Profile
+              a.dropdown-item href="file-manager-cards.html" 
+                i.material-icons &#xE2C7;
+                | Files
+              a.dropdown-item href="transaction-history.html" 
+                i.material-icons &#xE896;
+                | Transactions
+              .dropdown-divider
+              - if current_user.userable.admin?
+                = link_to admin_destroy_session_path, class: 'dropdown-item text-danger ', method: :delete do 
+                  i.material-icons.text-danger &#xE879;
+                  = t(:sign_out, scope: [:views, :links])
+              - else
+                = link_to destroy_user_session_path, class: 'dropdown-item text-danger ', method: :delete do 
+                  i.material-icons.text-danger &#xE879;
+                  = t(:sign_out, scope: [:views, :links])
+          - else
+            = link_to [:new, namespace, :session], class: 'nav-link dropdown-toggle text-nowrap px-3', 'aria-expanded':"false", 'aria-haspopup':true, 'data-toggle': 'dropdown', role: "button" do 
+              span.d-none.d-md-inline-block 
+                = t(:sign_in, scope: [:views, :common])
+      nav.nav
+        a.nav-link.nav-link-icon.toggle-sidebar.d-md-inline.d-lg-none.text-center aria-controls="header-navbar" aria-expanded="false" data-target=".header-navbar" data-toggle="collapse" href="#" 
+          i.material-icons &#xE5D2;
+  /! / .container
+/! / .main-navbar
+- if user_signed_in?
+  .header-navbar.collapse.d-lg-flex.p-0.bg-white.border-top
+  .container
+    .row
+      .col
+        ul.nav.nav-tabs.border-0.flex-column.flex-lg-row
+          li.nav-item.dropdown
+            a.nav-link data-toggle="dropdown" 
+              i.material-icons &#xE2C7;
+              | Dashboards
+            .dropdown-menu.dropdown-menu-small
+              a.dropdown-item href="index.html"  Analytics
+              a.dropdown-item href="ecommerce.html"  Store
+              a.dropdown-item href="blog-overview.html"  Blog
+          li.nav-item
+            a.nav-link.active href="header-navigation.html" 
+              i.material-icons view_day
+              | Header Nav
+          li.nav-item
+            a.nav-link href="icon-sidebar-nav.html" 
+              i.material-icons &#xE251;
+              | Icon Sidebar
+          li.nav-item.dropdown
+            a.nav-link data-toggle="dropdown" 
+              i.material-icons view_module
+              | Components
+            .dropdown-menu.dropdown-menu-small
+              a.dropdown-item href="components-overview.html"  Overview
+              a.dropdown-item href="components-blog-posts.html"  Blog Posts
+          li.nav-item.dropdown
+            a.nav-link data-toggle="dropdown" 
+              i.material-icons &#xE2C7;
+              | File Managers
+            .dropdown-menu.dropdown-menu-small
+              a.dropdown-item href="file-manager-list.html"  Files - List View
+              a.dropdown-item href="file-manager-cards.html"  Files - Cards View
+          li.nav-item
+            a.nav-link href="transaction-history.html" 
+              i.material-icons &#xE8B9;
+              | Transactions
+          li.nav-item.dropdown
+            a.nav-link data-toggle="dropdown" 
+              i.material-icons &#xE8B9;
+              | User Account
+            .dropdown-menu.dropdown-menu-small
+              a.dropdown-item href="file-manager-list.html"  User Profile
+              a.dropdown-item href="file-manager-cards.html"  Edit User Profile
+              a.dropdown-item href="login.html"  Login
+              a.dropdown-item href="register.html"  Register
+              a.dropdown-item href="forgot-password.html"  Forgot Password
+              a.dropdown-item href="change-password.html"  Change Password
+          li.nav-item
+            a.nav-link href="errors.html" 
+              i.material-icons error
+              | Error
+
+/ .main-content-container.container
+  /! Page Header
+  .page-header.row.no-gutters.py-4
+    .col-12.col-sm-4.text-center.text-sm-left.mb-4.mb-sm-0
+      span.text-uppercase.page-subtitle Overview
+      h3.page-title Analytics
+    .col-12.col-sm-4.d-flex.align-items-center
+      .btn-group.btn-group-sm.btn-group-toggle.d-inline-flex.mb-4.mb-sm-0.mx-auto aria-label="Page actions" role="group" 
+        a.btn.btn-white.active href="index.html"  Traffic
+        a.btn.btn-white href="ecommerce.html"  Sales
+    .col-12.col-sm-4.d-flex.align-items-center
+      #analytics-overview-date-range.input-daterange.input-group.input-group-sm.ml-auto
+        input#analytics-overview-date-range-1.input-sm.form-control name="start" placeholder="Start Date" type="text" /
+        input#analytics-overview-date-range-2.input-sm.form-control name="end" placeholder="End Date" type="text" /
+        span.input-group-append
+          span.input-group-text
+            i.material-icons &#xE916;
+  /! End Page Header
+  /! Small Stats Blocks
+  .row
+    .col-12.col-md-6.col-lg-3.mb-4
+      .stats-small.card.card-small
+        .card-body.px-0.pb-0
+          .d-flex.px-3
+            .stats-small__data
+              span.stats-small__label.mb-1.text-uppercase Users
+              h6.stats-small__value.count.m-0 2,390
+            .stats-small__data.text-right.align-items-center
+              span.stats-small__percentage.stats-small__percentage--increase 12.4%
+          canvas.analytics-overview-stats-small-1 height="60" 
+    .col-12.col-md-6.col-lg-3.mb-4
+      .stats-small.card.card-small
+        .card-body.px-0.pb-0
+          .d-flex.px-3
+            .stats-small__data
+              span.stats-small__label.mb-1.text-uppercase Sessions
+              h6.stats-small__value.count.m-0 8,391
+            .stats-small__data.text-right.align-items-center
+              span.stats-small__percentage.stats-small__percentage--decrease 7.21%
+          canvas.analytics-overview-stats-small-2 height="60" 
+    .col-12.col-md-6.col-lg-3.mb-4
+      .stats-small.card.card-small
+        .card-body.px-0.pb-0
+          .d-flex.px-3
+            .stats-small__data
+              span.stats-small__label.mb-1.text-uppercase Pageviews
+              h6.stats-small__value.count.m-0 21,293
+            .stats-small__data.text-right.align-items-center
+              span.stats-small__percentage.stats-small__percentage--increase 3.71%
+          canvas.analytics-overview-stats-small-3 height="60" 
+    .col-12.col-md-6.col-lg-3.mb-4
+      .stats-small.card.card-small
+        .card-body.px-0.pb-0
+          .d-flex.px-3
+            .stats-small__data
+              span.stats-small__label.mb-1.text-uppercase Pages / Session
+              h6.stats-small__value.count.m-0 6.43
+            .stats-small__data.text-right.align-items-center
+              span.stats-small__percentage.stats-small__percentage--decrease 2,71%
+          canvas.analytics-overview-stats-small-4 height="60" 
+  /! End Small Stats Blocks
+  .row
+    .col.col-lg-8.col-md-12.col-sm-12.mb-4
+      .card.card-small.h-100
+        .card-header.border-bottom
+          h6.m-0 Sessions
+          .block-handle
+        .card-body.pt-0
+          .row.border-bottom.py-2.bg-light
+            .col-12.col-sm-6.d-flex.mb-2.mb-sm-0
+              .btn-group.btn-group-sm.btn-group-toggle.d-flex.my-auto.mx-auto.mx-sm-0 data-toggle="buttons" 
+                label.btn.btn-white.active
+                  input#option1 autocomplete="off" checked="" name="options" type="radio" /
+                  | Hour
+                label.btn.btn-white
+                  input#option2 autocomplete="off" name="options" type="radio" /
+                  | Day
+                label.btn.btn-white
+                  input#option3 autocomplete="off" name="options" type="radio" /
+                  | Week
+                label.btn.btn-white
+                  input#option4 autocomplete="off" name="options" type="radio" /
+                  | Month
+            .col-12.col-sm-6
+              #sessions-overview-date-range.input-daterange.input-group.input-group-sm.my-auto.ml-auto.mr-auto.ml-sm-auto.mr-sm-0 style="max-width: 350px;" 
+                input#analytics-overview-sessions-date-range-1.input-sm.form-control name="start" placeholder="Start Date" type="text" /
+                input#analytics-overview-sessions-date-range-2.input-sm.form-control name="end" placeholder="End Date" type="text" /
+                span.input-group-append
+                  span.input-group-text
+                    i.material-icons 
+          #analytics-overview-sessions-legend
+          canvas.analytics-overview-sessions height="120" style="max-width: 100% !important;" 
+    .col-lg-4.col-md-6.col-sm-6.mb-4
+      /! Users by device
+      .card.ubd-stats.card-small.h-100
+        .card-header.border-bottom
+          h6.m-0 Users by device
+          .block-handle
+        .card-body.d-flex.flex-column
+          canvas.analytics-users-by-device.mt-3.mb-4 width="100" 
+          .ubd-stats__legend.w-75.m-auto.pb-4
+            .ubd-stats__item
+              i.material-icons style="color: rgba(1), 123 ,255, 0.9);" &#xE30B;
+              span.ubd-stats__category Desktop
+              span.ubd-stats__value 68.3%
+            .ubd-stats__item
+              i.material-icons style="color: rgba(1), 123 ,255, 0.5);" &#xE32F;
+              span.ubd-stats__category Tablet
+              span.ubd-stats__value 24.2%
+            .ubd-stats__item
+              i.material-icons style="color: rgba(1), 123, 255, 0.3);" &#xE325;
+              span.ubd-stats__category Mobile
+              span.ubd-stats__value 7.5%
+        .card-footer.border-top
+          .row
+            .col
+              select.custom-select.custom-select-sm style="max-width: 130px;" 
+                option selected=""  Last Week
+                option value="1"  Today
+                option value="2"  Last Month
+                option value="3"  Last Year
+            .col.text-right.view-report
+              a href="#"  View full report &rarr;
+      /! End Users by device
+    .col-lg-3.col-sm-6.mb-4
+      .card.card-small
+        .card-header.border-bottom
+          h6.m-0 Top Referrals
+          .block-handle
+        .card-body.p-0
+          ul.list-group.list-group-small.list-group-flush
+            li.list-group-item.d-flex.px-3
+              span.text-semibold.text-fiord-blue GitHub
+              span.ml-auto.text-right.text-semibold.text-reagent-gray 19,291
+            li.list-group-item.d-flex.px-3
+              span.text-semibold.text-fiord-blue Stack Overflow
+              span.ml-auto.text-right.text-semibold.text-reagent-gray 11,201
+            li.list-group-item.d-flex.px-3
+              span.text-semibold.text-fiord-blue Hacker News
+              span.ml-auto.text-right.text-semibold.text-reagent-gray 9,291
+            li.list-group-item.d-flex.px-3
+              span.text-semibold.text-fiord-blue Reddit
+              span.ml-auto.text-right.text-semibold.text-reagent-gray 8,281
+            li.list-group-item.d-flex.px-3
+              span.text-semibold.text-fiord-blue The Next Web
+              span.ml-auto.text-right.text-semibold.text-reagent-gray 7,128
+            li.list-group-item.d-flex.px-3
+              span.text-semibold.text-fiord-blue Tech Crunch
+              span.ml-auto.text-right.text-semibold.text-reagent-gray 6,218
+            li.list-group-item.d-flex.px-3
+              span.text-semibold.text-fiord-blue YouTube
+              span.ml-auto.text-right.text-semibold.text-reagent-gray 1,218
+            li.list-group-item.d-flex.px-3
+              span.text-semibold.text-fiord-blue Adobe
+              span.ml-auto.text-right.text-semibold.text-reagent-gray 1,171
+        .card-footer.border-top
+          .row
+            .col
+              select.custom-select.custom-select-sm
+                option selected=""  Last Week
+                option value="1"  Today
+                option value="2"  Last Month
+                option value="3"  Last Year
+            .col.text-right.view-report
+              a href="#"  Full report &rarr;
+    .col-lg-5.mb-4
+      .card.card-small.go-stats
+        .card-header.border-bottom
+          h6.m-0 Goals Overview
+          .block-handle
+        .card-body.py-0
+          ul.list-group.list-group-small.list-group-flush
+            li.list-group-item.d-flex.row.px-0
+              .col-lg-6.col-md-8.col-sm-8.col-6
+                h6.go-stats__label.mb-1 Newsletter Signups
+                .go-stats__meta
+                  span.mr-2
+                    strong 291
+                    | Completions
+                  span.d-block.d-sm-inline
+                    strong.text-success $192.00
+                    | Value
+              .col-lg-6.col-md-4.col-sm-4.col-6.d-flex
+                .go-stats__value.text-right.ml-auto
+                  h6.go-stats__label.mb-1 57.2%
+                  span.go-stats__meta Conversion Rate
+                .go-stats__chart.d-flex.ml-auto
+                  canvas#analytics-overview-goal-completion-1.my-auto style="width: 45px; height: 45px;" 
+            li.list-group-item.d-flex.row.px-0
+              .col-lg-6.col-md-8.col-sm-8.col-6
+                h6.go-stats__label.mb-1 Social Shares
+                .go-stats__meta
+                  span.mr-2
+                    strong 451
+                    | Completions
+                  span.d-block.d-sm-inline
+                    strong.text-success $0.00
+                    | Value
+              .col-lg-6.col-md-4.col-sm-4.col-6.d-flex
+                .go-stats__value.text-right.ml-auto
+                  h6.go-stats__label.mb-1 45.5%
+                  span.go-stats__meta Conversion Rate
+                .go-stats__chart.d-flex.ml-auto
+                  canvas#analytics-overview-goal-completion-2.my-auto style="width: 45px; height: 45px;" 
+            li.list-group-item.d-flex.row.px-0
+              .col-lg-6.col-md-8.col-sm-8.col-6
+                h6.go-stats__label.mb-1 eBook Downloads
+                .go-stats__meta
+                  span.mr-2
+                    strong 12
+                    | Completions
+                  span.d-block.d-sm-inline
+                    strong.text-success $129.11
+                    | Value
+              .col-lg-6.col-md-4.col-sm-4.col-6.d-flex
+                .go-stats__value.text-right.ml-auto
+                  h6.go-stats__label.mb-1 5.2%
+                  span.go-stats__meta Conversion Rate
+                .go-stats__chart.d-flex.ml-auto
+                  canvas#analytics-overview-goal-completion-3.my-auto style="width: 45px; height: 45px;" 
+            li.list-group-item.d-flex.row.px-0
+              .col-lg-6.col-md-8.col-sm-8.col-6
+                h6.go-stats__label.mb-1 Account Creations
+                .go-stats__meta
+                  span.mr-2
+                    strong 281
+                    | Completions
+                  span.d-block.d-sm-inline
+                    strong.text-success $218.12
+                    | Value
+              .col-lg-6.col-md-4.col-sm-4.col-6.d-flex
+                .go-stats__value.text-right.ml-auto
+                  h6.go-stats__label.mb-1 30.2%
+                  span.go-stats__meta Conversion Rate
+                .go-stats__chart.d-flex.ml-auto
+                  canvas#analytics-overview-goal-completion-4.my-auto style="width: 45px; height: 45px;" 
+        .card-footer.border-top
+          .row
+            .col
+              select.custom-select.custom-select-sm style="max-width: 130px;" 
+                option selected=""  Last Week
+                option value="1"  Today
+                option value="2"  Last Month
+                option value="3"  Last Year
+            .col.text-right.view-report
+              a href="#"  View full report &rarr;
+    .col-lg-4.mb-4
+      .card.card-small.country-stats
+        .card-header.border-bottom
+          h6.m-0 Users by country
+          .block-handle
+        .card-body.p-0
+          #users-by-country-map height="100%" style="width: 100%; height: 180px;" width="100%" 
+          table.table.m-0
+            tbody
+              tr
+                td
+                  img.country-flag.mr-1 alt="United States" src="/images/shards/flags/flag-us.png" /
+                  | United States
+                td.text-right 12,219
+                td.text-right 32.4%
+              tr
+                td
+                  img.country-flag.mr-1 alt="United Kingdom" src="/images/shards/flags/flag-uk.png" /
+                  | United Kingdom
+                td.text-right 11,192
+                td.text-right 18.8%
+              tr
+                td
+                  img.country-flag.mr-1 alt="Australia" src="/images/shards/flags/flag-au.png" /
+                  | Australia
+                td.text-right 9,291
+                td.text-right 12.3%
+              tr
+                td
+                  img.country-flag.mr-1 alt="Japan" src="/images/shards/flags/flag-jp.png" /
+                  | Japan
+                td.text-right 2,291
+                td.text-right 8.14%
+        .card-footer.border-top
+          .row
+            .col
+              select.custom-select.custom-select-sm style="max-width: 130px;" 
+                option selected=""  Last Week
+                option value="1"  Today
+                option value="2"  Last Month
+                option value="3"  Last Year
+            .col.text-right.view-report

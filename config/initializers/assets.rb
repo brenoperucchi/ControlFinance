@@ -11,6 +11,10 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
+Rails.application.config.assets.precompile += %w( shards.js shards/extras.1.1.0.min.js shards/shards-dashboards.1.1.0.js shards/app-analytics-overview.1.1.0.min.js)
+Rails.application.config.assets.precompile += %w( shards/extras.1.1.0.min.css shards/shards-dashboards.1.1.0.css)
+
+
 Rails.application.config.assets.precompile += %w( pages.css )
 Rails.application.config.assets.precompile += %w( pages_print.css )
 Rails.application.config.assets.precompile += %w( social.css )

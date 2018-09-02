@@ -56,15 +56,17 @@ en:
           proposals: Active Proposals
           proposals_expired: Expire Proposals
     dashboards:
-        widget4:
-          title1: Proposal received
-          title2: Proposal amount received
-        widget_proposal:
-          title1: Last 5 Proposals expired
-          title2: Amount to expire
-        widget_broker:
-          title1: Last 5 Brokers pending
-          title2: Amount to expire
+      available: Available
+      update_at: 'Update at %{date}'
+      widget4:
+        title1: Proposal received
+        title2: Proposal amount received
+      widget_proposal:
+        title1: Last 5 Proposals expired
+        title2: Amount to expire
+      widget_broker:
+        title1: Last 5 Brokers pending
+        title2: Amount to expire
     purchase_step:
       finish:
         irs_id: 'Security: %{value}'
@@ -484,8 +486,8 @@ en:
       long: "%B %d, %Y %H:%M"
       short: "%b %d %H:%M"
       short2: "%b/%d/%Y, %H:%M"
-      option1: "%b of %d %Y"
-      option2: "%B of %d %Y"
+      option1: "%b %d %Y"
+      option2: "%B %d %Y"
       option3: "%d %B %Y, %H:%M"
       date: "%d/%m/%Y"
     pm: pm
