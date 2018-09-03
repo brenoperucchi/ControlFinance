@@ -121,7 +121,8 @@ pt-BR:
         title1: 'Proposta de compra para Unidade %{unit} do Empreendimento %{build}'
         broker_list: 'Veja as suas propostas'
         value_table: Valor de tabela
-      deadline: Prazo da Proposta
+      proposal_deadline: 'Validate da Proposta %{deadline} dias'
+      build_deadline: 'Conclusão da obra:'
       negociate: Negociação
       due_at: 'Vencimento em: %{due_at}'
       accepted_at: 'Aceita na data: %{date}'
@@ -561,6 +562,8 @@ pt-BR:
         value: Valor 
         created_at: Criado em
         updated_at: Atualizado em
+        proposal_deadline: Validade Proposta
+        build_deadline: Conclusão obra
       store:
         language: Idioma
         address: Endereço que será divulgado

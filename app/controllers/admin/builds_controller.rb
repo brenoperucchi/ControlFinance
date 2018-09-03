@@ -91,6 +91,6 @@ class Admin::BuildsController < Admin::BaseController
     end
 
     def admin_build_params
-      params.require(:build).permit(:name, :state, :address, :registry, :incorporation)
+      params.require(:build).permit(:name, :state, :address, :registry, :incorporation, :build_deadline, :proposal_deadline)
     end
 end

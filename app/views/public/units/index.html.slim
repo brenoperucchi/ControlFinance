@@ -48,7 +48,7 @@
     h3.page-title= @build.name
 
 .row
-  .col-lg-8.col-md-8.col-sm-8.mb-4
+  .col-lg-8.col-md-8.col-sm-12.mb-4
     .card.card-small.card-post.card-post--1
       = link_to public_build_units_path(@build) do
         .card-post__image style=("background-image: url(#{@build.image});") 
@@ -60,13 +60,13 @@
         p.card-text.d-inline-block.mb-3= @build.address
         p
           span.text-muted= t(:update_at, scope:'views.dashboards', date: l(@build.updated_at, format: :option2))
-    .card.card-small.lo-stats.mt-4
+    .card.mt-4
       .card-header.border-bottom
         h6.m-0= @build.name
         / .block-handle
       .card-body.p-0
         .container-fluid.px-0
-          table.table.mb-0
+          table.table.mb-0.table-condensed
             thead.py-2.bg-light.text-semibold.border-bottom
               tr
                 th Details
@@ -128,12 +128,13 @@
           .col-12.col-sm-12.border-top.pb-3.pt-2.border-right
             .progress-wrapper
               span.progress-label
-                = t :deadline, scope: 'views.proposal'
+                = t :build_deadline, scope: 'views.proposal'
                 '
               strong
-                = @build.deadline || "5 dias"
-              / .progress.progress-sm
-                .progress-bar.progress-bar-striped aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" style=("width: 80%;") 
+                .progress.progress-sm
+                  .progress-bar.progress-bar-striped aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" style="width: #{@build.build_deadline}%;"
+                    span.progress-value = "#{@build.build_deadline}%"
+
 
     .card.card-small.mb-4
       .card-header.border-bottom
@@ -153,10 +154,14 @@
                   .form-row
                     .form-group.col-md-4
                       = f.input :unit, as: :select, collection: @build.units.pending, label_method: :name, value_method: :id, include_blank: false, include_hidden: false, input_html:{id: 'multiSelect', multiple:false, include_hidden: false, include_blank: false}
-  
                   .form-row
                     .form-group.col-md-12
                       = f.input :negociate, as: :text, placeholder: t_holder(:negociate, f.object.class), input_html:{rows: 40, style:"margin-top: 0px; margin-bottom: 0px; height: 70px;" }
+                      p.text-muted.mb-0.mt-1
+                        = t :proposal_deadline, scope: 'views.proposal', deadline: @build.proposal_deadline
+
+                      
+
                   = f.submit t('proposal_create', scope: "views.unit.index"), :class => 'btn btn-accent'
                   '
                   = link_to t('back', scope: "helpers.links"), public_dashboards_path(@build), :class => 'btn'
