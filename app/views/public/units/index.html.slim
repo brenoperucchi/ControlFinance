@@ -90,9 +90,9 @@
                       span[class="badge badge-pill #{shards_state_helper(unit.state)}"]= t(unit.state, scope:'views.common').upcase
                   / td.lo-stats__items.text-center 12
                   - unless unit.bought? or unit.booked?
-                    td.lo-stats__total.text-center.text-success= number_with_precision unit.value
+                    td.lo-stats__total.text-center.text-info= number_with_precision unit.value
                   - else
-                    td.lo-stats__total.text-center.text-danger= t(:bought, scope:'views.common')
+                    td.lo-stats__total.text-center.text-danger.text-uppercase= t(:bought, scope:'views.common')
                   / td.lo-stats__actions
                   /   .btn-group.d-table.ml-auto aria-label=("Basic example") role="group" 
                   /     / button.btn.btn-sm.btn-white type="button"  Cancel

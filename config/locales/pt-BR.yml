@@ -59,7 +59,7 @@ pt-BR:
       available: Disponível
       units: 'Unidades disponível: %{units}'
       print: 'Imprimir Tabela de Vendas'
-      update_at: 'Atualizado %{date}'
+      update_at: 'Atualizado em: %{date}'
       widget4:
         title1: Quantidade Propostal recebidas
         title2: Total de propostas Recebidas
