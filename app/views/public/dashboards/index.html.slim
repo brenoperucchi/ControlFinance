@@ -28,8 +28,8 @@
 /         '
 /         strong= t :print, scope: "views.dashboards"
 .row
-  .col-lg-4.col-md-6.col-sm-12.mb-4
-    - @builds.active.each do |build|
+  - @builds.active.each do |build|
+    .col-lg-6.col-md-6.col-sm-12.mb-4
       .card.card-small.card-post.card-post--1
         = link_to public_build_units_path(build) do
           .card-post__image style=("background-image: url(#{build.image('fill400')});") 
