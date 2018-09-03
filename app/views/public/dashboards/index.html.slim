@@ -1,6 +1,13 @@
 - model_class = Build
 - content_for :footer do
   css:
+    .card-post__image {
+        min-height: 200px!important;
+      }
+
+    .card-post--1 .card-body {
+        padding: 1rem!important;
+    }
     .item-header{
       height:98px
     }
@@ -32,14 +39,15 @@
     .col-lg-6.col-md-6.col-sm-12.mb-4
       .card.card-small.card-post.card-post--1
         = link_to public_build_units_path(build) do
-          .card-post__image style=("background-image: url(#{build.image('fill400')});") 
+          .card-post__image style=("background-image: url(#{build.image('fit400')});") 
           = link_to t(:available, scope: 'views.dashboards'),public_build_units_path(build), class: 'card-post__category badge badge-pill badge-info'
         .card-body
           h5.card-title
             / a.text-fiord-blue href="#"  Conduct at an replied removal an amongst
             = link_to t(:units, scope: 'views.dashboards', units: build.units.pending.count),public_build_units_path(build), class: 'text-fiord-blue'
           p.card-text.d-inline-block.mb-3= build.address
-          span.text-muted= t(:update_at, scope:'views.dashboards', date: l(build.updated_at, format: :option2))
+          p
+            span.text-muted= t(:update_at, scope:'views.dashboards', date: l(build.updated_at, format: :option2))
 
 
 
