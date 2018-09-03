@@ -43,8 +43,9 @@
 
 .page-header.row.no-gutters.py-4
   .col-12.col-sm-4.text-center.text-sm-left.mb-0
-    / span.text-uppercase.page-subtitle= t(:home, scope: 'breadcrumb')
-    h3.page-title= t(:home, scope: 'breadcrumb')
+    a href="/" 
+      span.text-uppercase.page-subtitle= t(:home, scope: 'breadcrumb')
+    h3.page-title= @build.name
 
 .row
   .col-lg-8.col-md-8.col-sm-8.mb-4

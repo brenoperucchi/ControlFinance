@@ -10,7 +10,7 @@
   .container.p-0
     /! Main Navbar
     nav.navbar.align-items-stretch.navbar-light.flex-md-nowrap.p-0
-      a.navbar-brand href="#" style="line-height: 25px;" 
+      a.navbar-brand href="/" style="line-height: 25px;" 
         .d-table.m-auto
           img#main-logo.d-inline-block.align-top.mr-1.ml-3 alt="Shards Dashboard" src="/images/shards/shards-dashboards-logo.svg" style="max-width: 25px;" /
           span.d-none.d-md-inline.ml-1 GestorObra
@@ -23,32 +23,32 @@
       ul.navbar-nav.border-left.flex-row.border-right.ml-auto
         - if user_signed_in?
           li.nav-item.border-right.dropdown.notifications
-          a#dropdownMenuLink.nav-link.nav-link-icon.text-center aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
-            .nav-link-icon__wrapper
-              i.material-icons &#xE7F4;
-              span.badge.badge-pill.badge-danger 2
-          .dropdown-menu.dropdown-menu-small aria-labelledby="dropdownMenuLink" 
-            a.dropdown-item href="#" 
-              .notification__icon-wrapper
-                .notification__icon
-                  i.material-icons &#xE6E1;
-              .notification__content
-                span.notification__category Analytics
-                p
-                  | Your website’s active users count increased by
-                  span.text-success.text-semibold 28%
-                  | in the last week. Great job!
-            a.dropdown-item href="#" 
-              .notification__icon-wrapper
-                .notification__icon
-                  i.material-icons &#xE8D1;
-              .notification__content
-                span.notification__category Sales
-                p
-                  | Last week your store’s sales count decreased by.
-                  span.text-danger.text-semibold 5.52%
-                  | It could have been worse!
-            a.dropdown-item.notification__all.text-center href="#"  View all Notifications
+            a#dropdownMenuLink.nav-link.nav-link-icon.text-center aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+              .nav-link-icon__wrapper
+                i.material-icons &#xE7F4;
+                span.badge.badge-pill.badge-danger 2
+            .dropdown-menu.dropdown-menu-small aria-labelledby="dropdownMenuLink" 
+              a.dropdown-item href="#" 
+                .notification__icon-wrapper
+                  .notification__icon
+                    i.material-icons &#xE6E1;
+                .notification__content
+                  span.notification__category Analytics
+                  p
+                    | Your website’s active users count increased by
+                    span.text-success.text-semibold 28%
+                    | in the last week. Great job!
+              a.dropdown-item href="#" 
+                .notification__icon-wrapper
+                  .notification__icon
+                    i.material-icons &#xE8D1;
+                .notification__content
+                  span.notification__category Sales
+                  p
+                    | Last week your store’s sales count decreased by.
+                    span.text-danger.text-semibold 5.52%
+                    | It could have been worse!
+              a.dropdown-item.notification__all.text-center href="#"  View all Notifications
         li.nav-item.dropdown
           - if user_signed_in?
             a.nav-link.dropdown-toggle.text-nowrap.px-3 aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
@@ -77,7 +77,7 @@
                   i.material-icons.text-danger &#xE879;
                   = t(:sign_out, scope: [:views, :links])
           - else
-            = link_to [:new, namespace, :session], class: 'nav-link dropdown-toggle text-nowrap px-3', 'aria-expanded':"false", 'aria-haspopup':true, 'data-toggle': 'dropdown', role: "button" do 
+            = link_to [:new, namespace, :session], class: 'nav-link text-nowrap px-3', 'aria-expanded':"false", 'aria-haspopup':true, role: "button" do 
               span.d-none.d-md-inline-block 
                 = t(:sign_in, scope: [:views, :common])
       nav.nav
@@ -85,61 +85,61 @@
           i.material-icons &#xE5D2;
   /! / .container
 /! / .main-navbar
-- if user_signed_in?
-  .header-navbar.collapse.d-lg-flex.p-0.bg-white.border-top
-  .container
-    .row
-      .col
-        ul.nav.nav-tabs.border-0.flex-column.flex-lg-row
-          li.nav-item.dropdown
-            a.nav-link data-toggle="dropdown" 
-              i.material-icons &#xE2C7;
-              | Dashboards
-            .dropdown-menu.dropdown-menu-small
-              a.dropdown-item href="index.html"  Analytics
-              a.dropdown-item href="ecommerce.html"  Store
-              a.dropdown-item href="blog-overview.html"  Blog
-          li.nav-item
-            a.nav-link.active href="header-navigation.html" 
-              i.material-icons view_day
-              | Header Nav
-          li.nav-item
-            a.nav-link href="icon-sidebar-nav.html" 
-              i.material-icons &#xE251;
-              | Icon Sidebar
-          li.nav-item.dropdown
-            a.nav-link data-toggle="dropdown" 
-              i.material-icons view_module
-              | Components
-            .dropdown-menu.dropdown-menu-small
-              a.dropdown-item href="components-overview.html"  Overview
-              a.dropdown-item href="components-blog-posts.html"  Blog Posts
-          li.nav-item.dropdown
-            a.nav-link data-toggle="dropdown" 
-              i.material-icons &#xE2C7;
-              | File Managers
-            .dropdown-menu.dropdown-menu-small
-              a.dropdown-item href="file-manager-list.html"  Files - List View
-              a.dropdown-item href="file-manager-cards.html"  Files - Cards View
-          li.nav-item
-            a.nav-link href="transaction-history.html" 
-              i.material-icons &#xE8B9;
-              | Transactions
-          li.nav-item.dropdown
-            a.nav-link data-toggle="dropdown" 
-              i.material-icons &#xE8B9;
-              | User Account
-            .dropdown-menu.dropdown-menu-small
-              a.dropdown-item href="file-manager-list.html"  User Profile
-              a.dropdown-item href="file-manager-cards.html"  Edit User Profile
-              a.dropdown-item href="login.html"  Login
-              a.dropdown-item href="register.html"  Register
-              a.dropdown-item href="forgot-password.html"  Forgot Password
-              a.dropdown-item href="change-password.html"  Change Password
-          li.nav-item
-            a.nav-link href="errors.html" 
-              i.material-icons error
-              | Error
+/ - if user_signed_in?
+/   .header-navbar.collapse.d-lg-flex.p-0.bg-white.border-top
+/     .container
+/       .row
+/         .col
+/           ul.nav.nav-tabs.border-0.flex-column.flex-lg-row
+/             li.nav-item.dropdown
+/               a.nav-link data-toggle="dropdown" 
+/                 i.material-icons &#xE2C7;
+/                 | Dashboards
+/               .dropdown-menu.dropdown-menu-small
+/                 a.dropdown-item href="index.html"  Analytics
+/                 a.dropdown-item href="ecommerce.html"  Store
+/                 a.dropdown-item href="blog-overview.html"  Blog
+/             li.nav-item
+/               a.nav-link.active href="header-navigation.html" 
+/                 i.material-icons view_day
+/                 | Header Nav
+/             li.nav-item
+/               a.nav-link href="icon-sidebar-nav.html" 
+/                 i.material-icons &#xE251;
+/                 | Icon Sidebar
+/             li.nav-item.dropdown
+/               a.nav-link data-toggle="dropdown" 
+/                 i.material-icons view_module
+/                 | Components
+/               .dropdown-menu.dropdown-menu-small
+/                 a.dropdown-item href="components-overview.html"  Overview
+/                 a.dropdown-item href="components-blog-posts.html"  Blog Posts
+/             li.nav-item.dropdown
+/               a.nav-link data-toggle="dropdown" 
+/                 i.material-icons &#xE2C7;
+/                 | File Managers
+/               .dropdown-menu.dropdown-menu-small
+/                 a.dropdown-item href="file-manager-list.html"  Files - List View
+/                 a.dropdown-item href="file-manager-cards.html"  Files - Cards View
+/             li.nav-item
+/               a.nav-link href="transaction-history.html" 
+/                 i.material-icons &#xE8B9;
+/                 | Transactions
+/             li.nav-item.dropdown
+/               a.nav-link data-toggle="dropdown" 
+/                 i.material-icons &#xE8B9;
+/                 | User Account
+/               .dropdown-menu.dropdown-menu-small
+/                 a.dropdown-item href="file-manager-list.html"  User Profile
+/                 a.dropdown-item href="file-manager-cards.html"  Edit User Profile
+/                 a.dropdown-item href="login.html"  Login
+/                 a.dropdown-item href="register.html"  Register
+/                 a.dropdown-item href="forgot-password.html"  Forgot Password
+/                 a.dropdown-item href="change-password.html"  Change Password
+/             li.nav-item
+/               a.nav-link href="errors.html" 
+/                 i.material-icons error
+/                 | Error
 
 / .main-content-container.container
   /! Page Header
