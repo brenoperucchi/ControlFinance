@@ -240,5 +240,5 @@ SimpleForm.setup do |config|
     b.use :input, class: 'form-control'
     b.use :error, wrap_with: { tag: 'label', class: 'error' }
   end
-
+  
 end

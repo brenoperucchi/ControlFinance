@@ -2,7 +2,7 @@ head
   meta charset="utf-8" /
   meta content="ie=edge" http-equiv="x-ua-compatible" /
   title GestorObra
-  meta content="Gestor de Obra, um produto voltando a Construção Cívil focando, neste momento, para automatização de vendas da empresas do setor." name="description" /
+  meta content="Reserva de Unidades e Tabela de preços" name="description" /
   meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" /
   link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" /
   link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" /
@@ -11,7 +11,7 @@ head
   = stylesheet_link_tag "shards/extras.1.1.0.min.css"
   script async="" defer="" src="https://buttons.github.io/buttons.js" 
   script src="https://www.gstatic.com/charts/loader.js" type="text/javascript" 
-  / = stylesheet_link_tag "shards/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["pages/#{params[:controller]}.scss"]
+  = stylesheet_link_tag "shards/#{params[:controller]}" if Sprockets::Railtie.build_environment(Rails.application, true)["shards/#{params[:controller]}.scss"]
   = stylesheet_link_tag    'shards', media: 'all', 'data-turbolinks-track' => true
   = javascript_include_tag 'shards', 'data-turbolinks-track' => true
   = csrf_meta_tags

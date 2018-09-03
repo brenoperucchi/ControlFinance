@@ -53,7 +53,7 @@
           - if user_signed_in?
             a.nav-link.dropdown-toggle.text-nowrap.px-3 aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
               / img.user-avatar.rounded-circle.mr-2 alt="User Avatar" src="/images/shards/avatars/0.jpg" /
-              span.d-none.d-md-inline-block= "Seja Bem Vindo Corretor(a) #{current_user.userable.name}" 
+              span.mt-2.d-none.d-md-inline-block= "Seja Bem Vindo Corretor(a) #{current_user.userable.name}" 
             .dropdown-menu.dropdown-menu-small
               / a.dropdown-item href="user-profile.html" 
               /   i.material-icons &#xE7FD;
@@ -78,7 +78,7 @@
                   = t(:sign_out, scope: [:views, :links])
           - else
             = link_to [:new, namespace, :session], class: 'nav-link text-nowrap px-3', 'aria-expanded':"false", 'aria-haspopup':true, role: "button" do 
-              span.d-none.d-md-inline-block 
+              span.mt-2.d-none.d-md-inline-block 
                 = t(:sign_in, scope: [:views, :common])
       nav.nav
         a.nav-link.nav-link-icon.toggle-sidebar.d-md-inline.d-lg-none.text-center aria-controls="header-navbar" aria-expanded="false" data-target=".header-navbar" data-toggle="collapse" href="#" 

@@ -39,13 +39,18 @@
     .col-lg-6.col-md-6.col-sm-12.mb-4
       .card.card-small.card-post.card-post--1
         = link_to public_build_units_path(build) do
-          .card-post__image style=("background-image: url(#{build.image('fit400')});") 
+          .card-post__image style=("background-image: url(#{build.image});") 
           = link_to t(:available, scope: 'views.dashboards'),public_build_units_path(build), class: 'card-post__category badge badge-pill badge-info'
         .card-body
           h5.card-title
             / a.text-fiord-blue href="#"  Conduct at an replied removal an amongst
-            = link_to t(:units, scope: 'views.dashboards', units: build.units.pending.count),public_build_units_path(build), class: 'text-fiord-blue'
-          p.card-text.d-inline-block.mb-3= build.address
+            = link_to public_build_units_path(build), class: 'text-fiord-blue' do 
+              .float-left
+                = build.name
+              .float-right
+                =t(:units, scope: 'views.dashboards', units: build.units.pending.count)
+              
+          p.card-text.d-inline-block.mt-2.mb-2= build.address
           p
             span.text-muted= t(:update_at, scope:'views.dashboards', date: l(build.updated_at, format: :option2))
 

@@ -51,7 +51,7 @@
   .col-lg-8.col-md-8.col-sm-8.mb-4
     .card.card-small.card-post.card-post--1
       = link_to public_build_units_path(@build) do
-        .card-post__image style=("background-image: url(#{@build.image('fit400')});") 
+        .card-post__image style=("background-image: url(#{@build.image});") 
         = link_to t(:available, scope: 'views.dashboards'),public_build_units_path(@build), class: 'card-post__category badge badge-pill badge-info'
       .card-body
         h5.card-title
@@ -112,13 +112,13 @@
       .card-body
         .row
           .col-6.col-sm-4.text-center
-            h4.m-0 = @build.name
-            span.text-light.text-uppercase = model_class.human_attribute_name(:name)
+            h5.m-0 = @build.incorporation
+            span.text-light.text-uppercase = model_class.human_attribute_name(:incorporation)
           .col-6.col-sm-4.text-center
-            h4.m-0 = @build.registry
+            h5.m-0 = @build.registry
             span.text-light.text-uppercase = model_class.human_attribute_name(:registry)
           .col-6.col-sm-4.text-center
-            h4.m-0 = t(@build.state, scope:'views.common')
+            h5.m-0 = t(@build.state, scope:'views.common')
             span.text-light.text-uppercase = model_class.human_attribute_name(:state)
           / .col-6.col-sm-3.text-center
           /   h4.m-0= @build.status
@@ -127,9 +127,11 @@
         .row
           .col-12.col-sm-12.border-top.pb-3.pt-2.border-right
             .progress-wrapper
-              span.progress-label= t :deadline, scope: 'views.proposal'
+              span.progress-label
+                = t :deadline, scope: 'views.proposal'
+                '
               strong
-                span.progress-value= @build.deadline || "5 days"
+                = @build.deadline || "5 dias"
               / .progress.progress-sm
                 .progress-bar.progress-bar-striped aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" style=("width: 80%;") 
 
