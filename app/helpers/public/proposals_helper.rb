@@ -1,4 +1,13 @@
 module Public::ProposalsHelper
+
+  def shards_state_helper(state)
+      case state
+      when 'pending'
+        'badge-info'
+      when 'booked', 'bought'
+        'badge-salmon'
+      end
+  end
   
   def create_field(f)
     fields = capture do

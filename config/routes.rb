@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       resources :builds, only:[:index], shallow:true
     end
 
+    resources :proposals, only: [:create], path: 'build/:build_id'
     resources :builds, only: [:sales] do
       get 'sales', on: :collection
       resources :units, only:[:index], shallow:true do

@@ -21,53 +21,53 @@
       /         i.fas.fa-search
       /     input.navbar-search.form-control aria-label="Search" placeholder="Search for something..." type="text" /
       ul.navbar-nav.border-left.flex-row.border-right.ml-auto
-        - if user_signed_in?
-          li.nav-item.border-right.dropdown.notifications
-            a#dropdownMenuLink.nav-link.nav-link-icon.text-center aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
-              .nav-link-icon__wrapper
-                i.material-icons &#xE7F4;
-                span.badge.badge-pill.badge-danger 2
-            .dropdown-menu.dropdown-menu-small aria-labelledby="dropdownMenuLink" 
-              a.dropdown-item href="#" 
-                .notification__icon-wrapper
-                  .notification__icon
-                    i.material-icons &#xE6E1;
-                .notification__content
-                  span.notification__category Analytics
-                  p
-                    | Your website’s active users count increased by
-                    span.text-success.text-semibold 28%
-                    | in the last week. Great job!
-              a.dropdown-item href="#" 
-                .notification__icon-wrapper
-                  .notification__icon
-                    i.material-icons &#xE8D1;
-                .notification__content
-                  span.notification__category Sales
-                  p
-                    | Last week your store’s sales count decreased by.
-                    span.text-danger.text-semibold 5.52%
-                    | It could have been worse!
-              a.dropdown-item.notification__all.text-center href="#"  View all Notifications
+        / - if user_signed_in?
+        /   li.nav-item.border-right.dropdown.notifications
+        /     a#dropdownMenuLink.nav-link.nav-link-icon.text-center aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
+        /       .nav-link-icon__wrapper
+        /         i.material-icons &#xE7F4;
+        /         span.badge.badge-pill.badge-danger 2
+        /     .dropdown-menu.dropdown-menu-small aria-labelledby="dropdownMenuLink" 
+        /       a.dropdown-item href="#" 
+        /         .notification__icon-wrapper
+        /           .notification__icon
+        /             i.material-icons &#xE6E1;
+        /         .notification__content
+        /           span.notification__category Analytics
+        /           p
+        /             | Your website’s active users count increased by
+        /             span.text-success.text-semibold 28%
+        /             | in the last week. Great job!
+        /       a.dropdown-item href="#" 
+        /         .notification__icon-wrapper
+        /           .notification__icon
+        /             i.material-icons &#xE8D1;
+        /         .notification__content
+        /           span.notification__category Sales
+        /           p
+        /             | Last week your store’s sales count decreased by.
+        /             span.text-danger.text-semibold 5.52%
+        /             | It could have been worse!
+        /       a.dropdown-item.notification__all.text-center href="#"  View all Notifications
         li.nav-item.dropdown
           - if user_signed_in?
             a.nav-link.dropdown-toggle.text-nowrap.px-3 aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" href="#" role="button" 
-              img.user-avatar.rounded-circle.mr-2 alt="User Avatar" src="/images/shards/avatars/0.jpg" /
-              span.d-none.d-md-inline-block= current_user.userable.name
+              / img.user-avatar.rounded-circle.mr-2 alt="User Avatar" src="/images/shards/avatars/0.jpg" /
+              span.d-none.d-md-inline-block= "Seja Bem Vindo Corretor(a) #{current_user.userable.name}" 
             .dropdown-menu.dropdown-menu-small
-              a.dropdown-item href="user-profile.html" 
-                i.material-icons &#xE7FD;
-                | Profile
-              a.dropdown-item href="edit-user-profile.html" 
-                i.material-icons &#xE8B8;
-                | Edit Profile
-              a.dropdown-item href="file-manager-cards.html" 
-                i.material-icons &#xE2C7;
-                | Files
-              a.dropdown-item href="transaction-history.html" 
-                i.material-icons &#xE896;
-                | Transactions
-              .dropdown-divider
+              / a.dropdown-item href="user-profile.html" 
+              /   i.material-icons &#xE7FD;
+              /   | Profile
+              / a.dropdown-item href="edit-user-profile.html" 
+              /   i.material-icons &#xE8B8;
+              /   | Edit Profile
+              / a.dropdown-item href="file-manager-cards.html" 
+              /   i.material-icons &#xE2C7;
+              /   | Files
+              / a.dropdown-item href="transaction-history.html" 
+              /   i.material-icons &#xE896;
+              /   | Transactions
+              / .dropdown-divider
               - if current_user.userable.admin?
                 = link_to admin_destroy_session_path, class: 'dropdown-item text-danger ', method: :delete do 
                   i.material-icons.text-danger &#xE879;

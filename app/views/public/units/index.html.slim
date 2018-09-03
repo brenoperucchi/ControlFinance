@@ -72,24 +72,31 @@
                 th Details
                 th.text-center Status
                 th.text-center Total
-                th.text-right Actions
+                / th.text-right Actions
             tbody
               - @units.each do |unit|
                 tr
                   / td.lo-stats__image
                     img.border.rounded src="/images/shards/sales-overview/product-order-1.jpg" /
                   td.lo-stats__order-details
-                    span= unit.name
-                    span 21 February 2018 20:32
+                    span
+                      | Unidade:
+                      '
+                      = unit.name
+                    h7 
+                      = unit.registry
                   td.lo-stats__status
                     .d-table.mx-auto
-                      span.badge.badge-pill.badge-success= t(unit.state, scope:'views.common').upcase
+                      span[class="badge badge-pill #{shards_state_helper(unit.state)}"]= t(unit.state, scope:'views.common').upcase
                   / td.lo-stats__items.text-center 12
-                  td.lo-stats__total.text-center.text-success= number_with_precision unit.value
-                  td.lo-stats__actions
-                    .btn-group.d-table.ml-auto aria-label=("Basic example") role="group" 
-                      / button.btn.btn-sm.btn-white type="button"  Cancel
-                      button.btn.btn-sm.btn-white type="button"  Edit
+                  - unless unit.bought? or unit.booked?
+                    td.lo-stats__total.text-center.text-success= number_with_precision unit.value
+                  - else
+                    td.lo-stats__total.text-center.text-danger= t(:bought, scope:'views.common')
+                  / td.lo-stats__actions
+                  /   .btn-group.d-table.ml-auto aria-label=("Basic example") role="group" 
+                  /     / button.btn.btn-sm.btn-white type="button"  Cancel
+                  /     button.btn.btn-sm.btn-white type="button"  Edit
       .card-footer.border-top
         / .row
         /   .col
@@ -101,6 +108,31 @@
         /   .col.text-right.view-report
         /     a href="#"  View full report →
   .col-lg-4.col-md-4.col-sm-12.mb-4
+    .card.card-small.user-stats.mb-4
+      .card-body
+        .row
+          .col-6.col-sm-4.text-center
+            h4.m-0 = @build.name
+            span.text-light.text-uppercase = model_class.human_attribute_name(:name)
+          .col-6.col-sm-4.text-center
+            h4.m-0 = @build.registry
+            span.text-light.text-uppercase = model_class.human_attribute_name(:registry)
+          .col-6.col-sm-4.text-center
+            h4.m-0 = t(@build.state, scope:'views.common')
+            span.text-light.text-uppercase = model_class.human_attribute_name(:state)
+          / .col-6.col-sm-3.text-center
+          /   h4.m-0= @build.status
+          /   span.text-light.text-uppercase = model_class.human_attribute_name(:state)
+      .card-footer.py-0
+        .row
+          .col-12.col-sm-12.border-top.pb-3.pt-2.border-right
+            .progress-wrapper
+              span.progress-label= t :deadline, scope: 'views.proposal'
+              strong
+                span.progress-value= @build.deadline || "5 days"
+              / .progress.progress-sm
+                .progress-bar.progress-bar-striped aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" style=("width: 80%;") 
+
     .card.card-small.mb-4
       .card-header.border-bottom
         h6.m-0 Account Details
@@ -108,41 +140,59 @@
         li.list-group-item.p-3
           .row
             .col
-              form
-                .form-row
-                  .form-group.col-md-6
-                    label for="feFirstName"  First Name
-                    input#feFirstName.form-control placeholder=("First Name") type="text" value="Sierra" /
-                  .form-group.col-md-6
-                    label for="feLastName"  Last Name
-                    input#feLastName.form-control placeholder=("Last Name") type="text" value="Brooks" /
-                .form-row
-                  .form-group.col-md-6
-                    label for="feEmailAddress"  Email
-                    input#feEmailAddress.form-control placeholder="Email" type="email" value="sierra@example.com" /
-                  .form-group.col-md-6
-                    label for="fePassword"  Password
-                    input#fePassword.form-control placeholder="Password" type="password" /
-                .form-group
-                  label for="feInputAddress"  Address
-                  input#feInputAddress.form-control placeholder=("1234 Main St") type="text" /
-                .form-row
-                  .form-group.col-md-6
-                    label for="feInputCity"  City
-                    input#feInputCity.form-control type="text" /
-                  .form-group.col-md-4
-                    label for="feInputState"  State
-                    select#feInputState.form-control
-                      option selected=""  Choose...
-                      option ...
-                  .form-group.col-md-2
-                    label for="inputZip"  Zip
-                    input#inputZip.form-control type="text" /
-                .form-row
-                  .form-group.col-md-12
-                    label for="feDescription"  Description
-                    textarea.form-control name="feDescription" rows="5"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?
-                button.btn.btn-accent type="submit"  Update Account
+              = simple_form_for @proposal, url: public_proposal_path(@build), wrapper: :shards_form, html:{class: ''} do |f|
+                - f.object.buyers.new if f.object.buyers.empty?
+                = f.simple_fields_for :buyers do |buyer|
+                  .form-row
+                    .form-group.col-md-6
+                      = buyer.input :name, as: :string, placeholder: t_holder(:name, Buyer)
+                    .form-group.col-md-6
+                      = f.input :value, placeholder: t_holder(:value, f.object.class), hint: t(:unit, scope:'number.currency.format'), input_html:{value: number_with_precision(f.object.value)}
+                  .form-row
+                    .form-group.col-md-4
+                      = f.input :unit, as: :select, collection: @build.units.pending, label_method: :name, value_method: :id, include_blank: false, include_hidden: false, input_html:{id: 'multiSelect', multiple:false, include_hidden: false, include_blank: false}
+  
+                  .form-row
+                    .form-group.col-md-12
+                      = f.input :negociate, as: :text, placeholder: t_holder(:negociate, f.object.class), input_html:{rows: 40, style:"margin-top: 0px; margin-bottom: 0px; height: 70px;" }
+                  = f.submit t('proposal_create', scope: "views.unit.index"), :class => 'btn btn-accent'
+                  '
+                  = link_to t('back', scope: "helpers.links"), public_dashboards_path(@build), :class => 'btn'
+              / form
+              /   .form-row
+              /     .form-group.col-md-6
+              /       label for="feFirstName"  First Name
+              /       input#feFirstName.form-control placeholder=("First Name") type="text" value="Sierra" /
+              /     .form-group.col-md-6
+              /       label for="feLastName"  Last Name
+              /       input#feLastName.form-control placeholder=("Last Name") type="text" value="Brooks" /
+              /   .form-row
+              /     .form-group.col-md-6
+              /       label for="feEmailAddress"  Email
+              /       input#feEmailAddress.form-control placeholder="Email" type="email" value="sierra@example.com" /
+              /     .form-group.col-md-6
+              /       label for="fePassword"  Password
+              /       input#fePassword.form-control placeholder="Password" type="password" /
+              /   .form-group
+              /     label for="feInputAddress"  Address
+              /     input#feInputAddress.form-control placeholder=("1234 Main St") type="text" /
+              /   .form-row
+              /     .form-group.col-md-6
+              /       label for="feInputCity"  City
+              /       input#feInputCity.form-control type="text" /
+              /     .form-group.col-md-4
+              /       label for="feInputState"  State
+              /       select#feInputState.form-control
+              /         option selected=""  Choose...
+              /         option ...
+              /     .form-group.col-md-2
+              /       label for="inputZip"  Zip
+              /       input#inputZip.form-control type="text" /
+              /   .form-row
+              /     .form-group.col-md-12
+              /       label for="feDescription"  Description
+              /       textarea.form-control name="feDescription" rows="5"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio eaque, quidem, commodi soluta qui quae minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi cumque?
+              /   button.btn.btn-accent type="submit"  Update Account
 
 
 

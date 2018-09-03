@@ -160,7 +160,7 @@ class Public::ProposalsController < Public::BaseController
     # Never trust parameters from the scary internet, only allow the white list through.
     def proposal_params
       delocalize_config = { :value => :number }
-      params.require(:proposal).permit(:state, :name, :negociate, :value, :comment, :due_at,
+      params.require(:proposal).permit(:state, :name, :negociate, :value, :comment, :due_at, :unit_id,
                                        broker_attributes:[:id, :name, user_attributes:[:id, :email]],
                                        buyers_attributes:[:id, :name]).delocalize(delocalize_config)
     end

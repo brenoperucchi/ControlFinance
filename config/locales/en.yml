@@ -57,6 +57,8 @@ en:
           proposals_expired: Expire Proposals
     dashboards:
       available: Available
+      units: 'Unit available: %{units}'
+      print: 'Print Table Sales'
       update_at: 'Update at %{date}'
       widget4:
         title1: Proposal received
@@ -102,7 +104,7 @@ en:
         unit_available_html:
           one: 'Only left <strong> %{count} </strong> unit available'
           other: 'Only left <strong> %{count} </strong> unit available'
-        proposal_create: "Criar proposta"
+        proposal_create: "Make proposal"
     session:
       title: "Please type your e-mail for fully access"
       acceptance: "No part of this website or any of its contents may be reproduced, copied, modified or adapted, without the prior written consent of the author, unless otherwise indicated for stand-alone materials."
@@ -172,6 +174,7 @@ en:
       approved: Approved
       select_all: Select All
       deselect_all: Deselect All
+      active: Active
     document:      
       contract_build_address_active: "Build %{build}, located at %{address}"
       contract: "Contract Overview"

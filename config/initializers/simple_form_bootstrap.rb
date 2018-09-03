@@ -233,4 +233,12 @@ SimpleForm.setup do |config|
     end
   end
 
+  config.wrappers :shards_form, error_class: 'has-error' do |b|
+    b.use :label, class: ''
+    b.use :html5
+    b.use :placeholder
+    b.use :input, class: 'form-control'
+    b.use :error, wrap_with: { tag: 'label', class: 'error' }
+  end
+
 end

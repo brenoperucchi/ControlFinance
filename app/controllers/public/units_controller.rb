@@ -8,6 +8,14 @@ class Public::UnitsController < Public::BaseController
   def index
     @proposals = @build.proposals
     @units = @build.units
+
+
+    @broker = current_user.userable
+    @notes = @broker.notes.where(unit: @unit).order('created_at desc')
+    # @proposals = @broker.proposals.where(unit: @unit)
+    @proposal = @build.proposals.new
+    @proposal.due_at = Date.today.strftime("%d/%m/%Y")
+    @proposal.broker = @broker
     respond_with @units
   end
 
