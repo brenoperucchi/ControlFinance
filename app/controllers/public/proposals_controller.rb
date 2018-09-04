@@ -1,12 +1,12 @@
 class Public::ProposalsController < Public::BaseController
-  layout 'pages'
+  layout 'shards'
   # skip_before_action :authenticate_user!, only:[:create, :update, :destroy, :expired]
   before_action :broker_set, except: [:comment, :expired]
   before_action :proposal_set, only: [:show, :edit, :update, :destroy, :comment, :invoice]
-  before_action :init_of_params, only: [:index, :new, :create, :booking]
+  before_action :init_of_params, only: [:index, :create, :booking]
   before_action :init_of_proposal, only: [:edit, :update, :comment, :redirect_if_proposal_bought, :invoice, :destroy]
   # before_action :init_activities, only: [:document, :edit, :update]
-  before_action :redirect_if_proposal_bought, except: [:comment, :expired, :invoice]
+  before_action :redirect_if_proposal_bought, except: [:new, :comment, :expired, :invoice]
   before_action :redirect_if_broker_config_set, except: [:comment, :expired, :invoice]
   respond_to :html, :json, :js
 
@@ -37,10 +37,12 @@ class Public::ProposalsController < Public::BaseController
     @broker = current_user.userable
     @notes = @broker.notes.where(unit: @unit).order('created_at desc')
     @proposals = @broker.proposals.where(unit: @unit)
-    @proposal = @unit.proposals.new
+    @build = current_store.builds.find(params[:build_id])
+    @units = @build.units
+    @proposal = @build.proposals.new
     @proposal.due_at = Date.today.strftime("%d/%m/%Y")
     @proposal.broker = @broker
-    render :new
+    render :new, layout: 'shards'
   end
 
   def edit
@@ -48,7 +50,9 @@ class Public::ProposalsController < Public::BaseController
   end
 
   def create
-    @proposal = @unit.proposals.new(proposal_params)
+    @build = current_store.builds.find(params[:build_id])
+    @units = @build.units
+    @proposal = @build.proposals.new(proposal_params)
     @proposal.brokerage = @unit.brokerage
     @proposal.broker = @broker
     # sign_in @proposal.broker.user if @proposal.try(:broker).try(:user).try(:persisted?)
@@ -58,7 +62,6 @@ class Public::ProposalsController < Public::BaseController
       else
         @notes = @broker.notes.where(unit: @unit).order('created_at desc')
         respond_with @proposal
-
       end
     else
       redirect_if_proposal_bought
@@ -148,8 +151,10 @@ class Public::ProposalsController < Public::BaseController
     end
 
     def init_of_params
-      @unit = Unit.find(params[:unit_id])
-      @build = @unit.builder
+      # @unit = Unit.find(params[:unit_id])
+      # @build = @unit.builder
+      @build = current_store.builds.find(params[:build_id])
+      @unit = current_store.units.find(proposal_params[:unit_id])
     end
 
     def init_of_proposal

@@ -37,11 +37,11 @@ pt-BR:
     store: 
       broker_config: 'Permitir corretor não aprovado crie propostas'
     buyer:
-      name: Nome do seu cliente (não é obrigatório)
+      name: Nome do cliente (não obrigatório)
     proposal:
       name: Nome cliente
       value: Valor proposta
-      negociate: "Aqui você deve descrever a negociação.\nExemplo: valor de entrada, ato do cliente, o número de parcelamento e vencimento."
+      negociate: "Descreva a negociação.\nExemplo: valor de entrada, ato do cliente, o número de parcelamento e vencimento."
       accepted_at: 'Aceito em %{date}'
   views:
     admin:

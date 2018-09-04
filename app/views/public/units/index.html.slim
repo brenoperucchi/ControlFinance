@@ -7,6 +7,17 @@
     .card-post--1 .card-body {
         padding: 1rem!important;
     }
+    .lo-stats .container-fluid {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-width: 0!important;
+    }
+
+    .lo-stats table {
+        min-width: 0px;
+    }
 
     .card#build {
       margin-bottom: 10px!important;
@@ -60,13 +71,13 @@
         p.card-text.d-inline-block.mb-3= @build.address
         p
           span.text-muted= t(:update_at, scope:'views.dashboards', date: l(@build.updated_at, format: :option2))
-    .card.mt-4
+    .card.mt-4.card-small.lo-stats
       .card-header.border-bottom
         h6.m-0= @build.name
         / .block-handle
       .card-body.p-0
         .container-fluid.px-0
-          table.table.mb-0.table-condensed
+          table.table.mb-0
             thead.py-2.bg-light.text-semibold.border-bottom
               tr
                 th Details
@@ -111,15 +122,15 @@
     .card.card-small.user-stats.mb-4
       .card-body
         .row
-          .col-6.col-sm-4.text-center
-            h5.m-0 = @build.incorporation
-            span.text-light.text-uppercase = model_class.human_attribute_name(:incorporation)
-          .col-6.col-sm-4.text-center
-            h5.m-0 = @build.registry
-            span.text-light.text-uppercase = model_class.human_attribute_name(:registry)
-          .col-6.col-sm-4.text-center
-            h5.m-0 = t(@build.state, scope:'views.common')
+          .col-4.col-sm-4.text-center
+            h6.m-0.text-info = t(@build.state, scope:'views.common')
             span.text-light.text-uppercase = model_class.human_attribute_name(:state)
+          .col-4.col-sm-4.text-center
+            h6.m-0 = @build.incorporation
+            span.text-light.text-uppercase = model_class.human_attribute_name(:incorporation)
+          .col-4.col-sm-4.text-center
+            h6.m-0 = @build.registry
+            span.text-light.text-uppercase = model_class.human_attribute_name(:registry)
           / .col-6.col-sm-3.text-center
           /   h4.m-0= @build.status
           /   span.text-light.text-uppercase = model_class.human_attribute_name(:state)
@@ -138,22 +149,22 @@
 
     .card.card-small.mb-4
       .card-header.border-bottom
-        h6.m-0 Fazer proposta
+        h6.m-0 Proposta
       ul.list-group.list-group-flush
         li.list-group-item.p-3
           .row
             .col
-              = simple_form_for @proposal, url: public_proposal_path(@build), wrapper: :shards_form, html:{class: ''} do |f|
+              = simple_form_for @proposal, url: public_proposals_path(@build), wrapper: :shards_form, html:{class: ''} do |f|
                 - f.object.buyers.new if f.object.buyers.empty?
                 = f.simple_fields_for :buyers do |buyer|
                   .form-row
-                    .form-group.col-md-6
+                    .form-group.col-md-12
                       = buyer.input :name, as: :string, placeholder: t_holder(:name, Buyer)
+                  .form-row
                     .form-group.col-md-6
                       = f.input :value, placeholder: t_holder(:value, f.object.class), hint: t(:unit, scope:'number.currency.format'), input_html:{value: number_with_precision(f.object.value)}
-                  .form-row
-                    .form-group.col-md-4
-                      = f.input :unit, as: :select, collection: @build.units.pending, label_method: :name, value_method: :id, include_blank: false, include_hidden: false, input_html:{id: 'multiSelect', multiple:false, include_hidden: false, include_blank: false}
+                    .form-group.col-md-6
+                      = f.association :unit, as: :select, collection: @build.units.pending, label_method: :name, value_method: :id, include_blank: false, include_hidden: false, input_html:{id: 'multiSelect', multiple:false, include_hidden: false, include_blank: false}
                   .form-row
                     .form-group.col-md-12
                       = f.input :negociate, as: :text, placeholder: t_holder(:negociate, f.object.class), input_html:{rows: 40, style:"margin-top: 0px; margin-bottom: 0px; height: 70px;" }
@@ -162,9 +173,9 @@
 
                       
 
-                  = f.submit t('proposal_create', scope: "views.unit.index"), :class => 'btn btn-accent'
-                  '
-                  = link_to t('back', scope: "helpers.links"), public_dashboards_path(@build), :class => 'btn'
+                  = f.submit t('proposal_create', scope: "views.unit.index"), :class => 'text-uppercase col-lg-12 btn btn-accent'
+                  / '
+                  / = link_to t('back', scope: "helpers.links"), public_dashboards_path(@build), :class => 'btn'
               / form
               /   .form-row
               /     .form-group.col-md-6

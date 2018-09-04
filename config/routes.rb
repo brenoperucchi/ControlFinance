@@ -38,17 +38,15 @@ Rails.application.routes.draw do
       resources :builds, only:[:index], shallow:true
     end
 
-    resources :proposals, only: [:create], path: 'build/:build_id'
+    # resources :proposals, only: [:create], path: 'build/:build_id'
     resources :builds, only: [:sales] do
       get 'sales', on: :collection
-      resources :units, only:[:index], shallow:true do
-        resources :notes, only: :create, path: 'broker/:broker_id'
-        resources :proposals, except: [:destroy] do
-          get 'booking', on: :collection
-          get 'expired', on: :member
-          patch 'comment', on: :member
-          get 'invoice', on: :member
-        end
+      resources :notes, only: :create, path: 'broker/:broker_id'
+      resources :proposals, except: [:destroy] do
+        get 'booking', on: :collection
+        get 'expired', on: :member
+        patch 'comment', on: :member
+        get 'invoice', on: :member
       end
     end
   end
