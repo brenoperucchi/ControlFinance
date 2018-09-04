@@ -63,7 +63,7 @@
     .card.card-small.card-post.card-post--1
       / = link_to public_build_units_path(@build) do
       .card-post__image style=("background-image: url(#{@build.image});") 
-      / = link_to t(:available, scope: 'views.dashboards'),public_build_units_path(@build), class: 'card-post__category badge badge-pill badge-info'
+      = link_to t(:available, scope: 'views.dashboards'), "#", class: 'card-post__category badge badge-pill badge-info'
       .card-body
         h5.card-title
           / a.text-fiord-blue href="#"  Conduct at an replied removal an amongst

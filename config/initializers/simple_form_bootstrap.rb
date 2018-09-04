@@ -237,8 +237,8 @@ SimpleForm.setup do |config|
     b.use :label, class: ''
     b.use :html5
     b.use :placeholder
-    b.use :input, class: 'form-control'
-    b.use :error, wrap_with: { tag: 'label', class: 'error' }
+    b.use :input, class: 'form-control', error_class: 'is-invalid'
+    b.use :error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
   end
   
 end
