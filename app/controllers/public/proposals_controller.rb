@@ -7,8 +7,9 @@ class Public::ProposalsController < Public::BaseController
   before_action :init_of_proposal, only: [:edit, :update, :comment, :redirect_if_proposal_bought, :invoice, :destroy]
   # before_action :init_activities, only: [:document, :edit, :update]
   before_action :redirect_if_proposal_bought, except: [:new, :comment, :expired, :invoice]
-  before_action :redirect_if_broker_config_set, except: [:comment, :expired, :invoice]
+  before_action :redirect_if_broker_config_set, except: [:new, :comment, :expired, :invoice]
   respond_to :html, :json, :js
+  skip_before_action :authenticate_user!, only:[:new]
 
   def invoice
     respond_with @proposal, layout: 'pages/print'
@@ -34,9 +35,9 @@ class Public::ProposalsController < Public::BaseController
   def new
     # @activities_broker = @unit.activities_broker(@broker).order('created_at desc')_
     ## MENTORIA
-    @broker = current_user.userable
-    @notes = @broker.notes.where(unit: @unit).order('created_at desc')
-    @proposals = @broker.proposals.where(unit: @unit)
+    # @broker = current_user.userable
+    # @notes = @broker.notes.where(unit: @unit).order('created_at desc')
+    # @proposals = @broker.proposals.where(unit: @unit)
     @build = current_store.builds.find(params[:build_id])
     @units = @build.units
     @proposal = @build.proposals.new
