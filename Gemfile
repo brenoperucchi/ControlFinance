@@ -68,7 +68,7 @@ group :development do
 end
 
 # Stylesheet
-gem 'simple_form', '~> 3.5.0'
+gem 'simple_form', '4.0.1'
 gem "slim"
 gem "slim-rails"
 gem 'bootstrap-sass', '~> 3.3.1'

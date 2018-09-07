@@ -351,9 +351,9 @@ GEM
       rufus-scheduler (~> 3.2)
       sidekiq (>= 3)
       tilt (>= 1.4.0)
-    simple_form (3.5.1)
-      actionpack (> 4, < 5.2)
-      activemodel (> 4, < 5.2)
+    simple_form (4.0.1)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     sinatra (2.0.3)
       mustermann (~> 1.0)
       rack (~> 2.0)
@@ -468,7 +468,7 @@ DEPENDENCIES
   shoulda-matchers
   sidekiq
   sidekiq-scheduler
-  simple_form (~> 3.5.0)
+  simple_form (= 4.0.1)
   slim
   slim-rails
   spring
