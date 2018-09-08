@@ -39,10 +39,11 @@ Rails.application.routes.draw do
     end
 
     # resources :proposals, only: [:create], path: 'build/:build_id'
-    resources :builds, only: [:sales] do
+    resources :builds, only: [:sales], shallow: true do
       get 'sales', on: :collection
+      get 'option/:option', on: :member, action: :option, as: 'option'
       resources :notes, only: :create, path: 'broker/:broker_id'
-      resources :proposals, except: [:destroy] do
+      resources :proposals, except: [:destroy, :edit] do
         get 'booking', on: :collection
         get 'expired', on: :member
         patch 'comment', on: :member

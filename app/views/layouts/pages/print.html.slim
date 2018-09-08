@@ -39,12 +39,12 @@ html
 
                           '
                           = t('back', scope: "helpers.links")
-                      - if @proposal
-                        li.nav-item
-                          = link_to edit_public_proposal_path(@proposal), :class => 'bold text-primary' do
-                            i.fa.fa-edit
-                            '
-                            = t('edit', scope: "helpers.links")
+                      / - if @proposal
+                      /   li.nav-item
+                      /     = link_to edit_public_proposal_path(@proposal), :class => 'bold text-primary' do
+                      /       i.fa.fa-edit
+                      /       '
+                      /       = t('edit', scope: "helpers.links")
           = yield
     = render 'layouts/pages/modal'
     = render 'layouts/pages/footer'

@@ -44,7 +44,7 @@ class Admin::ProposalsController < Admin::BaseController
   end
 
   def edit
-    @proposals = Proposal.all
+    @proposals = @build.proposals
     @notes = @proposal.broker.notes.where(unit: @proposal.unit).order('created_at desc')
     respond_with @proposal #, layout:'common/chat')
   end

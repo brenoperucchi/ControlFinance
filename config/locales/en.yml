@@ -121,8 +121,9 @@ en:
         title1: 'Purchase propsosal of Unit %{unit} do %{build}'
         broker_list: 'All proposals created'
         value_reques: Base value
-      proposal_deadline: Proposal deadline
+      proposal_deadline: Proposal deadline %{deadline}
       build_deadline: 'Build deadline:'
+      doc_deadline: 'Documentation:'
       negociate: Negociação
       due_at: 'Due At %{due_at}'
       accepted_at: 'Accepted At %{date}'

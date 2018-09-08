@@ -4,11 +4,11 @@
     li.breadcrumb-item
       = link_to t(:home, scope: 'breadcrumb'), public_dashboards_path
     li.breadcrumb-item
-      = link_to @build.name , public_build_units_path(@build)
+      = link_to @build.name , new_public_build_proposal_path(@build)
+    / li.breadcrumb-item
+    /   = link_to t(:new, scope: 'breadcrumb.proposal'), new_public_unit_proposal_path(@unit)
     li.breadcrumb-item
-      = link_to t(:new, scope: 'breadcrumb.proposal'), new_public_unit_proposal_path(@unit)
-    li.breadcrumb-item
-      = link_to t(:index, scope: 'breadcrumb.proposal'), public_unit_proposals_path(@unit)
+      = link_to t(:index, scope: 'breadcrumb.proposal'), public_proposal_path
     li.breadcrumb-item.active
       = t(:edit, scope: 'breadcrumb.proposal')  
 
@@ -26,4 +26,4 @@
         .form-group
           = f.submit nil, :class => 'btn btn-primary'
           '
-          = link_to t('back', scope: "helpers.links"), public_unit_proposals_path(@unit), :class => 'btn'
+          = link_to t('back', scope: "helpers.links"), public_proposal_path(@build), :class => 'btn'

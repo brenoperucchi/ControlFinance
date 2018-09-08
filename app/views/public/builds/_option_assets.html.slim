@@ -1,0 +1,47 @@
+- model_class = Build
+- content_for :footer
+  css:
+    .card-post__image {
+        min-height: 359px!important;
+      }
+    .card-post--1 .card-body {
+        padding: 1rem!important;
+    }
+    .lo-stats .container-fluid {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-width: 0!important;
+    }
+
+    .lo-stats table {
+        min-width: 0px;
+    }
+.page-header.row.no-gutters.py-4
+  .col-12.col-sm-4.text-center.text-sm-left.mb-0
+    a href="/" 
+      span.text-uppercase.page-subtitle= t(:home, scope: 'breadcrumb')
+    h3.page-title= @build.name
+  .col-12.col-sm-4.d-flex.align-items-center
+    .btn-group.btn-group-sm.btn-group-toggle.d-inline-flex.mb-4.mb-sm-0.mx-auto aria-label=("Page actions") role="group" 
+      = link_to 'PROPOSTA', new_public_build_proposal_path(@build), class: 'btn btn-white '
+      = link_to 'IMAGENS / DOC', option_public_build_path(@build, :assets), class: 'btn btn-white active'
+      = link_to 'HISTÓRICO', option_public_build_path(@build, :timeline), class: 'btn btn-white'
+
+.file-manager.file-manager-cards
+  .row
+    .col
+      span.file-manager__group-title.text-uppercase.text-light Documents
+  .row
+    - @build.assets.each do |asset|
+      .col-12.col-sm-6.col-lg-3
+        .file-manager__item.card.card-small.mb-3
+          .file-manager__item-preview.card-body.px-0.pb-0.pt-4
+            img alt="#{asset.file.url}" src="#{asset.file.url}"
+          .card-footer.border-top
+            span.file-manager__item-icon
+              i.material-icons 
+            h6.file-manager__item-title
+              = link_to "download", asset.file.url, download: "download_#{asset.id}"
+            span.file-manager__item-size.ml-auto= asset.file.size

@@ -9,7 +9,7 @@ class Admin::BuildsController < Admin::BaseController
     when 'expired'
       respond_to do |format|
         format.html do           
-          @build.proposals.expired.each do |proposal|
+          @build.admin_proposals.expired.each do |proposal|
             mailer = proposal.mailers.new(store: proposal.builder.store, userable: proposal.broker, type: "Mailer::ProposalExpired")
             mailer.prepare
             mailer.delivery
@@ -33,9 +33,9 @@ class Admin::BuildsController < Admin::BaseController
 
   def scope
     if params[:scope] != "proposals"
-      @collection = @build.proposals.send(params[:scope]).order('updated_at desc')
+      @collection = @build.admin_proposals.send(params[:scope]).order('updated_at desc')
     else
-      @collection = @build.proposals.order('updated_at desc')
+      @collection = @build.admin_proposals.order('updated_at desc')
     end
   end
 

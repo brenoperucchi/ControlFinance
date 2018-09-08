@@ -1,0 +1,120 @@
+- model_class = Build
+- content_for :footer
+  css:
+    .card-post__image {
+        min-height: 359px!important;
+      }
+    .card-post--1 .card-body {
+        padding: 1rem!important;
+    }
+    .lo-stats .container-fluid {
+        position: absolute;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        min-width: 0!important;
+    }
+    .lo-stats table {
+        min-width: 0px;
+    }
+
+.page-header.row.no-gutters.py-4
+  .col-12.col-sm-4.text-center.text-sm-left.mb-0
+    a href="/" 
+      span.text-uppercase.page-subtitle= t(:home, scope: 'breadcrumb')
+    h3.page-title= @build.name
+  .col-12.col-sm-4.d-flex.align-items-center
+    .btn-group.btn-group-sm.btn-group-toggle.d-inline-flex.mb-4.mb-sm-0.mx-auto aria-label=("Page actions") role="group" 
+      = link_to 'PROPOSTA', new_public_build_proposal_path(@build), class: 'btn btn-white'
+      = link_to 'IMAGENS / DOC', option_public_build_path(@build, :assets), class: 'btn btn-white'
+      = link_to 'HISTÓRICO', option_public_build_path(@build, :timeline), class: 'btn btn-white active'
+
+.card.card-small.user-activity.mb-4
+  .card-header.border-bottom
+    h6.m-0 User Activity
+    .block-handle
+  .card-body.p-0
+    .user-activity__item.pr-3.py-3
+      .user-activity__item__icon
+        i.material-icons 
+      .user-activity__item__content
+        span.text-light 23 Minutes ago
+        p
+          | Assigned himself to the
+          a href="#"  Shards Dashboards
+          | project.
+      .user-activity__item__action.ml-auto
+        button.ml-auto.btn.btn-sm.btn-white View Project
+    .user-activity__item.pr-3.py-3
+      .user-activity__item__icon
+        i.material-icons 
+      .user-activity__item__content
+        span.text-light 2 Hours ago
+        p
+          | Marked
+          a href="#"  7 tasks
+          | as
+          span.badge.badge-pill.badge-outline-success Complete
+          | inside the
+          a href="#"  DesignRevision
+          | project.
+    .user-activity__item.pr-3.py-3
+      .user-activity__item__icon
+        i.material-icons 
+      .user-activity__item__content
+        span.text-light 3 Hours and 10 minutes ago
+        p
+          | Added
+          a href="#"  Jack Nicholson
+          | and
+          a href="#"  3 others
+          | to the
+          a href="#"  DesignRevision
+          | team.
+      .user-activity__item__action.ml-auto
+        button.ml-auto.btn.btn-sm.btn-white View Team
+    .user-activity__item.pr-3.py-3
+      .user-activity__item__icon
+        i.material-icons 
+      .user-activity__item__content
+        span.text-light 2 Days ago
+        p
+          | Opened
+          a href="#"  3 issues
+          | in.
+          a href="#"  2 projects
+    .user-activity__item.pr-3.py-3
+      .user-activity__item__icon
+        i.material-icons 
+      .user-activity__item__content
+        span.text-light 2 Days ago
+        p
+          | Added
+          a href="#"  3 new tasks
+          | to the
+          a href="#"  DesignRevision
+          | project:
+        ul.user-activity__item__task-list.mt-2
+          li
+            .custom-control.custom-checkbox
+              input#user-activity-task-1.custom-control-input type="checkbox" /
+              label.custom-control-label for="user-activity-task-1"  Fix blog pagination issue.
+          li
+            .custom-control.custom-checkbox
+              input#user-activity-task-2.custom-control-input type="checkbox" /
+              label.custom-control-label for="user-activity-task-2"  Remove extra padding from blog post container.
+    .user-activity__item.pr-3.py-3
+      .user-activity__item__icon
+        i.material-icons 
+      .user-activity__item__content
+        span.text-light 2 Days ago
+        p
+          | Marked
+          a href="#"  3 tasks
+          | as
+          span.badge.badge-pill.badge-outline-danger Invalid
+          | inside the
+          a href="#"  Shards Dashboards
+          | project.
+  .card-footer.border-top
+    button.btn.btn-sm.btn-white.d-table.mx-auto Load More

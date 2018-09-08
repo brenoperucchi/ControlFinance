@@ -46,9 +46,9 @@ class Public::ProposalsController < Public::BaseController
     render :new, layout: 'shards'
   end
 
-  def edit
-    respond_with(@proposal)
-  end
+  # def edit
+  #   respond_with(@proposal)
+  # end
 
   def create
     @build = current_store.builds.find(params[:build_id])

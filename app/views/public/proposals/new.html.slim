@@ -57,6 +57,11 @@
     a href="/" 
       span.text-uppercase.page-subtitle= t(:home, scope: 'breadcrumb')
     h3.page-title= @build.name
+  .col-12.col-sm-4.d-flex.align-items-center
+    .btn-group.btn-group-sm.btn-group-toggle.d-inline-flex.mb-4.mb-sm-0.mx-auto aria-label=("Page actions") role="group" 
+      = link_to 'PROPOSTA', new_public_build_proposal_path(@build), class: 'btn btn-white active'
+      = link_to 'IMAGENS / DOC', option_public_build_path(@build, :assets), class: 'btn btn-white'
+      = link_to 'HISTÓRICO', option_public_build_path(@build, :timeline), class: 'btn btn-white'
 
 .row
   .col-lg-8.col-md-8.col-sm-12.mb-4
@@ -146,6 +151,16 @@
                 .progress.progress-sm
                   .progress-bar.progress-bar-striped aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" style="width: #{@build.build_deadline}%;"
                     span.progress-value = "#{@build.build_deadline}%"
+        .row
+          .col-12.col-sm-12.border-top.pb-3.pt-2.border-right
+            .progress-wrapper
+              span.progress-label
+                = t :doc_deadline, scope: 'views.proposal'
+                '
+              strong
+                .progress.progress-sm
+                  .bg-royal-blue.progress-bar.progress-bar-striped aria-valuemax="100" aria-valuemin="0" aria-valuenow="100" role="progressbar" style="width: #{@build.build_deadline}%;"
+                    span.progress-value = "#{@build.build_deadline}%"
 
 
     .card.card-small.mb-4
@@ -170,150 +185,5 @@
                     .form-group.col-md-12
                       = f.input :negociate, as: :text, placeholder: t_holder(:negociate, f.object.class), input_html:{rows: 40, style:"margin-top: 0px; margin-bottom: 0px; height: 70px;" }
                       p.text-muted.mb-0.mt-1
-                        = t :proposal_deadline, scope: 'views.proposal', deadline: @build.proposal_deadline
-
-                      
-
+                        = t :proposal_deadline, scope: 'views.proposal', deadline: l(Date.today + @build.proposal_deadline.to_f), format: :date
                   = f.submit t('proposal_create', scope: "views.unit.index"), :class => 'text-uppercase col-lg-12 btn btn-accent'
-
-
-
-
-
-
-
-
-
-
-/ - model_class = Proposal
-/ .inner
-/   ol.breadcrumb
-/     li.breadcrumb-item
-/       = link_to t(:home, scope: 'breadcrumb'), public_dashboards_path
-/     li.breadcrumb-item
-/       = link_to @build.name , public_build_units_path(@build)
-/     li.breadcrumb-item.active
-/       = t(:new, scope: 'breadcrumb.proposal')
-
-/ .card.card-borderless
-/   ul.nav.nav-tabs.nav-tabs-simple data-init-reponsive-tabs="dropdownfx" role="tablist" 
-/     li.nav-item
-/       a.active data-target="#tab2hellowWorld" data-toggle="tab" href="#" role="tab"  Nova Proposta
-/     li.nav-item
-/       a data-target="#tab2FollowUs" data-toggle="tab" href="#" role="tab"  Histórico
-/   .tab-content
-/     #tab2hellowWorld.tab-pane.active
-/       .row
-/         .col-lg-4
-/           .widget-card.card-default.bg-white.widget-loader-bar.m-b-20
-/             .card-block
-/               .row
-/                 .col-lg-4.col-md-4.col-sm-4.col-xs-6
-/                   h5.semi-bold.no-margin.text-information = @unit.name
-/                   p.small.no-margin = model_class.human_attribute_name(:unit)
-/                 .col-lg-4.col-md-4.col-sm-4.col-xs-6
-/                   h5.semi-bold.no-margin.text-information = @build.name
-/                   p.small.no-margin = model_class.human_attribute_name(:build)
-/                 .col-lg-4.col-md-4.col-sm-4.col-xs-3
-/                   h5.semi-bold.no-margin.text-information = t(@unit.state, scope:'views.common').upcase
-/                   p.small.no-margin = model_class.human_attribute_name(:state)
-/               .clearfix
-/               .row.m-t-20
-/                 .col-lg-12.col-md-12.text-center
-/                   h5.no-margin.p-b-5.text-info.bold= number_to_currency @unit.value
-/                   p.all-caps.small.no-margin = t :value_table, scope: 'views.proposal.new'
-/               .clearfix
-/               hr.line-dashed
-/               .row
-/                 .col-lg-6.col-md-6
-/                   h5.semi-bold.no-margin.text-information = @broker.name
-/                   p.small.no-margin = @broker.class.human_attribute_name(:name)
-/                 .col-lg-6.col-md-6
-/                   h5.semi-bold.no-margin.text-information = @broker.user.email
-/                   p.small.no-margin = @broker.user.class.human_attribute_name(:email)
-/               .clearfix
-/               hr.line-dashed
-/               .row
-/                 .col-lg-12.col-md-12.text-center
-/                   h4.no-margin.p-b-5.text-danger.semi-bold= @unit.deadline || "5 days"
-/                   p.small.no-margin = t :deadline, scope: 'views.proposal'
-/           .clearfix
-/           / .span.text-center
-/           /   = link_to public_unit_proposals_path(@unit), class: 'btn btn-info btn-outline' do
-/           /     = t :broker_list, scope: 'views.proposal.new'
-
-/           / = render 'timeline'                          
-/         .col-lg-8
-/           = simple_form_for [:public, @unit, @proposal], wrapper: :pages_form_default, html:{class: ''} do |f|
-/             .widget-card.card.card-default.m-b-5.no-border.no-margin
-/               .card-header
-/                 .card-title
-/                   h5
-/                     strong
-/                       = t :title1, scope:'views.proposal.new', unit:@unit.name, build:@build.name
-/                     / = model_class.model_name.human
-/               .card-block
-/                 / = f.error_notification
-/                 - if @proposal.restricted?
-/                   == render 'form_disable', f: f
-/                 - else
-/                 == render 'form', f: f 
-/                 hr.line-dashed
-/                 / .row
-/                 /   .col-lg-12
-/                 /     p Comentário da Empresa
-/                 /   - @proposal.activities.order('created_at desc').each do |activity|
-/                 /     .card.social-card.status.background-condensed data-social="item"
-/                 /       h5
-/                 /         span.hint-text few seconds ago
-/                 /       h2 = activity.comment
-
-/                 .form-group
-/                   = f.submit nil, :class => 'btn btn-primary'
-/                   '
-/                   = link_to t('back', scope: "helpers.links"), public_build_units_path(@build), :class => 'btn'
-/     #tab2FollowUs.tab-pane
-/       .row
-/         .col-lg-6
-/           - unless @proposals.blank?
-/             .widget.card.no-border.card-condensed.no-margin.widget-loader-circle.align-self-stretch.d-flex.flex-column
-/               .p-l-25.p-r-25.p-t-25
-/                 .pull-left
-/                   h4.text-success.no-margin = t(:last_sales, scope: 'views.build')
-/               .clearfix
-/               .widget-11-2-table.auto-overflow
-/                 table.table.table-condensed.table-hover
-/                   thead
-/                     tr
-/                       th.w-10.text-center.hidden-xs.hidden-sm= '#'
-/                       th.text-center= t :state, scope:'views.common'
-/                       th.text-center= t :created_at, scope:'views.common'
-/                       th.w-20.text-center= t :action, scope:'views.common'
-/                   tbody
-/                     - @proposals.order('created_at desc')[0..10].each do |proposal|
-/                       tr
-/                         td.text-center.font-montserrat.all-caps.fs-12.hidden-xs.hidden-sm
-/                           = proposal.id
-/                         td.text-center.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
-/                           = t proposal.state, scope:'views.common'
-/                         / td.text-right.hidden-lg
-/                           span.hint-text.small dewdrops
-/                         td.text-center.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
-/                           span.font-montserrat.fs-18= l proposal.created_at, format: :short
-/                         td.text-center.font-montserrat.all-caps.fs-12.b-l.b-dashed.b-grey
-/                           = link_to invoice_public_proposal_path(proposal), class: 'btn-xs' do
-/                             i.fa.fa-print
-/                             '
-/                             = t('print', scope: "helpers.links")
-/         .col-lg-6                
-/           = render 'notes', notes: @notes
-/ css:
-/   .timeline::before {
-/       content: '';
-/       position: absolute;
-/       top: 0;
-/       left: 18px;
-/       height: 100%;
-/       width: 2px;
-/       background: red;
-/   }
