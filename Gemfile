@@ -25,6 +25,7 @@ gem "responders"
 gem "delocalize"
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
+gem 'filesize'
 
 # Development and Test
 group :development, :test do

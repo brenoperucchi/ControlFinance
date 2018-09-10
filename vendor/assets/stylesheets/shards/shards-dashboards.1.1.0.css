@@ -5573,14 +5573,17 @@ html .ql-toolbar {
 
 .file-manager-cards .file-manager__item {
   overflow: hidden;
-  position: relative; }
+  position: relative; 
+  }
   .file-manager-cards .file-manager__item .card-footer {
-    display: flex; }
-  .file-manager-cards .file-manager__item:hover {
+    display: flex; 
+  }
+/*  .file-manager-cards .file-manager__item:hover {
     cursor: pointer; }
   .file-manager-cards .file-manager__item:before, .file-manager-cards .file-manager__item:after {
     content: '';
     position: absolute; }
+*/  
   .file-manager-cards .file-manager__item:before {
     background-repeat: no-repeat;
     background-position: center center;

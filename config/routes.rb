@@ -69,10 +69,10 @@ Rails.application.routes.draw do
     end
     resources :dashboards
     resources :builds do 
+      resources :images, only:[:new, :create, :index]
       get 'assets', on: :member
       get 'scope/:scope', to: 'builds#scope', on: :member, as: 'scope'
       get 'notify_proposal/:method', to: 'builds#notify_proposal', on: :member, as: 'notify_proposal'
-
       resources :units, except: [:index] do
         resources :proposals, shallow: true do 
           patch 'comment', on: :member

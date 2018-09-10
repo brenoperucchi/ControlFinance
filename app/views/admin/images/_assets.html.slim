@@ -1,6 +1,6 @@
 - model_class = Asset
 
-= simple_form_for Asset.new, url: public_assets_path(@build.class.name, @build) do |f|
+= simple_form_for @image, url: admin_build_images_path(@build) do |f|
   .modal-header
       button.close aria-hidden="true" data-dismiss="modal" type="button"  ×
       h4.modal-title
@@ -21,14 +21,15 @@ javascript:
   $(document).ready(function(){
     Dropzone.autoDiscover = false;
     $(".dropzone").dropzone({
-      url: "#{public_assets_path(@build.class.name, @build)}",
+      url: "#{admin_build_images_path(@build)}",
       maxFilesize: 15,
       paramName: "asset[file]",
       addRemoveLinks: true,
+      acceptedFiles: 'image/*',
       init: function() {
         $.ajax({
             type: 'GET',
-            url: "#{public_assets_path(@build.class.name, @build)}",
+            url: "#{admin_build_images_path(@build)}",
             dataType: 'JSON',
             success: function(response) {
             $.each(response, function(index, object){ 

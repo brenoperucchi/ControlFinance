@@ -15,7 +15,7 @@ class Unit < ApplicationRecord
   has_many :mailers,   class_name: 'Mailer', as: :mailable, dependent: :nullify 
   has_many :activities,   class_name: 'Activity', as: :recipient, dependent: :nullify 
   has_many :proposals, class_name: "Proposal", foreign_key: "unit_id", dependent: :nullify 
-  has_many :admin_proposals, class_name: Admin::Proposal, foreign_key: "unit_id", dependent: :nullify 
+  has_many :admin_proposals, class_name: 'Admin::Proposal', foreign_key: "unit_id", dependent: :nullify 
   belongs_to :builder, class_name: 'Build', :foreign_key => "build_id"
   
   validates_presence_of :name
