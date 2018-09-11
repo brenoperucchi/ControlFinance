@@ -1,5 +1,20 @@
 - model_class = Build
 - content_for :footer
+  javascript:
+    $('a.links').click(function(e){
+      var links = $('a.links');
+      options = {index: 'a.gallery', event: event,     hidePageScrollbars: false,
+    toggleControlsOnReturn: true,
+    toggleSlideshowOnSpace: true,
+    enableKeyboardNavigation: true,
+    closeOnEscape: true,
+    closeOnSlideClick: false,
+    closeOnSwipeUpOrDown: false,
+    disableScroll: false,
+    startSlideshow: true};
+      blueimp.Gallery(links, options);
+    });
+
   css:
     .card-post__image {
         min-height: 359px!important;
@@ -18,6 +33,21 @@
     .lo-stats table {
         min-width: 0px;
     }
+
+#blueimp-gallery.blueimp-gallery data-filter=":even" data-start-slideshow="true" 
+  .slides
+  h3.title
+  a.prev ‹
+  a.next ›
+  a.close ×
+  a.play-pause
+  ol.indicator
+
+#images style="display:none"
+  - @build.images.each do |asset|  
+    a href="#{asset.file.url}" title="#{asset.read_attribute(:file)}" class="gallery" 
+      img alt="#{asset.read_attribute(:file)}" src="#{asset.file.url('fill50')}" 
+
 .page-header.row.no-gutters.py-4
   .col-12.col-sm-4.text-center.text-sm-left.mb-0
     a href="/" 
@@ -29,36 +59,38 @@
       = link_to 'IMAGENS & DOC', option_public_build_path(@build, :assets), class: 'btn btn-white active'
       = link_to 'HISTÓRICO', option_public_build_path(@build, :timeline), class: 'btn btn-white'
 .file-manager.file-manager-cards
-  .row
-    .col
-      span.file-manager__group-title.text-uppercase.text-light Imagens
-  .row
-    - @build.images.each do |asset|
-      .col-12.col-sm-6.col-lg-3
-        .file-manager__item.card.card-small.mb-3
-          .file-manager__item-preview.card-body.px-0.pb-0.pt-4
-            a download="#{asset.read_attribute(:file)}" href="#{asset.file.url}" title="#{asset.read_attribute(:file)}" 
-              img alt="#{asset.read_attribute(:file)}" src="#{asset.file.url('fill200')}" 
-          .card-footer.border-top
-            span.file-manager__item-icon
-              i.material-icons &#xE24D;
-            h6.file-manager__item-title
-              a download="#{asset.read_attribute(:file)}" href="#{asset.file.url}" title="#{asset.read_attribute(:file)}" 
-                | Baixar Arquivo
-            span.file-manager__item-size.ml-auto= "#{(Filesize.from(asset.file.size.to_s) + 'b').to_s('kb')}"
-  .row
-    .col
-      span.file-manager__group-title.text-uppercase.text-light Documentos
-  .row
-    - @build.assets.each do |asset|
-      .col-12.col-sm-6.col-lg-3
-        .file-manager__item.card.card-small.mb-3
-          .file-manager__item-preview.card-body.px-0.pb-0.pt-4.text-center
-              = asset.read_attribute(:file)
-          .card-footer.border-top
-            span.file-manager__item-icon
-              i.material-icons &#xE24D;
-            h6.file-manager__item-title
-              a download="#{asset.read_attribute(:file)}" href="#{asset.file.url}" title="#{asset.read_attribute(:file)}" 
-                | Baixar Arquivo
-            span.file-manager__item-size.ml-auto= "#{(Filesize.from(asset.file.size.to_s) + 'b').to_s('kb')}"
+  - if @build.images.present?
+    .row
+      .col
+        span.file-manager__group-title.text-uppercase.text-light Imagens
+    .row
+      - @build.images.each do |asset|
+        .col-12.col-sm-6.col-lg-3
+          .file-manager__item.card.card-small.mb-3
+            .file-manager__item-preview.card-body.px-0.pb-0.pt-4
+              a.links href="#{asset.file.url}" title="#{asset.read_attribute(:file)}" 
+                img alt="#{asset.read_attribute(:file)}" src="#{asset.file.url('fill200')}" 
+            .card-footer.border-top
+              span.file-manager__item-icon
+                i.material-icons &#xE24D;
+              h6.file-manager__item-title
+                a download="#{asset.read_attribute(:file)}" href="#{asset.file.url}" title="#{asset.read_attribute(:file)}" 
+                  | Baixar Arquivo
+              span.file-manager__item-size.ml-auto= "#{(Filesize.from(asset.file.size.to_s) + 'b').to_s('kb')}"
+  - if @build.assets.present?
+    .row
+      .col
+        span.file-manager__group-title.text-uppercase.text-light Documentos
+    .row
+      - @build.assets.each do |asset|
+        .col-12.col-sm-6.col-lg-3
+          .file-manager__item.card.card-small.mb-3
+            .file-manager__item-preview.card-body.px-0.pb-0.pt-4.text-center
+                = asset.read_attribute(:file)
+            .card-footer.border-top
+              span.file-manager__item-icon
+                i.material-icons &#xE24D;
+              h6.file-manager__item-title
+                a download="#{asset.read_attribute(:file)}" href="#{asset.file.url}" title="#{asset.read_attribute(:file)}" 
+                  | Baixar Arquivo
+              span.file-manager__item-size.ml-auto= "#{(Filesize.from(asset.file.size.to_s) + 'b').to_s('kb')}"

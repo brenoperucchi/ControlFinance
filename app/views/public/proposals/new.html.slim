@@ -1,5 +1,19 @@
 - model_class = Build
 - content_for :footer
+  javascript:
+    $('a.links').click(function(e){
+      var links = $('a.gallery');
+      options = {index: 'a.gallery', event: event,     hidePageScrollbars: false,
+    toggleControlsOnReturn: true,
+    toggleSlideshowOnSpace: true,
+    enableKeyboardNavigation: true,
+    closeOnEscape: true,
+    closeOnSlideClick: false,
+    closeOnSwipeUpOrDown: false,
+    disableScroll: false,
+    startSlideshow: true};
+      blueimp.Gallery(links, options);
+    });
   css:
     .card-post__image {
         min-height: 359px!important;
@@ -52,6 +66,20 @@
         font-size: 14px !important;
     }
 
+#blueimp-gallery.blueimp-gallery data-filter=":even" data-start-slideshow="true" 
+  .slides
+  h3.title
+  a.prev ‹
+  a.next ›
+  a.close ×
+  a.play-pause
+  ol.indicator
+
+#images style="display:none"
+  - @build.images.each do |asset|  
+    a href="#{asset.file.url}" title="#{asset.read_attribute(:file)}" class="gallery" 
+      img alt="#{asset.read_attribute(:file)}" src="#{asset.file.url('fill50')}" 
+
 .page-header.row.no-gutters.py-4
   .col-12.col-sm-4.text-center.text-sm-left.mb-0
     a href="/" 
@@ -66,8 +94,8 @@
 .row
   .col-lg-8.col-md-8.col-sm-12.mb-4
     .card.card-small.card-post.card-post--1
-      / = link_to public_build_units_path(@build) do
-      .card-post__image style=("background-image: url(#{@build.image});") 
+      a.links href="#{@build.images.first.file.url}" title="#{@build.images.first.read_attribute(:file)}" 
+        .card-post__image style=("background-image: url(#{@build.image});") 
       = link_to t(:available, scope: 'views.dashboards'), "#", class: 'card-post__category badge badge-pill badge-info'
       .card-body
         h5.card-title
