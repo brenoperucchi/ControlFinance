@@ -22,6 +22,10 @@ class Build < ApplicationRecord
     img.try(:file).try(:url, scope)
   end
 
+  state_machine initial: :pending do
+    # after_transition :pending => :aproved, :do => :create_ledger
+  end
+
   # def images(scope = nil)
   #   imgs = assets.find_all {|asset| asset.file.content_type.include?('image')}
   # end

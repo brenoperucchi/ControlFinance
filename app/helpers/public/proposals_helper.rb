@@ -4,7 +4,9 @@ module Public::ProposalsHelper
       case state
       when 'pending'
         'badge-info'
-      when 'booked', 'bought'
+      when 'booked'
+        'badge-secondary'
+      when 'bought'
         'badge-salmon'
       end
   end

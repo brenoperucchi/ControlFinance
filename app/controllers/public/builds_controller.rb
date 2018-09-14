@@ -1,6 +1,6 @@
 class Public::BuildsController < Public::BaseController
   # before_action :set_build, only: [:index, :edit, :new, :create, :purchase]
-  skip_before_action :authenticate_user!, only:[:sales]
+  skip_before_action :authenticate_user!, only:[:sales, :option]
   # layout 'pages/print'
   respond_to :html, :js, :json
 

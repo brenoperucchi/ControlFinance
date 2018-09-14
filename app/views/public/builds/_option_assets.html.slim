@@ -4,17 +4,16 @@
     $('a.links').click(function(e){
       var links = $('a.links');
       options = {index: 'a.gallery', event: event,     hidePageScrollbars: false,
-    toggleControlsOnReturn: true,
-    toggleSlideshowOnSpace: true,
-    enableKeyboardNavigation: true,
-    closeOnEscape: true,
-    closeOnSlideClick: false,
-    closeOnSwipeUpOrDown: false,
-    disableScroll: false,
-    startSlideshow: true};
-      blueimp.Gallery(links, options);
+      toggleControlsOnReturn: true,
+      toggleSlideshowOnSpace: true,
+      enableKeyboardNavigation: true,
+      closeOnEscape: true,
+      closeOnSlideClick: true,
+      closeOnSwipeUpOrDown: true,
+      disableScroll: false,
+      startSlideshow: false};
+        blueimp.Gallery(links, options);
     });
-
   css:
     .card-post__image {
         min-height: 359px!important;
@@ -34,7 +33,7 @@
         min-width: 0px;
     }
 
-#blueimp-gallery.blueimp-gallery data-filter=":even" data-start-slideshow="true" 
+#blueimp-gallery.blueimp-gallery.blueimp-gallery-controls data-filter=":even" data-start-slideshow="true" 
   .slides
   h3.title
   a.prev ‹

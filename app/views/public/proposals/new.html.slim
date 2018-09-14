@@ -4,14 +4,14 @@
     $('a.links').click(function(e){
       var links = $('a.gallery');
       options = {index: 'a.gallery', event: event,     hidePageScrollbars: false,
-    toggleControlsOnReturn: true,
-    toggleSlideshowOnSpace: true,
-    enableKeyboardNavigation: true,
-    closeOnEscape: true,
-    closeOnSlideClick: false,
-    closeOnSwipeUpOrDown: false,
-    disableScroll: false,
-    startSlideshow: true};
+      toggleControlsOnReturn: true,
+      toggleSlideshowOnSpace: true,
+      enableKeyboardNavigation: true,
+      closeOnEscape: true,
+      closeOnSlideClick: true,
+      closeOnSwipeUpOrDown: true,
+      disableScroll: false,
+      startSlideshow: false};
       blueimp.Gallery(links, options);
     });
   css:
@@ -66,7 +66,7 @@
         font-size: 14px !important;
     }
 
-#blueimp-gallery.blueimp-gallery data-filter=":even" data-start-slideshow="true" 
+#blueimp-gallery.blueimp-gallery.blueimp-gallery-controls data-filter=":even" data-start-slideshow="true" 
   .slides
   h3.title
   a.prev ‹
