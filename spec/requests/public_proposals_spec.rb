@@ -109,7 +109,7 @@ RSpec.describe "PublicProposals" do
     visit public_dashboards_path
     page.first(:xpath, "//a[@href='/public/builds/1/units']").click()
     page.find(:xpath, "//a[@href='/public/units/1/proposals/new']").click
-    expect(current_path).to match(public_build_units_path(build))
+    expect(current_path).to match(public_store_builds_path(build))
     expect(page).to have_css("span#notification-message", text: 'Restriction')
   end
 

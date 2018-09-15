@@ -17,7 +17,7 @@ class MailerMethod::ProposalExpireToday < MailerMethod::Base
   end
 
   def url
-    public_build_units_path(@object.builder)
+    public_store_builds_path(@object.builder)
   end
 
   def store

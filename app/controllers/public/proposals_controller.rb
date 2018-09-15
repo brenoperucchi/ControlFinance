@@ -85,7 +85,7 @@ class Public::ProposalsController < Public::BaseController
   def destroy
     build = @proposal.unit.builder
     if @proposal.destroy
-      respond_with @proposal, location: public_build_units_path(build)
+      respond_with @proposal, location: public_store_builds(build)
     else
       respond_with @proposal
     end
@@ -127,10 +127,10 @@ class Public::ProposalsController < Public::BaseController
             redirect_to finish_public_purchase_steps_path(proposal)
           end
         else
-          redirect_to public_build_units_path(@unit.builder), alert: t(:proposal_restricted, scope:'errors.custom')
+          redirect_to public_store_builds(@unit.builder), alert: t(:proposal_restricted, scope:'errors.custom')
         end
       elsif @unit.bought?
-        redirect_to public_build_units_path(@unit.builder), alert: t(:proposal_restricted, scope:'errors.custom')
+        redirect_to public_store_builds(@unit.builder), alert: t(:proposal_restricted, scope:'errors.custom')
       end
     end
 
