@@ -99,9 +99,7 @@
         = badge_link_helper(@build)
       .card-body
         h5.card-title
-          / a.text-fiord-blue href="#"  Conduct at an replied removal an amongst
-          = t(:units, scope: 'views.dashboards', units: @build.units.pending.count)
-          / = link_to t(:units, scope: 'views.dashboards', units: @build.units.pending.count),public_build_units_path(@build), class: 'text-fiord-blue'
+          .text-fiord-blue= t(:units, scope: 'views.dashboards', units: @build.units.pending.count)
         p.card-text.d-inline-block.mb-3= @build.address
         p
           span.text-muted= t(:update_at, scope:'views.dashboards', date: l(@build.updated_at, format: :option2))
@@ -117,12 +115,9 @@
                 th= t(:details, scope:'views.common')
                 th.text-center= t(:status, scope:'views.common')
                 th.text-center= t(:total, scope:'views.common')
-                / th.text-right Actions
             tbody
               - @units.each do |unit|
                 tr
-                  / td.lo-stats__image
-                    img.border.rounded src="/images/shards/sales-overview/product-order-1.jpg" /
                   td.lo-stats__order-details
                     span
                       | Unidade:

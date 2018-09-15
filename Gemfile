@@ -7,7 +7,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.1.4'
-gem 'bundler', '1.16.2'
+gem 'bundler', '1.16.1'
 
 # Core'
 gem 'devise'
@@ -26,7 +26,7 @@ gem "delocalize"
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'filesize'
-gem 'ranked-model'
+gem 'acts_as_list'
 
 
 # Development and Test

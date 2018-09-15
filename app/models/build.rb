@@ -1,6 +1,4 @@
 class Build < ApplicationRecord
-  include RankedModel
-  ranks :row_order
 
   STATES = {pending: 'pending', active:'active'}
 
@@ -16,12 +14,13 @@ class Build < ApplicationRecord
   has_many :images, ->{ where(serializes: "images")}, class_name: "Asset", as: :assetable, dependent: :destroy
 
   belongs_to :store, optional: true
+  acts_as_list scope: :store
 
   validates_presence_of :name
   # validates_numericality_of :row_order, on: :create, message: "is not a number", if: proc { |obj| obj.condition? }}
 
-  def row_order=(value)
-    self.row_order_position = value
+  def position=(value)
+    self.insert_at(value.to_i)
   end
 
   def image(scope = nil)
