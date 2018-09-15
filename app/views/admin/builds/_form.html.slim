@@ -7,5 +7,6 @@
 = f.input :incorporation
 = f.input :build_deadline
 = f.input :proposal_deadline
+/ = f.input :row_order
 
 / = f.input :state, as: :select, collection: model_class::STATES.map{|key,value|[I18n.t(key, scope:'views.common').upcase, key]}, selected: t(f.object.state, scope:'views.common').upcase, placeholder: model_class.human_attribute_name(:status), input_html: { class: 'input-sm'}

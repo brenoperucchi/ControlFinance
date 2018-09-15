@@ -26,6 +26,8 @@ gem "delocalize"
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'filesize'
+gem 'ranked-model'
+
 
 # Development and Test
 group :development, :test do

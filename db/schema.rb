@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180826044032) do
+ActiveRecord::Schema.define(version: 20180915193801) do
 
-  create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "activities", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
     t.integer "trackable_id"
     t.string "owner_type"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
   end
 
-  create_table "assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "assets", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "file"
     t.string "assetable_type"
     t.integer "assetable_id"
@@ -41,33 +41,34 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.index ["assetable_type", "assetable_id"], name: "index_assets_on_assetable_type_and_assetable_id"
   end
 
-  create_table "brokers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "brokers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "store_id"
     t.string "department"
     t.string "person_type"
     t.boolean "active"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.string "irs_id"
     t.string "company"
     t.text "serializes"
     t.string "state"
     t.datetime "approved_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["store_id"], name: "index_brokers_on_store_id"
   end
 
-  create_table "builds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "builds", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "state"
     t.integer "store_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "information"
+    t.integer "row_order"
     t.index ["store_id"], name: "index_builds_on_store_id"
   end
 
-  create_table "buyers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "buyers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "information"
     t.integer "store_id"
     t.integer "proposal_id"
@@ -78,12 +79,12 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.index ["store_id"], name: "index_buyers_on_store_id"
   end
 
-  create_table "dashboards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "dashboards", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "documents", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "state"
     t.datetime "approved_at"
@@ -91,7 +92,7 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "documentable_type"
-    t.integer "documentable_id"
+    t.bigint "documentable_id"
     t.string "kind"
     t.index ["documentable_type", "documentable_id"], name: "index_documents_on_documentable_type_and_documentable_id"
     t.index ["proposal_id"], name: "index_documents_on_proposal_id"
@@ -101,17 +102,15 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.string "to"
     t.string "token"
     t.text "information"
-    t.integer "mailer_id"
+    t.bigint "mailer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "send_at"
-    t.string "mailerable_type"
-    t.bigint "mailerable_id"
     t.index ["mailer_id"], name: "index_mailer_senders_on_mailer_id"
-    t.index ["mailerable_type", "mailerable_id"], name: "index_mailer_senders_on_mailerable_type_and_mailerable_id"
   end
 
-  create_table "mailers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "mailers", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "type"
     t.text "parameters"
     t.integer "store_id"
     t.string "userable_type"
@@ -120,7 +119,6 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.integer "mailable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "type"
     t.integer "owner_id"
     t.index ["mailable_type", "mailable_id"], name: "index_mailers_on_mailable_type_and_mailable_id"
     t.index ["store_id"], name: "index_mailers_on_store_id"
@@ -129,10 +127,10 @@ ActiveRecord::Schema.define(version: 20180826044032) do
 
   create_table "notes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text "information"
-    t.integer "proposal_id"
-    t.integer "unit_id"
-    t.integer "broker_id"
-    t.integer "admin_id"
+    t.bigint "proposal_id"
+    t.bigint "unit_id"
+    t.bigint "broker_id"
+    t.bigint "admin_id"
     t.boolean "intern"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -142,7 +140,7 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.index ["unit_id"], name: "index_notes_on_unit_id"
   end
 
-  create_table "persons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "persons", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.integer "store_id"
     t.string "irs_id"
@@ -154,7 +152,7 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.index ["store_id"], name: "index_persons_on_store_id"
   end
 
-  create_table "proposals", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "proposals", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "state"
     t.text "information"
     t.integer "unit_id"
@@ -168,7 +166,7 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.index ["unit_id"], name: "index_proposals_on_unit_id"
   end
 
-  create_table "stores", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "stores", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.text "settings"
     t.datetime "disabled_at"
@@ -178,7 +176,8 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.string "url"
   end
 
-  create_table "units", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "units", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "state", default: "pending"
     t.text "information"
     t.decimal "value", precision: 10, scale: 2
     t.decimal "size", precision: 10, scale: 2
@@ -186,11 +185,10 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.integer "build_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "state", default: "pending"
     t.index ["build_id"], name: "index_units_on_build_id"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -211,4 +209,6 @@ ActiveRecord::Schema.define(version: 20180826044032) do
     t.index ["userable_type", "userable_id"], name: "index_users_on_userable_type_and_userable_id"
   end
 
+  add_foreign_key "buyers", "proposals"
+  add_foreign_key "units", "builds"
 end

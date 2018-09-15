@@ -1,4 +1,6 @@
 class Build < ApplicationRecord
+  include RankedModel
+  ranks :row_order
 
   STATES = {pending: 'pending', active:'active'}
 
@@ -16,6 +18,11 @@ class Build < ApplicationRecord
   belongs_to :store, optional: true
 
   validates_presence_of :name
+  # validates_numericality_of :row_order, on: :create, message: "is not a number", if: proc { |obj| obj.condition? }}
+
+  def row_order=(value)
+    self.row_order_position = value
+  end
 
   def image(scope = nil)
     img = images.detect{|image| image.file.content_type.include?('image')}
