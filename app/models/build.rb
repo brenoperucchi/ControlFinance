@@ -23,7 +23,14 @@ class Build < ApplicationRecord
   end
 
   state_machine initial: :pending do
+    event :active do 
+      transition [:pending] => :active
+    end
     # after_transition :pending => :aproved, :do => :create_ledger
+  end
+
+  def units_sales?
+    units.pending.count > 0
   end
 
   # def images(scope = nil)

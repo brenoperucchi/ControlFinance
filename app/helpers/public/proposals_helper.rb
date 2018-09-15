@@ -1,5 +1,29 @@
 module Public::ProposalsHelper
 
+  def status_value_helper(unit)
+    content_tag
+  end
+  # td.lo-stats__status
+  #   .d-table.mx-auto
+  #     span[class="badge badge-pill #{shards_state_helper(unit.state)}"]= t(unit.state, scope:'views.common').upcase
+  # / td.lo-stats__items.text-center 12
+  # - unless unit.bought? or unit.booked?
+  #   td.lo-stats__total.text-center.text-info= number_with_precision unit.value
+  # - else
+  #   td.lo-stats__total.text-center.text-danger.text-uppercase= t(:bought, scope:'views.common')
+
+
+  def badge_link_helper(build)
+    if build.units_sales?
+      klass = 'card-post__category badge badge-pill badge-info'
+      title = I18n.t(:available, scope: 'views.dashboards')
+    else
+      klass = 'card-post__category badge badge-pill badge-warning'
+      title = I18n.t(:unavailable, scope: 'views.dashboards')
+    end
+    content_tag :a, title, href: new_public_build_proposal_path(build), class: klass
+  end
+
   def shards_state_helper(state)
       case state
       when 'pending'

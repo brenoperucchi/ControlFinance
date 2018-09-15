@@ -11,6 +11,7 @@ class Proposal < ApplicationRecord
   after_create :mailer_created
   after_create :update_notes
 
+  scope :not,        ->(scope) { where(scope.where_values.reduce(:and).not) }
   scope :not_refuse, ->{ where.not(state: 'refuse') }
   scope :opened,     ->{ where.not(state: 'closed') }
   scope :bought,     ->{ where(state: ['accepted', 'closed']) }

@@ -56,6 +56,7 @@ pt-BR:
           proposals: Propostas ativas
           proposals_expired: Propostas Expiradas
     dashboards:
+      unavailable: Indisponível
       available: Disponível
       units: 'Unidades disponível: %{units}'
       print: 'Imprimir Tabela de Vendas'
@@ -177,6 +178,9 @@ pt-BR:
       select_all: Selecionar Todos
       deselect_all: Remover Todos
       active: Ativo
+      status: Situação
+      total: Total
+      details: Detalhes
     document:
       contract_build_address_active: "Imóvel %{build}, situado na %{address}"
       contract: "Minuta do Contrato"
@@ -191,6 +195,8 @@ pt-BR:
         document2: 'Comprovante de Residência'
         document3: 'Comprovante de Renda'
     build:
+      pending: 'Pendente'
+      active: 'Ativo'
       last_sales: 'Ultimas propostas recebidas'
       unit: Apto
       position: Posição

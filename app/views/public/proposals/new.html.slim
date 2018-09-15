@@ -94,9 +94,9 @@
 .row
   .col-lg-8.col-md-8.col-sm-12.mb-4
     .card.card-small.card-post.card-post--1
-      a.links href="#{@build.images.first.file.url}" title="#{@build.images.first.read_attribute(:file)}" 
+      a.links href="#{@build.images.first.try(:file).try(:url)}" title="#{@build.images.first.try(:read_attribute, :file)}" 
         .card-post__image style=("background-image: url(#{@build.image});") 
-      = link_to t(:available, scope: 'views.dashboards'), "#", class: 'card-post__category badge badge-pill badge-info'
+        = badge_link_helper(@build)
       .card-body
         h5.card-title
           / a.text-fiord-blue href="#"  Conduct at an replied removal an amongst
@@ -114,9 +114,9 @@
           table.table.mb-0
             thead.py-2.bg-light.text-semibold.border-bottom
               tr
-                th Details
-                th.text-center Status
-                th.text-center Total
+                th= t(:details, scope:'views.common')
+                th.text-center= t(:status, scope:'views.common')
+                th.text-center= t(:total, scope:'views.common')
                 / th.text-right Actions
             tbody
               - @units.each do |unit|
@@ -133,25 +133,13 @@
                   td.lo-stats__status
                     .d-table.mx-auto
                       span[class="badge badge-pill #{shards_state_helper(unit.state)}"]= t(unit.state, scope:'views.common').upcase
-                  / td.lo-stats__items.text-center 12
-                  - unless unit.bought? or unit.booked?
-                    td.lo-stats__total.text-center.text-info= number_with_precision unit.value
-                  - else
+                  - if unit.bought?
                     td.lo-stats__total.text-center.text-danger.text-uppercase= t(:bought, scope:'views.common')
-                  / td.lo-stats__actions
-                  /   .btn-group.d-table.ml-auto aria-label=("Basic example") role="group" 
-                  /     / button.btn.btn-sm.btn-white type="button"  Cancel
-                  /     button.btn.btn-sm.btn-white type="button"  Edit
+                  - elsif unit.booked?
+                    td.lo-stats__total.text-center.text-secondary= number_with_precision unit.value
+                  - else
+                    td.lo-stats__total.text-center.text-info= number_with_precision unit.value
       .card-footer.border-top
-        / .row
-        /   .col
-        /     select.custom-select.custom-select-sm style=("max-width: 130px;") 
-        /       option selected=""  Last Week
-        /       option value="1"  Today
-        /       option value="2"  Last Month
-        /       option value="3"  Last Year
-        /   .col.text-right.view-report
-        /     a href="#"  View full report →
   .col-lg-4.col-md-4.col-sm-12.mb-4
     .card.card-small.user-stats.mb-4
       .card-body
@@ -165,9 +153,6 @@
           .col-4.col-sm-4.text-center
             h6.m-0 = @build.registry
             span.text-light.text-uppercase = model_class.human_attribute_name(:registry)
-          / .col-6.col-sm-3.text-center
-          /   h4.m-0= @build.status
-          /   span.text-light.text-uppercase = model_class.human_attribute_name(:state)
       .card-footer.py-0
         .row
           .col-12.col-sm-12.border-top.pb-3.pt-2.border-right
@@ -208,7 +193,7 @@
                     .form-group.col-md-6
                       = f.input :value, placeholder: t_holder(:value, f.object.class), hint: t(:unit, scope:'number.currency.format'), input_html:{value: number_with_precision(f.object.value)}
                     .form-group.col-md-6
-                      = f.association :unit, as: :select, collection: @build.units.pending, label_method: :name, value_method: :id, include_blank: false, include_hidden: false, input_html:{id: 'multiSelect', multiple:false, include_hidden: false, include_blank: false}
+                      = f.association :unit, as: :select, collection: @build.units.pending_or_booked, label_method: :name, value_method: :id, include_blank: false, include_hidden: false, input_html:{id: 'multiSelect', multiple:false, include_hidden: false, include_blank: false}
                   .form-row
                     .form-group.col-md-12
                       = f.input :negociate, as: :text, placeholder: t_holder(:negociate, f.object.class), input_html:{rows: 40, style:"margin-top: 0px; margin-bottom: 0px; height: 70px;" }
