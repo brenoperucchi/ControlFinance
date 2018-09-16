@@ -41,7 +41,7 @@
           p.card-text.d-inline-block.mt-2.mb-2= build.address
           p
             span.text-muted= t(:update_at, scope:'views.dashboards', date: l(build.updated_at, format: :option2))
-          = link_to new_public_build_notify_path(build), :class => 'btn btn-sm btn-accent d-inline-flex ml-auto my-auto' do
-            i.fa.fa-information[style='margin-top:2px;margin-right:5px;']
-            '
-            = t :notify, scope: "views.dashboards"
+          / = link_to new_public_build_notify_path(build), :class => 'btn btn-sm btn-accent d-inline-flex ml-auto my-auto' do
+          /   i.fa.fa-information[style='margin-top:2px;margin-right:5px;']
+          /   '
+          /   = t :notify, scope: "views.dashboards"
