@@ -28,7 +28,7 @@ class Admin::BuildsController < Admin::BaseController
   end
 
   def index
-    @builds = current_store.try(:builds) || Build.all
+    @builds = current_store.try(:builds).order('position')
   end
 
   def scope

@@ -12,6 +12,7 @@ class Build < ApplicationRecord
   has_many :admin_proposals,  through: :units, :source => :admin_proposals, dependent: :destroy
   has_many :assets, ->{ where(serializes: "assets")}, class_name: "Asset", as: :assetable, dependent: :destroy
   has_many :images, ->{ where(serializes: "images")}, class_name: "Asset", as: :assetable, dependent: :destroy
+  has_many :notifies,  class_name: "Notify  ", as: :notiable, dependent: :destroy
 
   belongs_to :store, optional: true
   acts_as_list scope: :store
