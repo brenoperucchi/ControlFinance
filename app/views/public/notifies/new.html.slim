@@ -1,0 +1,35 @@
+- model_class = Store
+
+.row
+  .col-lg-8
+    = simple_form_for @build, url: notify_public_builds_path, wrapper: :pages_form_default do |f|
+      .row
+        .col-lg-12.col-xl-12.m-b-10
+          .card.widget-12.no-border.widget-loader-circle.no-margin
+            .card-header
+              .card-title
+                =t 'setting', scope: :'views.header'
+            .card-block
+              / == render 'form', f: f, model_class: model_class
+              .row
+                .col-md-12.col-lg-12.col-sm-12
+                  = f.input :broker_config, wrapper: :append do
+                    .checkbox.check-success
+                      = f.check_box :broker_config, {id: 'choice1'}
+                      label for="choice1"
+                        = t_holder(:broker_config, Store)
+                  hr
+                  = f.input :language, as: :select, collection: model_class::LANGUAGE.map{|key, value| [I18n.t(key, scope:'language'),value]}, selected: f.object.language, placeholder: model_class.human_attribute_name(:language)
+                  hr
+                  = f.input :name, input: :string
+                  = f.input :phone, input: :string
+                  = f.input :address, input: :string
+                  = f.input :email, input: :string
+                  = f.input :url, input: :string
+
+      .row
+        .padding-25
+          .pull-left
+            = f.submit nil, :class => 'btn btn-primary'
+            '
+            = link_to t('back', scope: "helpers.links"), admin_brokers_path, :class => 'btn'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180915215951) do
+ActiveRecord::Schema.define(version: 20180915225540) do
 
   create_table "activities", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "trackable_type"
@@ -141,6 +141,15 @@ ActiveRecord::Schema.define(version: 20180915215951) do
     t.index ["broker_id"], name: "index_notes_on_broker_id"
     t.index ["proposal_id"], name: "index_notes_on_proposal_id"
     t.index ["unit_id"], name: "index_notes_on_unit_id"
+  end
+
+  create_table "notifies", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string "notiable_type"
+    t.bigint "notiable_id"
+    t.text "settings"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notiable_type", "notiable_id"], name: "index_notifies_on_notiable_type_and_notiable_id"
   end
 
   create_table "persons", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 
     # resources :proposals, only: [:create], path: 'build/:build_id'
     resources :builds, only: [:sales], shallow: true do
+      resources :notifies, only: [:new, :create]
       get 'sales', on: :collection
       get 'option/:option', on: :member, action: :option, as: 'option'
       resources :notes, only: :create, path: 'broker/:broker_id'
@@ -69,6 +70,7 @@ Rails.application.routes.draw do
     end
     resources :dashboards
     resources :builds do 
+      # resources :notifies, only:[:new, :create]
       resources :images, only:[:new, :create, :index]
       get 'assets', on: :member
       get 'scope/:scope', to: 'builds#scope', on: :member, as: 'scope'
