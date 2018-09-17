@@ -20,10 +20,6 @@ class Build < ApplicationRecord
   validates_presence_of :name
   # validates_numericality_of :row_order, on: :create, message: "is not a number", if: proc { |obj| obj.condition? }}
 
-  def position=(value)
-    self.insert_at(value.to_i)
-  end
-
   def image(scope = nil)
     img = images.detect{|image| image.file.content_type.include?('image')}
     img.try(:file).try(:url, scope)
