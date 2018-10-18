@@ -32,7 +32,7 @@
               / th= t :area_value, scope:'views.build'
               th= t :value, scope:'views.build'
             tbody
-              - build.units.each do |unit|
+              - build.units.pending.each do |unit|
                 tr
                   td.w-15= unit.name
                   td.w-10= unit.position
