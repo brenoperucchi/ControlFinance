@@ -12,6 +12,7 @@ class Unit < ApplicationRecord
   scope :pending_or_booked,  ->{ where(state: ['booked', 'pending']) }
 
   ## TODO CREATE SOFT DELETE
+  has_one :entry,      class_name: "Finances::Entry",   as: :commercial_document, dependent: :destroy
   has_many :mailers,   class_name: 'Mailer', as: :mailable, dependent: :nullify 
   has_many :activities,   class_name: 'Activity', as: :recipient, dependent: :nullify 
   has_many :proposals, class_name: "Proposal", foreign_key: "unit_id", dependent: :nullify 

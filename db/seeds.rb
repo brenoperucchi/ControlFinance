@@ -28,3 +28,9 @@ end
     proposal.send(s[1])
   end
 end
+
+Finances::Asset.create(:name => "Recebiveis")
+Finances::Asset.create(:name => "Dinheiro")
+Finances::Revenue.create(:name => "Vendas")
+Finances::Liability.create(:name => "A Receber")
+Finances::Liability.create(:name => "Imposto de Venda")

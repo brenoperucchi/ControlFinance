@@ -3,8 +3,10 @@ require 'sidekiq-scheduler/web'
 
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
+  mount Finances::Engine => "/report_finance", :as => "finance"
   # get 'events/index'
   # mount ActionCable.server => '/cable'
+
 
   root to: "public/dashboards#index"
 
@@ -20,6 +22,10 @@ Rails.application.routes.draw do
     resources :registers, only: [:new, :create]
   end
 
+  namespace :finances do
+    resources :entries
+  end
+  
   namespace :public do
     resources :dashboards, only:[:index] 
     

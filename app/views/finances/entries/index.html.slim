@@ -1,0 +1,19 @@
+h1 Listing finances_entries
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @entries.each do |entry|
+      tr
+        / td = link_to 'Show', entry_path
+        / td = link_to 'Edit', edit_entry_path(entry)
+        / td = link_to 'Destroy', entry, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Entry', main_app.new_finances_entry_path

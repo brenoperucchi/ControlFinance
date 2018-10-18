@@ -6,8 +6,14 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.1.4'
-gem 'bundler', '1.16.1'
+gem 'rails', '5.2.1'
+gem 'bundler', '1.16.2'
+
+#plugin
+gem 'finances', path: '../finances'
+gem 'kaminari'
+gem 'jquery-ui-rails'
+# gem 'plutus', github: 'bloom-solutions/plutus', branch:'bloom_changes'
 
 # Core'
 gem 'devise'
@@ -87,6 +93,7 @@ gem 'coffee-rails'#, '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem "bootsnap", ">= 1.3.2", require: false
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password

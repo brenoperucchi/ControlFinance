@@ -1,0 +1,2 @@
+module Finances::EntriesHelper
+end

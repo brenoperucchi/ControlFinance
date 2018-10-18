@@ -2,7 +2,7 @@ class Build < ApplicationRecord
 
   STATES = {pending: 'pending', active:'active'}
 
-  store :information, accessors:[:address, :registry, :incorporation, :build_deadline, :proposal_deadline]
+  store :information, accessors:[:address, :registry, :incorporation, :build_deadline, :proposal_deadline, :doc_deadline]
 
   scope :active, ->{ where(state: 'active') }
   

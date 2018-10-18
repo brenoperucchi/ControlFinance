@@ -27,9 +27,6 @@ class Proposal < ApplicationRecord
   scope :expire_to,    ->{ where(state:'booked').where.not(state: ['accepted','closed','refused']).where('due_at > ?', Date.today) }
   ## TODO 
   # CREATE NEW SPEC TEST
-
-
-
   #   tracked :owner      =>  proc {|controller, model| User.current.userable},
   #           :recipient  =>  proc {|controller, model| model.unit},
   #           :params => {:comment => proc {|contronller, model| model.comment}}
@@ -42,6 +39,7 @@ class Proposal < ApplicationRecord
   has_many :buyers,      class_name: 'Buyer',      dependent: :destroy 
   has_many :assets,      class_name: "Asset",      as: :assetable, dependent: :destroy
   has_many :documents,   class_name: "Document",   as: :documentable, dependent: :destroy
+  has_one :entry,      class_name: "Finances::Entry",   as: :commercial_document, dependent: :destroy
   belongs_to :unit,   optional: true
   belongs_to :broker, optional: true
   has_one    :builder,through: :unit, source: :builder
@@ -59,7 +57,6 @@ class Proposal < ApplicationRecord
     after_transition any  => :booked,                  do: :update_booked_at
     after_transition any  => [:booked, :accepted],     do: :update_states
     after_transition any  => :closed,                  do: :update_states
-    # after_transition [:booked, :accepted, :closed, :refused] => :pending, do: :update_to_pending
     before_transition [:accepted, :closed, :pending, :refused] => :booked,          do: :restrict_accepted_booked?
     before_transition any =>           :accepted,      do: :restrict_accepted_booked?
     before_transition any           => :closed,        do: :restrict_closed?
@@ -118,6 +115,7 @@ class Proposal < ApplicationRecord
       def update_states(state)
         self.update_columns(booked_at: nil, accepted_at: nil)
         unit.pending
+        unit.entry.destroy unless unit.entry.nil?
       end
     end
 
@@ -142,6 +140,9 @@ class Proposal < ApplicationRecord
     state :closed do
       def update_states(state)
         unit.buy
+        unit.create_entry(:description => "Proposal ##{self.id}",
+        :debits => [{:account_name => "Recebiveis", :amount => self.value.to_f }],
+        :credits => [{:account_name => "A Receber", :amount => (self.value.to_f * 0.89)}, {:account_name => "Imposto de Venda", :amount => (self.value.to_f * 0.11)}])
       end
     end
   end
